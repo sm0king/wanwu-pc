@@ -1,0 +1,300 @@
+/* Space out content a bit */
+
+body {
+    padding-bottom: 20px;
+}
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+.header,
+.marketing,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* Custom page header */
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+/* Custom page footer */
+
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
+/* Customize container */
+
+@media (min-width: 768px) {
+    .container {
+        /*max-width: 730px;*/
+    }
+}
+
+.container-narrow > hr {
+    margin: 30px 0;
+}
+
+·
+/* Main marketing message and sign up button */
+
+.jumbotron {
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+/* Supporting marketing content */
+
+.marketing {
+    margin: 40px 0;
+}
+
+.marketing p + h4 {
+    margin-top: 28px;
+}
+/* Responsive: Portrait tablets and up */
+
+@media screen and (min-width: 768px) {
+    /* Remove the padding we set earlier */
+    
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    
+    .header {
+        margin-bottom: 30px;
+    }
+    /* Remove the bottom border on the jumbotron for visual effect */
+    
+    .jumbotron {
+        border-bottom: 0;
+    }
+}
+
+.nav>li.active>a {
+    text-decoration: none;
+    background-color: #e6f5fb;
+    border: 1px solid #afd6e5;
+    margin: 5px;
+    padding: 4px 9px;
+}
+
+.navbar-brand {
+    display: block;
+    width: 126px;
+    height: 70px;
+    padding: 0;
+    margin: 0 15px;
+    background-image: url(../img/logo.png);
+}
+
+.navbar-static-top {
+    background-color: #fff;
+    /*border-bottom: none;*/
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-static-top {
+        height: 144px;
+        padding: 37px 0;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .navbar-static-top {
+        padding: 10px 0;
+    }
+}
+
+.navbar-line {
+    float: left;
+    border-left: 1px solid #dedede;
+    padding: 10px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    color: #666666;
+}
+
+.ng-isolate-scope .nav>li>a:focus,
+.ng-isolate-scope .nav>li>a:hover {
+    background-color: #e6f5fb;
+    color: #069dd5;
+    border: 1px solid #afd6e5;
+    margin: 5px;
+    padding: 4px 9px;
+}
+
+.ng-isolate-scope .nav>li>a {
+    color: #666666;
+}
+
+.login {
+    background-color: #fff;
+    font-family: 'Microsoft Yahei';
+}
+
+.login .docs-header {
+    /*margin: 60px auto 100px;*/
+    
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.login h2 {
+    font-family: 'Microsoft Yahei';
+    font-size: 34px;
+    padding-left: 24px;
+}
+
+.login .navbar-brand {
+    width: 146px;
+    height: 82px;
+    margin: 0 15px;
+    background-image: url(../img/lg-logo.png);
+}
+
+.login-panel {
+    padding-right: 27%;
+    border: none;
+    border-right: 1px solid #dedede;
+}
+
+.login .form-control {
+    border-radius: 0;
+    height: 50px;
+}
+
+.login label {
+    color: #999999;
+}
+
+.login .m-fgpass {
+    text-align: right;
+}
+
+.login .fgpass {
+    color: #999999;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.login .btn-block {
+    background-color: #069dd5;
+    border-radius: 0;
+    border-color: #069dd5;
+}
+
+.login .will-supplier {
+    width: 360px;
+    height: 95px;
+    font-size: 32px;
+    font-family: 'Microsoft Yahei';
+    background-color: #e6f5fb;
+    color: #069dd5;
+    margin: auto;
+    line-height: 95px;
+    border: 1px solid #afd6e5;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 105px;
+}
+
+@media screen and (max-width: 992px) {
+    .login-panel {
+        border: none;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+.login .captcha-img{
+  display: inline-block;  
+  vertical-align: baseline;
+}
+.login .rebreak{
+  display: inline-block;
+  cursor: pointer;
+  width: 46px;
+  height: 46px;
+  background: url(../img/rebreak.png) 0 0 no-repeat;
+}
+.login .input-group-addon{
+  padding: 0;
+  border-radius: 0;
+}
+.m-loginon{
+    width: 60%;
+    margin: auto;
+    border: none;
+}
+.login .col-sm-2{
+    min-width: 7em;
+}
+.login .m-loginon label{
+    font-size: 16px;
+    padding-top: 14px;
+}
+.login .register{
+    padding:0 1%;
+}
+.login .will-supplier a{
+    display: block;
+}
+.login .will-supplier a:hover{
+    text-decoration: none;
+}
+.login .ph-captcha{
+    padding: 0 10px;
+    cursor: pointer;
+}
+.login .phone-number,.login .pass{
+    border-right: none;
+}
+.login .phone-ico,.login .passico{
+    width: 50px;
+    height: 46px;
+}
+.login .phone-ico{
+    background: #fff url(../img/phone-number.png) center no-repeat;
+}
+.login .passico{
+    background: #fff url(../img/passico.png) center no-repeat;
+}
+.login .protocol{
+    color: #069dd5;
+    text-decoration: none;
+}
+.login .success{
+    font-size: 60px;
+    color: #5fb41b;
+    padding-left: 88px;
+    background: url(../img/success-ico.png) left no-repeat;
+}
+.login .m-success{
+    text-align: center;
+    font-size: 16px;
+}
+.login .m-success p{
+    margin: 40px auto;
+}
+.login .m-success a{
+    color: #069dd5;
+    text-decoration: none;
+}
