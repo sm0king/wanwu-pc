@@ -1,2 +1,3 @@
 node_modules
-app/plugs
+app/plugs/bootstrap
+app/plugs/jquery

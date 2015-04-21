@@ -1,0 +1,29 @@
+extends master.jade
+block title
+    title 账户总览
+block DashboardTitle
+    账户总览
+block CapitalContent
+    .info-group
+        p 账户余额
+        .row
+            .col-lg-3
+                .money-group
+                    .money 8888.66
+                    .unit 元
+
+            .col-lg-9.operator-group
+                a.btn-go 充值
+                a.btn-go(href='cash_out.html') 提现
+                a.goto 查看明细
+    .info-group
+        p 不可用余额
+        .row
+            .col-lg-3
+                .money-group
+                    .money 8888.66
+                    .unit 元
+            .col-lg-9.operator-group
+                a.btn-go.btn-hidden X
+                a.btn-go.btn-hidden X
+                a.goto 查看明细

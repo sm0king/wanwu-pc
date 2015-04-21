@@ -133,8 +133,8 @@ body {
     color: #666666;
 }
 
-.ng-isolate-scope .nav>li>a:focus,
-.ng-isolate-scope .nav>li>a:hover {
+.sidebar .nav>li>a:focus,
+.sidebar .nav>li>a:hover {
     background-color: #e6f5fb;
     color: #069dd5;
     border: 1px solid #afd6e5;
@@ -142,7 +142,7 @@ body {
     padding: 4px 9px;
 }
 
-.ng-isolate-scope .nav>li>a {
+.sidebar .nav>li>a {
     color: #666666;
 }
 

@@ -1,0 +1,92 @@
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+    link(rel='stylesheet', href='../css/product.css')   
+
+block DashboardTitle
+    在售分销商
+
+block Right   
+    .retailer
+        .page-header
+            .row
+                .col-lg-2
+                    img.img-thumbnail(src='../img/logo.png').retailer-img
+                .col-lg-10
+                    p.product-name 苹果（Apple）iPhone 6 Plus (A1593) 16GB 深空灰色 移动4G手机
+                    p.grayText 食物>饮料>茶叶
+        p.retailer-count
+            | 在售分销商，共
+            span.red 56
+            | 家
+        table.table.table-bordered.retailer-table
+            thead
+                tr
+                    td 分销商名称
+                    td 上架店铺
+                    td 销量（30天）
+                    td 销售额（30天）
+                    td 联系分销商
+                    td 是否允许分销
+            tbody#retailerRows
+                tr
+                    td.leftTitle 分销商店铺名
+                    td 
+                        .default 
+                            button.btn.btn-default.btn-block
+                                | 3 / 3
+                                span.caret
+                        .extend.text 京东
+                        .extend.text 淘宝
+                    td
+                        .default.text 120
+                        .extend.text 70
+                        .extend.text 50
+                    td
+                        .default.text 120
+                        .extend.text 80
+                        .extend.text 40
+                    td
+                        .default.text
+                            a.contact
+                    td
+                        .default
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | 允许分销
+                        .extend
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | 允许分销
+                        .extend
+                            .checkbox
+                                label
+                                    input(type='checkbox')
+                                    | 允许分销
+        div.foot
+            nav
+                ul.pagination
+                    li
+                        a(href='javascript:;', aria-label='Previous')
+                            span &laquo;
+                    li.active
+                        a(href='javascript:;') 1
+                    li
+                        a(href='javascript:;') 2
+                    li
+                        a(href='javascript:;') 3
+                    li
+                        a(href='javascript:;', aria-label='Next') 
+                            span &raquo;
+block foot
+    script(type='text/javascript').
+        $(function(){
+            $('#retailerRows').delegate('button','click',function(e){
+                $(e.currentTarget).parents('tr:first').toggleClass('expand');
+            });
+        });
+

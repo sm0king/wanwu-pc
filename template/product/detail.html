@@ -1,0 +1,192 @@
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+
+    link(rel='stylesheet', href='../css/product.css')     
+
+block DashboardTitle
+    商品详情
+
+block Right
+    form(action='#').form-horizontal.product-detail.
+        <div class="form-group">
+            <label for="productName" class="control-label col-md-2">商品名称：</label>
+            <div class="col-md-6">
+                <input type="text" id="productName" class="form-control" ng-model="productName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">分类：</label>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-3">
+                        <select id="product-catalog-1" class="form-control">
+                            <option value="1">分类</option>
+                            <option value="2">分类</option>
+                            <option value="3">分类</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="product-catalog-2" class="form-control">
+                            <option value="1">分类</option>
+                            <option value="2">分类</option>
+                            <option value="3">分类</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="product-catalog-2" class="form-control">
+                            <option value="1">分类</option>
+                            <option value="2">分类</option>
+                            <option value="3">分类</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-primary btn-block btn-icon-magnifier" type="button">查询</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productDescription" class="control-label col-md-2">商品描述：</label>
+            <div class="col-md-6">
+                <textarea id="productDescription" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productBrand" class="control-label col-md-2">品牌：</label>
+            <div class="col-md-3">
+                <select id="productBrand" class="form-control">
+                    <option value="1">品牌</option>
+                    <option value="2">品牌</option>
+                    <option value="3">品牌</option>
+                </select>
+            </div>
+            <div class="col-md-6 text-cell">
+                仅可选择本供应商已审核品牌，若还未添加品牌，请<a href="javascript:;">在此添加</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productModel" class="control-label col-md-2">型号：</label>
+            <div class="col-md-3">
+                <input id="productModel" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productPrice" class="control-label col-md-2">价格：</label>
+            <div class="col-md-3">
+                <input id="productPrice" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productFreight" class="control-label col-md-2">每件收取运费：</label>
+            <div class="col-md-3">
+                <input id="productFreight" type="text" class="form-control">
+            </div>
+            <div class="col-md-4 text-cell">
+                已使用运费模板，运费将不再生效
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productAdvice" class="control-label col-md-2">建议零售价：</label>
+            <div class="col-md-3">
+                <input id="productAdvice" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productStock" class="control-label col-md-2">库存：</label>
+            <div class="col-md-3">
+                <input id="productStock" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productWeight" class="control-label col-md-2">重量：</label>
+            <div class="col-md-3">
+                <input id="productWeight" type="text" class="form-control">
+            </div>
+            <div class="col-md-4 text-cell">
+                kg
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productLocation" class="control-label col-md-2">商品所在地：</label>
+            <div class="col-md-3">
+                <input id="productLocation" type="text" class="form-control">
+            </div>
+            <div class="col-md-4 text-cell">
+                <a href="javascript:;">默认供应商所在省</a>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="productLocation" class="control-label col-md-2">商品图片：</label>
+            <div class="col-md-6">
+                <button class="btn btn-default" type="buttn">上传图片</button>图片大小请控制在150K以内
+                <div class="row product-images">
+                    <div class="col-md-4">
+                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">商品详情：</label>
+            <div class="col-md-6">
+                <script id="productDetail" name="content" type="text/plain"></script>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">热门标签：</label>
+            <dib class="col-md-6">
+                <div class="row product-hotflags" id="flags">
+                    <div class="col-md-4">
+                        <button type="button" >春节</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" >抱枕</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" >抱枕</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" >抱枕</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" >抱枕</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button type="button" >春节</button>
+                    </div>
+                </div>
+            </dib>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <p>温馨提示：标红部分信息如果不填写商品将不能上架，不过您仍然可以保存商品信息，以后再来完善。</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">
+                <button type="button" class="btn btn-blue">下一步</button>
+                <a href="javascript:;" class="saveAndBack">保存后返回列表</a>
+            </div>
+        </div>
+block foot 
+    script(type='text/javascript', src='../plugs/ueditor/ueditor.config.js') 
+    script(type='text/javascript', src='../plugs/ueditor/ueditor.all.min.js') 
+    script(type='text/javascript', src='../js/product_detail.js')

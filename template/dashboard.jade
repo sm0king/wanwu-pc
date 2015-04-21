@@ -1,0 +1,44 @@
+block Define
+    -var basePath = '';
+<!doctype html>
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport',content='width=device-width')
+        block title
+            title 面板        
+        link(rel='stylesheet',href='#{basePath}plugs/bootstrap/css/bootstrap.min.css') 
+        link(rel='stylesheet', href='#{basePath}css/font-awesome/css/font-awesome.min.css')
+        link(rel='stylesheet', href='#{basePath}css/main.css')
+        link(rel='stylesheet', href='#{basePath}js/metisMenu/metisMenu.min.css')
+        link(rel='stylesheet', href='#{basePath}css/sb-admin-2.css')     
+        block header
+    body
+        #wrapper
+            nav.navbar.navbar-default.navbar-static-top(role='navigation',style='margin-bottom: 0')
+                .navbar-header
+                    button(type='button',data-toggle='collapse',data-target='.navbar-collapse').navbar-toggle
+                        span.sr-only Toggle navigation
+                        span.icon-bar
+                        span.icon-bar
+                        span.icon-bar
+                    a.navbar-brand(href='index.html')
+                    h3.navbar-line             
+                        block DashboardTitle     
+                                       
+                .navbar-default.sidebar(role='navigation')
+                    .sidebar-nav.navbar-collapse
+                        ul.nav.in#side-menu
+                            li(ui-sref-active='active')
+                                a(href='#{basePath}home.html') 首页
+                            li(ui-sref-active='active')
+                                a(href='#{basePath}product/index.html') 商品管理
+                            li(ui-sref-active='active')
+                                a(href='#{basePath}capital/index.html') 资金管理
+            #page-wrapper
+                    block Right
+        script(type='text/javascript',src='#{basePath}plugs/jquery/jquery.min.js')
+        script(type='text/javascript',src='#{basePath}plugs/bootstrap/js/bootstrap.min.js')
+        script(type='text/javascript',src='#{basePath}js/metisMenu/metisMenu.min.js')
+        script(type='text/javascript',src='#{basePath}js/sb-admin-2.js')
+        block foot

@@ -1,0 +1,250 @@
+.product{
+
+}
+
+.product .table{
+    margin-bottom: 0px;
+}
+
+.product .product-operator div{
+    text-align: center;
+}
+
+.product .table>tbody>tr>td{
+    vertical-align: middle;
+    height: 140px;
+    padding:15px 15px;
+}
+
+.product .table>thead>tr>td{
+    text-align: center;
+    
+}
+
+.product .center{
+    text-align: center;
+}
+
+.product .product-desc{
+    color:#666666;
+}
+
+.product-catalog a{
+    margin:0px 5px;
+    color:#069dd5;
+}
+
+.product-catalog a:first-child{
+    margin-left: 0px;
+}
+
+.product .form-inline{
+    padding:20px 0px;
+}
+
+.product .table-responsive{
+    margin-top: 30px;
+}
+
+.product .product-img{
+    max-width: 105px;
+    max-height: 105px;
+}
+
+.product .pagination{
+    float: right;
+}
+
+.product .form-group{
+    margin-right: 40px;
+}
+
+.product .dropdown-menu{
+    padding:0px;
+    width:110px;
+    min-width: 110px;
+}
+
+.product .dropdown-menu a{
+    height: 35px;    
+    line-height: 35px;
+}
+
+.product .dropdown-menu a:hover{
+    background-color: #e6e6e6;
+}
+
+.product .dropdown-menu li{
+    border-top:1px solid #CCC;
+    border-bottom:1px solid #CCC;
+    margin-top: -1px;
+    
+}
+
+.product .dropdown button{
+    width:110px;
+    text-align: left;
+}
+
+.product .dropdown .caret{
+    float: right;
+    margin-top: 8px;
+}
+
+.product .product-td-img{
+    width: 160px;
+}
+
+/* 商品详情部分 */
+
+.product-detail label{
+    color:#666666;
+    font-weight: normal;
+    padding-right: 0px;
+}
+
+.product-detail .form-group>div{
+    padding-left: 5px;
+}
+
+
+.product-detail .text-cell{
+    line-height: 34px;
+}
+
+.btn-icon-magnifier{
+    padding-left: 28px;
+    background: #337ab7 url(../img/magnifier.png) 12px center no-repeat;
+}
+
+#productDescription{
+    width:100%;
+    resize:none;
+}
+
+.product-hotflags button{
+    margin-bottom: 17px;
+    border:0px;
+    background-color: #dedede;
+    color:#333333;
+}
+
+.product-hotflags button.selected{
+    background-color: #7ac7e4;
+    color:white;
+}
+
+.saveAndBack{
+    margin-left: 28px;
+    text-decoration: underline;
+}
+
+
+.product-images>div{
+    margin-top: 15px;
+    text-align: center;
+    display: relative;
+}
+
+.product-images img{
+    border:2px solid #ccc;
+}
+
+.product-images a{
+    margin-top: 5px;
+}
+
+.product-images .glyphicon-remove{
+    color:red;
+    position: absolute;
+    left:0px;
+    top:0px;
+}
+
+/* 在售分销商 */
+.retailer .page-header{
+    margin-top: 10px;
+    padding-bottom: 30px;
+    border-bottom-color:#e2e2e2;
+}
+.retailer-table .leftTitle{
+    vertical-align: middle;
+}
+
+.retailer-table td{
+    text-align: center;
+}
+
+.retailer-table>tbody>tr>td{
+    padding:0px;
+    vertical-align: top;
+}
+
+.retailer-table .default{
+    padding:8px 8px;
+}
+
+.retailer-table .text{
+    line-height: 34px;
+}
+
+.retailer-table .extend{
+    padding:8px 0px;
+    display: none;
+}
+
+.retailer-table .caret{
+    margin-left: 10px;
+}
+
+.retailer-table .checkbox{
+    margin:7px 0px;
+}
+
+.retailer-table tr.expand{
+    background-color: #f3f3f3;
+}
+
+.retailer-table tr.expand .default{
+    border-bottom: 1px solid #DDD;
+}
+
+.retailer-table tr.expand .extend{
+    display: block;
+}
+
+
+.retailer-count{
+    color:#666666;
+}
+
+.retailer-count .red{
+    color:red;
+    margin:0px 5px;
+}
+
+.retailer-img{
+    height: 110px;
+}
+
+.retailer .foot .pagination{
+    float: right;
+}
+
+.product-name{
+    margin-top:8px;
+    font-weight: bold;
+}
+
+.grayText{
+    color:#999999;
+}
+
+.contact{
+    background: url(../img/mail.png) center center no-repeat;
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    cursor:pointer;
+    vertical-align: middle;
+}

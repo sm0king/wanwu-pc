@@ -1,0 +1,36 @@
+extends ../dashboard.jade
+block Define
+    -var basePath = '../';
+block title
+    title 提现
+
+block DashboardTitle
+    提现
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/capital.css')
+
+block Right
+    .capital
+        h2 提现
+        form.form-horizontal
+            div.form-group
+                label.control-label.col-lg-2 提现至银行卡：
+                .col-lg-10
+                    div.cardSelector
+                        div.cardInfo
+                            span.owner 张三
+                            img(src='../img/logo.png')
+                            span.cardNum 6226***123
+                        button.btn.btn-default(data-toggle='dropdown')
+                            span.caret
+                            span.sr-only Toggle Dropdown
+                        ul.dropdown-menu(role='menu')
+                            li
+                                a(href='javascript:;') A
+                            li
+                                a(href='javascript:;') B
+                            li
+                                a(href='javascript:;') C
+
+

@@ -13,15 +13,20 @@ function filter(files){
     return files;
 }
 
+function isHtml(filtName){
+    return filtName.indexOf('.html') == filtName.length - 5;
+}
+
 module.exports = function (grunt) {
     var executeDir = process.cwd() + '/template',
-        path = filter(fs.readdirSync(executeDir));
+        path = fs.readdirSync(executeDir);
 
     var current = null, jadeTamplates = {};
     while(current = path.shift()){
         var state = fs.statSync(executeDir + '/' + current);
         if (state.isFile()) {
-            jadeTamplates[ 'app/' + current ] = 'template/' + current
+
+            isHtml(current) && (jadeTamplates[ 'app/' + current ] = 'template/' + current);
         }else{
             var children = fs.readdirSync(executeDir + '/' + current);
             children.forEach(function(val, index){
@@ -83,7 +88,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jade');
 
-    grunt.registerTask('server', ['connect:demo', 'watch']);
+    grunt.registerTask('server', ['jade','connect:demo', 'watch']);
 
 }
 

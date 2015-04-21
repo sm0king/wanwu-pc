@@ -1,0 +1,21 @@
+extends ../dashboard.jade
+block Define
+    -var basePath = '../';
+    -var active = 0;
+    block CapitalDefine
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/capital.css')
+    block CapitalHeader
+
+block Right
+    .capital
+        ul.nav.nav-tabs
+            li(role='presentation',class=active==0 ? 'active' : '')
+                a(href='index.html') 账户总览
+            li(role='presentation',class=active==1 ? 'active' : '')
+                a(href='order_detail.html') 订单明细
+            li(role='presentation',class=active==2 ? 'active' : '')
+                a(href='record.html') 操作记录
+        div
+            block CapitalContent
