@@ -1,0 +1,47 @@
+extends login
+block lg-title
+    找回密码
+block login-content
+    div.
+        <div class="m-bock-pass wrap" id="m-bock-pass">
+            <div class="m-pro start yes dib">
+                <div class="pro-sta pro-sta1">1</div>
+                <span class="m-pro-con">填写手机号</span>
+            </div>
+            <div class="dib pro-line yes"></div>
+            <div class="m-pro dib yes">
+                <div class="pro-sta pro-sta2">2</div>
+                <span class="m-pro-con">验证身份</span>
+            </div>
+            <div class="dib pro-line yes"></div>
+            <div class="m-pro dib yes">
+                <div class="pro-sta pro-sta3">3</div>
+                <span class="m-pro-con">重置密码</span>
+            </div>
+            <div class="dib pro-line no"></div>
+            <div class="m-pro no dib">
+                <div class="pro-sta pro-sta4">4</div>
+                <span class="m-pro-con">成功</span>
+            </div>
+        </div>
+        <div class="m-fm-back-pass">
+            <form action="" class="form-horizontal">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="password">密码：</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" id="password" name="password" type="password" autofocus>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="repassword">重复密码：</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" id="repassword" name="repassword" type="password" autofocus>
+                        </div>
+                    </div>
+                    <div class="m-back-next">
+                        <button type="submit" class="btn btn-default back-next">下一步</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>       
