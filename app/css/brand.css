@@ -1,0 +1,47 @@
+.brand-logo-img{
+    margin-top: 20px;
+    margin-left: 0;
+}
+.brand-logo-img .thumbnail{
+    width: 75px;
+    height: 75px;
+    border-radius: 0;
+    border:0;
+    padding: 0;
+}
+.brand-logo-img .m-img{
+    display: inline-block;
+}
+.brand-logo-img .add-img{
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+    border:2px dashed #ddd;
+    background: url(../img/add.png) 50% center no-repeat;
+}
+.m-qualification{
+    margin-top: 22px;
+}
+.brand-detail{
+    width: 568px;
+}
+.brand-detail .brand-left{
+    width: 70px;
+    float: left;
+    position: relative;
+    min-height: 1px;
+}
+.brand-detail .form-group{
+    margin-left: 0;
+}
+.brand-detail label{
+    color: #666;
+    font-weight: normal;
+    font-size: 14px;
+    padding-right: 0px;
+}
+@media screen and (min-width: 992px) {
+    .brand-detail .col-md-6 {
+        width: 498px;
+    }
+}

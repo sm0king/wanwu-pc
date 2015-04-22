@@ -251,3 +251,15 @@
 .dib{
     display: inline-block;
 }
+.pagination>li:first-child>a{
+    border-radius: 0;
+    margin-right: 5px;
+}
+.pagination>li:last-child>a{
+    border-radius: 0;
+    margin-left: 5px;
+}
+.pagination .more{
+    border: none;
+    border-left: 1px solid #ddd;
+}

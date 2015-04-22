@@ -3,10 +3,10 @@ block Define
     - var basePath = '../';
 
 block header
-    link(rel='stylesheet', href='../css/product.css')   
+    link(rel='stylesheet', href='../css/product.css')
 
 block DashboardTitle
-    商品管理
+    品牌管理
 
 block Right    
     .product.
@@ -67,12 +67,17 @@ block Right
         </div>
         <nav>
             <ul class="pagination">
-                <li><a href="javascript:;" aria-label="Previous">&laquo;</a></li>
+                <li><a href="javascript:;" aria-label="Previous">&lt;</a></li>
                 <li><a href="javascript:;">1</a></li>
                 <li><a href="javascript:;">2</a></li>
                 <li><a href="javascript:;">3</a></li>
                 <li><a href="javascript:;">4</a></li>
                 <li><a href="javascript:;">5</a></li>
-                <li><a href="javascript:;" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                <li><a class="more" href="javascript:;">...</a></li>
+                <li><a href="javascript:;" aria-label="Next"><span aria-hidden="true">&gt;</span></a></li>
+                <li class="pagin-extend">共
+                    <i class="totalPage">7</i>页，到第<input type="text" class="text-input">页
+                    <button class="btn btn-blue">确定</button>
+                </li>
             </ul>
         </nav>
