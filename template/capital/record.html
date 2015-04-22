@@ -37,27 +37,7 @@ block CapitalContent
                             td 成功
                             td 中国建设银行 6226 8888 0000 8888 123
     .info-group
-        nav
-            ul.pagination
-                li
-                    a(href='#', aria-label='Previous')
-                        span(aria-hidden='true') &laquo;
-                li
-                    a(href='#') 1
-                li
-                    a(href='#') 2
-                li
-                    a(href='#') 3
-                li
-                    a(href='#',aria-label='Next')
-                        span(aria-hidden='true') &raquo;
-                li.pagin-extend
-                    | 共
-                    i.totalPage 7
-                    | 页，到第
-                    input(type='text').text-input
-                    | 页
-                    button(type='button').btn.btn-blue 确定
+        include ../pagination.jade
 
 
 

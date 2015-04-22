@@ -454,6 +454,10 @@ table.dataTable thead .sorting:after {
     margin:0px 5px;
     font-style:normal;
 }
+.pagination .more {
+  border: none;
+  border-left: 1px solid #ddd;
+}
 
 .gray{
     color:#888888!important;
@@ -525,3 +529,4 @@ table.dataTable thead .sorting:after {
     border-top: 1px #ebebeb solid;
     margin:35px 0px;
 }
+
