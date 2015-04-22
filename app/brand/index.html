@@ -22,12 +22,10 @@
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">
               <li ui-sref-active="active"><a href="../home.html">首页</a></li>
-              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
               <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
               <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
               <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
               <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
-              <li ui-sref-active="active"><a href="../info/index.html">信息维护</a></li>
             </ul>
           </div>
         </div>
@@ -36,22 +34,22 @@
         <div class="product">
           <form action="#" class="form-inline">
               <div class="form-group">
-                  <label for="productName">商品名称：</label>
+                  <label for="productName">品牌名称：</label>
                   <input type="text" class="form-control">
               </div>
               <div class="form-group">
-                  <label for="">上架状态：</label>
+                  <label for="">审核状态：</label>
                   <div class="dropdown inline">
                       <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown"><span class="caret"></span>全部</button>
                       <ul class="dropdown-menu" role="menu">
                           <li><a href="javascript:;" role="menuitem">全部</a></li>
-                          <li><a href="javascript:;" role="menuitem">已上架</a></li>
-                          <li><a href="javascript:;" role="menuitem">已下架</a></li>
+                          <li><a href="javascript:;" role="menuitem">已审核</a></li>
+                          <li><a href="javascript:;" role="menuitem">未审核</a></li>
                       </ul>
                   </div>
               </div>
               <div class="form-group">
-                  <div class="btn btn-primary">添加商品</div>
+                  <div class="btn btn-primary">添加品牌</div>
               </div>
           </form>
           <button class="btn btn-blue">查询</button>
@@ -59,30 +57,23 @@
               <table class="table table-bordered">
                   <thead>
                       <tr>
-                          <td>商品图片</td>
-                          <td>详细信息</td>
-                          <td>分销价</td>
-                          <td>库存</td>
-                          <td>上架</td>
-                          <td>操作</td>
+                          <td width="30%">品牌名称</td>
+                          <td width="23%">审核状态</td>
+                          <td width="23%">审核时间</td>
+                          <td width="23%">操作</td>
                       </tr>
                   </thead>
                   <tbody>
                       <tr ng-repeat="pro in productList">
                           <td class="product-td-img">
-                              <input type="checkbox">
-                              <img class="product-img" src="../img/logo.png" alt="">
+                              <input type="checkbox" class ="dib">
+                              <img class="product-img" src="../img/logo.png" alt="" class ="dib">
+                              <p class ="dib">品牌名称</p>
                           </td>
                           <td>
-                              <p class="product-desc">美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画</p>
-                              <div class="product-catalog">
-                                  <a href="javascirpt:;">箱包皮具</a>
-                                  <a href="javascirpt:;">热销女包</a>
-                              </div>
+                              <p class="product-desc">已通过</p>
                           </td>
                           <td class="center">￥138.00</td>
-                          <td class="center">50</td>
-                          <td class="ok"></td>
                           <td>
                               <div class="row product-operator">
                                   <div class="col-lg-6">
@@ -104,7 +95,7 @@
                   <li><a href="javascript:;">2</a></li>
                   <li><a href="javascript:;">3</a></li>
                   <li><a href="javascript:;">4</a></li>
-                  <li><a href="javascript:;">6</a></li>
+                  <li><a href="javascript:;">5</a></li>
                   <li><a href="javascript:;" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
               </ul>
           </nav>
