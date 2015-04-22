@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>认证信息</title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/info.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            认证信息</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
+              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
+              <li ui-sref-active="active"><a href="../info/index.html">信息维护</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="info">
+          <ul class="nav nav-tabs nav-custom">
+            <li role="presentation"><a href="index.html">概况</a></li>
+            <li role="presentation"><a href="account.html">帐户信息</a></li>
+            <li role="presentation" class="active"><a href="auth.html">认证信息</a></li>
+            <li role="presentation"><a href="changepwd.html">修改密码</a></li>
+            <li role="presentation"><a href="freight.html">运费设置</a></li>
+          </ul>
+          <div>
+            <div class="info auth">
+              <p class="gray tip">您需要进一步提交公司认证资料后才能上架商品</p>
+              <div class="schedule step-1"><img src="../img/schedule-1.png" class="img-responsive scheduleImg-1 scheduleImg"/><img src="../img/schedule-2.png" class="img-responsive scheduleImg-2 scheduleImg"/><img src="../img/schedule-3.png" class="img-responsive scheduleImg-3 scheduleImg"/></div>
+              <div class="hr"></div>
+              <form class="form-horizontal">
+                <div class="form-group">
+                  <label for="companyName" class="control-label pull-left">公司名称：</label>
+                  <div class="col-md-6">
+                    <input type="text" id="companyName" class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="phone" class="control-label pull-left">联系电话：</label>
+                  <div class="col-md-4">
+                    <input type="text" id="phone" class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="address" class="control-label pull-left">公司地址：</label>
+                  <div class="col-md-6 address">
+                    <div class="row">
+                      <div class="col-md-4">                           
+                        <select id="address" class="form-control">
+                          <option value="1">四川</option>
+                          <option value="2">广东</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <select class="form-control">
+                          <option value="1">成都市</option>
+                        </select>
+                      </div>
+                      <div class="col-md-4">
+                        <select class="form-control">
+                          <option value="1">高新区</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <textarea class="form-control"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="concatPeople" class="control-label pull-left">联系人：</label>
+                  <div class="col-md-4">
+                    <input type="text" id="concatPeople" class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="concatPhone" class="control-label pull-left">联系人电话：</label>
+                  <div class="col-md-4">
+                    <input type="text" id="concatPhone" class="form-control"/>
+                    <div class="row extendBar">
+                      <div class="col-md-12">
+                        <input type="checkbox" id="show"/>
+                        <label for="show" class="autoWidh gray">向分销商展示联系人信息</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label pull-left">营业执照：</label>
+                  <div class="col-md-8">
+                    <button type="button" class="btn btn-gray">上传文件</button>
+                    <div class="row imgBar">
+                      <div class="col-md-5"><img src="../img/logo.png" class="img-responsive"/></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label pull-left">
+                     
+                    法人身份证：
+                    <p>(正反两面）</p>
+                  </label>
+                  <div class="col-md-8">
+                    <button type="button" class="btn btn-gray">上传文件</button>
+                    <div class="row imgBar">
+                      <div class="col-md-5"><img src="../img/logo.png" class="img-responsive"/></div>
+                      <div class="col-md-5"><img src="../img/logo.png" class="img-responsive"/></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="pull-left stdLabel">&nbsp;</div>
+                  <div class="col-md-6">
+                    <button type="button" class="btn btn-blue">提交审核</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+  </body>
+</html>

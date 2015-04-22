@@ -1,0 +1,57 @@
+extends master.jade
+block InfoDefine
+    -var active = 4;
+
+block title
+    title 运费设置
+
+block DashboardTitle
+    运费设置
+
+block InfoContent
+    .info.freight
+        .switch
+            input(type='checkbox')#enable
+            label(for='enable') 启用运费模板
+            div
+                p 启用后商品运费将不会参与单价计算，而是按照模板中价格以商品重量每单另收运费。
+                p （若未填写商品重量，则默认以0.5kg计算）
+        form.form-inline
+            .form-group
+                label(for='area') 地区
+                select#area.form-control
+                    option(value='1') 四川
+                    option(value='1') 上海
+            .form-group
+                label(for='firstWeight') 首重
+                input(type='text')#firstWeight.form-control
+                span kg
+                input(type='text')#firstWeightPrice.form-control
+                span 元
+            .form-group
+                label(for='afterWeight') 续重
+                input(type='text')#afterWeight.form-control
+                span kg
+                input(type='text')#afterWeightPrice.form-control
+                span 元
+            .form-group
+                button(type='button').btn.btn-bigblue#save 保存
+        .table-responsive.freightTable
+            table.table.table-bordered
+                thead
+                    tr
+                        td 地区
+                        td 首重(kg)
+                        td 首重价格
+                        td 续重(kg)
+                        td 续重价格
+                        td 删除
+                tbody
+                    tr
+                        td 默认地区
+                        td 1
+                        td 8.00
+                        td 1
+                        td 6.00
+                        td 
+                            a.fork

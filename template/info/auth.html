@@ -1,0 +1,80 @@
+extends master.jade
+block InfoDefine
+    -var active = 2;
+
+block title
+    title 认证信息
+
+block DashboardTitle
+    认证信息
+
+block InfoContent
+    .info.auth
+        p.gray.tip 您需要进一步提交公司认证资料后才能上架商品
+        .schedule.step-1
+            img.img-responsive.scheduleImg-1.scheduleImg(src='../img/schedule-1.png')
+            img.img-responsive.scheduleImg-2.scheduleImg(src='../img/schedule-2.png')
+            img.img-responsive.scheduleImg-3.scheduleImg(src='../img/schedule-3.png')
+        .hr
+        form.form-horizontal
+            .form-group
+                label(for='companyName').control-label.pull-left 公司名称：
+                .col-md-6
+                    input(type='text').form-control#companyName
+            .form-group
+                label(for='phone').control-label.pull-left 联系电话：
+                .col-md-4
+                    input(type='text').form-control#phone
+            .form-group
+                label(for='address').control-label.pull-left 公司地址：
+                .col-md-6.address
+                    .row
+                        .col-md-4                            
+                            select.form-control#address
+                                option(value='1') 四川
+                                option(value='2') 广东
+                        .col-md-4
+                            select.form-control
+                                option(value='1') 成都市
+                        .col-md-4
+                            select.form-control
+                                option(value='1') 高新区
+                    .row
+                        .col-md-12
+                            textarea.form-control
+            .form-group
+                label(for='concatPeople').control-label.pull-left 联系人：
+                .col-md-4
+                    input(type='text').form-control#concatPeople
+            .form-group
+                label(for='concatPhone').control-label.pull-left 联系人电话：
+                .col-md-4
+                    input(type='text').form-control#concatPhone
+                    .row.extendBar
+                        .col-md-12
+                            input(type='checkbox')#show
+                            label(for='show').autoWidh.gray 向分销商展示联系人信息
+            .form-group
+                label.control-label.pull-left 营业执照：
+                .col-md-8
+                    button(type='button').btn.btn-gray 上传文件
+                    .row.imgBar
+                        .col-md-5
+                            img.img-responsive(src='../img/logo.png')
+            .form-group
+                label.control-label.pull-left 
+                    | 法人身份证：
+                    p (正反两面）
+                .col-md-8
+                    button(type='button').btn.btn-gray 上传文件
+                    .row.imgBar
+                        .col-md-5
+                            img.img-responsive(src='../img/logo.png')
+                        .col-md-5
+                            img.img-responsive(src='../img/logo.png')
+            .form-group
+                .pull-left.stdLabel &nbsp;
+                .col-md-6
+                    button(type='button').btn.btn-blue 提交审核
+
+

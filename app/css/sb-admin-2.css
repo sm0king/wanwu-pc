@@ -6,6 +6,7 @@
 
 body {
     background-color: #f8f8f8;
+    font-family: 微软雅黑 "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 #wrapper {
@@ -516,4 +517,11 @@ table.dataTable thead .sorting:after {
     border:1px solid #ececec;
     border-top: 0px;
     border-bottom: 3px #069dd5 solid;
+}
+
+.hr{
+    height: 0px;
+    width: 100%;
+    border-top: 1px #ebebeb solid;
+    margin:35px 0px;
 }

@@ -75,7 +75,7 @@
     margin:5px;
 }
 .order .orderOperator{
-    min-width: 80px;
+    min-width: 85px;
 }
 .order .orderOperator a{
     display: block;
@@ -92,7 +92,21 @@
 
 .order .searchBar .form-group{
     margin-right: 60px;
+    margin-bottom: 20px;
 }
+
+.order .searchBar .form-group:last-child{
+    margin-right: 0px;
+}
+
+.order .stdLable{
+    width:86px;
+}
+
+.order .stdLable2{
+    width:72px;
+}
+
 
 .order .gap30{
     margin-top:30px;
@@ -100,4 +114,49 @@
 
 .order #waybill{
     width:112px;
+}
+.order #orderNum{
+    width:302px;
+}
+.order .timeSpan input{
+    width:125px;
+}
+
+.order .timeSpan .part{
+    margin:0px 15px;
+}
+.order label{
+    color:#333333;
+    font-weight: normal;
+}
+/* 订单详情 */
+.order.detail p{
+    margin-bottom: 20px;
+    color:#666666;
+}
+
+
+.order.detail h2{
+    margin: 40px 0px;
+}
+
+.order.detail h2:first-child{
+    margin-top: 0px;
+}
+
+.order .streamTable td{
+    text-align: left;
+    color:#666666;
+}
+
+.order .streamTable tbody>tr:first-child{
+      border-top: 1px solid #ddd;
+}
+
+.order .streamTable tbody>tr>td{
+    border-top: 0px;
+}
+
+.order .timeTD{
+    width:160px;
 }

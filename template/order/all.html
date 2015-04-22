@@ -12,16 +12,30 @@ block DashboardTitle
 
 block OrderContent
     form.form-inline.searchBar
-        .form-group
-            label(for='orderNum') 订单号：
-            input(type='text').form-control#orderNum
-        .form-group
-            label(for='waybill') 运单号：
-            input(type='text').form-control#waybill
-        .form-group
-            label(for='concat') 联系方式：
-            input(type='text').form-control#concat
-        div.gap30
+        div
+            .form-group
+                label(for='orderNum').stdLable 订单编号：
+                input(type='text').form-control#orderNum
+            .form-group
+                label(for='receiver').stdLable2 收货人：
+                input(type='text').form-control#receiver
+            .form-group
+                label(for='concat') 联系方式：
+                input(type='text').form-control#concat
+        div
+            .form-group.timeSpan
+                label(for='timeBegin').stdLable 下单时间段：
+                input(type='text').form-control#timeBegin
+                label(for='timeEnd').part 至
+                input(type='text').form-control#timeEnd
+            .form-group
+                label(for='state').stdLable2 订单状态：
+                select.form-control#state
+                    option(value='1') 状态1
+                    option(value='2') 状态2
+                    option(value='3') 状态3
+                
+        div
             button.btn.btn-blue 查询
     .headBar.gap30
         .btnBar.pull-right
@@ -57,7 +71,7 @@ block OrderContent
                     td 等待发货
                     td 客户要求每盒颜色不能重复
                     td.orderOperator
-                        a.blue 订单详情
+                        a.blue(href='detail.html') 订单详情
     div.foot
         include ../pagination.jade
 block foot

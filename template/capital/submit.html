@@ -1,0 +1,21 @@
+extends ../dashboard.jade
+block Define
+    -var basePath = '../';
+block title
+    title 提交
+
+block DashboardTitle
+    提交
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/capital.css')
+
+block Right
+    .capital.submit
+        .message
+            p 您的提现申请已提交，请等待银行处理。通常会在一个工作日内到账。
+            .btnBar
+                button(type='button').btn.btn-gray 返回
+                button(type='button').btn.btn-bigblue 关闭页面
+
+

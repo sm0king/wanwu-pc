@@ -53,3 +53,106 @@
     margin-top: 30px;
     margin-bottom: 30px;
 }
+/* 运费设置 */
+.info .switch{
+    margin-top: 23px;
+    margin-bottom:38px;
+}
+.info .switch>label{
+    color:#666666;
+    vertical-align: top;
+    margin-left: 5px;
+}
+.info .switch>div{
+    padding-left: 21px;
+    color:#999999;
+}
+.info.freight .form-group{
+    margin-bottom: 20px;
+    margin-right: 40px;
+}
+
+.info.freight .form-group:last-child{
+    margin-right: 0px;
+}
+
+.info.freight .form-group>label{
+    margin-right: 10px;
+}
+.info.freight .form-group>span{
+    margin-right: 20px;
+    margin-left: 5px;
+}
+.info.freight .form-group>span:last-child{
+    margin-right: 0px;
+}
+
+.info.freight .freightTable td{
+    text-align: center;
+}
+
+#firstWeight,#firstWeightPrice,#afterWeight,#afterWeightPrice{
+    width:67px;
+}
+#area{
+    width:124px;
+}
+
+.info .freightTable a.fork{
+    width:16px;
+    height: 16px;
+    display: inline-block;
+    cursor: pointer;
+}
+.info #save{
+    padding:0px 15px;
+    height: 34px;
+}
+/* 认证信息 */
+.info.auth .tip{
+    margin-top:30px;
+}
+.info.auth .form-group{
+    margin-bottom: 30px;
+}
+.info.auth .address>.row:first-child{
+    margin-bottom: 30px;
+}
+.info.auth .address textarea{
+    height: 114px;
+    resize:none;
+}
+.info.auth .stdLabel, .info.auth label{
+    font-weight: normal;
+    width:90px;
+}
+.info.auth .autoWidh{
+    width:auto;
+    vertical-align: top;
+}
+.info.auth label>p{
+    text-align: center;
+}
+.info.auth .extendBar{
+    margin-top: 20px;
+}
+
+.info.auth .imgBar{
+    margin-top: 25px;
+}
+
+.info .schedule{
+    margin-top: 40px;
+}
+.info .scheduleImg{
+    display: none;
+}
+.info .step-1 .scheduleImg-1{
+    display: block;
+}
+.info .step-2 .scheduleImg-2{
+    display: block;
+}
+.info .step-3 .scheduleImg-3{
+    display: block;
+}
