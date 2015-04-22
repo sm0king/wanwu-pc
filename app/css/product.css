@@ -248,3 +248,6 @@
     cursor:pointer;
     vertical-align: middle;
 }
+.dib{
+    display: inline-block;
+}
