@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>面板        </title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/product.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            品牌详情</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="page-wrapper">
+        <form action="#" class="form-horizontal brand-detail">
+          <div class="form-group">
+              <label for="productName" class="control-label brand-left">商品品牌：</label>
+              <div class="col-md-6">
+                  <input type="text" id="productName" class="form-control" ng-model="productName">
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="" class="control-label brand-left">品牌logo：</label>
+              <div class="col-md-6">
+                  <button class="btn btn-default" type="submit">上传图片</button>
+                  图片大小请控制在150k以内
+                  <div class="row brand-logo-img">
+                      <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                      <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                      <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                      <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                      <div class="m-img add-img"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="" class="control-label brand-left">品牌资质：</label>
+              <div class="col-md-6 m-qualification">
+                  <h5>包括品牌授权、质检报告、品牌相关证书等能说明对品牌拥有情况的资料</h5>
+              </div>
+          </div>
+          <div class="form-group">
+              <div class="qualification panel panel-default col-md-8">
+                  <div class="panel-body">
+                      <label for="quacon" class="quacon control-label col-md-2">资质说明</label>
+                      <div class="col-md-6">
+                          <textarea class="form-control" name="quacon" id="quacon" rows="10"></textarea>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+  </body>
+</html>
