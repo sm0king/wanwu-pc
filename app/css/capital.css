@@ -29,10 +29,6 @@
     border-bottom: 3px #069dd5 solid;
 }
 
-.capital>.nav>li{
-    
-}
-
  .info-group{
     margin-top: 40px;
     padding-left: 15px;
@@ -111,6 +107,52 @@
     text-align: center;
 }
 
-.capital .cardSelector{
-    margin-left: -15px;
+
+
+.capital .cardInfo,.capital .dropdown-menu{
+    width:270px;
+}
+
+.capital .password{
+    width:304px;
+}
+
+.capital .control-label{
+    float: left;
+    width:120px;
+    text-align: right;
+}
+.capital .btn-fork{
+    width:16px;
+    height: 16px;
+}
+.capital .bankLogo{
+    width:20px;
+    height: 20px;
+}
+
+.capital h2{
+    margin-top:0px;
+    font-weight: bold;
+}
+
+.capital .middleBar{
+    margin:35px 0px;
+}
+
+.capital .sendMsg{
+    padding:0px;
+    width:100%;
+    height: 34px;
+    line-height: 34px;
+}
+
+.capital .textField{
+    line-height: 34px;
+    height: 34px;
+    color:#999999;
+}
+
+.capital .panel-body{
+    background-color: #f2f2f2;
 }

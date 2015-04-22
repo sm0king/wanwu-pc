@@ -1,0 +1,71 @@
+extends master.jade
+block OrderDefine
+    -var active = 2;
+    -var pagin_right = true;
+
+block title
+    title 所有订单
+
+
+block DashboardTitle
+    所有订单
+
+block OrderContent
+    form.form-inline.searchBar
+        .form-group
+            label(for='orderNum') 订单号：
+            input(type='text').form-control#orderNum
+        .form-group
+            label(for='waybill') 运单号：
+            input(type='text').form-control#waybill
+        .form-group
+            label(for='concat') 联系方式：
+            input(type='text').form-control#concat
+        div.gap30
+            button.btn.btn-blue 查询
+    .headBar.gap30
+        .btnBar.pull-right
+            button(type='button').btn.btn-blue 确认退货
+        input(type='checkbox')#checkAll
+        label(for='checkAll') 全选
+    .table-responsive.orderlist
+        table.table.table-bordered
+            tbody
+                tr.titleTR
+                    td(colspan='2') 
+                        | 订单编号: 
+                        span.blue 8779641532
+                    td.retailer 分销价
+                    td.receiver 收货人
+                    td 收货地址
+                    td 下单时间
+                    td 状态
+                    td 备注
+                    td 操作
+                tr.orderTR
+                    td.ckTD
+                        input(type='checkbox')
+                    td.productImgs
+                        img(src='../img/logo.png')
+                        img(src='../img/logo.png')
+                        img(src='../img/logo.png')
+                        img(src='../img/logo.png')
+                    td ￥387.00
+                    td 王刚
+                    td 四川省成都市高新区天府软件园E区E1栋
+                    td 015-03-12 17:38:48
+                    td 等待发货
+                    td 客户要求每盒颜色不能重复
+                    td.orderOperator
+                        a.blue 订单详情
+    div.foot
+        include ../pagination.jade
+block foot
+    script(type='text/javascript').
+        $(function(){
+            $('#checkAll').change(function(){
+                var checked = $(this).prop('checked');
+                $('.orderlist input[type=checkbox]').prop('checked', checked);
+            });
+        });
+

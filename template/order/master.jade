@@ -1,0 +1,21 @@
+extends ../dashboard.jade
+block Define
+    -var basePath = '../';
+    -var active = 0;
+    block OrderDefine
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/order.css')
+    block OrderHeader
+
+block Right
+    .order
+        ul.nav.nav-tabs.nav-custom
+            li(role='presentation',class=active==0 ? 'active' : '')
+                a(href='index.html') 待发货订单
+            li(role='presentation',class=active==1 ? 'active' : '')
+                a(href='returnofgoods.html') 待退货订单
+            li(role='presentation',class=active==2 ? 'active' : '')
+                a(href='record.html') 所有订单
+        div
+            block OrderContent

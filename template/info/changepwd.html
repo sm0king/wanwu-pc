@@ -1,0 +1,37 @@
+extends master.jade
+block InfoDefine
+    -var active = 3;
+
+block title
+    title 修改密码
+
+block DashboardTitle
+    修改密码
+
+block header
+
+block InfoContent
+    .info
+        h2 修改密码
+        div.row
+            div.col-md-6
+                form.form-horizontal.pwdForm
+                    .form-group
+                        label.control-label.col-lg-4
+                            原密码：
+                        div.col-lg-8
+                            input(type=password).form-control
+                    .form-group
+                        label.control-label.col-lg-4
+                            新密码：
+                        div.col-lg-8
+                            input(type=password).form-control
+                    .form-group
+                        label.control-label.col-lg-4
+                            确认新密码：
+                        div.col-lg-8
+                            input(type=password).form-control
+                .row
+                    .col-lg-4 &nbsp;
+                    .col-lg-8.btnBar
+                        button.btn.btn-blue 保存

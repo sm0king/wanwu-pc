@@ -1,0 +1,55 @@
+.info{
+    padding-top: 10px;
+}
+
+.info .itemTitle{
+    margin:50px 0px 30px 0px;
+    color: #888888;
+}
+
+.info .face{
+    display: inline-block;
+    vertical-align: bottom;
+    position: relative;
+}
+
+.info .upload{
+    margin-left: 25px;
+}
+
+.info .gap{
+    margin-top: 40px;
+}
+
+.info .separate{
+    margin:29px 0px;
+    height: 0px;
+    width:100%;
+    border-top: 1px #ebebeb solid; 
+}
+
+.info .reset{
+    height: 35px;
+    line-height: 35px;
+    padding:0;
+    width:95px;
+    vertical-align: bottom;
+    margin-left: 45px;
+}
+
+.info .accountInfo p{
+    margin:26px 0px;
+}
+
+.info .control-label{
+    color:#999999;
+}
+
+.info .btnBar{
+    text-align: center;    
+    margin-top: 20px;
+}
+.info .pwdForm .form-group{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}

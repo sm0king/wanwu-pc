@@ -1,0 +1,60 @@
+extends master.jade
+block InfoDefine
+    -var active = 0;
+
+block title
+    title 概况
+
+block InfoHeader
+    概况
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/info.css')
+
+block InfoContent
+    .info
+        p.itemTitle 每日销售
+        canvas#sale(width='700',height='300')
+        p.itemTitle 分销商数量
+        canvas#retailerNum(width='700',height='300')
+
+block foot
+    script(type='text/javascript',src='#{basePath}plugs/Chart.min.js')
+    script(type='text/javascript').
+        $(function(){
+            var ctxSale = document.getElementById('sale').getContext('2d');
+            var saleData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [
+                    {
+                        label: "My First dataset",
+                        fillColor: "rgba(220,220,220,0.2)",
+                        strokeColor: "rgba(220,220,220,1)",
+                        pointColor: "rgba(220,220,220,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                    }
+                ]
+            };
+            new Chart(ctxSale).Line(saleData, {});
+
+            var ctxRetailer =  document.getElementById('retailerNum').getContext('2d');
+            var retailerData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [
+                    {
+                        label: "My Second dataset",
+                        fillColor: "rgba(151,187,205,0.2)",
+                        strokeColor: "rgba(151,187,205,1)",
+                        pointColor: "rgba(151,187,205,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }
+                ]
+            };
+            new Chart(ctxRetailer).Line(retailerData, {});
+        })

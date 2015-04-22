@@ -1,0 +1,25 @@
+extends ../dashboard.jade
+block Define
+    -var basePath = '../';
+    -var active = 0;
+    block InfoDefine
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/info.css')
+    block InfoHeader
+
+block Right
+    .info
+        ul.nav.nav-tabs.nav-custom
+            li(role='presentation',class=active==0 ? 'active' : '')
+                a(href='index.html') 概况
+            li(role='presentation',class=active==1 ? 'active' : '')
+                a(href='account.html') 帐户信息
+            li(role='presentation',class=active==2 ? 'active' : '')
+                a(href='record.html') 认证信息
+            li(role='presentation',class=active==3 ? 'active' : '')
+                a(href='changepwd.html') 修改密码
+            li(role='presentation',class=active==4 ? 'active' : '')
+                a(href='record.html') 运费设置
+        div
+            block InfoContent

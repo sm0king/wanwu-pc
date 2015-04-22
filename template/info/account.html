@@ -1,0 +1,30 @@
+extends master.jade
+block InfoDefine
+    -var active = 1;
+
+block title
+    title 帐户信息
+
+block InfoHeader
+    帐户信息
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/info.css')
+
+block InfoContent
+    .info.accountInfo
+        .gap
+            div.face
+                img(src='../img/logo.png')
+            button.btn.btn-gray.upload 上传图片
+        .separate
+        p 登录账号：abc123456
+        p 绑定手机号：138***3800
+        p 微信：【微信ID】
+        .separate
+        div API信息
+        div
+            span.gray Token：1326CB3D4EDF714E
+            button(type='button').btn.btn-bigblue.reset 重置
+        p
+            a(href='#') API文档下载

@@ -1,0 +1,103 @@
+.order{
+    padding-top: 10px;
+}
+
+.order .headBar{
+    height: 50px;
+    padding:9px 15px;
+    border:1px #e2e2e2 solid;
+    margin-top: -1px;
+    line-height: 27px;
+}
+
+.order .headBar button{
+    margin:0px 8px;
+    height: 29px;
+    padding:0px 12px;
+}
+
+.order .headBar a{
+    margin-left: 8px;
+    cursor: pointer;
+    text-decoration: none!important;
+}
+
+.order .headBar input{
+    vertical-align: top;
+    margin-right: 7px;
+    margin-top: 7px;
+}
+
+.order .orderlist{
+    margin-top: 18px;
+}
+
+.order td{
+    text-align: center;
+}
+.order .titleTR td{    
+    background-color: #f6f6f6;
+    color:#888888;
+}
+
+.order .retailer{
+    min-width: 100px;
+}
+
+.order .receiver{
+    min-width: 90px;
+}
+
+.order .titleTR td:first-child{
+    text-align: left;
+}
+
+.order .orderTR td{
+    padding-top: 18px;
+}
+
+.order .orderTR .ckTD{
+    border-right:0px;
+    padding:38px 0px 0px 13px;
+}
+
+.order .productImgs{
+    width: 197px;
+    padding:5px;
+    border-left: 0px;
+    text-align: left;
+}
+
+.order .productImgs img{
+    width: 52px;
+    height: 52px;
+    border:1px solid #e1e1e1;
+    margin:5px;
+}
+.order .orderOperator{
+    min-width: 80px;
+}
+.order .orderOperator a{
+    display: block;
+    cursor:pointer;
+    margin-top:16px;
+}
+.order .orderOperator a:first-child{
+    margin-top: 0px;
+}
+
+.order .searchBar{
+    margin-top:20px;
+}
+
+.order .searchBar .form-group{
+    margin-right: 60px;
+}
+
+.order .gap30{
+    margin-top:30px;
+}
+
+.order #waybill{
+    width:112px;
+}

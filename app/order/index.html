@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>待发货订单</title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/order.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            待发货订单</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
+              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
+              <li ui-sref-active="active"><a href="../info/index.html">信息维护</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="order">
+          <ul class="nav nav-tabs nav-custom">
+            <li role="presentation" class="active"><a href="index.html">待发货订单</a></li>
+            <li role="presentation"><a href="returnofgoods.html">待退货订单</a></li>
+            <li role="presentation"><a href="record.html">所有订单</a></li>
+          </ul>
+          <div>
+            <div class="headBar">
+              <div class="btnBar pull-right">
+                <button type="button" class="btn btn-gray">下载订单信息</button>
+                <button type="button" class="btn btn-bigblue">上传发货信息</button><a class="blue">发货信息模板</a>
+              </div>
+              <input type="checkbox" id="checkAll"/>
+              <label for="checkAll">全选</label>
+            </div>
+            <div class="table-responsive orderlist">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr class="titleTR">
+                    <td colspan="2">
+                       
+                      订单编号: <span class="blue">8779641532</span>
+                    </td>
+                    <td class="retailer">分销价</td>
+                    <td class="receiver">收货人</td>
+                    <td>收货地址</td>
+                    <td>下单时间</td>
+                    <td>状态</td>
+                    <td>备注</td>
+                    <td>操作</td>
+                  </tr>
+                  <tr class="orderTR">
+                    <td class="ckTD">
+                      <input type="checkbox"/>
+                    </td>
+                    <td class="productImgs"><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/></td>
+                    <td>￥387.00</td>
+                    <td>王刚</td>
+                    <td>四川省成都市高新区天府软件园E区E1栋</td>
+                    <td>015-03-12 17:38:48</td>
+                    <td>等待发货</td>
+                    <td>客户要求每盒颜色不能重复</td>
+                    <td class="orderOperator"><a class="blue">发货</a><a class="blue">无货反馈</a><a class="blue">订单详情</a><a class="blue">取消订单</a></td>
+                  </tr>
+                  <tr class="titleTR">
+                    <td colspan="2">
+                       
+                      订单编号: <span class="blue">8779641532</span>
+                    </td>
+                    <td class="retailer">分销价</td>
+                    <td class="receiver">收货人</td>
+                    <td>收货地址</td>
+                    <td>下单时间</td>
+                    <td>状态</td>
+                    <td>备注</td>
+                    <td>操作</td>
+                  </tr>
+                  <tr class="orderTR">
+                    <td class="ckTD">
+                      <input type="checkbox"/>
+                    </td>
+                    <td class="productImgs"><img src="../img/logo.png"/><img src="../img/logo.png"/></td>
+                    <td>￥387.00</td>
+                    <td>王刚</td>
+                    <td>四川省成都市高新区天府软件园E区E1栋</td>
+                    <td>015-03-12 17:38:48</td>
+                    <td>等待发货</td>
+                    <td>客户要求每盒颜色不能重复</td>
+                    <td class="orderOperator"><a class="blue">发货</a><a class="blue">无货反馈</a><a class="blue">订单详情</a><a class="blue">取消订单</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="foot">
+              <nav>
+                <ul class="pull-right pagination">
+                  <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                  <li class="pagin-extend">共<i class="totalPage">7</i>页，到第
+                    <input type="text" class="text-input"/>页
+                    <button type="button" class="btn btn-blue">确定</button>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('#checkAll').change(function(){
+              var checked = $(this).prop('checked');
+              $('.orderlist input[type=checkbox]').prop('checked', checked);
+          });
+      });
+    </script>
+  </body>
+</html>

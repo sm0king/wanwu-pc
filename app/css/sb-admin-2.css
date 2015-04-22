@@ -363,8 +363,40 @@ table.dataTable thead .sorting:after {
     color:white!important;
     padding:12px 40px;
 }
+
+.btn-bigblue{
+    background-color: #e6f5fb;
+    border:1px #afd6e5 solid;
+    border-radius: 0px;
+    padding:12px 15px;
+    color:#666666;
+}
+
+.btn-bigblue.disable{
+    color:#999999;
+    background-color: #e4e4e4;
+    border-color:#d2d2d2;
+}
+
+.btn-gray{
+    background-color: #f3f3f3!important;
+    border-radius: 0px;
+    color:#666666!important;
+    border-color:#dedede;
+    text-align: center;
+}
+
 .btn-search{
     background: url(../img/magnifier.png) 10px center no-repeat;
+}
+
+.btn-fork{
+    background: url(../img/fork.png) center center no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
 }
 
 .fork{
@@ -393,6 +425,7 @@ table.dataTable thead .sorting:after {
     border:1px #e2e2e2 solid;
 }
 
+/* 分页样式 */
 .pagination .pagin-extend{
     line-height: 34px;
     height: 32px;
@@ -421,7 +454,18 @@ table.dataTable thead .sorting:after {
     font-style:normal;
 }
 
+.gray{
+    color:#888888!important;
+}
+.blue{
+    color:#069dd5!important;
+}
+
 /* 选择银行卡 */
+.cardSelector{
+    position: relative;
+}
+
 .cardSelector .cardInfo{
     padding:6px 10px;
     float: left;
@@ -444,4 +488,32 @@ table.dataTable thead .sorting:after {
 .cardSelector button{
     border-radius: 0px;
     height: 35px;
+}
+
+.cardSelector .dropdown-menu>li>a{
+    padding:3px 10px;
+}
+
+/* Tab选项卡样式 */
+.nav-custom.nav{
+    border:1px solid #ececec;
+}
+
+.nav-custom.nav a{
+    color:#666666;
+    line-height: 50px;
+    margin:0px 0px 0px -1px!important;
+    padding:0!important;
+    width:125px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-custom.nav-tabs>li.active>a,.nav-custom.nav-tabs>li.active>a:hover{
+    color:#069dd5;
+    padding:0;
+    background-color: #fff;
+    border:1px solid #ececec;
+    border-top: 0px;
+    border-bottom: 3px #069dd5 solid;
 }

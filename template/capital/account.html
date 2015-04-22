@@ -1,0 +1,71 @@
+extends ../dashboard.jade
+block Define
+    -var basePath = '../';
+block title
+    title 提现账户列表
+
+block DashboardTitle
+    提现账户列表
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/capital.css')
+
+block Right
+    .capital
+        h2 提现帐户列表
+        div.row
+            div.col-lg-6
+                table.table.table-bordered
+                    tbody
+                        tr
+                            td
+                                img.bankLogo(src='../img/logo.png')
+                            td 招商银行
+                            td 6226***123
+                            td 张小思
+                            td
+                                a.btn-fork(href='javascript:;')
+        div.middleBar
+            button(type='button').btn.btn-bigblue 添加提现账户信息
+        div.row
+            div.col-lg-6
+                .panel.panel-default
+                    .panel-body
+                        form.form-horizontal
+                            .form-group
+                                label.control-label(for='account').col-md-2 银行卡号：
+                                .col-md-8
+                                    input(type='text').form-control#account
+                            .form-group
+                                label.control-label.col-md-2 银行：
+                                .col-md-8.textField
+                                    自助识别银行
+                            .form-group
+                                label.control-label(for='owner').col-md-2 姓名：
+                                .col-md-8
+                                    input(type='text').form-control#owner
+                            .form-group
+                                label.control-label(for='mobile').col-md-2 手机号：
+                                .col-md-8
+                                    .row
+                                        .col-md-7.textField
+                                            | 138000138000
+                                        .col-md-5
+                                            button(type='button').btn.btn-bigblue.sendMsg#sendMsg 获取短信验证
+                            .form-group
+                                label.control-label(for='checkcode').col-md-2 验证码：
+                                .col-md-8
+                                    input(type='text').form-control#checkcode
+block foot
+    script(type='text/javascript').
+        $(function(){
+            var btnSendMsg = $('#sendMsg').click(function(){
+                if(!$(this).hasClass('disable')){
+                    $(this).addClass('disable').prop('disabled', true);
+                    setTimeout(function(){
+                        btnSendMsg.removeClass('disable').prop('disabled', false);
+                    }, 3000);
+                }
+            });
+        });
+

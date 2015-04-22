@@ -14,9 +14,9 @@ block Right
     .capital
         h2 提现
         form.form-horizontal
-            div.form-group
-                label.control-label.col-lg-2 提现至银行卡：
-                .col-lg-10
+            .form-group
+                label.control-label 提现至银行卡：
+                .col-md-10
                     div.cardSelector
                         div.cardInfo
                             span.owner 张三
@@ -27,10 +27,15 @@ block Right
                             span.sr-only Toggle Dropdown
                         ul.dropdown-menu(role='menu')
                             li
-                                a(href='javascript:;') A
-                            li
-                                a(href='javascript:;') B
-                            li
-                                a(href='javascript:;') C
+                                a(href='javascript:;') 
+                                    span.owner 李四
+                                    img(src='../img/logo.png')
+                                    span.cardNum 6226***123
+            div.form-group
+                label.control-label 登录密码：
+                .col-md-10
+                    input(type='password').form-control.password
+            div
+                button.btn.btn-blue 提现
 
 

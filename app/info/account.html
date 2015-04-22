@@ -3,20 +3,21 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
-    <title>账户总览</title>
+    <title>帐户信息</title>
     <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../css/main.css"/>
     <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../css/sb-admin-2.css"/>
-    <link rel="stylesheet" href="../css/capital.css"/>
+    <link rel="stylesheet" href="../css/info.css"/>
   </head>
   <body>
     <div id="wrapper">
       <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
         <div class="navbar-header">
           <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
-          <h3 class="navbar-line">            账户总览</h3>
+          <h3 class="navbar-line">            
+          </h3>
         </div>
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
@@ -31,36 +32,30 @@
         </div>
       </nav>
       <div id="page-wrapper">
-        <div class="capital">
-          <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="index.html">账户总览</a></li>
-            <li role="presentation"><a href="order_detail.html">订单明细</a></li>
-            <li role="presentation"><a href="record.html">操作记录</a></li>
+        <div class="info">
+          <ul class="nav nav-tabs nav-custom">
+            <li role="presentation"><a href="index.html">概况</a></li>
+            <li role="presentation" class="active"><a href="account.html">帐户信息</a></li>
+            <li role="presentation"><a href="record.html">认证信息</a></li>
+            <li role="presentation"><a href="changepwd.html">修改密码</a></li>
+            <li role="presentation"><a href="record.html">运费设置</a></li>
           </ul>
           <div>
-            <div class="info-group">
-              <p>账户余额</p>
-              <div class="row">
-                <div class="col-lg-3">
-                  <div class="money-group">
-                    <div class="money">8888.66</div>
-                    <div class="unit">元</div>
-                  </div>
-                </div>
-                <div class="col-lg-9 operator-group"><a class="btn-go">充值</a><a href="cash_out.html" class="btn-go">提现</a><a class="goto">查看明细</a></div>
+            <div class="info accountInfo">
+              <div class="gap">
+                <div class="face"><img src="../img/logo.png"/></div>
+                <button class="btn btn-gray upload">上传图片</button>
               </div>
-            </div>
-            <div class="info-group">
-              <p>不可用余额</p>
-              <div class="row">
-                <div class="col-lg-3">
-                  <div class="money-group">
-                    <div class="money">8888.66</div>
-                    <div class="unit">元</div>
-                  </div>
-                </div>
-                <div class="col-lg-9 operator-group"><a class="btn-go btn-hidden">X</a><a class="btn-go btn-hidden">X</a><a class="goto">查看明细</a></div>
+              <div class="separate"></div>
+              <p>登录账号：abc123456</p>
+              <p>绑定手机号：138***3800</p>
+              <p>微信：【微信ID】</p>
+              <div class="separate"></div>
+              <div>API信息</div>
+              <div><span class="gray">Token：1326CB3D4EDF714E</span>
+                <button type="button" class="btn btn-bigblue reset">重置</button>
               </div>
+              <p><a href="#">API文档下载</a></p>
             </div>
           </div>
         </div>
