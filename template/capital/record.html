@@ -14,9 +14,9 @@ block CapitalContent
         h3 资金记录 
     .info-group.topBar
         span.stage1 您正在查看2015.3.1（月初）-2015.3.13（当前）时间的交易记录，查询所有交易记录
-        input(type='text').text-input
+        input(type='text').text-input#timeBegin
         span.stage2 —
-        input(type='text').text-input
+        input(type='text').text-input#timeEnd
         button(type='button').btn.btn-blue.btn-search 查询
     .info-group
         div.row
@@ -38,6 +38,16 @@ block CapitalContent
                             td 中国建设银行 6226 8888 0000 8888 123
     .info-group
         include ../pagination.jade
+block foot
+    script(type='text/javascript').
+        $(function(){
+            $('#timeBegin,#timeEnd').datetimepicker({
+                format: 'yyyy-mm-dd',
+                language: 'zh-CN',
+                minView: 2,
+                autoclose: true
+            });
+        });
 
 
 
