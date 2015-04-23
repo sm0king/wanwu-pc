@@ -81,5 +81,11 @@ block foot
                 var checked = $(this).prop('checked');
                 $('.orderlist input[type=checkbox]').prop('checked', checked);
             });
+            $('#timeBegin,#timeEnd').datetimepicker({
+                format: 'yyyy-mm-dd',
+                language: 'zh-CN',
+                minView: 2,
+                autoclose: true
+            });
         });
 

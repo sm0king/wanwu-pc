@@ -23,11 +23,13 @@ body {
     #page-wrapper {
         position: inherit;
         margin: 0 0 0 250px;
-        padding: 0 30px;
-        border-left: 1px solid #e7e7e7;
+        padding: 0px 0px 0px 30px;
+        /*border-left: 1px solid #e7e7e7;*/
+    }
+    #wrapper{
+        padding:0px 75px;
     }
 }
-
 .navbar-top-links {
     margin-right: 0;
 }
@@ -96,7 +98,9 @@ body {
 }
 
 .sidebar ul li {
-    border-bottom: 1px solid #e7e7e7;
+    border: 1px solid #e2e2e2;
+    margin-top: -1px;
+    line-height: 32px;
 }
 
 .sidebar ul li a.active {
@@ -133,7 +137,8 @@ body {
         z-index: 1;
         position: absolute;
         width: 250px;
-        margin-top: 107px;
+        margin-top: 143px;
+        background-color: #edeeee;
     }
 
     .navbar-top-links .dropdown-messages,
