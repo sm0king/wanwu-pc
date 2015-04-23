@@ -1,0 +1,26 @@
+body{
+    margin: 0;
+}
+.footer{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    padding: 36px 0 42px;
+    background: #515151 url(../img/ft-bg.png) 0 0 repeat;
+    bottom: 0;
+}
+.footer p{
+    color: #069dd5;
+    font-size: 14px;
+    margin: 20px 0;
+}
+.footer a{
+    text-decoration: none;
+    color: #069dd5;
+}
+.footer a:visited{
+    color: #069dd5;
+}
+.footer .comp{
+    color: #8f8f8f;
+}
