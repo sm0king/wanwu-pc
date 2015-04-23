@@ -33,6 +33,7 @@
 }
 .brand-detail .form-group{
     margin-left: 0;
+    margin-right: 0;
 }
 .brand-detail label{
     color: #666;
@@ -44,4 +45,38 @@
     .brand-detail .col-md-6 {
         width: 498px;
     }
+    .brand-detail .qualification .col-md-6{
+        width: 490px;
+    }
+}
+.qualification.panel{
+    border-radius: 0;
+}
+.qualification .panel-body{
+    padding: 15px 0;
+}
+.brand-detail button{
+    border-radius: 0;
+}
+.brand-detail .addqua{
+    color: #069dd5;
+    font-weight: bold;
+}
+.brand-detail .btn-qua{
+    margin: 35px auto;
+}
+.brand-detail .save-btn{
+    width: 112px;
+    height: 43px;
+    text-align: center;
+    color: #fff;
+    background-color: #069dd5;
+}
+.brand-detail .btn-qua .sub-btn{
+    width: 112px;
+    height: 43px;
+    margin-left: 36px;
+    text-align: center;
+    color: #fff;
+    background-color: #4cbd4e;
 }
