@@ -97,15 +97,63 @@
 
 /* 商品详情部分 */
 
+.product-detail{
+    padding-top: 15px;
+}
+
+.product-detail .catalog>.row:first-child{
+    margin-bottom: 15px;
+}
+
+.product-detail .table-center td{
+    text-align: center;
+    vertical-align: middle;
+}
+
+.product-detail .btn-fork,.product-detail .btn-ok{
+    width:16px;
+    height: 16px;
+    margin:0px 10px;
+}
+.product-detail .customTable input{
+    width:50%;
+    margin:0 auto;
+    text-align: center;
+}
+.product-detail .col-operator{
+    min-width: 70px;
+}
 .product-detail label{
     color:#666666;
     font-weight: normal;
     padding-right: 0px;
+    float: left!important;
+    width:105px;
+}
+
+.product-detail .desc{
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+.product-detail .attach{
+    margin-top: 25px;
+    clear: both;
+}
+
+.product-detail .stdLeft{
+    width:100px;
+    height: 1px;
+    float: left;
+}
+.product-detail .stdLeft:after{
+    content:" ";
 }
 
 .product-detail .form-group>div{
     padding-left: 5px;
 }
+
 
 
 .product-detail .text-cell{
@@ -122,16 +170,33 @@
     resize:none;
 }
 
+.product-hotflags>div{
+    display: inline-block;
+    position: relative;
+}
+
 .product-hotflags button{
-    margin-bottom: 17px;
     border:0px;
     background-color: #dedede;
     color:#333333;
+    width:95px;
+    height: 33px;
+    margin:0px 7px 17px 7px;
+    
+}
+.product-hotflags a{
+    position: absolute;
+    right:12px;
+    top: 5px;
 }
 
-.product-hotflags button.selected{
+.product-hotflags .selected button{
     background-color: #7ac7e4;
     color:white;
+}
+
+.product-hotflags .selected a{
+    background-image:url(../img/white-x.png);
 }
 
 .saveAndBack{
@@ -141,23 +206,34 @@
 
 
 .product-images>div{
-    margin-top: 15px;
+    margin-bottom: 15px;
     text-align: center;
-    display: relative;
-}
+    position: relative;
+    border:1px solid #CCC;
+    margin:5px;
+    width:75px;
+    height: 75px;
+    display: inline-block;
+    vertical-align: top;
 
-.product-images img{
-    border:2px solid #ccc;
 }
-
-.product-images a{
-    margin-top: 5px;
+.product-images>span{
+    vertical-align: bottom;
 }
-
+.product-images a.glyphicon{
+    text-decoration: none!important;
+}
+.product-images a.upload{
+    display: inline-block;
+    width:100%;
+    height: 100%;
+    cursor: pointer;
+    background: url(../img/add.png) center center no-repeat;
+}
 .product-images .glyphicon-remove{
     color:red;
     position: absolute;
-    left:0px;
+    right:0px;
     top:0px;
 }
 

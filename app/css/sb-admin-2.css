@@ -400,6 +400,28 @@ table.dataTable thead .sorting:after {
     vertical-align: middle;
 }
 
+.btn-ok{
+    background: url(../img/ok.png) center center no-repeat;
+    background-size: 100% 100%;
+    cursor: pointer;
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+}
+
+.btn-gray-x,.btn-white-x{
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+}
+.btn-gray-x{
+    background:url(../img/gray-x.png) center center no-repeat;
+}
+.btn-white-x{
+    background:url(../img/white-x.png) center center no-repeat;
+}
+
 .fork{
     background: url(../img/fork.png) center center no-repeat;
 }

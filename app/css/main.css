@@ -97,11 +97,15 @@ body {
 
 .navbar-brand {
     display: block;
-    width: 126px;
-    height: 70px;
+    width: 115px;
+    height: 76px;
     padding: 0;
     margin: 0 15px;
-    background-image: url(../img/logo.png);
+    background: url(../img/logo.png) 0 0 no-repeat;
+}
+.nav-address{
+    clear: both;
+    margin-left: 25px;
 }
 
 .navbar-static-top {

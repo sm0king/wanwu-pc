@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="css/home.css"/>
   </head>
   <body>
     <div id="wrapper">
@@ -26,210 +27,51 @@
               <li ui-sref-active="active"><a href="Brand/index.html">品牌管理</a></li>
               <li ui-sref-active="active"><a href="distributor/index.html">分销商管理</a></li>
               <li ui-sref-active="active"><a href="capital/index.html">资金管理</a></li>
-              <li ui-sref-active="active"><a href="info/index.html">信息维护</a></li>
+              <li ui-sref-active="active"><a href="info/index.html">信息维护      </a></li>
             </ul>
           </div>
         </div>
       </nav>
       <div id="page-wrapper">
+        <div class="group">
+          <h2>订单</h2>
+        </div>
+        <div class="groupBody">
+          <div class="row">
+            <div class="col-md-4"><a class="item">待发货订单<span class="red">12</span>个</a></div>
+            <div class="col-md-4"><a class="item">待发货订单<span class="red">13</span>个</a></div>
+            <div class="col-md-4"><a class="item">待退货订单<span class="red">14</span>个</a></div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>商品</h2>
+        </div>
+        <div class="groupBody">
+          <div class="row">
+            <div class="col-md-4"><a class="item">已上架商品<span class="red">12</span>个</a></div>
+            <div class="col-md-4"><a class="item">待上架商品<span class="red">13</span>个</a></div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>品牌</h2>
+        </div>
+        <div class="groupBody">
+          <div class="row">
+            <div class="col-md-4"><a class="item">已通过审核<span class="red">12</span>个</a></div>
+            <div class="col-md-4"><a class="item">未通过审核<span class="red">13</span>个</a></div>
+          </div>
+        </div>
+        <div class="group">
+          <h2>概况</h2>
+        </div>
         <div>
-          <div class="row">
-              <div class="col-lg-12">
-                  <h1 class="page-header">订单</h1>
-              </div>
+          <p class="itemTitle gray">每日销售</p>
+          <div class="plot">
+            <canvas width="500" height="300" id="sale"></canvas>
           </div>
-          <div class="row">
-              <div class="col-lg-3 col-md-6">
-                  <div class="panel panel-red">
-                      <div class="panel-heading">
-                          <div class="row">
-                              <div class="col-xs-3">
-                                  <i class="fa fa-forward fa-5x"></i>
-                              </div>
-                              <div class="col-xs-9 text-right">
-                                  <div class="huge">6</div>
-                                  <div>待发货订单</div>
-                              </div>
-                          </div>
-                      </div>
-                      <a href="#">
-                          <div class="panel-footer">
-                              <span class="pull-left">查看详细</span>
-                              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                              <div class="clearfix"></div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="panel panel-red">
-                      <div class="panel-heading">
-                          <div class="row">
-                              <div class="col-xs-3">
-                                  <i class="fa fa-backward fa-5x"></i>
-                              </div>
-                              <div class="col-xs-9 text-right">
-                                  <div class="huge">12</div>
-                                  <div>待退货订单</div>
-                              </div>
-                          </div>
-                      </div>
-                      <a href="#">
-                          <div class="panel-footer">
-                              <span class="pull-left">查看详细</span>
-                              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                              <div class="clearfix"></div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="panel panel-red">
-                      <div class="panel-heading">
-                          <div class="row">
-                              <div class="col-xs-3">
-                                  <i class="fa fa-credit-card fa-5x"></i>
-                              </div>
-                              <div class="col-xs-9 text-right">
-                                  <div class="huge">18</div>
-                                  <div>待付款订单</div>
-                              </div>
-                          </div>
-                      </div>
-                      <a href="#">
-                          <div class="panel-footer">
-                              <span class="pull-left">查看详细</span>
-                              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                              <div class="clearfix"></div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-lg-12">
-                  <h1 class="page-header">商品</h1>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-lg-3 col-md-6">
-                  <div class="panel panel-primary">
-                      <div class="panel-heading">
-                          <div class="row">
-                              <div class="col-xs-3">
-                                  <i class="fa fa-bullhorn fa-5x"></i>
-                              </div>
-                              <div class="col-xs-9 text-right">
-                                  <div class="huge">6</div>
-                                  <div>已上架商品</div>
-                              </div>
-                          </div>
-                      </div>
-                      <a href="#">
-                          <div class="panel-footer">
-                              <span class="pull-left">查看详细</span>
-                              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                              <div class="clearfix"></div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="panel panel-primary">
-                      <div class="panel-heading">
-                          <div class="row">
-                              <div class="col-xs-3">
-                                  <i class="fa fa-user fa-5x"></i>
-                              </div>
-                              <div class="col-xs-9 text-right">
-                                  <div class="huge">12</div>
-                                  <div>待上架商品</div>
-                              </div>
-                          </div>
-                      </div>
-                      <a href="#">
-                          <div class="panel-footer">
-                              <span class="pull-left">查看详细</span>
-                              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                              <div class="clearfix"></div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-lg-12">
-                  <h1 class="page-header">品牌</h1>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-lg-3 col-md-6">
-                  <div class="panel panel-yellow">
-                      <div class="panel-heading">
-                          <div class="row">
-                              <div class="col-xs-3">
-                                  <i class="fa fa-comments fa-5x"></i>
-                              </div>
-                              <div class="col-xs-9 text-right">
-                                  <div class="huge">6</div>
-                                  <div>已通过审核</div>
-                              </div>
-                          </div>
-                      </div>
-                      <a href="#">
-                          <div class="panel-footer">
-                              <span class="pull-left">查看详细</span>
-                              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                              <div class="clearfix"></div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-              <div class="col-lg-3 col-md-6">
-                  <div class="panel panel-yellow">
-                      <div class="panel-heading">
-                          <div class="row">
-                              <div class="col-xs-3">
-                                  <i class="fa fa-user fa-5x"></i>
-                              </div>
-                              <div class="col-xs-9 text-right">
-                                  <div class="huge">12</div>
-                                  <div>未通过审核</div>
-                              </div>
-                          </div>
-                      </div>
-                      <a href="#">
-                          <div class="panel-footer">
-                              <span class="pull-left">查看详细</span>
-                              <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                              <div class="clearfix"></div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-lg-12">
-                  <h1 class="page-header">概况</h1>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-lg-6">
-                  <div class="panel panel-default">
-                      <div class="panel-heading">每日销售</div>
-                      <div class="panel-body" ng-controller="MainChartCtrl">
-                          <canvas id="sales" class="chart chart-line chart-xl" data="sales.data" labels="sales.labels" legend="true" click="sales.onClick" series="sales.series"></canvas>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-6">
-                  <div class="panel panel-default">
-                      <div class="panel-heading">分销商数量</div>
-                      <div class="panel-body" ng-controller="MainChartCtrl">
-                          <canvas id="retailer" class="chart chart-line" data="retailer.data" labels="retailer.labels" series="retailer.series" options="retailer.options" legend="true"></canvas>
-                      </div>
-                  </div>
-              </div>
+          <p class="itemTitle gray">分销商数量</p>
+          <div class="plot">
+            <canvas width="500" height="300" id="retailerNum"></canvas>
           </div>
         </div>
       </div>
@@ -238,5 +80,45 @@
     <script type="text/javascript" src="plugs/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="plugs/Chart.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          var ctxSale = document.getElementById('sale').getContext('2d');
+          var saleData = {
+              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              datasets: [
+                  {
+                      label: "My First dataset",
+                      fillColor: "rgba(220,220,220,0.2)",
+                      strokeColor: "rgba(220,220,220,1)",
+                      pointColor: "rgba(220,220,220,1)",
+                      pointStrokeColor: "#fff",
+                      pointHighlightFill: "#fff",
+                      pointHighlightStroke: "rgba(220,220,220,1)",
+                      data: [65, 59, 80, 81, 56, 55, 40]
+                  }
+              ]
+          };
+          new Chart(ctxSale).Line(saleData, {});
+      
+          var ctxRetailer =  document.getElementById('retailerNum').getContext('2d');
+          var retailerData = {
+              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              datasets: [
+                  {
+                      label: "My Second dataset",
+                      fillColor: "rgba(151,187,205,0.2)",
+                      strokeColor: "rgba(151,187,205,1)",
+                      pointColor: "rgba(151,187,205,1)",
+                      pointStrokeColor: "#fff",
+                      pointHighlightFill: "#fff",
+                      pointHighlightStroke: "rgba(151,187,205,1)",
+                      data: [28, 48, 40, 19, 86, 27, 90]
+                  }
+              ]
+          };
+          new Chart(ctxRetailer).Line(retailerData, {});
+      })
+    </script>
   </body>
 </html>
