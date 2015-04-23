@@ -105,7 +105,7 @@ body {
 }
 .nav-address{
     clear: both;
-    margin-left: 25px;
+    margin:100px 0px 0px 25px;
 }
 
 .navbar-static-top {
@@ -115,8 +115,9 @@ body {
 
 @media screen and (min-width: 768px) {
     .navbar-static-top {
-        height: 144px;
-        padding: 37px 0;
+        /*height: 144px;*/
+        
+        padding: 37px 0px 10px 0px;
     }
 }
 
@@ -138,7 +139,8 @@ body {
 }
 
 .sidebar .nav>li>a:focus,
-.sidebar .nav>li>a:hover {
+.sidebar .nav>li>a:hover,
+.sidebar .nav>li>a.active {
     background-color: #e6f5fb;
     color: #069dd5;
     border: 1px solid #afd6e5;

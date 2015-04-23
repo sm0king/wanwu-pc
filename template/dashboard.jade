@@ -9,6 +9,7 @@ html
             title 面板        
         link(rel='stylesheet',href='#{basePath}plugs/bootstrap/css/bootstrap.min.css') 
         link(rel='stylesheet', href='#{basePath}css/font-awesome/css/font-awesome.min.css')
+        link(rel='stylesheet', href='#{basePath}plugs/datetimepicker/bootstrap-datetimepicker.min.css')
         link(rel='stylesheet', href='#{basePath}css/main.css')
         link(rel='stylesheet', href='#{basePath}js/metisMenu/metisMenu.min.css')
         link(rel='stylesheet', href='#{basePath}css/sb-admin-2.css')     
@@ -42,11 +43,16 @@ html
                             li(ui-sref-active='active')
                                 a(href='#{basePath}capital/index.html') 资金管理
                             li(ui-sref-active='active')
-                                a(href='#{basePath}info/index.html') 信息维护      
+                                a(href='#{basePath}info/index.html') 信息维护    
+                div.nav-address
+                    首页 > 商品管理 > 商品详情        
             #page-wrapper
                     block Right
         script(type='text/javascript',src='#{basePath}plugs/jquery/jquery.min.js')
         script(type='text/javascript',src='#{basePath}plugs/bootstrap/js/bootstrap.min.js')
+        script(type='text/javascript',src='#{basePath}plugs/datetimepicker/bootstrap-datetimepicker.min.js')
+        script(type='text/javascript',src='#{basePath}plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js')
         script(type='text/javascript',src='#{basePath}js/metisMenu/metisMenu.min.js')
         script(type='text/javascript',src='#{basePath}js/sb-admin-2.js')
+        script(type='text/javascript',src='#{basePath}js/dialog.js')
         block foot
