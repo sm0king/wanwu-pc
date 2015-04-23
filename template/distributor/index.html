@@ -1,1 +1,97 @@
-wwww
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+    link(rel='stylesheet', href='../css/product.css')
+    link(rel='stylesheet', href='../css/distributor.css')
+
+block DashboardTitle
+    品牌管理
+
+block Right    
+    .product.distributor.
+        <form action="#" class="form-inline">
+            <div class="form-group">
+                <label for="productName">分销商：</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="state">账号状态：</label>
+                <div class="dropdown inline">
+                    <select name="" id="state" class="form-control">
+                        <option value="0">全部</option>
+                        <option value="1">启用</option>
+                        <option value="2">停用</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <button class="btn btn-blue">查询</button>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td width="20%">分销商名称</td>
+                        <td width="20%">账号状态</td>
+                        <td width="20%">创建时间</td>
+                        <td width="20%">修改时间</td>
+                        <td width="20%">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pro in productList">
+                        <td class="product-td-img">
+                            <p class="disname">分销商名称</p>
+                            <p class="dismess">109个商品已上架</p>
+                        </td>
+                        <td>
+                            <p class="distributor-sta1">启用</p>
+                        </td>
+                        <td class="center">2015-3-14</td>
+                        <td class="center">2015-3-14</td>
+                        <td>
+                            <div class="row product-operator">
+                                <div>
+                                    <a href="detail.html" class="edit"></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr ng-repeat="pro in productList">
+                        <td class="product-td-img">
+                            <p class="disname">分销商名称</p>
+                            <p class="dismess">109个商品已上架</p>
+                        </td>
+                        <td>
+                            <p class="distributor-sta2">停用</p>
+                        </td>
+                        <td class="center">2015-3-14</td>
+                        <td class="center">2015-3-14</td>
+                        <td>
+                            <div class="row product-operator">
+                                <div>
+                                    <a href="detail.html" class="edit"></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <nav>
+            <ul class="pagination">
+                <li><a href="javascript:;" aria-label="Previous">&lt;</a></li>
+                <li><a href="javascript:;">1</a></li>
+                <li><a href="javascript:;">2</a></li>
+                <li><a href="javascript:;">3</a></li>
+                <li><a href="javascript:;">4</a></li>
+                <li><a href="javascript:;">5</a></li>
+                <li><a class="more" href="javascript:;">...</a></li>
+                <li><a href="javascript:;" aria-label="Next"><span aria-hidden="true">&gt;</span></a></li>
+                <li class="pagin-extend">共
+                    <i class="totalPage">7</i>页，到第<input type="text" class="text-input">页
+                    <button class="btn btn-blue">确定</button>
+                </li>
+            </ul>
+        </nav>
