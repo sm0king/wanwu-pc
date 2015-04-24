@@ -1,0 +1,78 @@
+
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+    link(rel='stylesheet', href='../css/message.css')   
+
+block DashboardTitle
+    站内信
+
+block Right 
+    .msg
+        .headBar
+            button(type='button').btn.btn-red 删除
+            input(type='checkbox')#checkAll
+            label(for='checkAll') 全选
+        div.msgList#msgList
+            table.table
+                tr
+                    td.ck
+                        input(type='checkbox')
+                    td.face
+                        img(src='../img/logo.png')
+                    td
+                        p 
+                            a(href='defail.html') 北京麦极创意科技有限公司
+                        p.gray 我现在租了一间底店，本来想用原来房营...
+                    td.oper
+                        p 2015-3-16  16:20:06
+                        .btns
+                            a.blue.btn-quickBack(href='javascript:;') 快速回复
+                            a.red(href='javascript:;') 删除
+                            .quickBack
+                                .input-group
+                                    input(type='text').form-control
+                                    span.input-group-btn
+                                        button.btn(type='button').reply 回复
+                tr
+                    td.ck
+                        input(type='checkbox')
+                    td.face
+                        img(src='../img/logo.png')
+                    td
+                        p 
+                            a(href='defail.html') 北京麦极创意科技有限公司
+                        p.gray 我现在租了一间底店，本来想用原来房营...
+                    td.oper
+                        p 2015-3-16  16:20:06
+                        .btns
+                            a.blue.btn-quickBack(href='javascript:;') 快速回复
+                            a.red(href='javascript:;') 删除
+                            .quickBack
+                                .input-group
+                                    input(type='text').form-control
+                                    span.input-group-btn
+                                        button.btn(type='button').reply 回复
+block foot
+    script(type='text/javascript').
+        $(function(){
+            $('#msgList').delegate('a.btn-quickBack', 'click', function(e){
+                setTimeout(function(){
+                    $(e.currentTarget).parent().addClass('viewQuickBack').find('input').val('').focus();
+                    $(document.body).one('click', function(){
+                        $(e.currentTarget).parent().removeClass('viewQuickBack');
+                    });
+                }, 0);
+            })
+            .delegate('button.reply', 'click', function(e){
+                $(e.currentTarget).parents('.viewQuickBack:first').removeClass('viewQuickBack');
+            })
+            .delegate('div.quickBack', 'click', function(e){ e.stopPropagation(); });
+            $('#checkAll').click(function(){
+                var checked = $(this).prop('checked');
+                $('#msgList').find(':checkbox').prop('checked', checked);
+            })
+        });
+    

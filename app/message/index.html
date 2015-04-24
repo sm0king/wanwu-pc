@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>面板        </title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/message.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            站内信</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
+              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
+              <li ui-sref-active="active"><a href="../info/index.html">信息维护    </a></li>
+              <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="msg">
+          <div class="headBar">
+            <button type="button" class="btn btn-red">删除</button>
+            <input type="checkbox" id="checkAll"/>
+            <label for="checkAll">全选</label>
+          </div>
+          <div id="msgList" class="msgList">
+            <table class="table">
+              <tr>
+                <td class="ck">
+                  <input type="checkbox"/>
+                </td>
+                <td class="face"><img src="../img/logo.png"/></td>
+                <td>
+                  <p> <a href="defail.html">北京麦极创意科技有限公司</a></p>
+                  <p class="gray">我现在租了一间底店，本来想用原来房营...</p>
+                </td>
+                <td class="oper">
+                  <p>2015-3-16  16:20:06</p>
+                  <div class="btns"><a href="javascript:;" class="blue btn-quickBack">快速回复</a><a href="javascript:;" class="red">删除</a>
+                    <div class="quickBack">
+                      <div class="input-group">
+                        <input type="text" class="form-control"/><span class="input-group-btn">
+                          <button type="button" class="btn reply">回复</button></span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="ck">
+                  <input type="checkbox"/>
+                </td>
+                <td class="face"><img src="../img/logo.png"/></td>
+                <td>
+                  <p> <a href="defail.html">北京麦极创意科技有限公司</a></p>
+                  <p class="gray">我现在租了一间底店，本来想用原来房营...</p>
+                </td>
+                <td class="oper">
+                  <p>2015-3-16  16:20:06</p>
+                  <div class="btns"><a href="javascript:;" class="blue btn-quickBack">快速回复</a><a href="javascript:;" class="red">删除</a>
+                    <div class="quickBack">
+                      <div class="input-group">
+                        <input type="text" class="form-control"/><span class="input-group-btn">
+                          <button type="button" class="btn reply">回复</button></span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('#msgList').delegate('a.btn-quickBack', 'click', function(e){
+              setTimeout(function(){
+                  $(e.currentTarget).parent().addClass('viewQuickBack').find('input').val('').focus();
+                  $(document.body).one('click', function(){
+                      $(e.currentTarget).parent().removeClass('viewQuickBack');
+                  });
+              }, 0);
+          })
+          .delegate('button.reply', 'click', function(e){
+              $(e.currentTarget).parents('.viewQuickBack:first').removeClass('viewQuickBack');
+          })
+          .delegate('div.quickBack', 'click', function(e){ e.stopPropagation(); });
+          $('#checkAll').click(function(){
+              var checked = $(this).prop('checked');
+              $('#msgList').find(':checkbox').prop('checked', checked);
+          })
+      });
+    </script>
+  </body>
+</html>

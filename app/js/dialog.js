@@ -14,7 +14,7 @@
                             '<div class="modal-body">'+
                             '</div>' +
                             '<div class="modal-footer">'+
-                                '<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>'+
+
                             '</div>'+
                         '</div>'+
                     '</div>'+
@@ -37,21 +37,76 @@
         if (options.size) {
             jqModal.children('.modal-dialog').addClass('modal-' + options.size)
         }
-
+        if (options.buttons) {
+            var foot = jqModal.find('.modal-footer').empty();
+            for(var i = 0;i < options.buttons.length;i++){
+                var button = options.buttons[ i ],
+                    btn = $('<button class="btn btn-' + (button.style ? button.style : 'default') + '">' + button.text + '</button>').click(
+                        (function(option){
+                            return function(){
+                                $.isFunction(option.click) && option.click($(this).parents('.modal:first'));
+                            };
+                        })(button)
+                    );
+                foot.append(btn);
+            }
+        }
         jqModal.modal(options);
     }
 
-    function onDialogHidden(e){
+    function onDialogHidden(e){        
+        var data = jqModal.data('options');
+        if (data && $.isFunction(data.callback)) {
+            data.callback(!!data.result);
+        }
         jqModal
         .children('.modal-dialog').removeClass('modal-sm modal-lg')
         .find('#myModalLabel,.modal-body').empty();
-        var data = jqModal.data('options');
-        if (data && $.isFunction(data.callback)) {
-            data.callback();
-        }
     }
 
     $.alert = function(text, callback){
-        showDialog({ title: '警告', content: text ,callback: callback, size: 'sm'  });
+        showDialog({ 
+            title: '警告', 
+            content: text ,
+            callback: callback, 
+            size: 'sm',
+            buttons: [
+                {
+                    text: '确定',
+                    click: function(jqModal){
+                        jqModal.modal('hide');
+                    }
+                }
+
+            ] 
+        });
     }
+
+    $.confirm = function(text, callback){
+        showDialog({ 
+            title: '警告', 
+            content: text, 
+            callback: callback, 
+            size: 'sm',
+            buttons: [
+                {
+                    text: '关闭',
+                    click: function(jqModal){
+                        jqModal.modal('hide');
+                    }
+                },
+                {
+                    text: '确定',
+                    style: 'primary',
+                    click: function(jqModal){
+                        jqModal.data('options').result = true;
+                        jqModal.modal('hide');
+                    }
+                }
+
+            ]
+        })
+    }
+
+    $.dialog = showDialog;
 })(jQuery);

@@ -1,0 +1,38 @@
+
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+    link(rel='stylesheet', href='../css/message.css')   
+
+block DashboardTitle
+    站内信详情
+
+block Right 
+    .msg
+        .titleBar
+            img(src='../img/logo.png')
+            span 北京麦极创意科技有限公司
+        .msgGroup.panel.panel-default
+            .panel-body
+                p 相关订单：1234567890
+                .panel.panel-default
+                    .panel-heading
+                        span.date.gray 2015-3-16  16:20:06
+                        img(src='../img/logo.png').smallFace
+                        span 分销商名称
+                    .panel-body
+                        公务员考试迟早会退烧，但现在还没到时候。即便降温，仍有一些岗位被视为香饽饽。人们关注公务员冷热，折射出一种焦虑，即希望公务员岗位正常一些，别被过度解读。
+                .panel.panel-default
+                    .panel-heading
+                        span.date.gray 2015-3-16  16:20:06
+                        img(src='../img/logo.png').smallFace
+                        span 分销商名称
+                    .panel-body
+                        公务员考试迟早会退烧，但现在还没到时候。即便降温，仍有一些岗位被视为香饽饽。人们关注公务员冷热，折射出一种焦虑，即希望公务员岗位正常一些，别被过度解读。
+        form.replyForm
+            .form-group
+                textarea.form-control
+            .form-group
+                button.btn.btn-blue.pull-right 回复

@@ -1,0 +1,20 @@
+
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+    link(rel='stylesheet', href='../css/payment.css')   
+
+block DashboardTitle
+    支付成功
+
+block Right 
+    .payment
+        .result
+            .body
+                | 您已成功支付
+                span.money ￥999.99
+                span.unit.gray 元
+            div
+                button.btn.btn-bigblue 关闭页面

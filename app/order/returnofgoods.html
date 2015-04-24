@@ -29,6 +29,7 @@
               <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
               <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
               <li ui-sref-active="active"><a href="../info/index.html">信息维护    </a></li>
+              <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
             </ul>
           </div>
         </div>
@@ -93,7 +94,7 @@
                     <td>015-03-12 17:38:48</td>
                     <td>等待发货</td>
                     <td>客户要求每盒颜色不能重复</td>
-                    <td class="orderOperator"><a class="blue">确认退货</a><a class="blue">拒绝反馈</a><a href="detail.html" class="blue">订单详情</a><a class="blue">退款</a></td>
+                    <td class="orderOperator"><a class="blue">确认退货</a><a class="blue doReject">拒绝反馈</a><a href="detail.html" class="blue">订单详情</a><a class="blue">退款</a></td>
                   </tr>
                   <tr class="titleTR">
                     <td colspan="2">
@@ -119,10 +120,30 @@
                     <td>015-03-12 17:38:48</td>
                     <td>等待发货</td>
                     <td>客户要求每盒颜色不能重复</td>
-                    <td class="orderOperator"><a class="blue">确认退货</a><a class="blue">拒绝反馈</a><a href="detail.html" class="blue">订单详情</a><a class="blue">退款</a></td>
+                    <td class="orderOperator"><a class="blue">确认退货</a><a class="blue doReject">拒绝反馈</a><a href="detail.html" class="blue">订单详情</a><a class="blue">退款</a></td>
                   </tr>
                 </tbody>
               </table>
+            </div>
+            <div class="hidden">
+              <form id="returnofgoodsForm" class="form-horizontal">
+                <div class="alert alert-danger">拒绝退货可能引起分销商投诉，请谨慎操作！</div>
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <label class="control-label">拒绝退货原因：</label>
+                  </div>
+                  <div class="col-sm-12">
+                    <textarea class="form-control"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12">选择图片上传（可选）：</div>
+                  <div class="col-sm-12 imgs">
+                    <div><img src="../img/logo.png"/><a class="btn-fork removeImg"></a></div>
+                    <div><a class="upload"></a></div>
+                  </div>
+                </div>
+              </form>
             </div>
             <div class="foot">
               <nav>
@@ -156,6 +177,29 @@
           $('#checkAll').change(function(){
               var checked = $(this).prop('checked');
               $('.orderlist input[type=checkbox]').prop('checked', checked);
+          });
+          $(document.body).delegate('a.removeImg','click', function(e){
+              $(e.currentTarget).parent().remove();
+          });
+          $(document.body).delegate('.doReject', 'click', function(e){
+              $.dialog({
+                  content: $('#returnofgoodsForm').clone(),
+                  title: '拒绝退货',
+                  buttons: [
+                      {
+                          text: '取消',
+                          click: function(dialog){ dialog.modal('hide'); }
+                      },
+                      {
+                          text: '确定',
+                          style: 'primary',
+                          click: function(dialog){
+                              //TODO:
+                              dialog.modal('hide');
+                          }
+                      }
+                  ]
+              });
           });
       });
     </script>

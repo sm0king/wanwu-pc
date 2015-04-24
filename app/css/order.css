@@ -160,3 +160,67 @@
 .order .timeTD{
     width:160px;
 }
+
+/* 无货反馈对话框 */
+#noStockForm .noStockProducts{
+    margin-bottom: 15px;
+}
+#noStockForm .noStockProducts>div{
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+#noStockForm .noStockProducts img{
+    width:52px;
+    height: 52px;
+    margin:10px;
+    border:1px solid #e1e1e1;
+}
+#noStockForm .noStockProducts .ok{
+    display: none;
+    position: absolute;
+    right: 10px;
+    bottom:10px;
+    width:16px;
+    height: 16px;
+    background-color: white;
+    background-size: 100% 100%;
+}
+#noStockForm .noStockProducts .checked .ok{
+    display: block;
+}
+#noStockForm textarea{
+    height: 150px;
+    resize:none;
+}
+/* 取消订单对话框 */
+#returnofgoodsForm .imgs>div{
+    display: inline-block;
+    margin:5px;
+    border:1px solid #e1e1e1;
+    cursor: pointer;
+    vertical-align: top;
+    position: relative;
+}
+#returnofgoodsForm .imgs img{
+    width:52px;
+    height: 52px;
+}
+#returnofgoodsForm .imgs a.upload{
+    display: inline-block;
+    width:52px;
+    height: 52px;
+    background: url(../img/add.png) center center no-repeat;
+}
+#returnofgoodsForm textarea{
+    margin-top: 5px;
+    resize:none;
+    height: 150px;
+}
+#returnofgoodsForm .btn-fork{
+    position: absolute;
+    right: 0px;
+    top:0px;
+    width:10px;
+    height: 10px;
+}

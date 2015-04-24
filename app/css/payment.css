@@ -1,0 +1,53 @@
+.payment .headerBar{
+    margin:35px 0px;
+}
+.payment .money{
+    color:red;
+    font-weight: bold;
+    font-size: 22px;
+    margin-left: 45px;
+}
+.payment .unit{
+    font-size: 16px;
+    margin-left: 10px;
+}
+.payment .option{
+    display: inline-block;
+    margin:0px 13px 15px 13px;
+}
+.payment .payOption{
+    background-color: #fffceb;
+    padding-top: 10px;
+}
+.payment .payOption img{
+    width:130px;
+    height: 37px;
+    margin-left: 22px;
+}
+.payment .middleBar{
+    margin-bottom: 24px;
+}
+.payment .footBar{
+    margin-top: 38px;
+}
+.payment #payment{
+    width:112px;
+    height: 42px;
+    font-size: 18px;
+    
+}
+/* 支付成功 */
+.payment .result {
+    text-align: center;
+    position: absolute;
+    top:45%;
+    left:50%;
+    margin-top: -55px;
+    margin-left: -110px;
+}
+.payment .body{
+    margin-bottom: 33px;
+}
+.payment .result .money{
+    margin-left: 15px;
+}
