@@ -4,12 +4,61 @@ block Define
 
 block header
 
-    link(rel='stylesheet', href='../css/product.css')     
+    link(rel='stylesheet', href='../css/product.css')
+    link(rel='stylesheet', href='../css/distributor.css')  
 
 block DashboardTitle
     分销商详情
 
 block Right
     form(action='#').form-horizontal.product-detail.distributor-detail.
-    <input type="text" class="btn btn-default" value="启用编辑"></input>
-    <input type="text" class="btn btn-default" value="重置密码"></input>
+        <div class="disdet-action">
+            <p><input type="text" class="btn btn-default disdet-lf" value="启用编辑"></input></p>
+            <p>
+                <input type="text" class="btn btn-default disdet-lf" value="重置密码"></input>
+                <span>密码已发送到手机</span>
+            </p>
+        </div>
+        <div class="form-group disdet-fg">
+            <label for="productBrand" class="control-label disdet-lf">登录账号：</label>
+            <span class="IDaction">gys001</span>
+            <label class="IDaction">
+                <input type="checkbox"> 封停账号
+            </label>
+        </div>
+        <div class="form-group disdet-fg">
+            <label for="phone-number" class="control-label disdet-lf">绑定手机号：</label> 
+            <div class="col-sm-3">
+                <input class="form-control" id="phone-number" name="phone-number" type="text" autofocus>
+            </div>
+        </div>
+        <div class="form-group disdet-fg">
+            <label class="control-label disdet-lf">绑定店铺：</label> 
+            <ul class="media-list">
+                <li class="media">
+                    <div class="media-left"><a href="#"><img src="#" alt="" class="media-object"></a></div>
+                    <div class="media-body">
+                        <h4>店铺名称</h4>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="media-left"><a href="#"><img src="#" alt="" class="media-object"></a></div>
+                    <div class="media-body">
+                        <h4>店铺名称</h4>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="media-left"><a href="#"><img src="#" alt="" class="media-object"></a></div>
+                    <div class="media-body">
+                        <h4>店铺名称</h4>
+                    </div>
+                </li>
+                <li class="media">
+                    <div class="media-left"><a href="#"><img src="#" alt="" class="media-object"></a></div>
+                    <div class="media-body">
+                        <h4>店铺名称</h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    
