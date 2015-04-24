@@ -16,3 +16,30 @@
 .distributor .table>tbody>tr>td{
     height: auto;
 }
+.disdet-lf{
+    width: 95px;
+}
+.IDaction{
+    padding-top: 7px;
+    padding-right: 46px;
+    float: left;
+}
+.distributor-detail .disdet-fg{
+    margin-left: 0;
+}
+.distributor-detail .disdet-lf{
+    margin-right: 20px;
+}
+.distributor-detail .disdet-action{
+    margin-bottom: 30px;
+}
+.distributor-detail .media-list{
+    margin-left: 124px;
+}
+.distributor-detail .media-left .media-object{
+    width: 48px;
+    height: 22px;
+}
+.distributor-detail .media-body, .distributor-detail .media-left, .distributor-detail .media-right{
+    vertical-align: middle;
+}
