@@ -1,3 +1,5 @@
+block Define
+    -var basePath = '';
 <!doctype html>
 html
     head
@@ -5,9 +7,11 @@ html
         meta(name='viewport',content='width=device-width')
         block title
             title 万物        
-        link(rel='stylesheet',href='plugs/bootstrap/css/bootstrap.min.css')      
+        link(rel='stylesheet',href='plugs/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='#{basePath}css/foot.css')    
         block header
     body
         block content
         script(type='text/javascript',src='plugs/jquery/jquery.min.js')
         block foot
+    include foot.jade

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width"/>
     <title>万物        </title>
     <link rel="stylesheet" href="plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/foot.css"/>
     <link rel="stylesheet" href="css/main.css"/>
   </head>
   <body>
@@ -25,18 +26,13 @@
               <span class="m-pro-con">填写手机号</span>
           </div>
           <div class="dib pro-line yes"></div>
-          <div class="m-pro yes dib">
-              <div class="pro-sta pro-sta2">2</div>
-              <span class="m-pro-con">验证身份</span>
-          </div>
-          <div class="dib pro-line no"></div>
-          <div class="m-pro no dib">
-              <div class="pro-sta pro-sta3">3</div>
+          <div class="m-pro dib yes">
+              <div class="pro-sta pro-sta3">2</div>
               <span class="m-pro-con">重置密码</span>
           </div>
           <div class="dib pro-line no"></div>
           <div class="m-pro no dib">
-              <div class="pro-sta pro-sta4">4</div>
+              <div class="pro-sta pro-sta4">3</div>
               <span class="m-pro-con">成功</span>
           </div>
       </div>
@@ -44,19 +40,15 @@
           <form action="" class="form-horizontal">
               <fieldset>
                   <div class="form-group">
-                      <label class="col-sm-2 control-label" for="phone-number">手机号</label>
+                      <label class="col-sm-2 control-label" for="password">密码：</label>
                       <div class="col-sm-8">
-                          <input class="form-control" id="phone-number" name="usearname" type="text" autofocus>
+                          <input class="form-control" id="password" name="password" type="password" autofocus>
                       </div>
                   </div>
                   <div class="form-group">
-                      <label class="col-sm-2 control-label" for="captcha">验证码</label>
+                      <label class="col-sm-2 control-label" for="repassword">重复密码：</label>
                       <div class="col-sm-8">
-                          <div class="input-group">
-                              <input class="form-control captcha" id="captcha" name="captcha" type="text">
-                              <div class="input-group-addon ph-captcha">获取短信验证码
-                              </div>
-                          </div>
+                          <input class="form-control" id="repassword" name="repassword" type="password" autofocus>
                       </div>
                   </div>
                   <div class="m-back-next">
@@ -71,4 +63,8 @@
     </div>
     <script type="text/javascript" src="plugs/jquery/jquery.min.js"></script>
   </body>
+  <div class="footer">
+  <p><a href="">服务协议</a>| <a href="">联系我们</a> | 客服电话：400-000-0011</p>
+  <p class="comp">Copyright © 2015 万物wanwu.com版权所有 蜀ICP备12345678号</p>
+  </div>
 </html>
