@@ -1,0 +1,12 @@
+.manageHome{
+    margin-top: 10px;
+}
+.manageHome .group-title{
+    color:#333333;
+    font-size: 18px;
+}
+.manageHome .list-group-item{
+    height: 65px;
+    line-height: 43px;
+    color:#666666;
+}

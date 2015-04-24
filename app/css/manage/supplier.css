@@ -1,0 +1,11 @@
+.supplier{
+    padding-top: 10px;
+}
+
+.supplier .form-inline>.form-group{
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+.supplier .form-inline>.form-group:last-child{
+    margin-right: 0px;
+}

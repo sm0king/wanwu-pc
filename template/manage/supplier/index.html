@@ -1,0 +1,56 @@
+extends ../master.jade
+
+block Define
+    -var basePath = '../../';
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/manage/supplier.css')
+
+block DashboardTitle
+    供应商管理
+
+block Right
+    .supplier
+        form.form-inline
+            .form-group
+                label(for='input_supplier').control-label 供应商：
+                input(type='text').form-control#input_supplier
+            .form-group
+                label(for='select_audit').control-label 审核状态：
+                select.form-control#select_audit
+                    option(value='0') 全部
+                    option(value='1') 已审核
+                    option(value='2') 未审核
+            .form-group
+                label(for='select_account').control-label 账号状态：
+                select.form-control#select_audit
+                    option(value='0') 全部
+                    option(value='1') 冻结
+                    option(value='2') 活动
+            .clearfix
+                button.btn.btn-blue 查询
+        .table-responsive
+            table.table.table-bordered 
+                tbody
+                    tr.titleTR
+                        td &nbsp;
+                        td 审核状态
+                        td 账号状态
+                        td 创建时间
+                        td 修改时间
+                        td 操作
+                    tr.dataTR
+                        td
+                            p.supplier-name 供应商名称
+                            p 8个品牌已审核
+                            p 109个商品已上架
+                        td
+                            span.red 审核未通过
+                        td
+                            span.red 停用
+                        td
+                            2015-3-14 23:17:30
+                        td
+                            2015-3-14 23:17:30
+                        td
+                            a.edit

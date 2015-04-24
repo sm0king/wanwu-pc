@@ -9,6 +9,9 @@ body {
     font-family: 微软雅黑 "Helvetica Neue",Helvetica,Arial,sans-serif;
     padding-bottom: 0px;
 }
+a{
+    cursor: pointer;
+}
 
 #wrapper {
     width: 100%;
