@@ -7,6 +7,7 @@
 body {
     background-color: #f8f8f8;
     font-family: 微软雅黑 "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-bottom: 0px;
 }
 
 #wrapper {
@@ -567,3 +568,8 @@ table.dataTable thead .sorting:after {
     margin:35px 0px;
 }
 
+/* 页脚 */
+.footer{
+    margin-top: 20px;
+    position: static;
+}

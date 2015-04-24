@@ -11,8 +11,9 @@ html
         link(rel='stylesheet', href='#{basePath}css/font-awesome/css/font-awesome.min.css')
         link(rel='stylesheet', href='#{basePath}plugs/datetimepicker/bootstrap-datetimepicker.min.css')
         link(rel='stylesheet', href='#{basePath}css/main.css')
-        link(rel='stylesheet', href='#{basePath}js/metisMenu/metisMenu.min.css')
-        link(rel='stylesheet', href='#{basePath}css/sb-admin-2.css')     
+        link(rel='stylesheet', href='#{basePath}js/metisMenu/metisMenu.min.css')        
+        link(rel='stylesheet', href='#{basePath}css/foot.css')   
+        link(rel='stylesheet', href='#{basePath}css/sb-admin-2.css')       
         block header
     body
         #wrapper
@@ -50,6 +51,7 @@ html
                     首页 > 商品管理 > 商品详情        
             #page-wrapper
                     block Right
+        include foot.jade
         script(type='text/javascript',src='#{basePath}plugs/jquery/jquery.min.js')
         script(type='text/javascript',src='#{basePath}plugs/bootstrap/js/bootstrap.min.js')
         script(type='text/javascript',src='#{basePath}plugs/datetimepicker/bootstrap-datetimepicker.min.js')
