@@ -7,6 +7,7 @@
 body {
     background-color: #f8f8f8;
     font-family: 微软雅黑 "Helvetica Neue",Helvetica,Arial,sans-serif;
+    padding-bottom: 0px;
 }
 
 #wrapper {
@@ -392,6 +393,13 @@ table.dataTable thead .sorting:after {
     text-align: center;
 }
 
+.btn-red{
+    background-color: red;
+    color:white!important;
+    text-align: center;
+    border-radius:0px;
+}
+
 .btn-search{
     background: url(../img/magnifier.png) 10px center no-repeat;
 }
@@ -492,6 +500,9 @@ table.dataTable thead .sorting:after {
 .blue{
     color:#069dd5!important;
 }
+.red{
+    color:#FF0000!important;
+}
 
 /* 选择银行卡 */
 .cardSelector{
@@ -557,3 +568,8 @@ table.dataTable thead .sorting:after {
     margin:35px 0px;
 }
 
+/* 页脚 */
+.footer{
+    margin-top: 20px;
+    position: static;
+}

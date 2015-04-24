@@ -2,6 +2,7 @@ extends master.jade
 block OrderDefine
     -var active = 0;
     -var pagin_right = true;
+    -var reason = "取消原因：";
 
 block title
     title 待发货订单
@@ -47,10 +48,10 @@ block OrderContent
                     td 等待发货
                     td 客户要求每盒颜色不能重复
                     td.orderOperator
-                        a.blue 发货
-                        a.blue 无货反馈
+                        a.blue.doExpress 发货
+                        a.blue.doNoStock 无货反馈
                         a.blue(href='detail.html') 订单详情
-                        a.blue 取消订单
+                        a.blue.doCancelOrder 取消订单
                 tr.titleTR
                     td(colspan='2') 
                         | 订单编号: 
@@ -75,10 +76,37 @@ block OrderContent
                     td 等待发货
                     td 客户要求每盒颜色不能重复
                     td.orderOperator
-                        a.blue 发货
-                        a.blue 无货反馈
+                        a.blue.doExpress 发货
+                        a.blue.doNoStock 无货反馈
                         a.blue(href='detail.html') 订单详情
-                        a.blue 取消订单
+                        a.blue.doCancelOrder 取消订单
+    .hidden
+        form.form-horizontal#expressForm
+            .form-group
+                label(for='expressCompany').control-label.col-sm-3 快递公司：
+                .col-sm-7
+                    select.form-control#expressCompany
+                        option(value='0') 顺丰
+                        option(value='1') 申通
+                        option(value='2') 圆通
+            .form-group
+                label(for='waybill').control-label.col-sm-3 运单号：
+                .col-sm-7
+                    input(type='text').form-control#inputWaybill
+        form.form-horizontal#noStockForm
+            .noStockProducts
+                div
+                    img(src='../img/logo.png').noStockProductImg
+                    .ok
+                div
+                    img(src='../img/logo.png').noStockProductImg
+                    .ok
+            .form-group
+                .col-sm-12
+                    label(for='input-noStock').control-label 无货原因：
+                .col-sm-12                
+                    textarea.form-control#input-noStock
+        include returnofgoodsForm.jade
     div.foot
         include ../pagination.jade
 block foot
@@ -88,5 +116,71 @@ block foot
                 var checked = $(this).prop('checked');
                 $('.orderlist input[type=checkbox]').prop('checked', checked);
             });
+            $(document.body).delegate('.doExpress', 'click', function(e){
+                $.dialog({
+                    content: $('#expressForm').clone(),
+                    title: '填写快递信息',
+                    buttons: [
+                        {
+                            text: '取消',
+                            click: function(dialog){ dialog.modal('hide'); }
+                        },
+                        {
+                            text: '确定',
+                            style: 'primary',
+                            click: function(dialog){
+                                //TODO:
+                                dialog.modal('hide');
+                            }
+                        }
+                    ]
+                });
+            });
+            $(document.body).delegate('.doNoStock', 'click', function(e){
+                $.dialog({
+                    content: $('#noStockForm').clone(),
+                    title: '无货反馈',
+                    buttons: [
+                        {
+                            text: '取消',
+                            click: function(dialog){ dialog.modal('hide'); }
+                        },
+                        {
+                            text: '确定',
+                            style: 'primary',
+                            click: function(dialog){
+                                //TODO:
+                                dialog.modal('hide');
+                            }
+                        }
+                    ]
+                });
+            });
+            $(document.body).delegate('.noStockProductImg', 'click', function(e){
+                $(e.currentTarget).parent().toggleClass('checked');
+            }).delegate('a.removeImg','click', function(e){
+                $(e.currentTarget).parent().remove();
+            });
+            $(document.body).delegate('.doCancelOrder', 'click', function(e){
+                $.dialog({
+                    content: $('#returnofgoodsForm').clone(),
+                    title: '取消订单',
+                    buttons: [
+                        {
+                            text: '取消',
+                            click: function(dialog){ dialog.modal('hide'); }
+                        },
+                        {
+                            text: '确定',
+                            style: 'primary',
+                            click: function(dialog){
+                                //TODO:
+                                dialog.modal('hide');
+                            }
+                        }
+                    ]
+                });
+            });
+
         });
 

@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../css/foot.css"/>
     <link rel="stylesheet" href="../css/sb-admin-2.css"/>
-    <link rel="stylesheet" href="../css/product.css"/>
+    <link rel="stylesheet" href="../css/message.css"/>
   </head>
   <body>
     <div id="wrapper">
       <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
         <div class="navbar-header">
           <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
-          <h3 class="navbar-line">            在售分销商</h3>
+          <h3 class="navbar-line">            站内信</h3>
         </div>
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
@@ -37,87 +37,57 @@
         <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
       </nav>
       <div id="page-wrapper">
-        <div class="retailer">
-          <div class="page-header">
-            <div class="row">
-              <div class="col-lg-2"><img src="../img/logo.png" class="img-thumbnail retailer-img"/></div>
-              <div class="col-lg-10">
-                <p class="product-name">苹果（Apple）iPhone 6 Plus (A1593) 16GB 深空灰色 移动4G手机</p>
-                <p class="grayText">食物>饮料>茶叶</p>
-              </div>
-            </div>
+        <div class="msg">
+          <div class="headBar">
+            <button type="button" class="btn btn-red">删除</button>
+            <input type="checkbox" id="checkAll"/>
+            <label for="checkAll">全选</label>
           </div>
-          <p class="retailer-count">在售分销商，共<span class="red">56</span>家</p>
-          <table class="table table-bordered retailer-table">
-            <thead>
+          <div id="msgList" class="msgList">
+            <table class="table">
               <tr>
-                <td>分销商名称</td>
-                <td>上架店铺</td>
-                <td>销量（30天）</td>
-                <td>销售额（30天）</td>
-                <td>联系分销商</td>
-                <td>是否允许分销</td>
-              </tr>
-            </thead>
-            <tbody id="retailerRows">
-              <tr>
-                <td class="leftTitle">分销商店铺名</td>
-                <td> 
-                  <div class="default"> 
-                    <button class="btn btn-default btn-block">3 / 3<span class="caret"></span></button>
-                  </div>
-                  <div class="extend text">京东</div>
-                  <div class="extend text">淘宝</div>
+                <td class="ck">
+                  <input type="checkbox"/>
                 </td>
+                <td class="face"><img src="../img/logo.png"/></td>
                 <td>
-                  <div class="default text">120</div>
-                  <div class="extend text">70</div>
-                  <div class="extend text">50</div>
+                  <p> <a href="defail.html">北京麦极创意科技有限公司</a></p>
+                  <p class="gray">我现在租了一间底店，本来想用原来房营...</p>
                 </td>
-                <td>
-                  <div class="default text">120</div>
-                  <div class="extend text">80</div>
-                  <div class="extend text">40</div>
-                </td>
-                <td>
-                  <div class="default text"><a class="contact"></a></div>
-                </td>
-                <td>
-                  <div class="default">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"/>允许分销
-                      </label>
-                    </div>
-                  </div>
-                  <div class="extend">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"/>允许分销
-                      </label>
-                    </div>
-                  </div>
-                  <div class="extend">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"/>允许分销
-                      </label>
+                <td class="oper">
+                  <p>2015-3-16  16:20:06</p>
+                  <div class="btns"><a href="javascript:;" class="blue btn-quickBack">快速回复</a><a href="javascript:;" class="red">删除</a>
+                    <div class="quickBack">
+                      <div class="input-group">
+                        <input type="text" class="form-control"/><span class="input-group-btn">
+                          <button type="button" class="btn reply">回复</button></span>
+                      </div>
                     </div>
                   </div>
                 </td>
               </tr>
-            </tbody>
-          </table>
-          <div class="foot">
-            <nav>
-              <ul class="pagination">
-                <li><a href="javascript:;" aria-label="Previous"><span>&laquo;</span></a></li>
-                <li class="active"><a href="javascript:;">1</a></li>
-                <li><a href="javascript:;">2</a></li>
-                <li><a href="javascript:;">3</a></li>
-                <li><a href="javascript:;" aria-label="Next"> <span>&raquo;</span></a></li>
-              </ul>
-            </nav>
+              <tr>
+                <td class="ck">
+                  <input type="checkbox"/>
+                </td>
+                <td class="face"><img src="../img/logo.png"/></td>
+                <td>
+                  <p> <a href="defail.html">北京麦极创意科技有限公司</a></p>
+                  <p class="gray">我现在租了一间底店，本来想用原来房营...</p>
+                </td>
+                <td class="oper">
+                  <p>2015-3-16  16:20:06</p>
+                  <div class="btns"><a href="javascript:;" class="blue btn-quickBack">快速回复</a><a href="javascript:;" class="red">删除</a>
+                    <div class="quickBack">
+                      <div class="input-group">
+                        <input type="text" class="form-control"/><span class="input-group-btn">
+                          <button type="button" class="btn reply">回复</button></span>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
           </div>
         </div>
       </div>
@@ -135,9 +105,22 @@
     <script type="text/javascript" src="../js/dialog.js"></script>
     <script type="text/javascript">
       $(function(){
-          $('#retailerRows').delegate('button','click',function(e){
-              $(e.currentTarget).parents('tr:first').toggleClass('expand');
-          });
+          $('#msgList').delegate('a.btn-quickBack', 'click', function(e){
+              setTimeout(function(){
+                  $(e.currentTarget).parent().addClass('viewQuickBack').find('input').val('').focus();
+                  $(document.body).one('click', function(){
+                      $(e.currentTarget).parent().removeClass('viewQuickBack');
+                  });
+              }, 0);
+          })
+          .delegate('button.reply', 'click', function(e){
+              $(e.currentTarget).parents('.viewQuickBack:first').removeClass('viewQuickBack');
+          })
+          .delegate('div.quickBack', 'click', function(e){ e.stopPropagation(); });
+          $('#checkAll').click(function(){
+              var checked = $(this).prop('checked');
+              $('#msgList').find(':checkbox').prop('checked', checked);
+          })
       });
     </script>
   </body>

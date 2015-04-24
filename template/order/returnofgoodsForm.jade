@@ -1,0 +1,19 @@
+form.form-horizontal#returnofgoodsForm
+    if form_tip
+        .alert.alert-danger #{form_tip}
+    .form-group
+        .col-sm-12
+            label.control-label #{reason}
+        .col-sm-12
+            textarea.form-control
+    .form-group
+        .col-sm-12
+            选择图片上传（可选）：
+        .col-sm-12.imgs
+            div
+                img(src='../img/logo.png')
+                a.btn-fork.removeImg
+            div
+                a.upload
+
+        

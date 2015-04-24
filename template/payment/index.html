@@ -1,0 +1,42 @@
+
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+    link(rel='stylesheet', href='../css/payment.css')   
+
+block DashboardTitle
+    支付
+
+block Right 
+    .payment
+        .headerBar
+            | 为订单
+            a(href='javascript:;').blue 123456
+            | 支付
+            span.money ￥999.99
+            span.unit.gray 元
+        .middleBar 请选择支付方式
+        .payOption
+            .option
+                input(type='radio')
+                img(src='../img/logo.png')
+            .option
+                input(type='radio')
+                img(src='../img/logo.png')
+            div
+            .option
+                input(type='radio')
+                img(src='../img/logo.png')
+            .option
+                input(type='radio')
+                img(src='../img/logo.png')
+            .option
+                input(type='radio')
+                img(src='../img/logo.png')
+            .option
+                input(type='radio')
+                img(src='../img/logo.png')
+        .footBar
+            button.btn.btn-red#payment(onclick='location.href=\'success.html\'') 付款

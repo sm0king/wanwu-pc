@@ -2,6 +2,8 @@ extends master.jade
 block OrderDefine
     -var active = 1;
     -var pagin_right = true;
+    -var reason = "拒绝退货原因：";
+    -var form_tip = '拒绝退货可能引起分销商投诉，请谨慎操作！'
 
 block title
     title 待退货订单
@@ -58,7 +60,7 @@ block OrderContent
                     td 客户要求每盒颜色不能重复
                     td.orderOperator
                         a.blue 确认退货
-                        a.blue 拒绝反馈
+                        a.blue.doReject 拒绝反馈
                         a.blue(href='detail.html') 订单详情
                         a.blue 退款
                 tr.titleTR
@@ -86,9 +88,12 @@ block OrderContent
                     td 客户要求每盒颜色不能重复
                     td.orderOperator
                         a.blue 确认退货
-                        a.blue 拒绝反馈
+                        a.blue.doReject 拒绝反馈
                         a.blue(href='detail.html') 订单详情
                         a.blue 退款
+    .hidden
+        include returnofgoodsForm.jade
+
     div.foot
         include ../pagination.jade
 block foot
@@ -97,6 +102,29 @@ block foot
             $('#checkAll').change(function(){
                 var checked = $(this).prop('checked');
                 $('.orderlist input[type=checkbox]').prop('checked', checked);
+            });
+            $(document.body).delegate('a.removeImg','click', function(e){
+                $(e.currentTarget).parent().remove();
+            });
+            $(document.body).delegate('.doReject', 'click', function(e){
+                $.dialog({
+                    content: $('#returnofgoodsForm').clone(),
+                    title: '拒绝退货',
+                    buttons: [
+                        {
+                            text: '取消',
+                            click: function(dialog){ dialog.modal('hide'); }
+                        },
+                        {
+                            text: '确定',
+                            style: 'primary',
+                            click: function(dialog){
+                                //TODO:
+                                dialog.modal('hide');
+                            }
+                        }
+                    ]
+                });
             });
         });
 
