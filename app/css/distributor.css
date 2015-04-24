@@ -13,3 +13,6 @@
 .distributor-sta2{
     color: #de0a0a;
 }
+.distributor .table>tbody>tr>td{
+    height: auto;
+}
