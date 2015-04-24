@@ -402,6 +402,7 @@ table.dataTable thead .sorting:after {
 
 .btn-search{
     background: url(../img/magnifier.png) 10px center no-repeat;
+    background-image: url(../img/magnifier.png)!important;
 }
 
 .btn-fork{

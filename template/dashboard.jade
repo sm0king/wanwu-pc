@@ -31,22 +31,23 @@ html
                 .navbar-default.sidebar(role='navigation')
                     .sidebar-nav.navbar-collapse
                         ul.nav.in#side-menu
-                            li(ui-sref-active='active')
-                                a(href='#{basePath}home.html') 首页
-                            li(ui-sref-active='active')
-                                a(href='#{basePath}order/index.html') 订单管理
-                            li(ui-sref-active='active')
-                                a(href='#{basePath}product/index.html') 商品管理
-                            li(ui-sref-active='active')
-                                a(href='#{basePath}Brand/index.html') 品牌管理
-                            li(ui-sref-active='active')
-                                a(href='#{basePath}distributor/index.html') 分销商管理
-                            li(ui-sref-active='active')
-                                a(href='#{basePath}capital/index.html') 资金管理
-                            li(ui-sref-active='active')
-                                a(href='#{basePath}info/index.html') 信息维护    
-                            li(ui-sref-active='active')
-                                a(href='#{basePath}message/index.html') 站内信  
+                            block menu
+                                li(ui-sref-active='active')
+                                    a(href='#{basePath}home.html') 首页
+                                li(ui-sref-active='active')
+                                    a(href='#{basePath}order/index.html') 订单管理
+                                li(ui-sref-active='active')
+                                    a(href='#{basePath}product/index.html') 商品管理
+                                li(ui-sref-active='active')
+                                    a(href='#{basePath}Brand/index.html') 品牌管理
+                                li(ui-sref-active='active')
+                                    a(href='#{basePath}distributor/index.html') 分销商管理
+                                li(ui-sref-active='active')
+                                    a(href='#{basePath}capital/index.html') 资金管理
+                                li(ui-sref-active='active')
+                                    a(href='#{basePath}info/index.html') 信息维护    
+                                li(ui-sref-active='active')
+                                    a(href='#{basePath}message/index.html') 站内信  
                 div.nav-address
                     首页 > 商品管理 > 商品详情        
             #page-wrapper

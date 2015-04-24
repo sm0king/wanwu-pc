@@ -184,3 +184,10 @@
 .capital .btnBar{
     text-align: center;
 }
+.capital .select{
+    width:112px;
+    border-radius: 0px;
+    display: inline-block;
+    border-color:#e2e2e2;
+    height: 35px;
+}

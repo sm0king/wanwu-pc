@@ -13,14 +13,17 @@ block CapitalContent
     .info-group
         h3 交易明细 
     .info-group.topBar
-        span.stage1 您正在查看2015.3.1（月初）-2015.3.13（当前）时间的交易记录，查询所有交易记录
+        span.stage1 您正在查看2015.3.1（月初）-2015.3.13（当前）时间的交易记录
+        select.form-control.select
+            option(value='0') 全部
+            option(value='1') 交易
         input(type='text').text-input#timeBegin
         span.stage2 —
         input(type='text').text-input#timeEnd
         button(type='button').btn.btn-blue.btn-search 查询
     .info-group
         div.row
-            div.col-lg-8
+            div.col-lg-12
                 table.table.table-bordered
                     thead
                         tr
@@ -28,12 +31,14 @@ block CapitalContent
                             td 订单号
                             td 金额
                             td 状态
+                            td 备注
                     tbody
                         tr
                             td 2015-3-13 15:51:26
                             td 123456
                             td 109.00
                             td &nbsp;
+                            td 中国建设银行 6226 8888 0000 8888 123
     .info-group
         include ../pagination.jade
 block foot
