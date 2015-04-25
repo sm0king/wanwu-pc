@@ -1,6 +1,9 @@
 .product .table{
     text-align: center;
 }
+.distributor{
+    margin-top: 12px;
+}
 .distributor .dismess{
     color: #666666;
 }
@@ -42,4 +45,37 @@
 }
 .distributor-detail .media-body, .distributor-detail .media-left, .distributor-detail .media-right{
     vertical-align: middle;
+}
+.Email-dis{
+    padding-left: 32px;
+    margin-top: 9px;
+    background: url(../img/Email.png) 0 0 no-repeat;
+    color: #069dd5;
+}
+.distributor .media-heading{
+    margin-top: 6px;
+}
+.distributor-detail .media-list.media-list.media-list-title{
+    padding-bottom: 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #e2e2e2;
+}
+.distributor-detail h4 i{
+    font-style: normal;
+    color: #de0a0a;
+}
+.distributor-detail .media-list.media-list-title{
+    margin-left: 0;
+}
+.distributor-index .glyphicon-search{
+    padding-right: 10px;
+}
+.distributor-index .searchBtn{
+    background-color: #069dd5;
+    border: 1px solid #069dd5;
+    padding-right: 20px;
+}
+.distributor-index .action{
+    color: #069dd5;
+    padding: 0 10px;
 }

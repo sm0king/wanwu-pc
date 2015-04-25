@@ -13,13 +13,14 @@
     <link rel="stylesheet" href="../css/sb-admin-2.css"/>
     <link rel="stylesheet" href="../css/product.css"/>
     <link rel="stylesheet" href="../css/distributor.css"/>
+    <link rel="stylesheet" href="../css/bootstrap-table.css"/>
   </head>
   <body>
     <div id="wrapper">
       <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
         <div class="navbar-header">
           <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
-          <h3 class="navbar-line">            分销商详情</h3>
+          <h3 class="navbar-line">            分销商管理</h3>
         </div>
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
@@ -38,57 +39,43 @@
         <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
       </nav>
       <div id="page-wrapper">
-        <form action="#" class="form-horizontal product-detail distributor-detail">
-          <div class="disdet-action">
-              <p><input type="text" class="btn btn-default disdet-lf" value="启用编辑"></input></p>
-              <p>
-                  <input type="text" class="btn btn-default disdet-lf" value="重置密码"></input>
-                  <span>密码已发送到手机</span>
-              </p>
+        <div class="product distributor distributor-detail">
+          <div class="media-list media-list-title">
+              <li class="media">
+                  <div class="media-left"><a href="#"><img src="#" alt="" width="58px" height="58px" class="media-object"></a></div>
+                  <div class="media-body">
+                      <h4 class="media-heading">店铺名称</h4>
+                      <div class="Email-dis">联系分销商</div>
+                  </div>
+              </li>
           </div>
-          <div class="form-group disdet-fg">
-              <label for="productBrand" class="control-label disdet-lf">登录账号：</label>
-              <span class="IDaction">gys001</span>
-              <label class="IDaction">
-                  <input type="checkbox"> 封停账号
-              </label>
-          </div>
-          <div class="form-group disdet-fg">
-              <label for="phone-number" class="control-label disdet-lf">绑定手机号：</label> 
-              <div class="col-sm-3">
-                  <input class="form-control" id="phone-number" name="phone-number" type="text" autofocus>
-              </div>
-          </div>
-          <div class="form-group disdet-fg">
-              <label class="control-label disdet-lf">绑定店铺：</label> 
-              <ul class="media-list">
-                  <li class="media">
-                      <div class="media-left"><a href="#"><img src="#" alt="" class="media-object"></a></div>
-                      <div class="media-body">
-                          <h4>店铺名称</h4>
-                      </div>
-                  </li>
-                  <li class="media">
-                      <div class="media-left"><a href="#"><img src="#" alt="" class="media-object"></a></div>
-                      <div class="media-body">
-                          <h4>店铺名称</h4>
-                      </div>
-                  </li>
-                  <li class="media">
-                      <div class="media-left"><a href="#"><img src="#" alt="" class="media-object"></a></div>
-                      <div class="media-body">
-                          <h4>店铺名称</h4>
-                      </div>
-                  </li>
-                  <li class="media">
-                      <div class="media-left"><a href="#"><img src="#" alt="" class="media-object"></a></div>
-                      <div class="media-body">
-                          <h4>店铺名称</h4>
-                      </div>
-                  </li>
-              </ul>
-          </div>
-        </form>
+          <h4>在售店铺，共<i>56</i>家</h4>
+          <table id="storekeeper" data-toggle="table" data-url="../testData.json">
+              <thead>
+                  <tr>
+                      <th data-field="name" data-align="center" data-sortable="ture">分销商名称</th>
+                      <th data-field="goodsNumber" data-align="center" data-sortable="ture">上架商品</th>
+                      <th data-field="sale" data-align="center" data-sortable="ture">销量（30天）</th>
+                      <th data-field="salesVol" data-align="center" data-sortable="ture">销售额（30天）</th>
+                      <th data-formatter="actionFormatter" data-align="center" data-sortable="false">是否允许分销</th>
+                  </tr>
+              </thead>
+          </table>
+        </div>
+        <nav>
+          <ul class="pull-right pagination">
+            <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#" class="more">...</a></li>
+            <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+            <li class="pagin-extend">共<i class="totalPage">7</i>页，到第
+              <input type="text" class="text-input"/>页
+              <button type="button" class="btn btn-blue">确定</button>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
     <div class="footer">
@@ -102,5 +89,20 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript" src="../js/bootstrap-table.js"></script>
+    <script type="text/javascript">
+      $('#storekeeper').bootstrapTable({
+      url: '../testData.json'
+      });
+      function actionFormatter(value, row) {
+      var html ='';
+      if(row.isAuth){
+      html='<label><input type="checkbox" checked>允许销售</label>';
+      }else{
+      html='<label><input type="checkbox">禁止销售</label>';
+      }
+      return html;
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,58 @@
+[
+    {
+        "name": "分销商名称",
+        "goodsNumber": "3",
+        "sale": "120",
+        "salesVol":"1200",
+        "isAuth":1
+    },
+    {
+        "name": "分销商名称",
+        "goodsNumber": "100",
+        "sale": "120",
+        "salesVol":"1200",
+        "isAuth":0
+    },
+    {
+        "name": "分销商名称",
+        "goodsNumber": "100",
+        "sale": "120",
+        "salesVol":"1200",
+        "isAuth":1
+    },
+    {
+        "name": "分销商名称",
+        "goodsNumber": "100",
+        "sale": "120",
+        "salesVol":"1200",
+        "isAuth":0
+    },
+    {
+        "name": "分销商名称",
+        "goodsNumber": "100",
+        "sale": "120",
+        "salesVol":"1200",
+        "isAuth":1
+    },
+    {
+        "name": "分销商名称",
+        "goodsNumber": "100",
+        "sale": "120",
+        "salesVol":"1200",
+        "isAuth":0
+    },
+    {
+        "name": "分销商名称",
+        "goodsNumber": "100",
+        "sale": "120",
+        "salesVol":"1200",
+        "isAuth":1
+    },
+    {
+        "name": "分销商名称",
+        "goodsNumber": "100",
+        "sale": "120",
+        "salesVol":"1200",
+        "isAuth":0
+    }
+]

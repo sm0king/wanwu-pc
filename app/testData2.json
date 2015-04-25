@@ -1,0 +1,111 @@
+[
+    {
+        "name": "分销商名称",
+        "shopNumber": "3",
+        "goodsNumber": "120",
+        "salesNumber":"10",
+        "salesVol":"1200",
+        "consDate":"2015-04-12",
+        "action":{
+            "supplierID":"2",
+            "distributorID":"4"
+        }
+    },
+    {
+        "name": "分销商名称",
+        "shopNumber": "3",
+        "goodsNumber": "120",
+        "salesNumber":"10",
+        "salesVol":"1200",
+        "consDate":"2015-04-12",
+        "action":{
+            "supplierID":"2",
+            "distributorID":"4"
+        }
+    },
+    {
+        "name": "分销商名称",
+        "shopNumber": "3",
+        "goodsNumber": "120",
+        "salesNumber":"10",
+        "salesVol":"1200",
+        "consDate":"2015-04-12",
+        "action":{
+            "supplierID":"2",
+            "distributorID":"4"
+        }
+    },
+    {
+        "name": "分销商名称",
+        "shopNumber": "3",
+        "goodsNumber": "120",
+        "salesNumber":"10",
+        "salesVol":"1200",
+        "consDate":"2015-04-12",
+        "action":{
+            "supplierID":"2",
+            "distributorID":"4"
+        }
+    },
+    {
+        "name": "分销商名称",
+        "shopNumber": "3",
+        "goodsNumber": "120",
+        "salesNumber":"10",
+        "salesVol":"1200",
+        "consDate":"2015-04-12",
+        "action":{
+            "supplierID":"2",
+            "distributorID":"4"
+        }
+    },
+    {
+        "name": "分销商名称",
+        "shopNumber": "3",
+        "goodsNumber": "120",
+        "salesNumber":"10",
+        "salesVol":"1200",
+        "consDate":"2015-04-12",
+        "action":{
+            "supplierID":"2",
+            "distributorID":"4"
+        }
+    },
+    {
+        "name": "分销商名称",
+        "shopNumber": "3",
+        "goodsNumber": "120",
+        "salesNumber":"10",
+        "salesVol":"1200",
+        "consDate":"2015-04-12",
+        "action":{
+            "supplierID":"2",
+            "distributorID":"4"
+        }
+    },
+    {
+        "name": "分销商名称",
+        "shopNumber": "3",
+        "goodsNumber": "120",
+        "salesNumber":"10",
+        "salesVol":"1200",
+        "consDate":"2015-04-12",
+        "action":{
+            "supplierID":"2",
+            "distributorID":"4"
+        }
+    },
+    {
+        "name": "分销商名称",
+        "shopNumber": "3",
+        "goodsNumber": "120",
+        "salesNumber":"10",
+        "salesVol":"1200",
+        "consDate":"2015-04-12",
+        "action":{
+            "supplierID":"2",
+            "distributorID":"4"
+        }
+    }
+
+]

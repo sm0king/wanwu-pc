@@ -1,0 +1,98 @@
+extends ../master.jade
+block Define
+    - var basePath = '../../';
+
+block header
+
+    link(rel='stylesheet', href='../../css/product.css')
+    link(rel='stylesheet', href='../../css/brand.css')
+
+block DashboardTitle
+    品牌详情
+
+block Right
+    form(action='#').form-horizontal.brand-detail.
+        <div class="form-group">
+            <label class="control-label brand-left">审核状态：</label>
+            <div class="col-md-6">
+                <span id="verifySta" class="verifySta yes">审核通过</span>
+                <button class="btn btn-default check-verify" type="submit">设为未审核</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-default check-edit" type="submit">启用编辑</button>
+        </div>
+        <div class="form-group">
+            <label for="productName" class="control-label brand-left">商品品牌：</label>
+            <div class="col-md-6">
+                <input type="text" id="productName" class="form-control" ng-model="productName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label brand-left">品牌logo:</label>
+            <div class="col-md-6">
+                <label for="" class="control-label">图片大小请控制在150k以内</label>
+                <div class="row brand-logo-img">
+                    <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                    <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                    <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                    <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                    <div class="m-img add-img"></div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="quamess" class="control-label brand-left">品牌描述</label>
+            <div class="col-md-6">
+                <textarea class="form-control" name="quamess" id="quamess" rows="10"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="" class="control-label brand-left">品牌资质：</label>
+            <div class="col-md-6 m-qualification">
+                <h5>包括品牌授权、质检报告、品牌相关证书等能说明对品牌拥有情况的资料</h5>
+            </div>
+        </div>
+        
+        <div class="qualification panel panel-default">
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="quacon" class="quacon control-label brand-left">资质说明</label>
+                    <div class="col-md-6">
+                        <textarea class="form-control" name="quacon" id="quacon" rows="10"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="validDate" class="control-label brand-left">有效日期</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" id='validDate'>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="control-label brand-left">资质图片</label>
+                    <div class="col-md-6">
+                        <label for="" class="control-label">图片大小请控制在150k以内</label>
+                        <div class="row brand-logo-img">
+                            <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                            <div class="m-img add-img"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="addqua">
+            +增加品牌资质
+        </div>
+        <div class="btn-group btn-qua">
+            <button class="btn btn-default save-btn" type="submit">保存</button>
+        </div>
+block foot
+    script(type='text/javascript').
+        $(function(){
+            $('#validDate').datetimepicker({
+                format: 'yyyy-mm-dd',
+                language: 'zh-CN',
+                minView: 2,
+                autoclose: true
+            });
+        });

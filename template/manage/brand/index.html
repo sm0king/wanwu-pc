@@ -1,0 +1,84 @@
+extends ../master.jade
+block Define
+    - var basePath = '../../';
+
+block header
+    link(rel='stylesheet', href='../../css/product.css')
+    link(rel='stylesheet', href='../../css/brand.css')
+
+block DashboardTitle
+    品牌管理
+
+block Right    
+    .product.brand.
+        <form action="#" class="form-inline">
+            <div class="form-group">
+                <label for="productName">品牌名称：</label>
+                <input id="productName" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="supplierName">供应商：</label>
+                <input id="supplierName" type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="state">审核状态：</label>
+                <div class="dropdown inline">
+                    <select name="" id="state" class="form-control">
+                        <option value="0">全部</option>
+                        <option value="1">已审核</option>
+                        <option value="2">未审核</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <button class="btn btn-blue">查询</button>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <td width="30%">品牌名称</td>
+                        <td width="23%">审核状态</td>
+                        <td width="23%">审核时间</td>
+                        <td width="23%">操作</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="pro in productList">
+                        <td class="product-td-img">
+                            <img class="product-img" src="../img/logo.png" alt="" class ="dib">
+                            <p class ="dib">品牌名称</p>
+                        </td>
+                        <td>
+                            <p class="product-desc">已通过</p>
+                        </td>
+                        <td class="center">￥138.00</td>
+                        <td>
+                            <div class="row product-operator">
+                                <div class="col-lg-6">
+                                    <a href="detail.html" class="edit"></a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <a href="javascript:;" class="delete"></a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <nav>
+            <ul class="pagination">
+                <li><a href="javascript:;" aria-label="Previous">&lt;</a></li>
+                <li><a href="javascript:;">1</a></li>
+                <li><a href="javascript:;">2</a></li>
+                <li><a href="javascript:;">3</a></li>
+                <li><a href="javascript:;">4</a></li>
+                <li><a href="javascript:;">5</a></li>
+                <li><a class="more" href="javascript:;">...</a></li>
+                <li><a href="javascript:;" aria-label="Next"><span aria-hidden="true">&gt;</span></a></li>
+                <li class="pagin-extend">共
+                    <i class="totalPage">7</i>页，到第<input type="text" class="text-input">页
+                    <button class="btn btn-blue">确定</button>
+                </li>
+            </ul>
+        </nav>
