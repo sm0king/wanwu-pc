@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../../js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../../css/foot.css"/>
     <link rel="stylesheet" href="../../css/sb-admin-2.css"/>
-    <link rel="stylesheet" href="../../css/manage/supplier.css"/>
+    <link rel="stylesheet" href="../../css/manage/product.css"/>
   </head>
   <body>
     <div id="wrapper">
@@ -37,114 +37,72 @@
         <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
       </nav>
       <div id="page-wrapper">
-        <div class="supplier">
-          <form class="form-inline">
+        <div class="product">
+          <form class="form-inline searchForm">
             <div class="form-group">
-              <label for="input_supplier" class="control-label">供应商：</label>
-              <input type="text" id="input_supplier" class="form-control"/>
+              <label for="productName" class="control-label">商品名称：</label>
+              <input type="text" id="productName" class="form-control"/>
             </div>
             <div class="form-group">
-              <label for="select_audit" class="control-label">审核状态：</label>
-              <select id="select_audit" class="form-control">
-                <option value="0">全部</option>
-                <option value="1">已审核</option>
-                <option value="2">未审核</option>
-              </select>
+              <label for="supplier" class="control-label">供应商：</label>
+              <input type="text" id="supplier" class="form-control"/>
             </div>
             <div class="form-group">
-              <label for="select_account" class="control-label">账号状态：</label>
-              <select id="select_audit" class="form-control">
+              <label for="state" class="control-label">上架状态：</label>
+              <select id="state" class="form-control">
                 <option value="0">全部</option>
-                <option value="1">冻结</option>
-                <option value="2">活动</option>
+                <option value="0">已上架</option>
+                <option value="0">已下架</option>
               </select>
             </div>
             <div class="clearfix">
               <button class="btn btn-blue">查询</button>
             </div>
           </form>
-          <div class="table-responsive supplier-table">
-            <table class="table table-bordered"> 
+          <div class="table-responsive product-table">
+            <table class="table table-bordered">
               <tbody>
                 <tr class="titleTR">
-                  <td>&nbsp;</td>
-                  <td>审核状态</td>
-                  <td>账号状态</td>
-                  <td>创建时间</td>
-                  <td>修改时间</td>
+                  <td>供应商</td>
+                  <td>商品图片</td>
+                  <td>详细信息</td>
+                  <td>分销价</td>
+                  <td>库存</td>
+                  <td>上架</td>
                   <td>操作</td>
                 </tr>
                 <tr class="dataTR">
-                  <td>
-                    <p class="supplier-name">供应商名称</p>
-                    <p>8个品牌已审核</p>
-                    <p>109个商品已上架</p>
+                  <td>趣玩</td>
+                  <td> <img src="../../img/logo.png" class="productImg"/></td>
+                  <td class="product-info">
+                    <p>美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画···</p>
+                    <div><a href="javascript:;" class="blue">箱包皮具</a><a href="javascript:;" class="blue">热销女包</a><a href="javascript:;" class="blue">男包</a></div>
                   </td>
-                  <td><span class="red">审核未通过</span></td>
-                  <td><span class="red">停用</span></td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td> <a href="detail.html" class="edit"></a></td>
+                  <td>￥388.00</td>
+                  <td>50</td>
+                  <td><a class="btn-ok"></a></td>
+                  <td> <a href="../product/detail.html" class="btn-view"></a></td>
                 </tr>
                 <tr class="titleTR">
-                  <td>&nbsp;</td>
-                  <td>审核状态</td>
-                  <td>账号状态</td>
-                  <td>创建时间</td>
-                  <td>修改时间</td>
+                  <td>供应商</td>
+                  <td>商品图片</td>
+                  <td>详细信息</td>
+                  <td>分销价</td>
+                  <td>库存</td>
+                  <td>上架</td>
                   <td>操作</td>
                 </tr>
                 <tr class="dataTR">
-                  <td>
-                    <p class="supplier-name">供应商名称</p>
-                    <p>8个品牌已审核</p>
-                    <p>109个商品已上架</p>
+                  <td>趣玩</td>
+                  <td> <img src="../../img/logo.png" class="productImg"/></td>
+                  <td class="product-info">
+                    <p>美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画···</p>
+                    <div><a href="javascript:;" class="blue">箱包皮具</a><a href="javascript:;" class="blue">热销女包</a><a href="javascript:;" class="blue">男包</a></div>
                   </td>
-                  <td><span class="green">审核通过</span></td>
-                  <td><span class="green">启用</span></td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td> <a href="detail.html" class="edit"></a></td>
-                </tr>
-                <tr class="titleTR">
-                  <td>&nbsp;</td>
-                  <td>审核状态</td>
-                  <td>账号状态</td>
-                  <td>创建时间</td>
-                  <td>修改时间</td>
-                  <td>操作</td>
-                </tr>
-                <tr class="dataTR">
-                  <td>
-                    <p class="supplier-name">供应商名称</p>
-                    <p>8个品牌已审核</p>
-                    <p>109个商品已上架</p>
-                  </td>
-                  <td><span class="blue">已提交审核</span></td>
-                  <td><span class="green">启用</span></td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td> <a href="detail.html" class="edit"></a></td>
-                </tr>
-                <tr class="titleTR">
-                  <td>&nbsp;</td>
-                  <td>审核状态</td>
-                  <td>账号状态</td>
-                  <td>创建时间</td>
-                  <td>修改时间</td>
-                  <td>操作</td>
-                </tr>
-                <tr class="dataTR">
-                  <td>
-                    <p class="supplier-name">供应商名称</p>
-                    <p>8个品牌已审核</p>
-                    <p>109个商品已上架</p>
-                  </td>
-                  <td><span class="gray">未审核</span></td>
-                  <td><span class="green">启用</span></td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td> <a href="detail.html" class="edit"></a></td>
+                  <td>￥388.00</td>
+                  <td>50</td>
+                  <td><a class="btn-fork"></a></td>
+                  <td> <a href="../product/detail.html" class="btn-view"></a></td>
                 </tr>
               </tbody>
             </table>

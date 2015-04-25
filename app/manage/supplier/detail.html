@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>面板        </title>
+    <link rel="stylesheet" href="../../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../../css/main.css"/>
+    <link rel="stylesheet" href="../../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../../css/foot.css"/>
+    <link rel="stylesheet" href="../../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../../css/manage/supplier.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            供应商详情</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li ui-sref-active="active"><a href="../../manage/home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../../manage/supplier/index.html">供应商管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/product/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../../Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/complaint/index.html">投诉管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/report/index.html">举报管理</a></li>
+              <li ui-sref-active="active"><a href="../../info/index.html">账号设置 </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="supplier detail">
+          <div class="rowGroup">
+            <button id="enableEdit" class="btn btn-gray">启用编辑</button>
+          </div>
+          <div class="rowGroup">
+            <button id="resetPWD" class="btn btn-gray">重置密码</button><span class="resetPWD-tip"> 
+              <!-- 这里显示重置后的密码--></span>
+          </div>
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label class="control-label">审核状态：</label>
+              <div class="col-sm-8"><span class="green">审核通过</span>
+                <button type="button" id="setUnaudit" class="btn btn-gray">设为未审核</button><span>设置为未审核后供应商需要重新提交审核资料</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">登录账号：</label>
+              <div class="col-sm-6"><span class="account">gys001</span>
+                <input type="checkbox" id="freeze"/>
+                <label for="freeze" class="control-label">封停账号</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="mobile" class="control-label">绑定手机号：</label>
+              <div class="col-sm-4">
+                <input type="text" id="mobile" class="form-control"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="company" class="control-label">公司名称：</label>
+              <div class="col-sm-4">
+                <input type="text" id="company" class="form-control"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="control-label">联系电话：</label>
+              <div class="col-sm-4">
+                <input type="text" id="phone" class="form-control"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="companyAddress" class="control-label">公司地址：</label>
+              <div class="col-sm-4">
+                <input type="text" id="companyAddress" class="form-control"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="concat" class="control-label">联系人：</label>
+              <div class="col-sm-4">
+                <input type="text" id="concat" class="form-control"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="concatMobile" class="control-label">联系人电话：</label>
+              <div class="col-sm-4">
+                <input type="text" id="concatMobile" class="form-control"/>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <input type="checkbox" id="visibleMobile"/>
+                    <label for="checkbox" class="control-label">向分销商展示联系人信息</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">营业执照：</label>
+              <div class="col-sm-6">
+                <button class="btn btn-gray">上传文件</button>
+                <div class="row imgBar">
+                  <div class="col-sm-12"><img src="../../img/logo.png" class="license img-responsive"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">法人身份证：
+                <p>(正反两面)</p>
+              </label>
+              <div class="col-sm-6">
+                <button class="btn btn-gray">上传文件</button>
+                <div class="row imgBar">
+                  <div class="col-sm-6"><img src="../../img/logo.png" class="idCard img-responsive"/></div>
+                  <div class="col-sm-6"><img src="../../img/logo.png" class="idCard img-responsive"/></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label">&nbsp;</label>
+              <div class="col-sm-6">
+                <button class="btn btn-blue">保存</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="">服务协议</a>| <a href="">联系我们</a> | 客服电话：400-000-0011</p>
+    <p class="comp">Copyright © 2015 万物wanwu.com版权所有 蜀ICP备12345678号</p>
+    </div>
+    <script type="text/javascript" src="../../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../../js/dialog.js"></script>
+  </body>
+</html>

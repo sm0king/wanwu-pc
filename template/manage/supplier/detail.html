@@ -1,0 +1,84 @@
+extends ../master.jade
+
+block Define
+    -var basePath = '../../';
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/manage/supplier.css')
+
+block DashboardTitle
+    供应商详情
+
+block Right
+    .supplier.detail
+        .rowGroup
+            button.btn.btn-gray#enableEdit 启用编辑
+        .rowGroup
+            button.btn.btn-gray#resetPWD 重置密码
+            span.resetPWD-tip 
+                // 这里显示重置后的密码
+        form.form-horizontal
+            .form-group
+                label.control-label 审核状态：
+                .col-sm-8
+                    span.green 审核通过
+                    button(type='button').btn.btn-gray#setUnaudit 设为未审核
+                    span 设置为未审核后供应商需要重新提交审核资料
+            .form-group
+                label.control-label 登录账号：
+                .col-sm-6
+                    span.account gys001
+                    input(type='checkbox')#freeze
+                    label.control-label(for='freeze') 封停账号
+            .form-group
+                label(for='mobile').control-label 绑定手机号：
+                .col-sm-4
+                    input(type='text').form-control#mobile
+            .form-group
+                label(for='company').control-label 公司名称：
+                .col-sm-4
+                    input(type='text').form-control#company
+            .form-group
+                label(for='phone').control-label 联系电话：
+                .col-sm-4
+                    input(type='text').form-control#phone
+            .form-group
+                label(for='companyAddress').control-label 公司地址：
+                .col-sm-4
+                    input(type='text').form-control#companyAddress
+            .form-group
+                label(for='concat').control-label 联系人：
+                .col-sm-4
+                    input(type='text').form-control#concat
+            .form-group
+                label(for='concatMobile').control-label 联系人电话：
+                .col-sm-4
+                    input(type='text').form-control#concatMobile
+                    .row
+                        .col-sm-12
+                            input(type='checkbox')#visibleMobile
+                            label(for='checkbox').control-label 向分销商展示联系人信息
+            .form-group
+                label.control-label 营业执照：
+                .col-sm-6
+                    button.btn.btn-gray 上传文件
+                    .row.imgBar
+                        .col-sm-12
+                            img(src='../../img/logo.png').license.img-responsive
+            .form-group
+                label.control-label
+                    | 法人身份证：
+                    p (正反两面)
+                .col-sm-6
+                    button.btn.btn-gray 上传文件
+                    .row.imgBar
+                        .col-sm-6
+                            img(src='../../img/logo.png').idCard.img-responsive
+                        .col-sm-6
+                            img(src='../../img/logo.png').idCard.img-responsive
+            .form-group
+                label.control-label &nbsp;
+                .col-sm-6
+                    button.btn.btn-blue 保存
+
+                    

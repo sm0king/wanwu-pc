@@ -1,0 +1,88 @@
+extends ../master.jade
+
+block Define
+    -var basePath = '../../';
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/manage/complaint.css')
+
+block DashboardTitle
+    投诉详情
+
+block Right
+    .complaint.detail
+        .headbar
+            .pull-left
+                投诉方ID: [账号ID]（分销商）
+            .pull-left
+                被投诉方ID: [账号ID]（供应商）
+            .clearfix
+        .complaintBar
+            | [账号ID]（分销商）
+        .row
+            .col-md-12.complaintContent
+                .panel.panel-default
+                    .panel-body
+                        .complaintImgs
+                            div
+                                img(src='../../img/logo.png')
+                            div
+                                img(src='../../img/logo.png')
+                        .complaintText
+                            投诉内容
+
+        .groupBar 订单信息
+
+        p 订单号：8779641532
+        p 收 货 人：张三
+        p 地    址：四川成都市高新区绕城环线以外天府软件园B区B3栋503
+        p 手机号码：151****7768
+        p 邮编：610041
+        p 电子邮箱：service@quwan.com
+        p 下单时间：2015-03-12  17:38:48
+        p 备注：不加盐不加醋
+        p 订单完成状态：完成
+
+        .groupBar 商品清单
+
+        .table-responsive.complaintTable
+            table.table.table-bordered
+                thead
+                    tr
+                        td 商品编号
+                        td 商品名称
+                        td 售价
+                        td 分销价
+                        td 数量
+                        td 分销总额
+                tbody
+                    tr
+                        td 12354
+                        td
+                            a(href='javascript:;').blue 测试商品
+                        td ￥499.00
+                        td ￥899.00
+                        td 500
+                        td ￥449500.00
+        .groupBar 订单反馈
+        .row
+            .col-md-12.feedback
+                .panel.panel-default
+                    .panel-body
+                        .feedbackImgs
+                            div
+                                img(src='../../img/logo.png')
+                            div
+                                img(src='../../img/logo.png')
+                        .feedbackText
+                            反馈内容
+        .groupBar 处理结果
+        .row
+            .col-md-12
+                textarea.form-control.result(placeholder='请输入处理结果')
+        button.btn.btn-blue 已处理
+                
+
+
+
+

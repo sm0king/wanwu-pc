@@ -1,0 +1,73 @@
+extends ../master.jade
+
+block Define
+    -var basePath = '../../';
+    -var pagin_right = true;
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/manage/report.css')
+
+block DashboardTitle
+    举报
+
+block Right
+    .report
+        form.form-inline.searchForm
+            .form-group
+                label(for='sponsor').control-lable 举报发起方：
+                select#sponsor.form-control
+                    option(value='1') 发起方1
+                    option(value='2') 发起方2
+                    option(value='3') 发起方3
+            .form-group
+                label(for='reason').control-lable 举报原因：
+                select#reason.form-control
+                    option(value='1') 原因1
+                    option(value='2') 原因2
+                    option(value='3') 原因3
+            .form-group
+                label(for='result').control-label 处理结果：
+                select#result.form-control
+                    option(value='1') 结果1
+                    option(value='2') 结果2
+                    option(value='3') 结果3
+            .clearfix
+            .form-group
+                label(for='sponsorID').control-label 举报方ID：
+                input(type='text').form-control#sponsorID
+            .form-group
+                label(for='targetID').control-label 被举报方ID：
+                input(type='text').form-control#targetID
+            .clearfix
+            .form-group
+                button.btn.btn-blue 查询
+        .table-responsive.reportTable
+            table.table.table-bordered
+                thead
+                    tr
+                        td 订单号
+                        td 举报时间
+                        td 举报方ID
+                        td 被举报方ID
+                        td 举报原因
+                        td 举报内容
+                tbody
+                    tr
+                        td TS32sdffsd
+                        td 2015-4-25 13:37:14
+                        td cds
+                        td sdfsd
+                        td 普通举报（供-销）
+                        td
+                            //举报内容的摘要，点击打开举报详情页面
+                            a(href='detail.html').blue.summary 佛挡杀佛
+                    tr
+                        td TS32sdffsd
+                        td 2015-4-25 13:37:14
+                        td cds
+                        td sdfsd
+                        td 普通举报（供-销）
+                        td
+                            a(href='detail.html').blue.summary 佛挡杀佛
+        div
+            include ../../pagination.jade

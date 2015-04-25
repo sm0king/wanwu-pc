@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../../js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../../css/foot.css"/>
     <link rel="stylesheet" href="../../css/sb-admin-2.css"/>
-    <link rel="stylesheet" href="../../css/manage/supplier.css"/>
+    <link rel="stylesheet" href="../../css/manage/complaint.css"/>
   </head>
   <body>
     <div id="wrapper">
       <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
         <div class="navbar-header">
           <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
-          <h3 class="navbar-line">            供应商管理</h3>
+          <h3 class="navbar-line">            投诉</h3>
         </div>
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
@@ -37,114 +37,76 @@
         <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
       </nav>
       <div id="page-wrapper">
-        <div class="supplier">
-          <form class="form-inline">
+        <div class="complaint">
+          <form class="form-inline searchForm">
             <div class="form-group">
-              <label for="input_supplier" class="control-label">供应商：</label>
-              <input type="text" id="input_supplier" class="form-control"/>
-            </div>
-            <div class="form-group">
-              <label for="select_audit" class="control-label">审核状态：</label>
-              <select id="select_audit" class="form-control">
-                <option value="0">全部</option>
-                <option value="1">已审核</option>
-                <option value="2">未审核</option>
+              <label for="sponsor" class="control-lable">投诉发起方：</label>
+              <select id="sponsor" class="form-control">
+                <option value="1">发起方1</option>
+                <option value="2">发起方2</option>
+                <option value="3">发起方3</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="select_account" class="control-label">账号状态：</label>
-              <select id="select_audit" class="form-control">
-                <option value="0">全部</option>
-                <option value="1">冻结</option>
-                <option value="2">活动</option>
+              <label for="reason" class="control-lable">投诉原因：</label>
+              <select id="reason" class="form-control">
+                <option value="1">原因1</option>
+                <option value="2">原因2</option>
+                <option value="3">原因3</option>
               </select>
             </div>
-            <div class="clearfix">
+            <div class="form-group">
+              <label for="result" class="control-label">处理结果：</label>
+              <select id="result" class="form-control">
+                <option value="1">结果1</option>
+                <option value="2">结果2</option>
+                <option value="3">结果3</option>
+              </select>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
+              <label for="sponsorID" class="control-label">投诉方ID：</label>
+              <input type="text" id="sponsorID" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <label for="targetID" class="control-label">被投诉方ID：</label>
+              <input type="text" id="targetID" class="form-control"/>
+            </div>
+            <div class="clearfix"></div>
+            <div class="form-group">
               <button class="btn btn-blue">查询</button>
             </div>
           </form>
-          <div class="table-responsive supplier-table">
-            <table class="table table-bordered"> 
+          <div class="table-responsive complaintTable">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <td>订单号</td>
+                  <td>投诉时间</td>
+                  <td>投诉方ID</td>
+                  <td>被投诉方ID</td>
+                  <td>投诉原因</td>
+                  <td>投诉内容</td>
+                </tr>
+              </thead>
               <tbody>
-                <tr class="titleTR">
-                  <td>&nbsp;</td>
-                  <td>审核状态</td>
-                  <td>账号状态</td>
-                  <td>创建时间</td>
-                  <td>修改时间</td>
-                  <td>操作</td>
-                </tr>
-                <tr class="dataTR">
+                <tr>
+                  <td>TS32sdffsd</td>
+                  <td>2015-4-25 13:37:14</td>
+                  <td>cds</td>
+                  <td>sdfsd</td>
+                  <td>普通投诉（供-销）</td>
                   <td>
-                    <p class="supplier-name">供应商名称</p>
-                    <p>8个品牌已审核</p>
-                    <p>109个商品已上架</p>
+                    <!--投诉内容的摘要，点击打开投诉详情页面--><a href="detail.html" class="blue summary">佛挡杀佛</a>
                   </td>
-                  <td><span class="red">审核未通过</span></td>
-                  <td><span class="red">停用</span></td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td> <a href="detail.html" class="edit"></a></td>
                 </tr>
-                <tr class="titleTR">
-                  <td>&nbsp;</td>
-                  <td>审核状态</td>
-                  <td>账号状态</td>
-                  <td>创建时间</td>
-                  <td>修改时间</td>
-                  <td>操作</td>
-                </tr>
-                <tr class="dataTR">
-                  <td>
-                    <p class="supplier-name">供应商名称</p>
-                    <p>8个品牌已审核</p>
-                    <p>109个商品已上架</p>
-                  </td>
-                  <td><span class="green">审核通过</span></td>
-                  <td><span class="green">启用</span></td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td> <a href="detail.html" class="edit"></a></td>
-                </tr>
-                <tr class="titleTR">
-                  <td>&nbsp;</td>
-                  <td>审核状态</td>
-                  <td>账号状态</td>
-                  <td>创建时间</td>
-                  <td>修改时间</td>
-                  <td>操作</td>
-                </tr>
-                <tr class="dataTR">
-                  <td>
-                    <p class="supplier-name">供应商名称</p>
-                    <p>8个品牌已审核</p>
-                    <p>109个商品已上架</p>
-                  </td>
-                  <td><span class="blue">已提交审核</span></td>
-                  <td><span class="green">启用</span></td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td> <a href="detail.html" class="edit"></a></td>
-                </tr>
-                <tr class="titleTR">
-                  <td>&nbsp;</td>
-                  <td>审核状态</td>
-                  <td>账号状态</td>
-                  <td>创建时间</td>
-                  <td>修改时间</td>
-                  <td>操作</td>
-                </tr>
-                <tr class="dataTR">
-                  <td>
-                    <p class="supplier-name">供应商名称</p>
-                    <p>8个品牌已审核</p>
-                    <p>109个商品已上架</p>
-                  </td>
-                  <td><span class="gray">未审核</span></td>
-                  <td><span class="green">启用</span></td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td>2015-3-14 23:17:30</td>
-                  <td> <a href="detail.html" class="edit"></a></td>
+                <tr>
+                  <td>TS32sdffsd</td>
+                  <td>2015-4-25 13:37:14</td>
+                  <td>cds</td>
+                  <td>sdfsd</td>
+                  <td>普通投诉（供-销）</td>
+                  <td><a href="detail.html" class="blue summary">佛挡杀佛</a></td>
                 </tr>
               </tbody>
             </table>

@@ -1,0 +1,64 @@
+extends ../master.jade
+
+block Define
+    -var basePath = '../../';
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/manage/report.css')
+
+block DashboardTitle
+    举报详情
+
+block Right
+    .report.detail
+        .headbar
+            .pull-left
+                举报方ID: [账号ID]（分销商）
+            .pull-left
+                被举报方ID: [账号ID]（供应商）
+            .clearfix
+        .reportBar 举报原因
+        p 色情
+
+        .reportBar 举报说明
+        .row
+            .col-md-12.reportContent
+                .panel.panel-default
+                    .panel-body
+                        .reportImgs
+                            div
+                                img(src='../../img/logo.png')
+                            div
+                                img(src='../../img/logo.png')
+                        .reportText
+                            举报内容
+
+        .groupBar 商品信息
+
+        .table-responsive.reportTable
+            table.table.table-bordered
+                thead
+                    tr
+                        td 供应商
+                        td 商品图片
+                        td 详细信息
+                tbody
+                    tr
+                        td 趣玩
+                        td
+                            img(src='../../img/logo.png')
+                        td.productInfo
+                            p 美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画···
+                            div
+                                a(href='javascript:;').blue 箱包皮具
+                                a(href='javascript:;').blue 热销女包
+                                a(href='javascript:;').blue 男包        
+        .groupBar 处理结果
+        .btnBar
+            button.btn.btn-gray 举报生效
+            button.btn.btn-gray 举报无效
+                
+
+
+
+

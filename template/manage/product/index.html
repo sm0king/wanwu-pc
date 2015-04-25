@@ -1,0 +1,82 @@
+extends ../master.jade
+
+block Define
+    -var basePath = '../../';
+    -var pagin_right = true;
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/manage/product.css')
+
+block DashboardTitle
+    供应商管理
+
+block Right
+    .product
+        form.form-inline.searchForm
+            .form-group
+                label(for='productName').control-label 商品名称：
+                input(type='text').form-control#productName
+            .form-group
+                label(for='supplier').control-label 供应商：
+                input(type='text').form-control#supplier
+            .form-group
+                label(for='state').control-label 上架状态：
+                select.form-control#state
+                    option(value='0') 全部
+                    option(value='0') 已上架
+                    option(value='0') 已下架
+            .clearfix
+                button.btn.btn-blue 查询
+        .table-responsive.product-table
+            table.table.table-bordered
+                tbody
+                    tr.titleTR
+                        td 供应商
+                        td 商品图片
+                        td 详细信息
+                        td 分销价
+                        td 库存
+                        td 上架
+                        td 操作
+                    tr.dataTR
+                        td 趣玩
+                        td 
+                            img(src='../../img/logo.png').productImg
+                        td.product-info
+                            p 美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画···
+                            div
+                                a(href='javascript:;').blue 箱包皮具
+                                a(href='javascript:;').blue 热销女包
+                                a(href='javascript:;').blue 男包
+                        td ￥388.00
+                        td 50
+                        td
+                            a.btn-ok
+                        td 
+                            a.btn-view(href='../product/detail.html')
+                    tr.titleTR
+                        td 供应商
+                        td 商品图片
+                        td 详细信息
+                        td 分销价
+                        td 库存
+                        td 上架
+                        td 操作
+                    tr.dataTR
+                        td 趣玩
+                        td 
+                            img(src='../../img/logo.png').productImg
+                        td.product-info
+                            p 美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画···
+                            div
+                                a(href='javascript:;').blue 箱包皮具
+                                a(href='javascript:;').blue 热销女包
+                                a(href='javascript:;').blue 男包
+                        td ￥388.00
+                        td 50
+                        td
+                            a.btn-fork
+                        td 
+                            a.btn-view(href='../product/detail.html')
+        div
+            include ../../pagination.jade

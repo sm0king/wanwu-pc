@@ -101,8 +101,14 @@
     padding-top: 15px;
 }
 
-.product-detail .catalog>.row:first-child{
+.product-detail .catalog>.row>div{
     margin-bottom: 15px;
+}
+.product-detail .catalog .panel-body>div{
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
 }
 
 .product-detail .table-center td{

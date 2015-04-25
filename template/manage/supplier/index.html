@@ -2,6 +2,7 @@ extends ../master.jade
 
 block Define
     -var basePath = '../../';
+    -var pagin_right = true;
 
 block header
     link(rel='stylesheet', href='#{basePath}css/manage/supplier.css')
@@ -29,7 +30,7 @@ block Right
                     option(value='2') 活动
             .clearfix
                 button.btn.btn-blue 查询
-        .table-responsive
+        .table-responsive.supplier-table
             table.table.table-bordered 
                 tbody
                     tr.titleTR
@@ -48,9 +49,69 @@ block Right
                             span.red 审核未通过
                         td
                             span.red 停用
+                        td 2015-3-14 23:17:30
+                        td 2015-3-14 23:17:30
+                        td 
+                            a.edit(href='detail.html')
+                    tr.titleTR
+                        td &nbsp;
+                        td 审核状态
+                        td 账号状态
+                        td 创建时间
+                        td 修改时间
+                        td 操作
+                    tr.dataTR
                         td
-                            2015-3-14 23:17:30
+                            p.supplier-name 供应商名称
+                            p 8个品牌已审核
+                            p 109个商品已上架
                         td
-                            2015-3-14 23:17:30
+                            span.green 审核通过
                         td
-                            a.edit
+                            span.green 启用
+                        td 2015-3-14 23:17:30
+                        td 2015-3-14 23:17:30
+                        td 
+                            a.edit(href='detail.html')
+                    tr.titleTR
+                        td &nbsp;
+                        td 审核状态
+                        td 账号状态
+                        td 创建时间
+                        td 修改时间
+                        td 操作
+                    tr.dataTR
+                        td
+                            p.supplier-name 供应商名称
+                            p 8个品牌已审核
+                            p 109个商品已上架
+                        td
+                            span.blue 已提交审核
+                        td
+                            span.green 启用
+                        td 2015-3-14 23:17:30
+                        td 2015-3-14 23:17:30
+                        td 
+                            a.edit(href='detail.html')
+                    tr.titleTR
+                        td &nbsp;
+                        td 审核状态
+                        td 账号状态
+                        td 创建时间
+                        td 修改时间
+                        td 操作
+                    tr.dataTR
+                        td
+                            p.supplier-name 供应商名称
+                            p 8个品牌已审核
+                            p 109个商品已上架
+                        td
+                            span.gray 未审核
+                        td
+                            span.green 启用
+                        td 2015-3-14 23:17:30
+                        td 2015-3-14 23:17:30
+                        td 
+                            a.edit(href='detail.html')
+        div
+            include ../../pagination.jade

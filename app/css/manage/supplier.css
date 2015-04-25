@@ -9,3 +9,50 @@
 .supplier .form-inline>.form-group:last-child{
     margin-right: 0px;
 }
+.supplier .supplier-name{
+    font-size: 16px;
+    color:#333333;
+}
+.supplier .supplier-table td{
+    text-align: center;
+    vertical-align: middle;
+    color:#666666;
+}
+.supplier .supplier-table{
+    margin-top: 40px;
+}
+
+/* 供应商详情 */
+.supplier.detail *{
+    color:#666666;
+}
+.supplier.detail label{
+    font-weight: normal;
+}
+.supplier #setUnaudit{
+    margin:0px 30px;
+}
+
+.supplier.detail .form-group>label{
+    float: left;
+    width:90px;
+    text-align: left;
+}
+.supplier.detail .form-group>label p{
+    text-align: center;
+    color:#888888;
+}
+.supplier.detail .rowGroup{
+    margin-bottom:16px;
+    margin-left:-15px;
+}
+.supplier.detail form{
+    margin-top: 8px;
+}
+.supplier.detail .account{
+    margin-right: 40px;
+}
+.supplier.detail .imgBar{
+   margin-top: 20px;
+   margin-bottom: 20px;
+}

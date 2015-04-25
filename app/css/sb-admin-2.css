@@ -373,6 +373,12 @@ table.dataTable thead .sorting:after {
     color:white!important;
     padding:12px 40px;
 }
+.btn-view{
+    background: url(../img/view.png) center center no-repeat;
+    display: inline-block;
+    width:29px;
+    height: 15px;
+}
 
 .btn-bigblue{
     background-color: #e6f5fb;
@@ -506,6 +512,9 @@ table.dataTable thead .sorting:after {
 }
 .red{
     color:#FF0000!important;
+}
+.green{
+    color:#4cbd4e!important;
 }
 
 /* 选择银行卡 */
