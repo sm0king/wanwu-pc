@@ -137,6 +137,11 @@ block foot
                 });
             });
             $(document.body).delegate('.doNoStock', 'click', function(e){
+                var imgs = '';
+                $(e.currentTarget).parents('tr:first').children('.productImgs').children().each(function(i, e){
+                    imgs += '<div><img src="' + e.src + '" class="noStockProductImg"><div class="ok"></div></div>'
+                });
+                $('.noStockProducts').empty().append(imgs);
                 $.dialog({
                     content: $('#noStockForm').clone(),
                     title: '无货反馈',
@@ -148,7 +153,30 @@ block foot
                         {
                             text: '确定',
                             style: 'primary',
-                            click: function(dialog){
+                            click: function(dialog){                                
+                                var errorMsg = [],
+                                    checkedProducts = dialog.find('div.checked');
+                                if(checkedProducts.length == 0){
+                                    errorMsg.push('请选择无货商品！');
+                                }
+                                var text = $.trim(dialog.find('#input-noStock').val());
+                                if(!text){
+                                    dialog.find('#input-noStock').parents('.form-group:first').addClass('has-error');
+                                    errorMsg.push('请输入反馈信息！');
+                                }else{
+                                    dialog.find('#input-noStock').parents('.form-group:first').removeClass('has-error');
+                                }
+                                dialog.find('.noStockProducts').prevAll().remove();
+                                if(errorMsg.length > 0){
+                                    var html ='<div class="alert alert-danger" role="alert">',
+                                        msg = null;
+                                    while(msg = errorMsg.shift()){
+                                        html += '<p>' + msg + '</p>';
+                                    }
+                                    html += '</div>';
+                                    dialog.find('.noStockProducts').before(html);
+                                    return;
+                                }
                                 //TODO:
                                 dialog.modal('hide');
                             }
