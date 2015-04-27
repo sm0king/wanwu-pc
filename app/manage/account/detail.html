@@ -25,9 +25,9 @@
             <ul id="side-menu" class="nav in">
               <li ui-sref-active="active"><a href="../../home.html">首页</a></li>
               <li ui-sref-active="active"><a href="../../manage/supplier/index.html">供应商管理</a></li>
-              <li ui-sref-active="active"><a href="../../product/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/distributor/index.html">分销商管理</a></li>
               <li ui-sref-active="active"><a href="../../manage/Brand/index.html">品牌管理</a></li>
-              <li ui-sref-active="active"><a href="../../manage/distributor/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/product/index.html">商品管理</a></li>
               <li ui-sref-active="active"><a href="../../capital/index.html">投诉举报</a></li>
               <li ui-sref-active="active"><a href="../../manage/account/index.html">账号设置 </a></li>
             </ul>
@@ -36,7 +36,18 @@
         <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
       </nav>
       <div id="page-wrapper">
-        <div class="account-detail"></div>
+        <div class="account-detail">
+          <form action="" class="form-horizontal">
+              <div class="form-group">
+                  <label for="username" class="control-label account-left">账号：</label>
+                  <div class="col-md-6">
+                      <input type="text" class="form-control" id="username">
+                      <input type="button" class="btn btn-default disdet-lf" value="重置密码"></input>  
+                  </div>
+                  
+              </div>   
+          </form>
+        </div>
       </div>
     </div>
     <div class="footer">
