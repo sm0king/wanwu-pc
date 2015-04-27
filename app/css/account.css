@@ -1,12 +1,21 @@
-.account{
-    padding:15px;   
+.account {
+    padding: 15px;
 }
-.btn-seach{
+
+.btn-seach {
     background-color: #069dd5;
     margin: 30px 0;
     padding: 6px 32px;
     color: #fff;
 }
-.account table{
+
+.account table {
     text-align: center;
+}
+
+.account-detail .account-left {
+    width: 70px;
+    float: left;
+    position: relative;
+    min-height: 1px;
 }
