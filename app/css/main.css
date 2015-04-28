@@ -410,3 +410,15 @@ body {
     *display: inline;
     *zoom: 1;
 }
+.manageLogin .login-panel{
+    padding-right: 0;
+    border-right: none;
+}
+
+@media screen and (min-width: 992px) {
+    .manageLogin.col-md-12 {
+        width: 40%;
+        float: none;
+        margin: 0 auto;
+    }
+}

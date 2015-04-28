@@ -40,12 +40,80 @@
         <div class="account-detail">
           <form action="" class="form-horizontal">
               <div class="form-group">
-                  <label for="username" class="control-label account-left">账号：</label>
-                  <div class="col-md-6">
-                      <input type="text" class="form-control" id="username">
-                      <input type="button" class="btn btn-default disdet-lf" value="重置密码"></input>  
+                  <label for="userID" class="control-label account-left">账号：</label>
+                  <div class="col-md-3">
+                      <input type="text" class="form-control" id="userID">
                   </div>
-                  
+                  <div class="col-md3">
+                      <input type="button" class="btn btn-default reset-account" value="重置密码"></input> 
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label for="username" class="control-label account-left">姓名：</label>
+                  <div class="col-md-3">
+                      <input type="text" class="form-control" id="username">
+                  </div>
+              </div>  
+              <div class="form-group">
+                  <label for="userEmail" class="control-label account-left">邮箱：</label>
+                  <div class="col-md-3">
+                      <input type="text" class="form-control" id="userEmail">
+                  </div>
+              </div>  
+              <div class="form-group">
+                  <label for="userphone" class="control-label account-left" >电话：</label>
+                  <div class="col-md-3">
+                      <input type="text" class="form-control" id="userphone" disabled>
+                  </div>
+              </div>  
+              <div class="form-group">
+                  <label for="userpower" class="control-label account-left">权限：</label>
+                  <div class="col-md-6 powerList">
+                      <label class="control-label"><input type="checkbox">全选</label>
+                  </div>
+              </div> 
+              <div class="form-group">
+                  <label  class="control-label account-left"></label>
+                  <div class="col-md-8 powerList">
+                      <ul class="powerOption">
+                          <li>
+                              <p>供应商管理</p>
+                              <label class="control-label form-group"><input type="checkbox">修改供应商信息</label>
+                          </li>
+                          <li>
+                              <p>分销商管理</p>
+                              <label class="control-label form-group"><input type="checkbox">修改分销商信息</label>
+                          </li>
+                          <li>
+                              <p>投诉管理</p>
+                              <label class="control-label form-group"><input type="checkbox">修改投诉信息</label>
+                          </li>
+                          <li>
+                              <p>商品管理</p>
+                              <label class="control-label form-group"><input type="checkbox">修改商品信息</label>
+                          </li>
+                          <li>
+                              <p>品牌管理</p>
+                              <label class="control-label form-group"><input type="checkbox">修改品牌信息</label>
+                          </li>
+                          <li>
+                              <p>账号管理</p>
+                              <label class="control-label form-group"><input type="checkbox">修改账号信息</label>
+                          </li>
+                      </ul>
+                      <div class="powerOption">
+                          <div class="powerAction">
+                              <button class="btn btn-default btn-right" type="button"></button>
+                              <button class="btn btn-default btn-left" type="button"></button>
+                          </div>  
+                      </div>
+                      <ul class="powerOption">
+                          <li>
+                              <p>供应商管理</p>
+                              <label class="control-label form-group"><input type="checkbox">修改供应商信息</label>
+                          </li>
+                      </ul>
+                  </div>
               </div>   
           </form>
         </div>
