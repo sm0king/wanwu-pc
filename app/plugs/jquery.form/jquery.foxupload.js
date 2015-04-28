@@ -1,14 +1,15 @@
 (function ($) {
     $.fn.foxupload = function (imgloapurl) {
-    	var maxCount = +this.attr('data-maxcount');
+    	var maxCount =this.attr('data-maxcount');
     	var bar =$(this).find('.bar');
 		var percent = $(this).find('.percent');
-		var showimg = $(this).find('#showimg');
+		var showimg = $(this).find('.uploadImgs');
 		var progress = $(this).find(".progress");
 		var files = $(this).find(".files");
 		var btn = $(this).find(".btn span");
 		var uploadforname='myupload'+$(this).attr('id');
 		var imgval= $(this).find(".imgval");
+		imgval.val('');
 		$(this).wrap("<form id='"+uploadforname+"' action='"+imgloapurl+"' method='post' enctype='multipart/form-data'></form>");
 		$(this).find(".fileupload").change(function(){
 			if(maxCount > 1 && showimg.children().length >= maxCount){
@@ -18,7 +19,6 @@
 			$("#"+uploadforname).ajaxSubmit({
 				dataType:  'json',
 				beforeSend: function() {
-		        showimg.empty();
 				progress.show();
 		        var percentVal = '0%';
 		        bar.width(percentVal);
@@ -37,7 +37,7 @@
 					//files.html("<span class='delimg' rel='"+data.pic+"'>删除</span>");
 					var img = data.url;
 					maxCount == 1 && showimg.empty() && imgval.val('');
-					showimg.append("<div data-filename=' "+ data.newFileName +"' ><img src='"+img+"' class='img-responsive'><a href='javascript:;' class='removeImg glyphicon glyphicon-remove'></a></div>");
+					showimg.append("<div data-filename='"+ data.newFileName +"' ><img src='"+img+"' class='img-responsive'><a href='javascript:;' class='removeImg glyphicon glyphicon-remove'></a></div>");
 					btn.html("添加附件");
 					//追加值
 					tmpv=imgval.val();
