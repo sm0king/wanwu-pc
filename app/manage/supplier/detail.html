@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../../css/foot.css"/>
     <link rel="stylesheet" href="../../css/sb-admin-2.css"/>
     <link rel="stylesheet" href="../../css/manage/supplier.css"/>
+    <link rel="stylesheet" href="../../plugs/jquery.form/foxupload.css"/>
   </head>
   <body>
     <div id="wrapper">
@@ -23,6 +24,12 @@
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">
+              <li class="loginInfo">
+                <div class="row">
+                  <div class="col-md-6">[登录用户]</div>
+                  <div class="col-md-6"><a href="javascript:;" class="red">[ 退出 ]</a></div>
+                </div>
+              </li>
               <li ui-sref-active="active"><a href="../../manage/home.html">首页</a></li>
               <li ui-sref-active="active"><a href="../../manage/supplier/index.html">供应商管理</a></li>
               <li ui-sref-active="active"><a href="../../manage/distributor/index.html">分销商管理</a></li>
@@ -104,9 +111,18 @@
             <div class="form-group">
               <label class="control-label">营业执照：</label>
               <div class="col-sm-6">
-                <button class="btn btn-gray">上传文件</button>
-                <div class="row imgBar">
-                  <div class="col-sm-12"><img src="../../img/logo.png" class="license img-responsive"/></div>
+                <div id="uploadLicense">
+                  <input type="hidden" class="imgval"/>
+                  <div class="btn btn-gray btn-upload"><span>上传文件</span>
+                    <input type="file" id="fileupload" class="fileupload"/>
+                  </div>
+                  <div class="progress"><span class="bar"></span><span class="percent">0%</span></div>
+                  <div class="row imgBar">
+                    <div id="showimg" class="col-sm-12 uploadImgs">
+                      <div><img src="../../img/logo.png" class="img-responsive"/><a href="javascript:;" class="removeImg glyphicon glyphicon-remove"></a></div>
+                      <div><img src="../../img/logo.png" class="img-responsive"/><a href="javascript:;" class="removeImg glyphicon glyphicon-remove"></a></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -115,10 +131,18 @@
                 <p>(正反两面)</p>
               </label>
               <div class="col-sm-6">
-                <button class="btn btn-gray">上传文件</button>
-                <div class="row imgBar">
-                  <div class="col-sm-6"><img src="../../img/logo.png" class="idCard img-responsive"/></div>
-                  <div class="col-sm-6"><img src="../../img/logo.png" class="idCard img-responsive"/></div>
+                <div id="uploadIDCard" data-maxcount="2">
+                  <input type="hidden" class="imgval"/>
+                  <div class="btn btn-gray btn-upload"><span>上传文件</span>
+                    <input type="file" id="fileupload" class="fileupload"/>
+                  </div>
+                  <div class="progress"><span class="bar"></span><span class="percent">0%</span></div>
+                  <div class="row imgBar">
+                    <div id="showimg" class="col-sm-12 uploadImgs">
+                      <div><img src="../../img/logo.png" class="img-responsive"/><a href="javascript:;" class="removeImg glyphicon glyphicon-remove"></a></div>
+                      <div><img src="../../img/logo.png" class="img-responsive"/><a href="javascript:;" class="removeImg glyphicon glyphicon-remove"></a></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -143,5 +167,11 @@
     <script type="text/javascript" src="../../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../../js/dialog.js"></script>
+    <script type="text/javascript" src="../../plugs/jquery.form/jquery.form.js"></script>
+    <script type="text/javascript" src="../../plugs/jquery.form/jquery.foxupload.js"></script>
+    <script type="text/javascript">
+      $('#uploadIDCard').foxupload('http://123.59.58.104/supplier/upload/file.php?action=add');
+      $('#uploadLicense').foxupload('http://123.59.58.104/supplier/upload/file.php?action=add');
+    </script>
   </body>
 </html>

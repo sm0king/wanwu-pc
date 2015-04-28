@@ -586,3 +586,19 @@ table.dataTable thead .sorting:after {
     margin-top: 20px;
     position: static;
 }
+
+/* 登录信息栏 */
+/*.loginInfo{
+    background-color: #e6f5fb;
+    border:1px #afd6e5 solid!important;
+    margin-bottom: 15px;
+}*/
+.loginInfo .row>div{
+    text-align: center;
+    height: 54px;
+    line-height: 54px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}

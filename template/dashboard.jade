@@ -31,6 +31,12 @@ html
                 .navbar-default.sidebar(role='navigation')
                     .sidebar-nav.navbar-collapse
                         ul.nav.in#side-menu
+                            li.loginInfo
+                                .row
+                                    .col-md-6
+                                        [登录用户]
+                                    .col-md-6
+                                        a(href='javascript:;').red [ 退出 ]
                             block menu
                                 li(ui-sref-active='active')
                                     a(href='#{basePath}home.html') 首页

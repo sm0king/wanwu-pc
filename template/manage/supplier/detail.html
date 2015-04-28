@@ -5,6 +5,7 @@ block Define
 
 block header
     link(rel='stylesheet', href='#{basePath}css/manage/supplier.css')
+    link(rel='stylesheet', href='#{basePath}plugs/jquery.form/foxupload.css')
 
 block DashboardTitle
     供应商详情
@@ -61,24 +62,51 @@ block Right
             .form-group
                 label.control-label 营业执照：
                 .col-sm-6
-                    button.btn.btn-gray 上传文件
-                    .row.imgBar
-                        .col-sm-12
-                            img(src='../../img/logo.png').license.img-responsive
+                    #uploadLicense
+                        input(type='hidden').imgval
+                        .btn.btn-gray.btn-upload
+                            span 上传文件
+                            input(type='file')#fileupload.fileupload
+                        .progress
+                            span.bar
+                            span.percent 0%
+                        .row.imgBar
+                            .col-sm-12.uploadImgs#showimg
+                                div
+                                    img(src='../../img/logo.png').img-responsive
+                                    a(href='javascript:;').removeImg.glyphicon.glyphicon-remove
+                                div
+                                    img(src='../../img/logo.png').img-responsive
+                                    a(href='javascript:;').removeImg.glyphicon.glyphicon-remove
             .form-group
                 label.control-label
                     | 法人身份证：
                     p (正反两面)
                 .col-sm-6
-                    button.btn.btn-gray 上传文件
-                    .row.imgBar
-                        .col-sm-6
-                            img(src='../../img/logo.png').idCard.img-responsive
-                        .col-sm-6
-                            img(src='../../img/logo.png').idCard.img-responsive
+                    #uploadIDCard(data-maxcount='2')
+                        input(type='hidden').imgval
+                        .btn.btn-gray.btn-upload
+                            span 上传文件
+                            input(type='file')#fileupload.fileupload
+                        .progress
+                            span.bar
+                            span.percent 0%
+                        .row.imgBar
+                            .col-sm-12.uploadImgs#showimg
+                                div
+                                    img(src='../../img/logo.png').img-responsive
+                                    a(href='javascript:;').removeImg.glyphicon.glyphicon-remove
+                                div
+                                    img(src='../../img/logo.png').img-responsive
+                                    a(href='javascript:;').removeImg.glyphicon.glyphicon-remove
             .form-group
                 label.control-label &nbsp;
                 .col-sm-6
                     button.btn.btn-blue 保存
+block foot
+    script(type='text/javascript' src='../../plugs/jquery.form/jquery.form.js')
+    script(type='text/javascript' src='../../plugs/jquery.form/jquery.foxupload.js')
+    script(type='text/javascript').
+        $('#uploadIDCard').foxupload('http://123.59.58.104/supplier/upload/file.php?action=add');
+        $('#uploadLicense').foxupload('http://123.59.58.104/supplier/upload/file.php?action=add');
 
-                    
