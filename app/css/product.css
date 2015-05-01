@@ -177,8 +177,20 @@
 .product-detail .text-cell{
     line-height: 34px;
 }
-
-
+.btn-icon-magnifier{
+    /*padding-left: 28px;
+    background: #337ab7 url(../img/magnifier.png) 12px center no-repeat;*/
+}
+.product-detail .catalog .glyphicon-search{
+    padding-right: 10px;
+    margin-left: -10px;
+    vertical-align: middle;
+  margin-top: -5px;
+}
+.product-detail .catalog .form-control{
+    min-width: 80px;
+    margin: auto;
+}
 #productDescription{
     width:100%;
     resize:none;

@@ -87,3 +87,12 @@
 .check-verify{
     margin-left: 16px;
 }
+.product .table>tbody>tr>td{
+    text-align: center;
+}
+.brand .product-desc.yes-pass{
+    color: #4cbd4e;
+}
+.brand .product-desc.stop-use{
+    color: #de0a0a;
+}

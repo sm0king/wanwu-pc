@@ -1,5 +1,7 @@
-body{
+body,html{
     margin: 0;
+    padding: 0;
+    height: 100%;
 }
 .footer{
     position: absolute;
@@ -23,4 +25,7 @@ body{
 }
 .footer .comp{
     color: #8f8f8f;
+}
+.login{
+    min-height: 800px
 }
