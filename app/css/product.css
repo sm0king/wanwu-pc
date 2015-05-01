@@ -167,10 +167,17 @@
 }
 
 .btn-icon-magnifier{
-    padding-left: 28px;
-    background: #337ab7 url(../img/magnifier.png) 12px center no-repeat;
+    /*padding-left: 28px;
+    background: #337ab7 url(../img/magnifier.png) 12px center no-repeat;*/
 }
-
+.product-detail .catalog .glyphicon-search{
+    padding-right: 10px;
+    margin-left: -10px;
+}
+.product-detail .catalog .form-control{
+    min-width: 80px;
+    margin: auto;
+}
 #productDescription{
     width:100%;
     resize:none;
