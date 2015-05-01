@@ -69,6 +69,18 @@
                 <div class="panel-body">
                   <form class="form-horizontal">
                     <div class="form-group">
+                      <label for="account" class="control-label col-md-2">开户行：</label>
+                      <div class="col-md-8">
+                        <div class="cardSelector">
+                          <div class="cardInfo"><span class="owner">张三</span><span class="bank">招商银行</span><span class="cardNum">6226***123</span></div>
+                          <button data-toggle="dropdown" class="btn btn-default"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
+                          <ul role="menu" class="dropdown-menu">
+                            <li><a href="javascript:;"><span class="owner">张三</span><span class="bank">中国银行</span><span class="cardNum">6226***123</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
                       <label for="account" class="control-label col-md-2">银行卡号：</label>
                       <div class="col-md-8">
                         <input type="text" id="account" class="form-control"/>
@@ -129,6 +141,12 @@
                       btnSendMsg.removeClass('disable').prop('disabled', false);
                   }, 3000);
               }
+          });
+      });
+      $(function(){
+          $('.cardSelector').delegate('a','click',function(e){
+              var item = $(e.currentTarget);
+              $(e.delegateTarget).children('.cardInfo').empty().append(item.clone().children());
           });
       });
     </script>

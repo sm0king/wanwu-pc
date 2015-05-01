@@ -108,10 +108,14 @@
 }
 
 
+.capital .cardSelector .bank{
+    margin-right: 8px;
+}
 
-.capital .cardInfo,.capital .dropdown-menu{
+.capital.cash-out .cardInfo,.capital.cash-out .dropdown-menu{
     width:270px;
 }
+
 
 .capital .password{
     width:304px;

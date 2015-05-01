@@ -412,6 +412,7 @@ table.dataTable thead .sorting:after {
 .btn-search{
     background: url(../img/magnifier.png) 10px center no-repeat;
     background-image: url(../img/magnifier.png)!important;
+    padding-left: 30px!important;
 }
 
 .btn-fork{
@@ -431,6 +432,19 @@ table.dataTable thead .sorting:after {
     width: 26px;
     height: 26px;
     vertical-align: middle;
+}
+.btn-dustbin{
+    background: url(../img/dustbin.png) center center no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    width: 17px;
+    height: 20px;
+    vertical-align: middle;
+}
+.form-group .btn-blue{
+    height: 34px;
+    padding:10px 13px;
+    line-height: 12px;
 }
 
 .btn-gray-x,.btn-white-x{
@@ -520,6 +534,7 @@ table.dataTable thead .sorting:after {
 /* 选择银行卡 */
 .cardSelector{
     position: relative;
+    padding-right: 35px;
 }
 
 .cardSelector .cardInfo{
@@ -527,7 +542,10 @@ table.dataTable thead .sorting:after {
     float: left;
     border:1px solid #ccc;
     border-right:0px;
-
+    width:100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .cardSelector img{
@@ -543,11 +561,15 @@ table.dataTable thead .sorting:after {
 
 .cardSelector button{
     border-radius: 0px;
-    height: 35px;
+    height: 34px;
+    margin-right: -35px;
 }
 
 .cardSelector .dropdown-menu>li>a{
     padding:3px 10px;
+}
+.capital .dropdown-menu{
+    width:100%;
 }
 
 /* Tab选项卡样式 */
@@ -601,4 +623,46 @@ table.dataTable thead .sorting:after {
     text-overflow: ellipsis;
     white-space: nowrap;
 
+}
+.question{
+    background: url(../img/question.png) 0 0 no-repeat;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    vertical-align: middle;
+}
+.question:hover .tip{
+    display: block;
+}
+.question .tip{
+    display: none;
+    position: absolute;
+    bottom:-43px;
+    left:-10px;
+}
+.question.question-blue .tip .tip-content{
+    width:345px;
+    height: 30px;
+    border:1px #069dd6 solid;
+    padding:6px 3px;
+    border-radius: 5px;
+    line-height: 16px;
+    color:#069dd5;
+}
+.question.question-blue .tip-acute{
+    width:10px;
+    height: 8px;
+    background:white url(../img/tip-blue-acute.png) 0 0 no-repeat;
+    position: absolute;
+    top:-7px;
+    left:10px;
+    z-index: 1;
+}
+.require:before{
+    content:"*";
+    margin-right: 4px;
+}
+.table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
+    border-bottom-width: 1px;
 }

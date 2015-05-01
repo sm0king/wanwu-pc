@@ -1,5 +1,6 @@
 (function ($) {
     $.fn.foxupload = function (imgloapurl) {
+    	var upload = this;
     	var maxCount =this.attr('data-maxcount');
     	var bar =$(this).find('.bar');
 		var percent = $(this).find('.percent');
@@ -35,14 +36,18 @@
 					},*/
 				success: function(data) {
 					//files.html("<span class='delimg' rel='"+data.pic+"'>删除</span>");
-					var img = data.url;
+
 					maxCount == 1 && showimg.empty() && imgval.val('');
-					showimg.append("<div data-filename='"+ data.newFileName +"' ><img src='"+img+"' class='img-responsive'><a href='javascript:;' class='removeImg glyphicon glyphicon-remove'></a></div>");
+					var img = data.url;
+					var imgItem = $("<div data-filename='"+ data.newFileName +"' ><img src='"+img+"' class='img-responsive'><a href='javascript:;' class='removeImg glyphicon glyphicon-remove'></a></div>");					
+					showimg.append(imgItem);
 					btn.html("添加附件");
+					upload.trigger('fileuploaded', { fileName: data.newFileName, url: img, img: imgItem.children(), container: imgItem });
 					//追加值
 					tmpv=imgval.val();
 					if(tmpv!='') data.newFileName=','+data.newFileName;
 					imgval.val(imgval.val()+data.newFileName);
+
 				},
 				error:function(xhr){
 					btn.html("上传失败");
@@ -61,6 +66,7 @@
 			vals = vals.replace(',,',',');
 			vals = vals.replace(/^,|,$/ig,'');
 			imgval.val(vals);
+			upload.trigger('fileremoved', { id: $(e.currentTarget).attr('imgId'), fileName: fileName  });
 		});
 		return this;
     };

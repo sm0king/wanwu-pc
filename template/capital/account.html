@@ -33,6 +33,23 @@ block Right
                     .panel-body
                         form.form-horizontal
                             .form-group
+                                label.control-label(for='account').col-md-2 开户行：
+                                .col-md-8
+                                    div.cardSelector
+                                        div.cardInfo
+                                            span.owner 张三
+                                            span.bank 招商银行
+                                            span.cardNum 6226***123
+                                        button.btn.btn-default(data-toggle='dropdown')
+                                            span.caret
+                                            span.sr-only Toggle Dropdown
+                                        ul.dropdown-menu(role='menu')
+                                            li
+                                                a(href='javascript:;')
+                                                    span.owner 张三
+                                                    span.bank 中国银行
+                                                    span.cardNum 6226***123
+                            .form-group
                                 label.control-label(for='account').col-md-2 银行卡号：
                                 .col-md-8
                                     input(type='text').form-control#account
@@ -68,4 +85,11 @@ block foot
                 }
             });
         });
+        $(function(){
+            $('.cardSelector').delegate('a','click',function(e){
+                var item = $(e.currentTarget);
+                $(e.delegateTarget).children('.cardInfo').empty().append(item.clone().children());
+            });
+        });
+
 

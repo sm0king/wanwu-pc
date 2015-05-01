@@ -129,6 +129,18 @@
 .product-detail .col-operator{
     min-width: 70px;
 }
+.product-detail .table-price td{
+    width:40%;
+}
+.product-detail .table-price td:last-child{
+    width:20%;
+}
+.product-detail .table-model td{
+    width:27%;
+}
+.product-detail .table-model td:last-child{
+    width:19%;
+}
 .product-detail label{
     color:#666666;
     font-weight: normal;
@@ -166,10 +178,6 @@
     line-height: 34px;
 }
 
-.btn-icon-magnifier{
-    padding-left: 28px;
-    background: #337ab7 url(../img/magnifier.png) 12px center no-repeat;
-}
 
 #productDescription{
     width:100%;
@@ -241,6 +249,18 @@
     position: absolute;
     right:0px;
     top:0px;
+}
+.btn-bar button{    
+    margin-right: 15px;
+}
+.btn-bar button:last-child{
+    margin-right: 0px;
+}
+.product-detail .question .tip-acute{
+    left:105px;
+}
+.product-detail .question .tip{
+    left:-100px;
 }
 
 /* 在售分销商 */

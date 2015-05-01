@@ -45,7 +45,25 @@
       <div id="page-wrapper">
         <form action="#" class="form-horizontal product-detail">
           <div class="form-group">
-              <label for="productName" class="control-label">商品名称：</label>
+              <label for="taobaoLink" class="control-label">淘宝链接：</label>
+              <div class="col-md-6">
+                  <input type="text" id="taobaoLink" class="form-control">
+              </div>
+              <div class="col-md-4 btn-bar">
+                  <button type="button" class="btn btn-blue">获取商品信息</button>
+                  <button type="button" class="btn btn-blue">全店搬家</button>
+                  <a href="javascript:;" class="question question-blue hidden-xs hidden-sm">                    
+                      <div class="tip">  
+                          <div class="tip-acute"></div>
+                          <div class="tip-content">
+                              此功能会将商品所在店铺的全部商品全部搬家到万物。
+                          </div> 
+                      </div>
+                  </a>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="productName" class="control-label require">商品名称：</label>
               <div class="col-md-6">
                   <input type="text" id="productName" class="form-control" ng-model="productName">
               </div>
@@ -86,7 +104,7 @@
                           <input type="text" class="form-control">
                       </div>                 
                       <div class="col-lg-2 col-md-4">
-                          <button class="btn btn-primary btn-block btn-icon-magnifier" type="button">查询</button>
+                          <button class="btn btn-blue btn-block btn-search" type="button">查询</button>
                       </div>
                   </div>
                   <div class="row">
@@ -109,7 +127,7 @@
               </div>
           </div>
           <div class="form-group">
-              <label for="productBrand" class="control-label">品牌：</label>
+              <label for="productBrand" class="control-label require">品牌：</label>
               <div class="col-md-3">
                   <select id="productBrand" class="form-control">
                       <option value="1">品牌</option>
@@ -123,9 +141,9 @@
           </div>
           <div class="form-group">
               <label for="" class="control-label">商品价格：</label>
-              <div class="col-md-9">
+              <div class="col-md-6">
                   <div class="table-responsive">
-                      <table class="table table-bordered table-center customTable">
+                      <table class="table table-bordered table-center customTable table-price">
                           <thead>
                               <tr>
                                   <td>购买数量</td>
@@ -138,7 +156,7 @@
                                   <td>1</td>
                                   <td>80</td>
                                   <td>
-                                      <a href="javascript:;" class="btn-fork"></a>
+                                      <a href="javascript:;" class="btn-dustbin"></a>
                                   </td>
                               </tr>
                               <tr>
@@ -148,7 +166,7 @@
                                   <td><input type="text" class="form-control"></td>
                                   <td>
                                       <a href="javascript:;" class="btn-ok"></a>
-                                      <a href="javascript:;" class="btn-fork"></a>
+                                      <a href="javascript:;" class="btn-dustbin"></a>
                                   </td>
                               </tr>
                           </tbody>
@@ -165,9 +183,9 @@
           </div>
           <div class="form-group">
               <label for="productModel" class="control-label">商品规格：</label>
-              <div class="col-md-9">
+              <div class="col-md-8">
                   <div class="table-responsive">
-                      <table class="table table-bordered table-center customTable">
+                      <table class="table table-bordered table-center customTable table-model">
                           <thead>
                               <tr>
                                   <td>型号</td>
@@ -182,7 +200,7 @@
                                   <td>300</td>
                                   <td>12.5</td>
                                   <td>
-                                      <a href="javascript:;" class="btn-fork"></a>
+                                      <a href="javascript:;" class="btn-dustbin"></a>
                                   </td>
                               </tr>
                               <tr>
@@ -191,7 +209,7 @@
                                   <td><input type="text" class="form-control"></td>
                                   <td>
                                       <a href="javascript:;" class="btn-ok"></a>
-                                      <a href="javascript:;" class="btn-fork"></a>
+                                      <a href="javascript:;" class="btn-dustbin"></a>
                                   </td>
                               </tr>
                           </tbody>
@@ -210,7 +228,7 @@
               </div>
           </div>
           <div class="form-group">
-              <label for="productLocation" class="control-label">商品图片：</label>
+              <label for="productLocation" class="control-label require">商品图片：</label>
               <div class="col-md-9 product-images">
                   <!-- <button class="btn btn-default" type="buttn">上传图片</button>图片大小请控制在150K以内
                   <div class="row product-images"> -->
@@ -274,27 +292,21 @@
                   <div class="row product-hotflags" id="flags">
                       <div class="">
                           <button type="button" >春节</button>
-                          <a href="javascript:;" class="btn-gray-x"></a>
                       </div>
                       <div class="">
                           <button type="button" >抱枕</button>
-                          <a href="javascript:;" class="btn-gray-x"></a>
                       </div>
                       <div class="">
                           <button type="button" >抱枕</button>
-                          <a href="javascript:;" class="btn-gray-x"></a>
                       </div>
                       <div class="">
                           <button type="button" >抱枕</button>
-                          <a href="javascript:;" class="btn-gray-x"></a>
                       </div>
                       <div class="">
                           <button type="button" >抱枕</button>
-                          <a href="javascript:;" class="btn-gray-x"></a>
                       </div>
                       <div class="">
                           <button type="button" >春节</button>
-                          <a href="javascript:;" class="btn-gray-x"></a>
                       </div>
                   </div>
               </dib>

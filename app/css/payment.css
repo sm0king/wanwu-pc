@@ -18,11 +18,16 @@
 .payment .payOption{
     background-color: #fffceb;
     padding-top: 10px;
+    max-width: 750px;
 }
 .payment .payOption img{
     width:130px;
     height: 37px;
-    margin-left: 22px;
+    margin-left: 10px;
+    border:1px #e6e6e6 solid;
+}
+.payment .payOption label{
+    cursor: pointer;
 }
 .payment .middleBar{
     margin-bottom: 24px;
