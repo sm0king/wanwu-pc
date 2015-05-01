@@ -6,10 +6,10 @@ html
         meta(charset='utf-8')
         meta(name='viewport',content='width=device-width')
         block title
-            title 万物        
+            title 万物
         link(rel='stylesheet',href='#{basePath}plugs/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='../css/main.css')   
         link(rel='stylesheet', href='#{basePath}css/foot.css')   
-        link(rel='stylesheet', href='../css/main.css') 
         block header
     body
         block content
@@ -64,5 +64,5 @@ html
             </div>
             </div>
             </div>
-    include ../foot.jade
-    script(type='text/javascript',src='#{basePath}plugs/jquery/jquery.min.js')
+        include ../foot.jade
+        script(type='text/javascript',src='#{basePath}plugs/jquery/jquery.min.js')
