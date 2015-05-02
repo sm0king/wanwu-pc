@@ -27,7 +27,7 @@
               <li class="loginInfo">
                 <div class="row">
                   <div class="col-md-6">[登录用户]</div>
-                  <div class="col-md-6"><a href="javascript:;" class="red">[ 退出 ]</a></div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
                 </div>
               </li>
               <li ui-sref-active="active"><a href="home.html">首页</a></li>
@@ -46,13 +46,13 @@
       <div id="page-wrapper">
         <div class="home">
           <ul class="list-group">
-            <li class="list-group-item basicInfo info"><img src="../img/pic-gray.png" class="auth-img"/><span class="auth-stat">资质认证未提交</span><a href="javascript:;">提交认证资料</a><a class="question question-blue">
+            <li class="list-group-item basicInfo info"><img src="img/pic-gray.png" class="auth-img"/><span class="auth-stat">资质认证未提交</span><a href="javascript:;">提交认证资料</a><a class="question question-blue">
                 <div class="tip">
                   <div class="tip-acute"></div>
                   <div class="tip-content">您需要先通过供应商资质认证后才能上架商品。</div>
                 </div></a><span id="bindWeixin"> <span class="blue">绑定微信</span>
                 <div class="tip-rectangle tdc"><span class="gray">请使用微信扫描下方二维码完成绑定</span>
-                  <div><img src="../img/logo.png"/></div>
+                  <div><img src="img/logo.png"/></div>
                 </div></span><a class="question question-blue">
                 <div class="tip">
                   <div class="tip-acute"></div>
@@ -93,13 +93,19 @@
           <div class="panel panel-default">
             <div class="panel-heading">概况</div>
             <div class="panel-body">
-              <p class="itemTitle gray">每日销售</p>
-              <div class="plot">
-                <canvas width="500" height="100" id="sale"></canvas>
-              </div>
-              <p class="itemTitle gray">分销商数量</p>
-              <div class="plot">
-                <canvas width="500" height="100" id="retailerNum"></canvas>
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="itemTitle gray">每日销售</p>
+                  <div class="plot">
+                    <canvas width="400" height="200" id="sale"></canvas>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <p class="itemTitle gray">分销商数量</p>
+                  <div class="plot">
+                    <canvas width="400" height="200" id="retailerNum"></canvas>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

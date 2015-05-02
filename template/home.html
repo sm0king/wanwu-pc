@@ -1,67 +1,66 @@
 extends dashboard.jade 
 block header
     link(rel='stylesheet', href='css/home.css')
+    link(rel='stylesheet', href='css/info.css')
 
 block DashboardTitle 
     面板
 
 block Right
-    .group
-        h2 订单
-    .groupBody
+    .home
+        ul.list-group
+            li.list-group-item.basicInfo.info
+                img(src='img/pic-gray.png').auth-img
+                span.auth-stat 资质认证未提交
+                a(href='javascript:;') 提交认证资料
+                a.question.question-blue
+                    .tip
+                        .tip-acute
+                        .tip-content 您需要先通过供应商资质认证后才能上架商品。
+                span#bindWeixin 
+                    span.blue 绑定微信
+                    .tip-rectangle.tdc
+                        span.gray 请使用微信扫描下方二维码完成绑定
+                        div
+                            img(src='img/logo.png')
+                a.question.question-blue
+                    .tip
+                        .tip-acute
+                        .tip-content 您需要先通过供应商资质认证后才能上架商品。
+        ul.list-group
+            li.list-group-item 
+                | 15个订单等待发货
+                a(href='javascript:;').view 查看
+            li.list-group-item 
+                | 2个退货订单等待确认
+                a(href='javascript:;').view 查看
         .row
-            .col-md-4
-                a.item
-                    | 待发货订单
-                    span.red 12
-                    | 个
-            .col-md-4
-                a.item
-                    | 待退货订单
-                    span.red 13
-                    | 个
-            .col-md-4
-                a.item
-                    | 待付款订单
-                    span.red 14
-                    | 个
-    .group
-        h2 商品
-    .groupBody
-        .row
-            .col-md-4
-                a.item
-                    | 已上架商品
-                    span.red 12
-                    | 个
-            .col-md-4
-                a.item
-                    | 待上架商品
-                    span.red 13
-                    | 个
-    .group
-        h2 品牌
-    .groupBody
-        .row
-            .col-md-4
-                a.item
-                    | 已通过审核
-                    span.red 12
-                    | 个
-            .col-md-4
-                a.item
-                    | 未通过审核
-                    span.red 13
-                    | 个
-    .group
-        h2 概况
-    div
-        p.itemTitle.gray 每日销售
-        .plot
-            canvas(width='500', height='300')#sale
-        p.itemTitle.gray 分销商数量
-        .plot
-            canvas(width='500', height='300')#retailerNum
+            .col-md-6
+                ul.list-group
+                    li.list-group-item 98个品牌
+                    li.list-group-item 
+                        | 23个品牌等待提交审核
+                        a(href='javascript:;').view 查看
+                    li.list-group-item 
+                        | 75个品牌已上线
+                        a(href='javascript:;').view 查看
+            .col-md-6
+                ul.list-group
+                    li.list-group-item 0个商品
+                    li.list-group-item 
+                        a.addBrand 添加品牌
+        .panel.panel-default
+            .panel-heading 概况
+            .panel-body
+                .row
+                    .col-md-6
+                        p.itemTitle.gray 每日销售
+                        .plot
+                            canvas(width='400', height='200')#sale
+                    .col-md-6
+                        p.itemTitle.gray 分销商数量
+                        .plot
+                            canvas(width='400', height='200')#retailerNum
 
 block foot
     script(type='text/javascript',src='#{basePath}plugs/Chart.min.js')
@@ -83,7 +82,9 @@ block foot
                     }
                 ]
             };
-            new Chart(ctxSale).Line(saleData, {});
+            new Chart(ctxSale).Line(saleData, {
+                responsive: true
+            });
 
             var ctxRetailer =  document.getElementById('retailerNum').getContext('2d');
             var retailerData = {
@@ -101,6 +102,20 @@ block foot
                     }
                 ]
             };
-            new Chart(ctxRetailer).Line(retailerData, {});
+            new Chart(ctxRetailer).Line(retailerData, {
+                responsive: true
+            });
+
+            $('#bindWeixin').click(function(){
+                var jqTarget = $(this);
+                if(!jqTarget.hasClass('active')){
+                    jqTarget.addClass('active');
+                    setTimeout(function(){
+                        $(document.body).one('click', function(){
+                            jqTarget.removeClass('active');
+                        });
+                    }, 0); 
+                }
+            });
         })
 

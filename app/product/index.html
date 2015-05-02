@@ -26,7 +26,7 @@
               <li class="loginInfo">
                 <div class="row">
                   <div class="col-md-6">[登录用户]</div>
-                  <div class="col-md-6"><a href="javascript:;" class="red">[ 退出 ]</a></div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
                 </div>
               </li>
               <li ui-sref-active="active"><a href="../home.html">首页</a></li>
@@ -59,11 +59,9 @@
                       </select>
                   </div>
               </div>
-              <div class="form-group">
-                  <div class="btn btn-primary">添加商品</div>
-              </div>
           </form>
           <button class="btn btn-blue">查询</button>
+          <button class="btn btn-bigblue" id='addBrand'>添加商品</button>
           <div class="table-responsive">
               <table class="table table-bordered">
                   <thead>
@@ -72,27 +70,65 @@
                           <td>详细信息</td>
                           <td>分销价</td>
                           <td>库存</td>
-                          <td>上架</td>
+                          <td class="product-state-td">上架</td>
                           <td>操作</td>
                       </tr>
                   </thead>
                   <tbody>
                       <tr ng-repeat="pro in productList">
                           <td class="product-td-img">
-                              <input type="checkbox">
                               <img class="product-img" src="../img/logo.png" alt="">
                           </td>
                           <td>
                               <p class="product-desc">美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画</p>
                               <div class="product-catalog">
-                                  <a href="javascirpt:;">箱包皮具</a>
-                                  <a href="javascirpt:;">热销女包</a>
+                                  <a href="javascript:;" class="pull-right">在售分销商</a>
+                                  <a href="javascirpt:;" class="gray">箱包皮具</a>
+                                  <span class="gray">&gt;</span>
+                                  <a href="javascirpt:;" class="gray">热销女包</a>
                               </div>
                           </td>
-                          <td class="center">￥138.00</td>
-                          <td class="center">50</td>
+                          <td class="center">
+                              <input type="text" value="￥138.00" class="form-control input-price">
+                          </td>
+                          <td class="center">
+                              <input type="text" value="50" class="form-control input-stack">
+                          </td>
+                          <td class="center">
+                              <a href="" class="green">已上架</a>
+                          </td>
                           <td>
-                              <a href="" class="btn-ok"></a>
+                              <div class="row product-operator">
+                                  <div class="col-lg-6">
+                                      <a href="detail.html" class="edit"></a>
+                                  </div>
+                                  <div class="col-lg-6">
+                                      <a href="javascript:;" class="delete"></a>
+                                  </div>
+                              </div>
+                          </td>
+                      </tr>
+                      <tr ng-repeat="pro in productList">
+                          <td class="product-td-img">
+                              <img class="product-img" src="../img/logo.png" alt="">
+                          </td>
+                          <td>
+                              <p class="product-desc">美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画</p>
+                              <div class="product-catalog">
+                                  <a href="javascript:;" class="pull-right">在售分销商</a>
+                                  <a href="javascirpt:;" class="gray">箱包皮具</a>
+                                  <span class="gray">&gt;</span>
+                                  <a href="javascirpt:;" class="gray">热销女包</a>
+                              </div>
+                          </td>
+                          <td class="center">
+                              <input type="text" value="￥138.00" class="form-control input-price">
+                          </td>
+                          <td class="center">
+                              <input type="text" value="50" class="form-control input-stack">
+                          </td>
+                          <td class="center">
+                              <a href="" class="red">未上架</a>
                           </td>
                           <td>
                               <div class="row product-operator">

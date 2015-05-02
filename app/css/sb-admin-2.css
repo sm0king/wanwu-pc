@@ -691,3 +691,6 @@ a.download{
 .error .btn-back{
     width:100px;
 }
+.logout{
+    color:#888888!important;
+}

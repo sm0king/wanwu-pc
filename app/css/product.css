@@ -30,14 +30,16 @@
 }
 
 .product-catalog a{
-    margin:0px 5px;
-    color:#069dd5;
-}
 
-.product-catalog a:first-child{
-    margin-left: 0px;
 }
-
+.product-state-td{
+    min-width: 80px;
+}
+.product .input-price,.product .input-stack{
+    width: 64px;
+    text-align: center;
+    margin:0 auto;
+}
 .product .form-inline{
     padding:20px 0px;
 }
@@ -93,6 +95,13 @@
 
 .product .product-td-img{
     width: 160px;
+}
+
+#addBrand{
+    height: 35px;
+    vertical-align: middle;
+    padding:0px 15px;
+    margin-left:15px;
 }
 
 /* 商品详情部分 */
