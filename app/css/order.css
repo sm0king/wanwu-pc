@@ -41,7 +41,7 @@
 }
 
 .order .retailer{
-    min-width: 100px;
+    min-width: 80px;
 }
 
 .order .receiver{
@@ -100,11 +100,11 @@
 }
 
 .order .stdLable{
-    width:86px;
+    /*width:86px;*/
 }
 
 .order .stdLable2{
-    width:72px;
+    /*width:72px;*/
 }
 
 
@@ -113,21 +113,24 @@
 }
 
 .order #waybill{
-    width:112px;
+    width:200px;
 }
 .order #orderNum{
-    width:302px;
+    width:200px;
 }
 .order .timeSpan input{
     width:125px;
 }
 
 .order .timeSpan .part{
-    margin:0px 15px;
+    width: 14px;
+    margin:0px 5px;
 }
 .order label{
     color:#333333;
     font-weight: normal;
+    width: 80px;
+    text-align: right;
 }
 /* 订单详情 */
 .order.detail p{
@@ -223,4 +226,38 @@
     top:0px;
     width:10px;
     height: 10px;
+}
+.orderlist .tdOrderNumber{
+    width: 20%;
+    min-width: 180px;
+}
+.orderlist .tdOrderPrice{
+    width: ;
+    min-width: ;
+}
+.orderlist .tdOrderConsignee{
+    width: ;
+    min-width: ;
+}
+.orderlist .tdOrderAddress{
+    min-width: 170px;
+}
+.orderlist .tdOrderTime{
+    width: 100px;
+}
+.orderlist .tdOrderSta{
+    min-width: 80px;
+}
+.orderlist .tdOrderRemark{
+    min-width: 106px;
+}
+.orderlist .tdOrderAction{
+    width: 115px;
+    min-width: ;
+}
+.order .headBar label{
+    text-align: left;
+}
+.orderlist .orderTR .Remark{
+    text-align: left;
 }

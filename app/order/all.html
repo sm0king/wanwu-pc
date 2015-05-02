@@ -61,13 +61,13 @@
                   <input type="text" id="receiver" class="form-control"/>
                 </div>
                 <div class="form-group">
-                  <label for="concat">联系方式：</label>
+                  <label for="concat">手机号：</label>
                   <input type="text" id="concat" class="form-control"/>
                 </div>
               </div>
               <div>
                 <div class="form-group timeSpan">
-                  <label for="timeBegin" class="stdLable">下单时间段：</label>
+                  <label for="timeBegin" class="stdLable">下单时间：</label>
                   <input type="text" id="timeBegin" class="form-control"/>
                   <label for="timeEnd" class="part">至</label>
                   <input type="text" id="timeEnd" class="form-control"/>
@@ -85,40 +85,29 @@
                 <button class="btn btn-blue">查询</button>
               </div>
             </form>
-            <div class="headBar gap30">
-              <div class="btnBar pull-right">
-                <button type="button" class="btn btn-blue">确认退货</button>
-              </div>
-              <input type="checkbox" id="checkAll"/>
-              <label for="checkAll">全选</label>
-            </div>
             <div class="table-responsive orderlist">
               <table class="table table-bordered">
                 <tbody>
                   <tr class="titleTR">
-                    <td colspan="2">
-                       
+                    <td class="tdOrderNumber">
                       订单编号: <span class="blue">8779641532</span>
                     </td>
-                    <td class="retailer">分销价</td>
-                    <td class="receiver">收货人</td>
-                    <td>收货地址</td>
-                    <td>下单时间</td>
-                    <td>状态</td>
-                    <td>备注</td>
-                    <td>操作</td>
+                    <td class="retailer tdOrderPrice">分销价</td>
+                    <td class="receiver tdOrderConsignee">收货人</td>
+                    <td class="tdOrderAddress">收货地址</td>
+                    <td class="tdOrderTime">下单时间</td>
+                    <td class="tdOrderSta">状态</td>
+                    <td class="tdOrderRemark">备注</td>
+                    <td class="tdOrderAction">操作</td>
                   </tr>
                   <tr class="orderTR">
-                    <td class="ckTD">
-                      <input type="checkbox"/>
-                    </td>
                     <td class="productImgs"><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/></td>
                     <td>￥387.00</td>
                     <td>王刚</td>
                     <td>四川省成都市高新区天府软件园E区E1栋</td>
                     <td>015-03-12 17:38:48</td>
                     <td>等待发货</td>
-                    <td>客户要求每盒颜色不能重复</td>
+                    <td class="Remark">客户要求每盒颜色不能重复</td>
                     <td class="orderOperator"><a href="detail.html" class="blue">订单详情</a></td>
                   </tr>
                 </tbody>
