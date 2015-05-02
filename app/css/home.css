@@ -1,38 +1,40 @@
-.group{
-    border-bottom: 1px #e9e9e9 solid;
-    padding:18px;
-    margin-bottom: 47px;
+.home{
+    padding-top: 10px;
+    font-size: 1.28em;
 }
-.group h2{
-    font-size: 18px;
+.home .basicInfo>*{
+    vertical-align: middle;
 }
-.groupBody{
-    padding:0px 45px;
+.home .basicInfo .auth-img{
+    margin-right: 20px;
+    width:46px;
+    height: 36px;
 }
-a.item{
-    display: inline-block;
-    height: 140px;
-    width:100%;
-    line-height: 130px;
-    text-align: center;
-    border:5px #e2e2e2 solid;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none!important;
-    color:#333333;
-    font-size: 18px;
+.home .auth-stat{    
+    margin-right: 25px;
 }
-a.item:hover{
-    background-color: #e2e2e2;
+.home .basicInfo .question{
+    font-size: 0.77em;
+    margin-left: 10px;
+    margin-right: 25px;
 }
-a.item >.red{
-    font-size: 22px;
-    color:red;
-    font-weight: bold;
+
+.home #bindWeixin{
+    padding-left: 44px;
+    background: url(../img/logo_weixin.png) 0 center no-repeat;
+    height: 24px;
 }
-p.itemTitle{
-    margin: 30px 0px;
+.home #bindWeixin .tip-rectangle{
+    left:105px;
+    top:-85px;
+    font-size: 0.77em;
 }
-p.itemTitle:first-child{
-    margin-top: 0px;
+.home .view{
+    margin-left: 23px;
+
+}
+.home .addBrand{
+    padding-left:40px;
+    background: url(../img/cross.png) 0 center no-repeat;
+    background-size: 24px 24px;
 }
