@@ -14,28 +14,24 @@ block DashboardTitle
 block OrderContent
     .headBar
         .btnBar.pull-right
-            button(type='button').btn.btn-gray 下载订单信息
+            button(type='button').btn.btn-gray 下载全部未发货订单信息
             button(type='button').btn.btn-bigblue 上传发货信息
-            a.blue 发货信息模板
-        input(type='checkbox')#checkAll
-        label(for='checkAll') 全选
+            a.blue 下载发货信息模板
     .table-responsive.orderlist
         table.table.table-bordered
             tbody
                 tr.titleTR
-                    td(colspan='2') 
+                    td.tdOrderNumber 
                         | 订单编号: 
                         span.blue 8779641532
-                    td.retailer 分销价
-                    td.receiver 收货人
-                    td 收货地址
-                    td 下单时间
-                    td 状态
-                    td 备注
-                    td 操作
+                    td.retailer.tdOrderPrice 分销价
+                    td.receiver.tdOrderConsignee 收货人
+                    td.tdOrderAddress 收货地址
+                    td.tdOrderTime 下单时间
+                    td.tdOrderSta 状态
+                    td.tdOrderRemark 备注
+                    td.tdOrderAction 操作
                 tr.orderTR
-                    td.ckTD
-                        input(type='checkbox')
                     td.productImgs
                         img(src='../img/logo.png')
                         img(src='../img/logo.png')
@@ -46,14 +42,14 @@ block OrderContent
                     td 四川省成都市高新区天府软件园E区E1栋
                     td 015-03-12 17:38:48
                     td 等待发货
-                    td 客户要求每盒颜色不能重复
+                    td.Remark 客户要求每盒颜色不能重复
                     td.orderOperator
                         a.blue.doExpress 发货
                         a.blue.doNoStock 无货反馈
                         a.blue(href='detail.html') 订单详情
                         a.blue.doCancelOrder 取消订单
                 tr.titleTR
-                    td(colspan='2') 
+                    td
                         | 订单编号: 
                         span.blue 8779641532
                     td.retailer 分销价
@@ -64,8 +60,6 @@ block OrderContent
                     td 备注
                     td 操作
                 tr.orderTR
-                    td.ckTD
-                        input(type='checkbox')
                     td.productImgs
                         img(src='../img/logo.png')
                         img(src='../img/logo.png')
@@ -74,7 +68,7 @@ block OrderContent
                     td 四川省成都市高新区天府软件园E区E1栋
                     td 015-03-12 17:38:48
                     td 等待发货
-                    td 客户要求每盒颜色不能重复
+                    td.Remark 客户要求每盒颜色不能重复
                     td.orderOperator
                         a.blue.doExpress 发货
                         a.blue.doNoStock 无货反馈

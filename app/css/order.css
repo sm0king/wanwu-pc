@@ -140,7 +140,7 @@
 
 
 .order.detail h2{
-    margin: 40px 0px;
+    margin: 28px 0px;
 }
 
 .order.detail h2:first-child{
@@ -160,8 +160,9 @@
     border-top: 0px;
 }
 
-.order .timeTD{
+.order .streamTable .timeTD{
     width:160px;
+    text-align: right;
 }
 
 /* 无货反馈对话框 */
@@ -261,3 +262,22 @@
 .orderlist .orderTR .Remark{
     text-align: left;
 }
+.order.detail h2{
+    background-color: #f6f6f6;
+    border:1px solid #e2e2e2;
+    padding: 17px 12px;
+}
+.order .streamTable .tdcon{
+    padding-left: 20px;
+}
+.order .streamTable .tdlf{
+    text-align: right;
+}
+/* @media (min-width: 768px){
+    .dl-horizontal dt{
+        width: 120px;
+    }
+    .dl-horizontal dd {
+      margin-left: 140px;
+    }
+} */
