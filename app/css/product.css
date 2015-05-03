@@ -370,6 +370,18 @@
     border: none;
     border-left: 1px solid #ddd;
 }
+.product .btn-addcom{
+    float: right;
+    margin-top: 65px;
+}
+.product .btn-addcom .btn-primary{
+    background-color: #e6f5fb;
+    border: 1px solid #afd6e5;
+    width: 86px;
+    height: 34px;
+    color: #666666;
+    border-radius: 0;
+ }
 .retailerDetail{
     border:1px solid #069dd5;
     position: fixed;
