@@ -26,7 +26,7 @@
               <li class="loginInfo">
                 <div class="row">
                   <div class="col-md-6">[登录用户]</div>
-                  <div class="col-md-6"><a href="javascript:;" class="red">[ 退出 ]</a></div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
                 </div>
               </li>
               <li ui-sref-active="active"><a href="../home.html">首页</a></li>
@@ -80,32 +80,36 @@
                   <input type="text" id="afterWeightPrice" class="form-control"/><span>元</span>
                 </div>
                 <div class="form-group">
-                  <button type="button" id="save" class="btn btn-bigblue">保存</button>
+                  <button type="button" id="save" class="btn btn-bigblue">添加</button>
                 </div>
               </form>
-              <div class="table-responsive freightTable">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <td>地区</td>
-                      <td>首重(kg)</td>
-                      <td>首重价格</td>
-                      <td>续重(kg)</td>
-                      <td>续重价格</td>
-                      <td>删除</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>默认地区</td>
-                      <td>1</td>
-                      <td>8.00</td>
-                      <td>1</td>
-                      <td>6.00</td>
-                      <td> <a class="fork"></a></td>
-                    </tr>
-                  </tbody>
-                </table>
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="table-responsive freightTable">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <td>地区</td>
+                          <td>首重(kg)</td>
+                          <td>首重价格</td>
+                          <td>续重(kg)</td>
+                          <td>续重价格</td>
+                          <td>删除</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>默认地区</td>
+                          <td>1</td>
+                          <td>8.00</td>
+                          <td>1</td>
+                          <td>6.00</td>
+                          <td> <a class="fork"></a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

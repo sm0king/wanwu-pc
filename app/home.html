@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/foot.css"/>
     <link rel="stylesheet" href="css/sb-admin-2.css"/>
     <link rel="stylesheet" href="css/home.css"/>
+    <link rel="stylesheet" href="css/info.css"/>
   </head>
   <body>
     <div id="wrapper">
@@ -26,7 +27,7 @@
               <li class="loginInfo">
                 <div class="row">
                   <div class="col-md-6">[登录用户]</div>
-                  <div class="col-md-6"><a href="javascript:;" class="red">[ 退出 ]</a></div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
                 </div>
               </li>
               <li ui-sref-active="active"><a href="home.html">首页</a></li>
@@ -43,45 +44,70 @@
         <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
       </nav>
       <div id="page-wrapper">
-        <div class="group">
-          <h2>订单</h2>
-        </div>
-        <div class="groupBody">
+        <div class="home">
+          <ul class="list-group">
+            <li class="list-group-item basicInfo info"><img src="img/icon-auth.png" class="auth-img"/><span class="auth-stat">资质认证未提交</span><a href="javascript:;">提交认证资料</a><a class="question question-blue auth-tip">
+                <div class="tip">
+                  <div class="tip-acute"></div>
+                  <div class="tip-content">您需要先通过供应商资质认证后才能上架商品。</div>
+                </div></a><span id="bindWeixin"> <span class="blue">绑定微信</span>
+                <div class="tip-rectangle tdc"><span class="gray">请使用微信扫描下方二维码完成绑定</span>
+                  <div><img src="img/logo.png"/></div>
+                </div></span><a class="question question-blue">
+                <div class="tip">
+                  <div class="tip-acute"></div>
+                  <div class="tip-content">您需要先通过供应商资质认证后才能上架商品。</div>
+                </div></a></li>
+          </ul>
+          <ul class="list-group">
+            <li class="list-group-item">
+               
+              15个订单等待发货<a href="javascript:;" class="view">查看</a>
+            </li>
+            <li class="list-group-item">
+               
+              2个退货订单等待确认<a href="javascript:;" class="view">查看</a>
+            </li>
+          </ul>
           <div class="row">
-            <div class="col-md-4"><a class="item">待发货订单<span class="red">12</span>个</a></div>
-            <div class="col-md-4"><a class="item">待退货订单<span class="red">13</span>个</a></div>
-            <div class="col-md-4"><a class="item">待付款订单<span class="red">14</span>个</a></div>
+            <div class="col-md-6">
+              <ul class="list-group">
+                <li class="list-group-item">98个品牌</li>
+                <li class="list-group-item">
+                   
+                  23个品牌等待提交审核<a href="javascript:;" class="view">查看</a>
+                </li>
+                <li class="list-group-item">
+                   
+                  75个品牌已上线<a href="javascript:;" class="view">查看</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-group">
+                <li class="list-group-item">0个商品</li>
+                <li class="list-group-item"> <a class="addBrand">添加品牌</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="group">
-          <h2>商品</h2>
-        </div>
-        <div class="groupBody">
-          <div class="row">
-            <div class="col-md-4"><a class="item">已上架商品<span class="red">12</span>个</a></div>
-            <div class="col-md-4"><a class="item">待上架商品<span class="red">13</span>个</a></div>
-          </div>
-        </div>
-        <div class="group">
-          <h2>品牌</h2>
-        </div>
-        <div class="groupBody">
-          <div class="row">
-            <div class="col-md-4"><a class="item">已通过审核<span class="red">12</span>个</a></div>
-            <div class="col-md-4"><a class="item">未通过审核<span class="red">13</span>个</a></div>
-          </div>
-        </div>
-        <div class="group">
-          <h2>概况</h2>
-        </div>
-        <div>
-          <p class="itemTitle gray">每日销售</p>
-          <div class="plot">
-            <canvas width="500" height="300" id="sale"></canvas>
-          </div>
-          <p class="itemTitle gray">分销商数量</p>
-          <div class="plot">
-            <canvas width="500" height="300" id="retailerNum"></canvas>
+          <div class="panel panel-default">
+            <div class="panel-heading">概况</div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="itemTitle gray">销售额</p>
+                  <div class="plot">
+                    <canvas width="400" height="200" id="sale"></canvas>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <p class="itemTitle gray">分销商数量</p>
+                  <div class="plot">
+                    <canvas width="400" height="200" id="retailerNum"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -100,6 +126,9 @@
     <script type="text/javascript" src="plugs/Chart.min.js"></script>
     <script type="text/javascript">
       $(function(){
+          var options = {
+              responsive: true
+          };
           var ctxSale = document.getElementById('sale').getContext('2d');
           var saleData = {
               labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -116,7 +145,7 @@
                   }
               ]
           };
-          new Chart(ctxSale).Line(saleData, {});
+          new Chart(ctxSale).Line(saleData, options);
       
           var ctxRetailer =  document.getElementById('retailerNum').getContext('2d');
           var retailerData = {
@@ -134,7 +163,19 @@
                   }
               ]
           };
-          new Chart(ctxRetailer).Line(retailerData, {});
+          new Chart(ctxRetailer).Line(retailerData, options);
+      
+          $('#bindWeixin').click(function(){
+              var jqTarget = $(this);
+              if(!jqTarget.hasClass('active')){
+                  jqTarget.addClass('active');
+                  setTimeout(function(){
+                      $(document.body).one('click', function(){
+                          jqTarget.removeClass('active');
+                      });
+                  }, 0); 
+              }
+          });
       })
     </script>
   </body>

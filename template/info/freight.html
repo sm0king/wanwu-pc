@@ -35,23 +35,25 @@ block InfoContent
                 input(type='text')#afterWeightPrice.form-control
                 span 元
             .form-group
-                button(type='button').btn.btn-bigblue#save 保存
-        .table-responsive.freightTable
-            table.table.table-bordered
-                thead
-                    tr
-                        td 地区
-                        td 首重(kg)
-                        td 首重价格
-                        td 续重(kg)
-                        td 续重价格
-                        td 删除
-                tbody
-                    tr
-                        td 默认地区
-                        td 1
-                        td 8.00
-                        td 1
-                        td 6.00
-                        td 
-                            a.fork
+                button(type='button').btn.btn-bigblue#save 添加
+        .row
+            .col-lg-8
+                .table-responsive.freightTable
+                    table.table.table-bordered
+                        thead
+                            tr
+                                td 地区
+                                td 首重(kg)
+                                td 首重价格
+                                td 续重(kg)
+                                td 续重价格
+                                td 删除
+                        tbody
+                            tr
+                                td 默认地区
+                                td 1
+                                td 8.00
+                                td 1
+                                td 6.00
+                                td 
+                                    a.fork

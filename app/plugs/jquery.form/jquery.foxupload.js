@@ -2,6 +2,7 @@
     $.fn.foxupload = function (imgloapurl) {
     	var upload = this;
     	var maxCount =this.attr('data-maxcount');
+    	var defaultText = this.attr('data-text') || '上传附件';
     	var bar =$(this).find('.bar');
 		var percent = $(this).find('.percent');
 		var showimg = $(this).find('.uploadImgs');
@@ -41,13 +42,13 @@
 					var img = data.url;
 					var imgItem = $("<div data-filename='"+ data.newFileName +"' ><img src='"+img+"' class='img-responsive'><a href='javascript:;' class='removeImg glyphicon glyphicon-remove'></a></div>");					
 					showimg.append(imgItem);
-					btn.html("添加附件");
+					btn.html(defaultText);
+					progress.hide();
 					upload.trigger('fileuploaded', { fileName: data.newFileName, url: img, img: imgItem.children(), container: imgItem });
 					//追加值
 					tmpv=imgval.val();
 					if(tmpv!='') data.newFileName=','+data.newFileName;
 					imgval.val(imgval.val()+data.newFileName);
-
 				},
 				error:function(xhr){
 					btn.html("上传失败");
