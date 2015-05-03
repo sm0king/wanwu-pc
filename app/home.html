@@ -46,7 +46,7 @@
       <div id="page-wrapper">
         <div class="home">
           <ul class="list-group">
-            <li class="list-group-item basicInfo info"><img src="img/pic-gray.png" class="auth-img"/><span class="auth-stat">资质认证未提交</span><a href="javascript:;">提交认证资料</a><a class="question question-blue">
+            <li class="list-group-item basicInfo info"><img src="img/icon-auth.png" class="auth-img"/><span class="auth-stat">资质认证未提交</span><a href="javascript:;">提交认证资料</a><a class="question question-blue auth-tip">
                 <div class="tip">
                   <div class="tip-acute"></div>
                   <div class="tip-content">您需要先通过供应商资质认证后才能上架商品。</div>
@@ -95,7 +95,7 @@
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-6">
-                  <p class="itemTitle gray">每日销售</p>
+                  <p class="itemTitle gray">销售额</p>
                   <div class="plot">
                     <canvas width="400" height="200" id="sale"></canvas>
                   </div>
@@ -126,6 +126,9 @@
     <script type="text/javascript" src="plugs/Chart.min.js"></script>
     <script type="text/javascript">
       $(function(){
+          var options = {
+              responsive: true
+          };
           var ctxSale = document.getElementById('sale').getContext('2d');
           var saleData = {
               labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -142,9 +145,7 @@
                   }
               ]
           };
-          new Chart(ctxSale).Line(saleData, {
-              responsive: true
-          });
+          new Chart(ctxSale).Line(saleData, options);
       
           var ctxRetailer =  document.getElementById('retailerNum').getContext('2d');
           var retailerData = {
@@ -162,9 +163,7 @@
                   }
               ]
           };
-          new Chart(ctxRetailer).Line(retailerData, {
-              responsive: true
-          });
+          new Chart(ctxRetailer).Line(retailerData, options);
       
           $('#bindWeixin').click(function(){
               var jqTarget = $(this);

@@ -10,10 +10,10 @@ block Right
     .home
         ul.list-group
             li.list-group-item.basicInfo.info
-                img(src='img/pic-gray.png').auth-img
+                img(src='img/icon-auth.png').auth-img
                 span.auth-stat 资质认证未提交
                 a(href='javascript:;') 提交认证资料
-                a.question.question-blue
+                a.question.question-blue.auth-tip
                     .tip
                         .tip-acute
                         .tip-content 您需要先通过供应商资质认证后才能上架商品。
@@ -54,7 +54,7 @@ block Right
             .panel-body
                 .row
                     .col-md-6
-                        p.itemTitle.gray 每日销售
+                        p.itemTitle.gray 销售额
                         .plot
                             canvas(width='400', height='200')#sale
                     .col-md-6
@@ -66,6 +66,9 @@ block foot
     script(type='text/javascript',src='#{basePath}plugs/Chart.min.js')
     script(type='text/javascript').
         $(function(){
+            var options = {
+                responsive: true
+            };
             var ctxSale = document.getElementById('sale').getContext('2d');
             var saleData = {
                 labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -82,9 +85,7 @@ block foot
                     }
                 ]
             };
-            new Chart(ctxSale).Line(saleData, {
-                responsive: true
-            });
+            new Chart(ctxSale).Line(saleData, options);
 
             var ctxRetailer =  document.getElementById('retailerNum').getContext('2d');
             var retailerData = {
@@ -102,9 +103,7 @@ block foot
                     }
                 ]
             };
-            new Chart(ctxRetailer).Line(retailerData, {
-                responsive: true
-            });
+            new Chart(ctxRetailer).Line(retailerData, options);
 
             $('#bindWeixin').click(function(){
                 var jqTarget = $(this);

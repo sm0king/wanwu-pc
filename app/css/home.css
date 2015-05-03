@@ -38,3 +38,12 @@
     background: url(../img/cross.png) 0 center no-repeat;
     background-size: 24px 24px;
 }
+.home .question .tip{
+    left:-110px;
+}
+.home .question .tip-acute{
+    left:115px;
+}
+.home .question.auth-tip .tip-content{
+    width:300px;
+}
