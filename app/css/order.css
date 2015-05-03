@@ -140,6 +140,7 @@
 .order.detail p>span{
     display: inline-block;
     width:75px;
+    text-align: right;
 }
 
 
