@@ -182,17 +182,21 @@
     width:52px;
     height: 52px;
     margin:10px;
-    border:1px solid #e1e1e1;
+    border: 3px solid #efefef;
+    background-color: #ffa0a0;
 }
 #noStockForm .noStockProducts .ok{
     display: none;
     position: absolute;
     right: 10px;
-    bottom:10px;
-    width:16px;
-    height: 16px;
-    background-color: white;
-    background-size: 100% 100%;
+    bottom:15px;
+    width:28px;
+    height: 28px;
+    background-size: 58% 58%;
+    background-image: url(../img/ook.png);
+    background-position: right bottom;
+    background-repeat: no-repeat;
+    /*background: url(../img/ook.png) center center no-repeat*/
 }
 #noStockForm .noStockProducts .checked .ok{
     display: block;
@@ -277,11 +281,8 @@
 .order .streamTable .tdlf{
     text-align: right;
 }
-/* @media (min-width: 768px){
-    .dl-horizontal dt{
-        width: 120px;
-    }
-    .dl-horizontal dd {
-      margin-left: 140px;
-    }
-} */
+.StockTitle{
+    display: block;
+    margin-top: -25px;
+    padding-left: 10px;
+}
