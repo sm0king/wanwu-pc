@@ -67,24 +67,12 @@
     padding-left: 21px;
     color:#999999;
 }
-.info.freight .form-group{
-    margin-bottom: 20px;
-    margin-right: 40px;
-}
-
-.info.freight .form-group:last-child{
-    margin-right: 0px;
-}
 
 .info.freight .form-group>label{
     margin-right: 10px;
 }
 .info.freight .form-group>span{
-    margin-right: 20px;
     margin-left: 5px;
-}
-.info.freight .form-group>span:last-child{
-    margin-right: 0px;
 }
 
 .info.freight .freightTable td{
@@ -107,6 +95,24 @@
 .info #save{
     padding:0px 15px;
     height: 34px;
+}
+.info .addTempItemForm .form-group{
+    height: 60px;
+    margin-right: 40px;
+}
+.info .addTempItemForm input{
+    padding-right: 12px;
+}
+.info .addTempItemForm .form-afterWeight,.info .addTempItemForm .form-weight{
+    margin-right: 10px;
+}
+.info .addTempItemForm .form-button{
+    margin-right: 0px;
+}
+@media(min-width: 1200px){
+    .info .freightTable{
+        width:500px;
+    }
 }
 /* 认证信息 */
 .info.auth .tip{
