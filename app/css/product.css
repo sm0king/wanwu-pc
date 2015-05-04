@@ -51,7 +51,6 @@
 .product .product-img{
     max-width: 105px;
     max-height: 105px;
-    margin-right: 25px;
 }
 
 .product .pagination{
@@ -297,11 +296,12 @@
 
 .retailer-table td{
     text-align: center;
+    
 }
 
 .retailer-table>tbody>tr>td{
     padding:0px;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 .retailer-table .default{
@@ -312,29 +312,12 @@
     line-height: 34px;
 }
 
-.retailer-table .extend{
-    padding:8px 0px;
-    display: none;
-}
-
 .retailer-table .caret{
     margin-left: 10px;
 }
 
 .retailer-table .checkbox{
     margin:7px 0px;
-}
-
-.retailer-table tr.expand{
-    background-color: #f3f3f3;
-}
-
-.retailer-table tr.expand .default{
-    border-bottom: 1px solid #DDD;
-}
-
-.retailer-table tr.expand .extend{
-    display: block;
 }
 
 
@@ -398,4 +381,41 @@
     height: 34px;
     color: #666666;
     border-radius: 0;
+ }
+.retailerDetail{
+    border:1px solid #069dd5;
+    position: fixed;
+    box-shadow: 0 8px 27px #989898;
+    display: none;
+    background-color: #FFF;
+    z-index: 1000;
+}
+.retailerDetail .retailer-table{
+    margin-bottom: 0px;
+}
+.retailerDetail .retailer-table td{
+    width:20%;
+}
+.retailerDetail .retailer-table thead>tr>td{
+    height: 41px;
+    vertical-align: middle;
+}
+.retailerDetail .bottomBar{
+    padding:5px 16px;
+}
+.retailerDetail a.closeretailerDetail{
+    position: absolute;
+    right:4px;
+    top:2px;
+}
+.retailerDetail button.closeretailerDetail{
+    padding:0px;
+    width:74px;
+    height: 29px;
+    border-radius: 5px;
+}
+@media (min-width:1200px) {
+    .retailerDetail{
+        width:600px;
+    }
 }
