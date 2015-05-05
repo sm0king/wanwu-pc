@@ -1,298 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>万物</title>
     <link rel="stylesheet" href="plugs/bootstrap/css/bootstrap.min.css" />
     <style type="text/css">
-        body{
-            overflow: hidden;
-        }
-        .page-header{
-            padding-left:50px;
-            padding-right:50px;
-        }
+    body {
+        overflow: hidden;
+    }
+    
+    .page-header {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    
+    .login {
+        float: right;
+        margin-top: 18px;
+    }
+    
+    .login a {
+        margin-left: 15px;
+        display: inline-block;
+    }
+    
+    .green {
+        color: #4cbd4e;
+    }
+    
+    .blue {
+        background-color: #069dd5;
+        color: #fff;
+        height: 36px;
+        border-radius: 18px;
+        width: 110px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 60px;
+        float: right;
+        line-height: 38px;
+    }
+    
+    .blue:hover,
+    .blue:focus {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .center {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 0px;
+        margin-top: -106px;
+        width: 100%;
+    }
+    
+    .text {
+        font-size: 32px;
+        color: white;
+    }
+    
+    .greenBtn,
+    .blueBtn {
+        display: inline-block;
+        width: 365px;
+        height: 97px;
+        line-height: 97px;
+        text-align: center;
+        border-radius: 5px;
+        margin-top: 70px;
+    }
+    
+    .greenBtn {
+        background-color: #4cbd4e;
+    }
+    
+    .blueBtn {
+        background-color: #069dd5;
+    }
+    
+    .desc {
+        position: absolute;
+    }
+    
+    .desc p {
+        font-size: 28px;
+        color: white;
+        text-shadow: 0px 0px 5px #000;
+    }
+    
+    p.big {
+        font-size: 80px;
+        text-shadow: 0px 0px 5px #61300a;
+    }
+    
+    .page-header {
+        padding: 31px 75px 21px 75px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 2;
+        background-color: #fff;
+        margin: 0;
+    }
+    
+    .foot {
+        padding: 31px 75px 21px 75px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 230px;
+        z-index: 2;
+        /*background-color: gray;*/
+        
+        text-align: center;
+        /*display: none;*/
+    }
+    
+    .foot-link {
+        margin-top: 50px;
+    }
+    
+    .foot-link,
+    .foot-link a {
+        color: #069dd5;
+    }
+    
+    .foot-copy {
+        color: #c3c3c3;
+    }
+    
+    .pageDown {
+        background: url(img/pageDown.png) 0 0 no-repeat;
+        width: 55px;
+        height: 55px;
+        display: inline-block;
+        position: absolute;
+        margin-left: -27px;
+        left: 50%;
+        bottom: 15px;
+        z-index: 2;
+        opacity: 0.7;
+    }
+    /*old*/
+    
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .sliders .slider1 {
+        background-image: url(./img/slider1.jpg);
+    }
+    
+    .sliders .slider2 {
+        background-image: url(./img/slider2.jpg);
+    }
+    
+    .sliders .slider3 {
+        background-image: url(./img/slider3.jpg);
+    }
+    
+    .sliders .slider4 {
+        background-image: url(./img/slider4.jpg);
+    }
+    
+    .sliders {
+        width: 100%;
+        height: 778px;
+    }
+    
+    .sliders ul {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        /*max-width: 1920px; */
+        
+        min-width: 1007px;
+        margin: 0 auto;
+    }
+    
+    .sliders li {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 1920px;
+        height: 100%;
+        margin: 0 0 0 -960px;
+        display: none;
+        z-index: 1;
+        -webkit-background-size: cover;
+        background-size: cover;
+        background-position: center center;
+    }
+    
+    .sliders li:first-child {
+        display: block;
+    }
+    
+    .circle {
+        position: relative;
+        width: 100%;
+        height: 52px;
+        margin-top: -52px;
+        background: transparent url(./img/linearbot.png) repeat-x left top;
+        text-align: center;
+        z-index: 5;
+    }
+    
+    .circle span {
+        margin: 0 5px;
+        padding: 2px 5px;
+        background: transparent url(./img/nav.png) no-repeat center center;
+        cursor: pointer;
+    }
+    
+    .circle span.on {
+        background-image: url(./img/navcur.png);
+    }
+    
+    .lgIco {
+        width: 35px;
+        height: 35px;
+        -webkit-background-size: 100%;
+        background-position: center center;
+        background-size: 100%;
+        background-position: center center;
+    }
+    
+    .weibo {
+        background-image: url(./img/weibo.png);
+    }
+    
+    .weixin {
+        background-image: url(./img/weixin.png);
+    }
+    
+    .qq {
+        background-image: url(./img/qq.png);
+    }
+    
+    .bncont {
+        position: relative;
+        width: 948px;
+        height: 100%;
+        margin: 0 auto;
+    }
+    
+    .bntxt {
+        position: absolute;
+        left: -53px;
+        top: 50%;
+        width: 500px;
+        height: 390px;
+        margin-top: -195px;
+        z-index: 10;
+    }
+    
+    .bntxt h2 {
+        width: 100%;  
+        overflow: hidden;
+        font-size: 48px;
+        padding-top: 55px;
+        text-align: center;
+    }
+    .bntxt.fist h2{
+        padding-top: 124px;
+    }
+    .bntxt.last h2{
+        padding-top: 36px;
+    }
 
-        .login{
-            text-align: right;
-            margin-top: -20px;
-        }
-        .login a{
-            margin-left: 15px;
-        }
-        .green{
-            color:#4cbd4e;
-        }
-        .blue{
-            color:#069dd5;
-        }
-        .step{
-            position: absolute;
-            background-size: cover;
-            background-repeat:no-repeat;
-            background-attachment: fixed;
-            background-position: center center;
-        }
-
-        #step1{
-            background-image:url(img/screen-1.png);
-        }
-
-        #step1 a{
-            color:white;
-            text-decoration: none;
-        }
-
-        #step2{
-            background-image:url(img/screen-2.png);
-        }
-
-        #step2 .desc{
-            right:170px;
-            top:185px;
-        }
-
-        #step2 p{
-            text-align: right;
-        }
-
-        #step3{
-            background-image:url(img/screen-3.png);
-        }
-
-        #step3 .desc{
-            left:165px;
-            top: 245px;
-        }
-
-        #step4{
-            background-image:url(img/screen-4.png);
-        }
-
-        .center{
-            text-align: center;
-            position: absolute;
-            top:50%;
-            left:0px;
-            margin-top: -106px;
-            width: 100%;
-        }
-
-        .text{
-            font-size: 32px;
-            color:white;
-        }
-
-        .greenBtn,.blueBtn{
-            display: inline-block;
-            width:365px;
-            height:97px;
-            line-height: 97px;
-            text-align: center;
-            border-radius: 5px;
-            
-            margin-top: 70px;
-        }
-
-        .greenBtn{
-            background-color: #4cbd4e;
-        }
-
-        .blueBtn{
-            background-color: #069dd5;
-        }
-
-        .desc{
-            position: absolute;
-        }
-
-        .desc p{
-            font-size: 28px;
-            color:white;
-            text-shadow: 0px 0px 5px #000;
-        }
-
-        p.big{
-            font-size: 80px;
-            text-shadow: 0px 0px 5px #61300a;
-        }
-
-        .page-header{
-            padding:31px 75px 21px 75px;
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 100%;
-            z-index: 2;
-            background-color: #fff;
-            margin:0;
-        }
-
-        .foot{
-            padding:31px 75px 21px 75px;
-            position: fixed;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 230px;
-            z-index: 2;
-            background-color: gray;
-            text-align: center;
-            display: none;
-        }
-        .foot-link{
-            margin-top: 50px;
-        }
-
-        .foot-link,.foot-link a{
-            color:#069dd5;
-        }
-
-        .foot-copy{
-            color:#c3c3c3;
-        }
-        .pageDown{
-            background: url(img/pageDown.png) 0 0 no-repeat;
-            width:55px;
-            height: 55px;
-            display: inline-block;
-            position: absolute;
-            margin-left: -27px;
-            left:50%;
-            bottom:15px;
-            z-index: 2;
-            opacity:0.7;
-        }
+    .bntxt.fist a{
+        margin-top: 60px;
+        margin-bottom: -31px;
+    }
+    
+    .bntxt a {
+        display: block;
+        width: 226px;
+        height: 0;
+        overflow: hidden;
+        margin: 0 auto;
+        padding-top: 70px;
+        text-align: center;
+        line-height: 76;
+        font-size: 30px;
+        letter-spacing: 15px;
+        margin-top: 30px;
+    }
+    .AppStore{
+        background: transparent url(./img/AppStore.png) no-repeat 0 0;
+    }
+    .Android{
+        background: transparent url(./img/Android.png) no-repeat 0 0;
+    }
     </style>
 </head>
+
 <body>
     <div class="page-header" id="header">
         <img src="img/logo.png" alt="">
         <div class="login">
-            <a href="login.html" class="green">供应商登录</a>
-            <a href="#" class="blue">分销商登录</a>
-        </div>
-        
-    </div>
-    <div class="step step1" id="step1">
-        <div class="row center">
-            <div class="col-lg-2 visible-lg-block"></div>
-            <div class="col-lg-4 col-md-6">
-                 <div class="text">一键上架货到全球</div>
-                 <a class="text greenBtn" href="javascript:;" class="">我是供应商</a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="text">随时随地分享自由</div>
-                <a class="text blueBtn" href="javascript:;" >我是分销商</a>
-            </div>
-            <div class="col-lg-2 visible-lg-block"></div>
-        </div>
-        <a href="javascript:;" class="pageDown" onclick="window.current = 0;window.onmousewheel({ deltaY: 3 })" ></a>
-    </div>
-    <div class="step step2" id="step2">
-        <div class="desc">
-            <p class="big">万物之中</p>
-            <p>生意明明可以做得更大</p>
-            <p>为什么还在犹豫不决</p>
+            <a href="www.weibo.com" target="_blank" class="lgIco weibo"> </a>
+            <a class="lgIco weixin" id="lgIco"> </a>
+            <a href="www.qq.com" class="lgIco qq"></a>
+            <a href="login.html" class="blue">我是供应商</a>
         </div>
     </div>
-    <div class="step step3" id="step3">
-        <div class="desc">
-            <p class="big">万物之中</p>
-            <p>你要的有那么多</p>
-            <p>为什么还不赶快行动？</p>
-        </div>
+    <div class="sliders" id="sliders">
+        <ul class="slider" id="slider">
+            <li class="slider1">
+                <div class="bncont">
+                    <div class="bntxt fist">
+                        <h2>相见恨晚的货源平台</h2>
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="Android"></a>
+                    </div>
+                </div>
+            </li>
+            <li class="slider2 ">
+                <div class="bncont">
+                    <div class="bntxt">
+                        <h2>全网全平台</h2><h3>无数店铺，一个应用</h3>
+                        <p>下载万物分销商App，不管是淘宝还是微店，再多店铺也能轻松打理！</p>
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="Android"></a>
+                    </div>
+                </div>
+            </li>
+            <li class="slider3">
+                <div class="bncont">
+                    <div class="bntxt">
+                        <h2>全球货源</h2><h3>海量优质商品供给您的事业</h3>
+                        <p>已有众多供应商入驻万物平台，海量商品为你解决供应链难题！</p>
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="Android"></a>
+                    </div>
+                </div>
+            </li>
+            <li class="slider4">
+                <div class="bncont">
+                    <div class="bntxt last">
+                        <h2>真正免费</h2><h3>使用“0”门槛</h3>
+                        <p>无需任何费用，仅需一个手机号即可成为万物平台分销商，货物积压、滞销风险万物通通替你解决！</p>
+                        <a href="" class="AppStore"></a>
+                        <a href="" class="Android"></a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
-
-    <div class="step step4" id="step4"></div>
-
     <div class="foot" id="foot">
         <p class="foot-link">
-            <a href="javascript:;">服务协议</a> | 
-            <a href="javascript:;">联系我们</a> |
-            客服电话：400-000-0011
+            <a href="javascript:;">服务协议</a> |
+            <a href="javascript:;">联系我们</a> | 客服电话：400-000-0011
         </p>
         <p class="foot-copy">
             Copyright &copy; 2015 万物wanwu.com版权所有 蜀ICP备12345678号
         </p>
     </div>
-
     <script src="plugs/jquery/jquery.min.js"></script>
-    <script src="js/parallax.min.js"></script>
+    <!-- <script src="js/unslider.min.js"></script>-->
     <script type="text/javascript">
-        $(function(){
-            window.onresize = function(){
-                $('.step').css({
-                    width: document.documentElement.clientWidth,
-                    height:document.documentElement.clientHeight
-                });
+    $.fn.picfade = function(configs) {
+        var settings = $.extend({
+            tags: "li",
+            toggleClass: "on",
+            auto: true,
+            shownav: true,
+            timerange: 6000
+        }, configs || {});
+        return this.each(function() {
+            var container = this;
+            var $tags = $(container).children();
+            var tagslen = $tags.size();
+            if (tagslen < 2) {
+                return false
             }
-            
-
-            parallax
-                .add($("#step1"))
-                .add($('#step2'))
-                .add($('#step3'))
-                .add($('#step4'));
-            parallax.step1.show();
-
-            window.onresize();
-
-            /*注册事件*/
-            if(document.addEventListener){
-                document.addEventListener('DOMMouseScroll',onmousewheel,false);
-            }//W3C
-            window.onmousewheel=document.onmousewheel=onmousewheel;
-        });
-
-        var screens = $('.step'),
-            current = 0,
-            flag = false;
-
-        function onmousewheel(e){
-            if (flag) { return; }            
-
-            e = e || window.event;
-            if (getWheelYDir(e)) {
-                current = Math.min(++current, screens.length)
-                if(current > 0 && current < screens.length){
-                    flag = true;
-                    parallax[ screens[ current ].id ].bottom(scrollFinish);
+            var curid = 0;
+            var targetid = 0;
+            var timer = null;
+            if (settings.shownav) {
+                var $nav = $('<div class="circle"></div>').insertAfter(container);
+                var navStr = "";
+                for (var i = 0; i < tagslen; i++) {
+                    navStr += "<span>&nbsp;</span>"
                 }
+                var $as = $nav.html(navStr).children();
+                $as.first().addClass(settings.toggleClass);
+                $as.each(function(i, item) {
+                    $(item).mouseover(function() {
+                        settings.auto = false;
+                        targetid = i;
+                        fade(curid, targetid);
+                        curid = targetid
+                    }).mouseout(function() {
+                        settings.auto = true
+                    })
+                })
+            }
+            $(container).hover(function() {
+                settings.auto = false
+            }, function() {
+                settings.auto = true
+            });
+            timer = window.setInterval(function() {
+                if (!settings.auto) {
+                    return false
+                }
+                if (targetid === tagslen - 1) {
+                    targetid = 0
+                } else {
+                    targetid += 1
+                }
+                fade(curid, targetid);
+                curid = targetid
+            }, settings.timerange);
 
-            }else{        
-                current = Math.max(--current, -1)        
-                if (current >= 0 && current < screens.length - 1) {
-                    flag = true;
-                    parallax[ screens[ current ].id ].top(scrollFinish);
+            function fade(cid, nextid) {
+                if (cid === nextid) {
+                    return false
+                }
+                $tags.eq(cid).fadeOut(1000);
+                $tags.eq(nextid).fadeIn(800);
+                if (settings.shownav) {
+                    $as.eq(cid).removeClass(settings.toggleClass);
+                    $as.eq(nextid).addClass(settings.toggleClass)
                 }
             }
-            header(current < 0);
-            foot(current >= screens.length);
-
-        }
-
-        function getWheelYDir(e){
-            return (e.deltaY || e.detail) > 0 ? 1 : 0;
-        }
-
-        function scrollFinish(){
-            flag = false;
-        }
-
-        var jqFoot = $('#foot');
-        function foot(visible){
-            if (jqFoot.is(':visible') == visible) { return; }
-            jqFoot.stop(true, false);
-            visible ? jqFoot.fadeIn(parallax.speed) : jqFoot.fadeOut(parallax.speed);
-        }
-
-        var jqHeader = $('#header');
-        function header(visible){
-            if (jqHeader.is(':visible') == visible) { return; }
-            jqHeader.stop(true, false);
-            visible ? jqHeader.fadeIn(parallax.speed) : jqHeader.fadeOut(parallax.speed);
-        }
+        })
+    };
+    $(function() {
+        // $('#slider').unslider();
+        $("#slider").picfade({
+            timerange: 3000
+        })
+    })
     </script>
 </body>
+
 </html>
