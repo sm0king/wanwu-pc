@@ -5,6 +5,9 @@
 .product .table{
     margin-bottom: 0px;
 }
+.product .prodcut-operator-td{
+    width:120px;
+}
 
 .product .product-operator div{
     text-align: center;
@@ -95,6 +98,7 @@
 
 .product .product-td-img{
     width: 160px;
+    text-align: center;
 }
 
 #addBrand{
