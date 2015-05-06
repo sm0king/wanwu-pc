@@ -6,10 +6,7 @@
     <title>万物</title>
     <link rel="stylesheet" href="plugs/bootstrap/css/bootstrap.min.css" />
     <style type="text/css">
-    body {
-        overflow: hidden;
-    }
-    
+  
     .page-header {
         padding-left: 50px;
         padding-right: 50px;
@@ -104,13 +101,13 @@
         top: 0;
         width: 100%;
         z-index: 2;
-        background-color: #fff;
         margin: 0;
+        background-color: rgba(0,0,0,.6);
+        border: none;
     }
     
     .foot {
         padding: 31px 75px 21px 75px;
-        position: fixed;
         left: 0;
         bottom: 0;
         width: 100%;
@@ -173,7 +170,6 @@
     
     .sliders {
         width: 100%;
-        height: 778px;
     }
     
     .sliders ul {
@@ -256,20 +252,26 @@
     
     .bntxt {
         position: absolute;
-        left: -53px;
+        left: -90px;
         top: 50%;
-        width: 500px;
-        height: 390px;
+        width: 620px;
+        height: 388px;
         margin-top: -195px;
         z-index: 10;
+        background-color: rgba(0,0,0,.4);
+        color: #fff;
+        border-radius: 2px;
+        font-family: "Microsoft YaHei";
+        font-size: 20px;
+        padding:0 20px;
     }
     
     .bntxt h2 {
         width: 100%;  
         overflow: hidden;
         font-size: 48px;
-        padding-top: 55px;
-        text-align: center;
+        padding-top: 36px;
+        text-align: left;
     }
     .bntxt.fist h2{
         padding-top: 124px;
@@ -279,7 +281,7 @@
     }
 
     .bntxt.fist a{
-        margin-top: 60px;
+        margin-top: 79px;
         margin-bottom: -31px;
     }
     
@@ -295,12 +297,36 @@
         font-size: 30px;
         letter-spacing: 15px;
         margin-top: 30px;
+        float: left;
+        margin-right: 44px;
     }
     .AppStore{
         background: transparent url(./img/AppStore.png) no-repeat 0 0;
     }
     .Android{
         background: transparent url(./img/Android.png) no-repeat 0 0;
+    }
+    .page{
+        position: relative;
+        width: 100%;
+        background-color: #fff;
+        background-attachment: fixed;
+        background-position: center 0;
+        background-repeat: no-repeat;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    .page1{
+        background-image: url(./img/page1.jpg);
+    }
+    .page2{
+        background-image: url(./img/page2.jpg);
+    }
+    .page3{
+        background-image: url(./img/page3.jpg);
+    }
+    .con3{
+        margin-bottom: 39px;
     }
     </style>
 </head>
@@ -329,7 +355,7 @@
             <li class="slider2 ">
                 <div class="bncont">
                     <div class="bntxt">
-                        <h2>全网全平台</h2><h3>无数店铺，一个应用</h3>
+                        <h2>全网全平台</br>无数店铺，一个应用</h2>
                         <p>下载万物分销商App，不管是淘宝还是微店，再多店铺也能轻松打理！</p>
                         <a href="" class="AppStore"></a>
                         <a href="" class="Android"></a>
@@ -339,8 +365,8 @@
             <li class="slider3">
                 <div class="bncont">
                     <div class="bntxt">
-                        <h2>全球货源</h2><h3>海量优质商品供给您的事业</h3>
-                        <p>已有众多供应商入驻万物平台，海量商品为你解决供应链难题！</p>
+                        <h2>全球货源</br>海量优质商品供给您的事业</h2>
+                        <p class="con3">已有众多供应商入驻万物平台，海量商品为你解决供应链难题！</br></p>
                         <a href="" class="AppStore"></a>
                         <a href="" class="Android"></a>
                     </div>
@@ -349,7 +375,7 @@
             <li class="slider4">
                 <div class="bncont">
                     <div class="bntxt last">
-                        <h2>真正免费</h2><h3>使用“0”门槛</h3>
+                        <h2>真正免费</br>使用“0”门槛</h2>
                         <p>无需任何费用，仅需一个手机号即可成为万物平台分销商，货物积压、滞销风险万物通通替你解决！</p>
                         <a href="" class="AppStore"></a>
                         <a href="" class="Android"></a>
@@ -357,6 +383,14 @@
                 </div>
             </li>
         </ul>
+    </div>
+    <div class="content" id="content">
+        <div class="page page1"></div>
+        <div class="page page2"></div>
+        <div class="page page3"></div>
+        <!-- <img src="./img/page1.jpg">
+        <img src="./img/page2.jpg">
+        <img src="./img/page3.jpg"> -->
     </div>
     <div class="foot" id="foot">
         <p class="foot-link">
@@ -440,6 +474,21 @@
     };
     $(function() {
         // $('#slider').unslider();
+        var $body = $("body");
+        var winHeight = $(window).height();
+        var bodyheight = $body.height();
+        $("#sliders").animate({height: (winHeight - 150) > 540 ? winHeight : 540}, 100, function() {
+        });
+        $(".page").animate({height: (winHeight - 150) > 540 ? winHeight : 540}, 100, function() {
+        });
+        $(window).resize(function() {
+            winHeight = $(window).height();
+            bodyheight = $body.height();
+            $("#sliders").animate({height: (winHeight - 150) > 540 ? winHeight : 540}, 100, function() {
+            })
+            $(".page").animate({height: (winHeight - 150) > 540 ? winHeight : 540}, 100, function() {
+            })
+        });
         $("#slider").picfade({
             timerange: 3000
         })
