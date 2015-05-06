@@ -56,3 +56,113 @@
 .payment .result .money{
     margin-left: 15px;
 }
+.wrap {
+    font-size: 0px;
+    *word-spacing: -1px;
+}
+.wrap .dib {
+    font-size: 12px;
+    letter-spacing: normal;
+    word-spacing: normal;
+    vertical-align: top;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    .wrap {
+        letter-spacing: -5px;
+    }
+}
+.dib {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+.m-terrace{
+    width: 141px;
+    height: 51px;
+    border:1px solid #f3f3f3;
+    cursor: pointer;
+}
+.dib.active{
+    border: 2px solid #f24d4d;
+}
+.alipay{
+    background-image: url(../img/alipay.png);
+}
+.cfpay{
+    background-image: url(../img/cfpay.png);
+}
+.wxpay{
+    background-image: url(../img/wxpay.png);
+}
+.payTerrace{
+    border:1px solid #c9c9c9;
+    padding: 9px 18px;
+    width: 551px;
+    margin-bottom: 20px;
+}
+.payTerrace .dib:last-child{
+    margin-right: 0;
+}
+.payTerrace .dib{
+    margin-right: 45px;
+}
+.nav-tabs li{
+    background-color: #edeeee;
+    border-radius: 0;
+    width: 129px;
+    text-align: center;
+    cursor: pointer;
+}
+.nav-tabs li.active{
+    background-color: #fff;
+    border: 1px solid #c9c9c9;
+    border-bottom: 1px hidden #fff;
+}
+.nav.nav-tabs>li.active>a,.nav.nav-tabs>li.active>a, .nav.nav-tabs>li.active>a:focus, .nav.nav-tabs>li.active>a:hover{
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.form-horizontal .control-label.protocol{
+    text-align: left;
+    color: #9b9b9b;
+}
+.creditcard,.cashcard{
+    display: none;
+}
+.form-horizontal .active{
+    display: block;
+}
+.creditcard{
+    background-image: url(../img/cardHelp.png);
+    background-repeat: no-repeat;
+    background-position: 394px 0;
+}
+.quickpay .col-sm-4{
+    width: 302px;
+}
+.quickpay .col-sm-2{
+    width: 102px;
+}
+.quickpay .col-sm-offset-2{
+    margin-left: 102px;
+}
+.quickpay .col-sm-2.captcha,.quickpay .col-sm-2.btncaptcha{
+    width: 151px;
+}
+.quickpay .btncaptcha{
+    padding-left: 0;
+}
+.quickpay .btncaptcha .btn,.quickpay .submit .btn{
+    padding: 6px 32px;
+    background-color: #069dd5;
+    border-radius: 0;
+    border: 1px solid #069dd5;
+    color: #fff;
+}
+.quickpay .issend .btn{
+    color: #fff;
+    background-color: #b8b8b8;
+    border:1px solid #d8d8d8;
+    border-radius: 0;
+}
