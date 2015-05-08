@@ -24,6 +24,9 @@
     background: url(../img/logo_weixin.png) 0 center no-repeat;
     height: 24px;
 }
+.home #bindWeixin>span:hover{
+    text-decoration: underline;
+}
 .home #bindWeixin .tip-rectangle{
     left:105px;
     top:-85px;
@@ -46,4 +49,9 @@
 }
 .home .question.auth-tip .tip-content{
     width:300px;
+}
+.home .noProduct{
+    height: 93px;
+    line-height: 71px;
+    text-align: center;
 }
