@@ -1,15 +1,21 @@
+html{
+    position: relative;
+    min-height: 100%
+}
 body,html{
     margin: 0;
     padding: 0;
-    height: 100%;
+}
+body{
+    margin-bottom: 162px;
 }
 .footer{
     position: absolute;
+    bottom:0;
     width: 100%;
     text-align: center;
     padding: 36px 0 42px;
     background: #515151 url(../img/ft-bg.png) 0 0 repeat;
-    bottom: 0;
 }
 .footer p{
     color: #069dd5;
