@@ -147,7 +147,9 @@ body {
     margin: 5px;
     padding: 4px 9px;
 }
-
+a:hover,a:focus,a.active{
+    text-decoration: none;
+}
 .sidebar .nav>li>a {
     color: #666666;
 }
@@ -422,3 +424,20 @@ body {
         margin: 0 auto;
     }
 }
+.login .black_login{
+    color:#999999;
+    font-size: 14px;
+    margin:20px auto 30px;
+    text-decoration: none;
+}
+.login .black_login a{
+    color:#069dd5;
+}
+/* .login .panel-body{
+    box-shadow: 0 0 5px #000;
+    padding-top: 40px;
+    width:560px;
+}
+.login .col-sm-8{
+    max-width: 346px;
+} */
