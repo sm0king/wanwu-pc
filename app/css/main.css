@@ -441,3 +441,6 @@ a:hover,a:focus,a.active{
 .login .col-sm-8{
     max-width: 346px;
 } */
+.letter-captcha{
+    display: none;
+}

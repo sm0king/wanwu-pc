@@ -33,8 +33,9 @@ block login-content
                         <div class="col-sm-8">
                             <div class="input-group">
                                 <input class="form-control captcha" id="captcha" name="captcha" type="text">
-                                <div class="input-group-addon ph-captcha">获取短信验证码
+                                <div class="input-group-addon ph-captcha" id="mes-captcha"><span>获取短信验证码</span>
                                 </div>
+                                <div class="input-group-addon ph-captcha letter-captcha" id="letter-captcha">60s重发</div>
                             </div>
                         </div>
                     </div>
@@ -43,4 +44,31 @@ block login-content
                     </div>
                 </fieldset>
             </form>
-        </div>       
+        </div>
+block foot               
+    script(type='text/javascript').
+        $(function(){
+            $('#mes-captcha').bind('click',function(){
+                $('#mes-captcha').css('display','none');
+                $('#letter-captcha').css('display','table-cell')
+                //获取验证码，
+
+                //获取验证码成功
+                var wait = 60;
+                function time() {
+                    if (wait == 0) {
+                        $('#letter-captcha').css('display','none');
+                        $('#mes-captcha').css('display','table-cell')
+                        wait = 60;
+                    } else {
+                        $('#letter-captcha').html(wait+'s后重发');
+                        wait--;
+                        setTimeout(function() {
+                            time()
+                        },
+                        1000)
+                    }
+                }
+                time();
+            })
+        })
