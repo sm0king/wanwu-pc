@@ -34,9 +34,10 @@
 
 .product .input-price,
 .product .input-stack {
-    width: 64px;
+    width: 80px;
     text-align: center;
     margin: 0 auto;
+    padding: 6px 0;
 }
 
 .product .form-inline {
@@ -592,4 +593,17 @@
     min-width: 40px;
     padding: 3px;
     border-bottom: 1px solid #069dd5;
+}
+
+.btn-bigblue.add {
+    height: 35px;
+    vertical-align: middle;
+    padding: 0px 15px;
+    margin-left: 15px;
+}
+.input-price{
+    display: inline-block;
+}
+.mprice:before{
+    content:'￥';
 }
