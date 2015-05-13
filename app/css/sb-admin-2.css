@@ -651,7 +651,7 @@ table.dataTable thead .sorting:after {
     z-index: 100;
 }
 .question.question-blue .tip .tip-content{
-    width:345px;
+    white-space: nowrap;
     height: 30px;
     border:1px #069dd6 solid;
     padding:6px 3px;
