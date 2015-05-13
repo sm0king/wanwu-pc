@@ -127,3 +127,10 @@ block Right
                 
             </ul>
         </nav>
+block foot
+    link(rel='stylesheet',href='../plugs/select/dropkick.css').
+    script(type='text/javascript',src='../plugs/select/dropkick.js').
+    script(type='text/javascript').
+        $(function(){
+            $('select').dropkick();
+        });

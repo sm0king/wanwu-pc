@@ -73,8 +73,11 @@ block OrderContent
     div.foot
         include ../pagination.jade
 block foot
+    link(rel='stylesheet',href='../plugs/select/dropkick.css').
+    script(type='text/javascript',src='../plugs/select/dropkick.js').
     script(type='text/javascript').
         $(function(){
+            $('select').dropkick();
             $('#checkAll').change(function(){
                 var checked = $(this).prop('checked');
                 $('.orderlist input[type=checkbox]').prop('checked', checked);
