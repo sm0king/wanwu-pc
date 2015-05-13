@@ -381,18 +381,18 @@ table.dataTable thead .sorting:after {
     height: 15px;
 }
 
-.btn-bigblue{
+.btn-bigblue,.btn-bigblue:hover{
     background-color: #e6f5fb;
     border:1px #afd6e5 solid;
     border-radius: 0px;
-    padding:12px 15px;
+    padding:0px 15px;
     color:#666666;
+    height: 33px;
 }
 
 .btn-bigblue.disable{
-    color:#999999;
-    background-color: #e4e4e4;
-    border-color:#d2d2d2;
+    border-color:#DEDEDE;
+    background-color: #F3F3F3;
 }
 
 .btn-gray{
@@ -653,11 +653,11 @@ table.dataTable thead .sorting:after {
 .question.question-blue .tip .tip-content{
     white-space: nowrap;
     height: 30px;
-    border:1px #069dd6 solid;
+    border:1px #aaaaaa solid;
     padding:6px 3px;
     border-radius: 5px;
     line-height: 16px;
-    color:#069dd5;
+    color:#aaaaaa;
 }
 .question.question-blue .tip-acute{
     width:10px;

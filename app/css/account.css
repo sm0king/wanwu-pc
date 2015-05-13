@@ -78,3 +78,6 @@
 .account-detail .powerAction .btn-left{
     background: url(../../img/left.png) center center no-repeat;
 }
+.account-detail #submit{
+    width:150px;
+}
