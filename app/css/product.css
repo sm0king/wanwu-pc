@@ -607,3 +607,13 @@
 .mprice:before{
     content:'￥';
 }
+.buyNumber input{
+    display: inline-block;
+}
+.buyNumber:after{
+    content:"及以上";
+}
+.btn-ok.save{
+    background: url(../img/save.png) center center no-repeat;
+    background-size: 100% 100%;
+}
