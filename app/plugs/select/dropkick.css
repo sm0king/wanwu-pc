@@ -5,8 +5,8 @@
 }
 
 .dk_toggle {
-    background-color: #069dd5;
-    color: white;
+    background-color: #fff;
+    color: #555;
     border-radius: 3px;
     overflow: hidden;
     padding: 6px 45px 6px 12px;
@@ -28,24 +28,32 @@
 }
 
 .dk_toggle:active {
-    background-color: #16a085;
+    background-color: #ededed;
     outline: none;
 }
 
 .select-icon {
-    background: #069dd5 url("../../img/toggle.png") no-repeat right center;
+    /*background: #069dd5 url("../../img/toggle.png") no-repeat right center;*/
     border-left: 2px solid rgba(52, 73, 94, 0.15);
     border-radius: 0 3px 3px 0;
     height: 100%;
     position: absolute;
     right: 0;
     top: 0;
-    width: 42px;
+    width: 32px;
     -webkit-transition: 0.25s;
     -moz-transition: 0.25s;
     -o-transition: 0.25s;
     transition: 0.25s;
     -webkit-backface-visibility: hidden;
+    font-family: 'Glyphicons Halflings';
+    font-weight: 400;
+    text-align: center;
+}
+.select-icon:after{
+    content:"\e252";
+    color:#555;
+    line-height: 2.4;
 }
 
 .dk_open {
@@ -53,7 +61,7 @@
 }
 
 .dk_open .dk_toggle {
-    background-color: #069dd5;
+    background-color: #fff;
 }
 
 .dk_open .dk_toggle .select-icon {
@@ -154,7 +162,7 @@
     position: absolute;
     left: 0;
     opacity: 0;
-    width: 220px;
+    min-width: 85px;
     z-index: -100;
     display: none\9;
     -webkit-transition: 0.3s ease-out;

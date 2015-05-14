@@ -54,6 +54,7 @@
 
 .order .orderTR td{
     padding-top: 18px;
+    vertical-align: middle;
 }
 
 .order .orderTR .ckTD{

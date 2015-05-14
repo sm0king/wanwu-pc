@@ -66,8 +66,13 @@ block foot
     script(type='text/javascript',src='#{basePath}plugs/Chart.min.js')
     script(type='text/javascript').
         $(function(){
-            var options = {
-                responsive: true
+            var options1 = {
+                responsive: true,
+                tooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>",
+            };
+            var options2 = {
+                responsive: true,
+                tooltipTemplate: "<%if (label){%><%=label%> : <%}%><%= value %> 个分销商",
             };
             var ctxSale = document.getElementById('sale').getContext('2d');
             var saleData = {
@@ -85,7 +90,7 @@ block foot
                     }
                 ]
             };
-            new Chart(ctxSale).Line(saleData, options);
+            new Chart(ctxSale).Line(saleData, options1);
 
             var ctxRetailer =  document.getElementById('retailerNum').getContext('2d');
             var retailerData = {
@@ -103,7 +108,7 @@ block foot
                     }
                 ]
             };
-            new Chart(ctxRetailer).Line(retailerData, options);
+            new Chart(ctxRetailer).Line(retailerData, options2);
 
             $('#bindWeixin').click(function(){
                 var jqTarget = $(this);
