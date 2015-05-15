@@ -89,7 +89,7 @@
                               </div>
                           </td>
                           <td class="center">
-                              <input type="text" value="￥138.00" class="form-control input-price">
+                              <div class="mprice"><input type="text" value="138.00" class="form-control input-price"></div>
                           </td>
                           <td class="center">
                               <input type="text" value="50" class="form-control input-stack">
@@ -122,7 +122,7 @@
                               </div>
                           </td>
                           <td class="center">
-                              <input type="text" value="￥138.00" class="form-control input-price">
+                              <div class="mprice"><input type="text" value="138.00" class="form-control input-price"></div>
                           </td>
                           <td class="center">
                               <input type="text" value="50" class="form-control input-stack">
@@ -175,5 +175,12 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <link rel="stylesheet" href="../plugs/select/dropkick.css"/>
+    <script type="text/javascript" src="../plugs/select/dropkick.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('select').dropkick();
+      });
+    </script>
   </body>
 </html>

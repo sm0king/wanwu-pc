@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
-    <title>账户总览</title>
+    <title>操作记录</title>
     <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
@@ -18,7 +18,7 @@
       <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
         <div class="navbar-header">
           <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
-          <h3 class="navbar-line">            账户总览</h3>
+          <h3 class="navbar-line">            操作记录</h3>
         </div>
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
@@ -45,34 +45,64 @@
       <div id="page-wrapper">
         <div class="capital">
           <ul class="nav nav-tabs">
-            <li role="presentation" class="active"><a href="index.html">账户总览</a></li>
+            <li role="presentation"><a href="index.html">账户总览</a></li>
             <li role="presentation"><a href="order_detail.html">订单明细</a></li>
-            <li role="presentation"><a href="operate_log.html">操作记录</a></li>
+            <li role="presentation" class="active"><a href="operate_log.html">操作记录</a></li>
           </ul>
           <div>
             <div class="info-group">
-              <p>账户余额</p>
+              <h3>交易明细 </h3>
+            </div>
+            <div class="info-group topBar"><span class="stage1">您正在查看2015.3.1（月初）-2015.3.13（当前）时间的交易记录</span>
+              <select class="form-control select">
+                <option value="0">全部</option>
+                <option value="1">交易</option>
+              </select>
+              <input type="text" id="timeBegin" class="text-input"/><span class="stage2">—</span>
+              <input type="text" id="timeEnd" class="text-input"/>
+              <button type="button" class="btn btn-blue btn-search">查询</button>
+            </div>
+            <div class="info-group">
               <div class="row">
-                <div class="col-lg-3">
-                  <div class="money-group">
-                    <div class="money">8888.66</div>
-                    <div class="unit">元</div>
-                  </div>
+                <div class="col-lg-12">
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <td>时间</td>
+                        <td>操作</td>
+                        <td>金额</td>
+                        <td>状态</td>
+                        <td>备注</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2015-3-13 15:51:26</td>
+                        <td>充值</td>
+                        <td>109.00</td>
+                        <td>&nbsp;</td>
+                        <td>中国建设银行 6226 8888 0000 8888 123</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
-                <div class="col-lg-9 operator-group"><a class="btn-go">充值</a><a href="cash_out.html" class="btn-go">提现</a><a class="goto">查看明细</a></div>
               </div>
             </div>
             <div class="info-group">
-              <p>不可用余额</p>
-              <div class="row">
-                <div class="col-lg-3">
-                  <div class="money-group">
-                    <div class="money">8888.66</div>
-                    <div class="unit">元</div>
-                  </div>
-                </div>
-                <div class="col-lg-9 operator-group"><a class="btn-go btn-hidden">X</a><a class="btn-go btn-hidden">X</a><a class="goto">查看明细</a></div>
-              </div>
+              <nav class="clearfix">
+                <ul class="pagination">
+                  <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#" class="more">...</a></li>
+                  <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                  <li class="pagin-extend">共<i class="totalPage">7</i>页，到第
+                    <input type="text" class="text-input"/>页
+                    <button type="button" class="btn btn-blue">确定</button>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
@@ -89,5 +119,15 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('#timeBegin,#timeEnd').datetimepicker({
+              format: 'yyyy-mm-dd',
+              language: 'zh-CN',
+              minView: 2,
+              autoclose: true
+          });
+      });
+    </script>
   </body>
 </html>

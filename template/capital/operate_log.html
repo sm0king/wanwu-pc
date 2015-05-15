@@ -1,14 +1,10 @@
 extends master.jade
-
 block CapitalDefine    
-    -var active = 1;
-
+    -var active = 2;
 block title
-    title 订单明细
-
+    title 操作记录
 block DashboardTitle
-    订单明细
-
+    操作记录
 block CapitalContent
     .info-group
         h3 交易明细 
@@ -28,15 +24,17 @@ block CapitalContent
                     thead
                         tr
                             td 时间
-                            td 订单号
+                            td 操作
                             td 金额
                             td 状态
+                            td 备注
                     tbody
                         tr
                             td 2015-3-13 15:51:26
-                            td 123456
+                            td 充值
                             td 109.00
                             td &nbsp;
+                            td 中国建设银行 6226 8888 0000 8888 123
     .info-group
         include ../pagination.jade
 block foot
