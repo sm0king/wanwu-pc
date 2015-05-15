@@ -67,7 +67,7 @@
     position: relative;
     border:1px solid #CCC;
     margin-right: 15px;
-    max-width: 30%;
+    max-width: 150px;
 }
 .uploadImgs div:last-child{
     margin-right: 0px;

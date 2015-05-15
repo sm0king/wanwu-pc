@@ -272,9 +272,6 @@ a:hover,a:focus,a.active{
     padding: 0 10px;
     cursor: pointer;
 }
-.login .phone-number,.login .pass{
-    border-right: none;
-}
 .login .phone-ico,.login .passico{
     width: 50px;
     height: 46px;

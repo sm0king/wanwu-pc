@@ -13,7 +13,7 @@
 
 .product .table>tbody>tr>td {
     vertical-align: middle;
-    height: 140px;
+    height: 100px;
     padding: 15px 15px;
 }
 
@@ -136,7 +136,7 @@
 }
 
 .product-detail .customTable input {
-    width: 50%;
+    width: 40%;
     margin: 0 auto;
     text-align: center;
 }
@@ -616,8 +616,21 @@
 }
 .buyNumber:after{
     content:"及以上";
+    padding-left: 10px;
 }
 .btn-ok.save{
     background: url(../img/save.png) center center no-repeat;
     background-size: 100% 100%;
+}
+.product .detailed{
+    min-width: 180px;
+}
+.fileupload{
+    position: absolute;
+    top:0;
+    right:0;
+    margin:0;
+    border:solid transparent;
+    opacity:0;
+    cursor: pointer;
 }

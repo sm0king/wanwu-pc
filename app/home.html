@@ -126,8 +126,13 @@
     <script type="text/javascript" src="plugs/Chart.min.js"></script>
     <script type="text/javascript">
       $(function(){
-          var options = {
-              responsive: true
+          var options1 = {
+              responsive: true,
+              tooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>",
+          };
+          var options2 = {
+              responsive: true,
+              tooltipTemplate: "<%if (label){%><%=label%> : <%}%><%= value %> 个分销商",
           };
           var ctxSale = document.getElementById('sale').getContext('2d');
           var saleData = {
@@ -145,7 +150,7 @@
                   }
               ]
           };
-          new Chart(ctxSale).Line(saleData, options);
+          new Chart(ctxSale).Line(saleData, options1);
       
           var ctxRetailer =  document.getElementById('retailerNum').getContext('2d');
           var retailerData = {
@@ -163,7 +168,7 @@
                   }
               ]
           };
-          new Chart(ctxRetailer).Line(retailerData, options);
+          new Chart(ctxRetailer).Line(retailerData, options2);
       
           $('#bindWeixin').click(function(){
               var jqTarget = $(this);
