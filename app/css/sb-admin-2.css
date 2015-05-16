@@ -32,7 +32,7 @@ a{
         /*border-left: 1px solid #e7e7e7;*/
     }
     #wrapper{
-        padding:0px 75px;
+        padding:0px 75px 20px 75px;
     }
 }
 .navbar-top-links {
