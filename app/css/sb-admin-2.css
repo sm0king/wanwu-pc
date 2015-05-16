@@ -612,8 +612,8 @@ table.dataTable thead .sorting:after {
 
 /* 页脚 */
 .footer{
-    margin-top: 20px;
-    position: static;
+    /* margin-top: 20px;
+    position: static; */
 }
 
 /* 登录信息栏 */
