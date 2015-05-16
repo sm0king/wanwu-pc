@@ -101,7 +101,7 @@
 }
 
 #addBrand {
-    height: 35px;
+    height: 34px;
     vertical-align: middle;
     padding: 0px 15px;
     margin-left: 15px;
@@ -197,7 +197,8 @@
     line-height: 34px;
 }
 
-.btn-icon-magnifier {
+.catalog .btn-icon-magnifier {
+    width:88px;
     /*padding-left: 28px;
     background: #337ab7 url(../img/magnifier.png) 12px center no-repeat;*/
 }
@@ -600,7 +601,7 @@
 }
 
 .btn-bigblue.add {
-    height: 35px;
+    height: 34px;
     vertical-align: middle;
     padding: 0px 15px;
     margin-left: 15px;
