@@ -290,7 +290,8 @@
                 
                 }
                 // if user types a comma, create a new tag
-                $(data.fake_input).bind('keypress',data,function(event) {
+                //更换keypass 为 keyup 防止输入中文错误
+                $(data.fake_input).bind('keyup',data,function(event) {
                     if (event.which==event.data.delimiter.charCodeAt(0) || event.which==13 ) {
                         event.preventDefault();
                         if( (event.data.minChars <= $(event.data.fake_input).val().length) && (!event.data.maxChars || (event.data.maxChars >= $(event.data.fake_input).val().length)) )

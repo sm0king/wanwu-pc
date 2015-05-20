@@ -13,6 +13,7 @@ body{
     position: absolute;
     bottom:0;
     width: 100%;
+    height:162px;
     text-align: center;
     padding: 36px 0 42px;
     background: #515151 url(../img/ft-bg.png) 0 0 repeat;
