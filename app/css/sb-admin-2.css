@@ -372,7 +372,7 @@ table.dataTable thead .sorting:after {
     background-color: #069dd5!important;
     border-radius: 0px;
     color:white!important;
-    padding:12px 40px;
+    padding:6px 29px;
 }
 .btn-view{
     background: url(../img/view.png) center center no-repeat;
