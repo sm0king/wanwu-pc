@@ -1,0 +1,65 @@
+extends ../master.jade
+
+block Define
+    -var basePath = '../../';
+    -var pagin_right = true;
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/manage/album.css')
+
+block DashboardTitle
+    专辑详情
+
+block Right
+    .album.album-detail
+        form.form-horizontal
+            .form-group
+                label(for="albumTitle").control-label.require 专辑名称
+                .col-md-8.col-lg-5
+                    input(type='text')#albumTitle.form-control
+            .form-group
+                label(for="albumExplain").control-label.require 专辑说明
+                .col-md-8.col-lg-5
+                    textarea#albumExplain.form-control
+            .form-group
+                label.control-label.require 专辑入口图
+                .col-md-8.col-lg-5
+                    button.btn.btn-bigblue 上传图片
+                .clearfix
+                .imgContainer.form-aline
+                    img(src="../../img/logo.png")
+            .form-group
+                label.control-label.require 专辑详情图
+                .col-md-8.col-lg-5
+                    button.btn.btn-bigblue 上传图片
+                .clearfix
+                .imgContainer.form-aline
+                    img(src="../../img/logo.png")
+            .form-group
+                label(for="albumGoods").control-label.require 专辑商品
+                .col-md-8.col-lg-5
+                    textarea#albumGoods.form-control
+                .clearfix
+                .form-aline.red (逗号分隔的商品ID)
+            .form-group
+                label(for="albumOnlineDate").control-label.require 上线时间
+                .col-md-4.col-lg-2
+                    input(type='text')#albumOnlineDate.form-control
+            .form-group
+                label(for="albumOnline").control-label.require 是否上线
+                .col-md-8.col-lg-5
+                    input(type='checkbox')#albumOnline
+            .form-group
+                .form-aline
+                    button(type='submit').btn.btn-blue#btnSave 保存
+block foot
+    script(type='text/javascript').
+        $(function(){
+            $('#albumOnlineDate').datetimepicker({
+                format: 'yyyy-mm-dd hh:ii',
+                language: 'zh-CN',
+                autoclose: true,
+                minuteStep: 1
+            });
+        });
+
