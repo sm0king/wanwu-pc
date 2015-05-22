@@ -1,0 +1,23 @@
+extends master.jade
+block title
+    title 首页
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/retailer/home.css')
+
+block DashboardTitle
+    首页
+
+block Right
+    .bindShop
+        form.form-horizontal
+            .form-group
+                label(for='appkey').control-label APPKEY
+                .col-md-4
+                    input(type='text').form-control#appkey
+            .form-group
+                label(for='secret').control-label secret
+                .col-md-4
+                    input(type='text').form-control#secret
+            .form-group
+                button.btn.btn-bigblue#bind 绑定

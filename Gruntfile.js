@@ -71,7 +71,10 @@ module.exports = function (grunt) {
                 files: [
                     'template/**/*.jade',
                     'template/**/*.html'
-                ]
+                ],
+                options: {
+                    spawn: false
+                }
             }
         },
         jade: {
@@ -82,11 +85,19 @@ module.exports = function (grunt) {
                 files:jadeTamplates
             }
         }
-    })
+    });
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jade');
+
+    grunt.event.on('watch', function(action, filepath){
+        var target = filepath.replace('template', 'app'),
+            config = {};
+
+        config[ target ] = filepath;
+        grunt.config('jade.analysis.files', config);
+    });
 
     grunt.registerTask('server', ['jade','connect:demo', 'watch']);
 

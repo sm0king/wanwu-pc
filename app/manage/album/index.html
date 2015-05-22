@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../../js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../../css/foot.css"/>
     <link rel="stylesheet" href="../../css/sb-admin-2.css"/>
-    <link rel="stylesheet" href="../../css/manage/complaint.css"/>
+    <link rel="stylesheet" href="../../css/manage/album.css"/>
   </head>
   <body>
     <div id="wrapper">
       <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
         <div class="navbar-header">
           <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
-          <h3 class="navbar-line">            投诉详情</h3>
+          <h3 class="navbar-line">            专辑管理</h3>
         </div>
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
@@ -37,89 +37,49 @@
               <li ui-sref-active="active"><a href="../../manage/album/index.html">专辑管理</a></li>
               <li ui-sref-active="active"><a href="../../manage/complaint/index.html">投诉管理</a></li>
               <li ui-sref-active="active"><a href="../../manage/report/index.html">举报管理</a></li>
-              <li ui-sref-active="active"><a href="../../manage/account/index.html">账号设置</a></li>
+              <li ui-sref-active="active"><a href="../../manage/account/index.html">账号设置 </a></li>
             </ul>
           </div>
         </div>
         <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
       </nav>
       <div id="page-wrapper">
-        <div class="complaint detail">
-          <div class="headbar">
-            <div class="pull-left">投诉方ID: [账号ID]（分销商）</div>
-            <div class="pull-left">被投诉方ID: [账号ID]（供应商）</div>
-            <div class="clearfix"></div>
+        <div class="album">
+          <div class="clearfix topBar">
+            <button class="btn btn-blue pull-right">新增专辑</button>
           </div>
-          <div class="complaintBar">[账号ID]（分销商）</div>
-          <div class="row">
-            <div class="col-md-12 complaintContent">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <div class="complaintImgs">
-                    <div><img src="../../img/logo.png"/></div>
-                    <div><img src="../../img/logo.png"/></div>
-                  </div>
-                  <div class="complaintText">投诉内容</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="groupBar">订单信息</div>
-          <p>订单号：8779641532</p>
-          <p>收 货 人：张三</p>
-          <p>地    址：四川成都市高新区绕城环线以外天府软件园B区B3栋503</p>
-          <p>手机号码：151****7768</p>
-          <p>邮编：610041</p>
-          <p>电子邮箱：service@quwan.com</p>
-          <p>下单时间：2015-03-12  17:38:48</p>
-          <p>备注：不加盐不加醋</p>
-          <p>订单完成状态：完成</p>
-          <div class="groupBar">商品清单</div>
-          <div class="table-responsive complaintTable">
+          <div id="albumTable" class="table-responsive album-table">
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <td>商品编号</td>
-                  <td>商品名称</td>
-                  <td>售价</td>
-                  <td>分销价</td>
-                  <td>数量</td>
-                  <td>分销总额</td>
+                  <td>
+                    <input type="checkbox" id="checkAll" class="checkAll"/>
+                    <label for="checkAll">全选</label>
+                  </td>
+                  <td>专辑名称</td>
+                  <td>专辑说明</td>
+                  <td>上线时间</td>
+                  <td>是否上线</td>
+                  <td>操作                        </td>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>12354</td>
-                  <td><a href="javascript:;" class="blue">测试商品</a></td>
-                  <td>￥499.00</td>
-                  <td>￥899.00</td>
-                  <td>500</td>
-                  <td>￥449500.00</td>
+                  <td class="cboTD">
+                    <input type="checkbox"/>
+                  </td>
+                  <td class="titleTD">专辑名称</td>
+                  <td class="explain">专辑说明</td>
+                  <td class="onlineTime">2014-01-01 12：00</td>
+                  <td class="onlineTD"> <a class="btn-ok"></a></td>
+                  <td class="operTD"> <a href="edit.html">编辑</a></td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="groupBar">订单反馈</div>
-          <div class="row">
-            <div class="col-md-12 feedback">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <div class="feedbackImgs">
-                    <div><img src="../../img/logo.png"/></div>
-                    <div><img src="../../img/logo.png"/></div>
-                  </div>
-                  <div class="feedbackText">反馈内容</div>
-                </div>
-              </div>
-            </div>
+          <div class="bottomBar">
+            <button type="button" class="btn btn-blue">删除            </button>
           </div>
-          <div class="groupBar">处理结果</div>
-          <div class="row">
-            <div class="col-md-12">
-              <textarea placeholder="请输入处理结果" class="form-control result"></textarea>
-            </div>
-          </div>
-          <button class="btn btn-blue">已处理</button>
         </div>
       </div>
     </div>
@@ -134,5 +94,13 @@
     <script type="text/javascript" src="../../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../../js/dialog.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('#checkAll').change(function(){
+              var checked = $(this).prop('checked');
+              $('#albumTable :checkbox').prop('checked', checked);
+          });
+      });
+    </script>
   </body>
 </html>

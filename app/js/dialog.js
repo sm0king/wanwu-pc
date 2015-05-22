@@ -69,9 +69,14 @@
         $(this).remove();
     }
 
-    $.alert = function(text, callback){
+    $.alert = function(text, title, callback){
+        if ($.isFunction(title)) {
+            callback = title;
+            title = null;
+        }
+
         showDialog({ 
-            title: '警告', 
+            title: title || '警告', 
             content: text ,
             callback: callback, 
             size: 'sm',
@@ -87,9 +92,14 @@
         });
     }
 
-    $.confirm = function(text, callback){
+    $.confirm = function(text, title, callback){
+        if ($.isFunction(title)) {
+            callback = title;
+            title = null;
+        }
+
         showDialog({ 
-            title: '警告', 
+            title: title || '警告', 
             content: text, 
             callback: callback, 
             size: 'sm',

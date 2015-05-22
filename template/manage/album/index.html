@@ -1,0 +1,50 @@
+extends ../master.jade
+
+block Define
+    -var basePath = '../../';
+    -var pagin_right = true;
+
+block header
+    link(rel='stylesheet', href='#{basePath}css/manage/album.css')
+
+block DashboardTitle
+    专辑管理
+
+block Right
+    .album
+        .clearfix.topBar
+            button.btn.btn-blue.pull-right 新增专辑
+        .table-responsive.album-table#albumTable
+            table.table.table-bordered
+                thead
+                    tr
+                        td
+                            input(type='checkbox').checkAll#checkAll
+                            label(for='checkAll') 全选
+                        td 专辑名称
+                        td 专辑说明
+                        td 上线时间
+                        td 是否上线
+                        td 操作                        
+                tbody
+                    tr
+                        td.cboTD
+                            input(type='checkbox')
+                        td.titleTD 专辑名称
+                        td.explain 专辑说明
+                        td.onlineTime 2014-01-01 12：00
+                        td.onlineTD 
+                            a.btn-ok
+                        td.operTD 
+                            a(href='edit.html') 编辑
+                    
+        .bottomBar
+            button(type='button').btn.btn-blue 删除            
+block foot
+    script(type='text/javascript').
+        $(function(){
+            $('#checkAll').change(function(){
+                var checked = $(this).prop('checked');
+                $('#albumTable :checkbox').prop('checked', checked);
+            });
+        });
