@@ -19,4 +19,217 @@ block Right
                 | 个等待审核品牌
             a.list-group-item(href='javascript:;')
                 span.red 12
-                | 个等待处理投诉
+                | 个等待处理投诉 
+            a.list-group-item(href='javascript:;')
+                span.red 10
+                | 个等待处理举报
+        div.m-chart-market
+            div.chart-header
+                h4 销售数据
+            div.m-datamark
+                div.form-inline
+                    div.form-group
+                        label.blue-line
+                            select#marketData1.form-control.select(name='marketData1')
+                                option(value='0') 成交额（按发货时间）
+                                option(value='1') 分销成交额（按发货时间）
+                                option(value='2') 进货成交额（按发货时间）
+                                option(value='3') 退货额（按发货时间）
+                        label.green-line
+                            select#marketData2.form-control.select(name='marketData2')
+                                option(value='0') 成交额（按发货时间）
+                                option(value='1') 分销成交额（按发货时间）
+                                option(value='2') 进货成交额（按发货时间）
+                                option(value='3') 退货额（按发货时间）
+                                option(value='4') （无）
+                        label.time
+                            input(type='text').text-input.time-input#timeBegin
+                            span.stage2 ~
+                            input(type='text').text-input.time-input#timeEnd
+                        button(type='button').btn.btn-blue.btn-search 查询
+                div.m-chartCon.plot
+                    canvas(width='800', height='300')#chart-marketData
+        div.m-chart-branch
+            div.chart-header
+                h4 分销商数据
+            div.m-datamark
+                div.form-inline
+                    div.form-group
+                        label.blue-line 分销商数量
+                        label.green-line 店铺数量
+                        label.time
+                            input(type='text').text-input.time-input#timeBegin
+                            span.stage2 ~
+                            input(type='text').text-input.time-input#timeEnd
+                        button(type='button').btn.btn-blue.btn-search 查询
+                div.m-chartCon.plot
+                    canvas(width='800', height='300')#chart-branchData
+        div.m-chart-supplier
+            div.chart-header
+                h4 供应商数据
+            div.m-datamark
+                div.form-inline
+                    div.form-group
+                        label.blue-line
+                            select#supplierData1.form-control.select(name='supplierData1')
+                                option(value='0') 供销商数量
+                                option(value='1') 品牌数量
+                                option(value='2') 商品数量
+                        label.green-line
+                            select#supplierData2.form-control.select(name='supplierData2')
+                                option(value='0') 供销商数量
+                                option(value='1') 品牌数量
+                                option(value='2') 商品数量
+                                option(value='4') （无）
+                        label.time
+                            input(type='text').text-input.time-input#timeBegin
+                            span.stage2 ~
+                            input(type='text').text-input.time-input#timeEnd
+                        button(type='button').btn.btn-blue.btn-search 查询
+                div.m-chartCon.plot
+                    canvas(width='800', height='300')#chart-supplierData
+        div.m-Pie-supplier
+            div.chart-header
+                h4 供应商数据
+            div.m-datamark
+                div.m-chartCon.plot
+                    canvas(width='300', height='300')#pie-supplierData
+                    div.supplierData
+                        table
+                            th 商品分类
+                            th 商品数量
+                            tbody#pieDataShow
+block foot
+    script(type='text/javascript',src='#{basePath}plugs/Chart.min.js').
+    script(type='text/javascript').
+        $(function(){
+            $('.time-input').datetimepicker({
+                format: 'yyyy-mm-dd',
+                language: 'zh-CN',
+                minView: 2,
+                autoclose: true
+            });
+
+            //图表部分
+            var marketOption = {responsive: true,pointDot:false,multiTooltipTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%>: ￥<%}%><%= datasets[i].value %></li><%}%></ul>",tooltipTemplate: "<%if (label){%><%=label%>: ￥<%}%><%= value %>"}
+            var branchOption1 = {responsive: true,pointDot:false,tooltipTemplate: "<%if (label){%><%=label%> : <%}%><%= value %> 店铺",}
+            var branchOption2 = {responsive: true,pointDot:false,tooltipTemplate: "<%if (label){%><%=label%> : <%}%><%= value %> 分销商",}
+            var supplierOption = {responsive: true,pointDot:false,tooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>",}
+            var marketLine = document.getElementById('chart-marketData').getContext('2d');
+            var branchLine = document.getElementById('chart-branchData').getContext('2d');
+            var supplierLine = document.getElementById('chart-supplierData').getContext('2d');
+            var supplierPie  = document.getElementById('pie-supplierData').getContext('2d');
+            var marketData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets:[{
+                        fillColor: "transparent",
+                        strokeColor: "#069dd5",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                    },{
+                        fillColor: "transparent",
+                        strokeColor: "#4cbd4e",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }]
+                }
+            var branchData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets:[{
+                        fillColor: "transparent",
+                        strokeColor: "#069dd5",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                    },{
+                        fillColor: "transparent",
+                        strokeColor: "#4cbd4e",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }]
+                }
+            var supplierData = {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets:[{
+                        fillColor: "transparent",
+                        strokeColor: "#069dd5",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(220,220,220,1)",
+                        data: [65, 59, 80, 81, 56, 55, 40]
+                    },{
+                        fillColor: "transparent",
+                        strokeColor: "#4cbd4e",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(151,187,205,1)",
+                        data: [28, 48, 40, 19, 86, 27, 90]
+                    }]
+                }
+
+            //画线
+            window.xxx = new Chart(marketLine).Line(marketData, marketOption);
+            new Chart(branchLine).Line(branchData, branchOption1);
+            new Chart(supplierLine).Line(supplierData, supplierOption);
+            var pieSet ={tooltipTemplate: "<%if (label){%><%=label%> :  <%}%><%= value %>"}
+            var pieData =[{
+                    label:"女人",
+                    value:300,
+                    color:"#5b8dff"
+                },{
+                    label:"男人",
+                    value : 50,
+                    color : "#a55dff"
+                },{
+                    label:"配饰",
+                    value : 140,
+                    color : "#5bd6ff"
+                },{
+                    label:"数码",
+                    value : 95,
+                    color : "#ff5dcc"
+                },{
+                    label:"美妆",
+                    value : 67,
+                    color : "#90ffcc"
+                },{
+                    label:"家居",
+                    value : 56,
+                    color : "#69D2E7"
+                },{
+                    label:"亲子",
+                    value : 23,
+                    color : "#667d73"
+                },{
+                    label:"运动",
+                    value : 23,
+                    color : "#105535"
+                },{
+                    label:"食品",
+                    value : 45,
+                    color : "#baa519"
+                },{
+                    label:"办公",
+                    value : 56,
+                    color : "#ece093"
+                },{
+                    label:"汽车",
+                    value : 156,
+                    color : "#1220d4"
+                }]
+            new Chart(supplierPie).Pie(pieData,pieSet)
+            //生成数据列表 pieDataShow
+            var pieDataHtml = '';
+            var dataLength = pieData.length;
+            for(var i = 0 ; i < dataLength;i++){
+                pieDataHtml += '<tr><td><label><em class="sortColor" style="background-color: '+ pieData[i].color +';"></em><span class="sortName">'+pieData[i].label+'</span></label></td><td>'+pieData[i].value+'</td></tr>'
+            }
+            $('#pieDataShow').html(pieDataHtml);
+        });
