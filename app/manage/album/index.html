@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="../../js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../../css/foot.css"/>
     <link rel="stylesheet" href="../../css/sb-admin-2.css"/>
-    <link rel="stylesheet" href="../../css/manage/report.css"/>
+    <link rel="stylesheet" href="../../css/manage/album.css"/>
   </head>
   <body>
     <div id="wrapper">
       <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
         <div class="navbar-header">
           <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
-          <h3 class="navbar-line">            举报详情</h3>
+          <h3 class="navbar-line">            专辑管理</h3>
         </div>
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
@@ -44,54 +44,41 @@
         <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
       </nav>
       <div id="page-wrapper">
-        <div class="report detail">
-          <div class="headbar">
-            <div class="pull-left">举报方ID: [账号ID]（分销商）</div>
-            <div class="pull-left">被举报方ID: [账号ID]（供应商）</div>
-            <div class="clearfix"></div>
+        <div class="album">
+          <div class="clearfix topBar">
+            <button class="btn btn-blue pull-right">新增专辑</button>
           </div>
-          <div class="reportBar">举报原因</div>
-          <p>色情</p>
-          <div class="reportBar">举报说明</div>
-          <div class="row">
-            <div class="col-md-12 reportContent">
-              <div class="panel panel-default">
-                <div class="panel-body">
-                  <div class="reportImgs">
-                    <div><img src="../../img/logo.png"/></div>
-                    <div><img src="../../img/logo.png"/></div>
-                  </div>
-                  <div class="reportText">举报内容</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="groupBar">商品信息</div>
-          <div class="table-responsive reportTable">
+          <div id="albumTable" class="table-responsive album-table">
             <table class="table table-bordered">
               <thead>
                 <tr>
-                  <td>供应商</td>
-                  <td>商品图片</td>
-                  <td>详细信息</td>
+                  <td>
+                    <input type="checkbox" id="checkAll" class="checkAll"/>
+                    <label for="checkAll">全选</label>
+                  </td>
+                  <td>专辑名称</td>
+                  <td>专辑说明</td>
+                  <td>上线时间</td>
+                  <td>是否上线</td>
+                  <td>操作                        </td>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td>趣玩</td>
-                  <td><img src="../../img/logo.png"/></td>
-                  <td class="productInfo">
-                    <p>美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画···</p>
-                    <div><a href="javascript:;" class="blue">箱包皮具</a><a href="javascript:;" class="blue">热销女包</a><a href="javascript:;" class="blue">男包        </a></div>
+                  <td class="cboTD">
+                    <input type="checkbox"/>
                   </td>
+                  <td class="titleTD">专辑名称</td>
+                  <td class="explain">专辑说明</td>
+                  <td class="onlineTime">2014-01-01 12：00</td>
+                  <td class="onlineTD"> <a class="btn-ok"></a></td>
+                  <td class="operTD"> <a href="edit.html">编辑</a></td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="groupBar">处理结果</div>
-          <div class="btnBar">
-            <button class="btn btn-gray">举报生效</button>
-            <button class="btn btn-gray">举报无效</button>
+          <div class="bottomBar">
+            <button type="button" class="btn btn-blue">删除            </button>
           </div>
         </div>
       </div>
@@ -107,5 +94,13 @@
     <script type="text/javascript" src="../../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../../js/dialog.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('#checkAll').change(function(){
+              var checked = $(this).prop('checked');
+              $('#albumTable :checkbox').prop('checked', checked);
+          });
+      });
+    </script>
   </body>
 </html>
