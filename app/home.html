@@ -45,53 +45,98 @@
       </nav>
       <div id="page-wrapper">
         <div class="home">
-          <ul class="list-group">
-            <li class="list-group-item basicInfo info"><img src="img/icon-auth.png" class="auth-img"/><span class="auth-stat">资质认证未提交</span><a href="javascript:;">提交认证资料</a><a class="question question-blue auth-tip">
-                <div class="tip">
-                  <div class="tip-acute"></div>
-                  <div class="tip-content">您需要先通过供应商资质认证后才能上架商品。</div>
-                </div></a><span id="bindWeixin"> <span class="blue">绑定微信</span>
-                <div class="tip-rectangle tdc"><span class="gray">请使用微信扫描下方二维码完成绑定</span>
-                  <div><img src="img/logo.png"/></div>
-                </div></span><a class="question question-blue">
-                <div class="tip">
-                  <div class="tip-acute"></div>
-                  <div class="tip-content">您需要先通过供应商资质认证后才能上架商品。</div>
-                </div></a></li>
-          </ul>
-          <ul class="list-group">
-            <li class="list-group-item">
-               
-              15个订单等待发货<a href="javascript:;" class="view">查看</a>
-            </li>
-            <li class="list-group-item">
-               
-              2个退货订单等待确认<a href="javascript:;" class="view">查看</a>
-            </li>
-          </ul>
-          <div class="row">
-            <div class="col-md-6">
-              <ul class="list-group">
-                <li class="list-group-item">98个品牌</li>
-                <li class="list-group-item">
-                   
-                  23个品牌等待提交审核<a href="javascript:;" class="view">查看</a>
-                </li>
-                <li class="list-group-item">
-                   
-                  75个品牌已上线<a href="javascript:;" class="view">查看</a>
-                </li>
-              </ul>
+          <!--
+          ul.list-group
+              li.list-group-item.basicInfo.info
+                  img(src='img/icon-auth.png').auth-img
+                  span.auth-stat 资质认证未提交
+                  a(href='javascript:;') 提交认证资料
+                  a.question.question-blue.auth-tip
+                      .tip
+                          .tip-acute
+                          .tip-content 您需要先通过供应商资质认证后才能上架商品。
+                  span#bindWeixin 
+                      span.blue 绑定微信
+                      .tip-rectangle.tdc
+                          span.gray 请使用微信扫描下方二维码完成绑定
+                          div
+                              img(src='img/logo.png')
+                  a.question.question-blue
+                      .tip
+                          .tip-acute
+                          .tip-content 您需要先通过供应商资质认证后才能上架商品。
+          -->
+          <!--
+          ul.list-group
+              li.list-group-item 
+                  | 15个订单等待发货
+                  a(href='javascript:;').view 查看
+              li.list-group-item
+                  | 2个退货订单等待确认
+                  a(href='javascript:;').view 查看
+          .row
+              .col-md-6
+                  ul.list-group
+                      li.list-group-item 98个品牌
+                      li.list-group-item 
+                          | 23个品牌等待提交审核
+                          a(href='javascript:;').view 查看
+                      li.list-group-item 
+                          | 75个品牌已上线
+                          a(href='javascript:;').view 查看
+              .col-md-6
+                  ul.list-group
+                      li.list-group-item 0个商品
+                      li.list-group-item.noProduct
+                      a.addBrand 添加品牌
+          -->
+          <div class="row homeMessage">
+            <div class="col-md-4">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <div class="user-message-left">
+                    <div class="m-img"><img src="#" alt="头像"/><!-- <img src="" alt=""> --></div>
+                  </div>
+                  <div class="user-message-right">
+                    <ul>
+                      <li>你好!<b>quwan</b></li>
+                      <li>账号状态：<b>已审核</b></li>
+                      <li><a id="bindWeixin" href="javascript:;">微信绑定</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-md-6">
-              <ul class="list-group">
-                <li class="list-group-item">0个商品</li>
-                <li class="list-group-item noProduct"><a class="addBrand">添加品牌</a></li>
-              </ul>
+            <div class="col-md-4">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <table>
+                    <tr>
+                      <td><span class="money"></span></td>
+                      <td>可用</td>
+                      <td rowspan="3">
+                        <button class="btn btn-blue">充值</button>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><span class="money"></span></td>
+                      <td>不可用</td>
+                    </tr>
+                    <tr>
+                      <td colspan="2"><a href="javascript:;">提现 |</a><a href="javascript:;">交易明细</a></td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="panel panel-default">
+                <div class="panel-body"></div>
+              </div>
             </div>
           </div>
           <div class="panel panel-default">
-            <div class="panel-heading">概况</div>
+            <div class="panel-heading">统计报表</div>
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-6">
@@ -114,7 +159,7 @@
     </div>
     <div class="footer">
     <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
-    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有</p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有 京ICP备09017905号 </p>
     </div>
     <script type="text/javascript" src="plugs/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="plugs/bootstrap/js/bootstrap.min.js"></script>

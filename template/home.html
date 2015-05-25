@@ -8,49 +8,90 @@ block DashboardTitle
 
 block Right
     .home
-        ul.list-group
-            li.list-group-item.basicInfo.info
-                img(src='img/icon-auth.png').auth-img
-                span.auth-stat 资质认证未提交
-                a(href='javascript:;') 提交认证资料
-                a.question.question-blue.auth-tip
-                    .tip
-                        .tip-acute
-                        .tip-content 您需要先通过供应商资质认证后才能上架商品。
-                span#bindWeixin 
-                    span.blue 绑定微信
-                    .tip-rectangle.tdc
-                        span.gray 请使用微信扫描下方二维码完成绑定
-                        div
-                            img(src='img/logo.png')
-                a.question.question-blue
-                    .tip
-                        .tip-acute
-                        .tip-content 您需要先通过供应商资质认证后才能上架商品。
-        ul.list-group
-            li.list-group-item 
-                | 15个订单等待发货
-                a(href='javascript:;').view 查看
-            li.list-group-item 
-                | 2个退货订单等待确认
-                a(href='javascript:;').view 查看
-        .row
-            .col-md-6
-                ul.list-group
-                    li.list-group-item 98个品牌
-                    li.list-group-item 
-                        | 23个品牌等待提交审核
-                        a(href='javascript:;').view 查看
-                    li.list-group-item 
-                        | 75个品牌已上线
-                        a(href='javascript:;').view 查看
-            .col-md-6
-                ul.list-group
-                    li.list-group-item 0个商品
-                    li.list-group-item.noProduct
+        //
+            ul.list-group
+                li.list-group-item.basicInfo.info
+                    img(src='img/icon-auth.png').auth-img
+                    span.auth-stat 资质认证未提交
+                    a(href='javascript:;') 提交认证资料
+                    a.question.question-blue.auth-tip
+                        .tip
+                            .tip-acute
+                            .tip-content 您需要先通过供应商资质认证后才能上架商品。
+                    span#bindWeixin 
+                        span.blue 绑定微信
+                        .tip-rectangle.tdc
+                            span.gray 请使用微信扫描下方二维码完成绑定
+                            div
+                                img(src='img/logo.png')
+                    a.question.question-blue
+                        .tip
+                            .tip-acute
+                            .tip-content 您需要先通过供应商资质认证后才能上架商品。
+        //
+            ul.list-group
+                li.list-group-item 
+                    | 15个订单等待发货
+                    a(href='javascript:;').view 查看
+                li.list-group-item
+                    | 2个退货订单等待确认
+                    a(href='javascript:;').view 查看
+            .row
+                .col-md-6
+                    ul.list-group
+                        li.list-group-item 98个品牌
+                        li.list-group-item 
+                            | 23个品牌等待提交审核
+                            a(href='javascript:;').view 查看
+                        li.list-group-item 
+                            | 75个品牌已上线
+                            a(href='javascript:;').view 查看
+                .col-md-6
+                    ul.list-group
+                        li.list-group-item 0个商品
+                        li.list-group-item.noProduct
                         a.addBrand 添加品牌
+        .row.homeMessage
+            .col-md-4
+                .panel.panel-default
+                    .panel-body
+                        .user-message-left
+                            .m-img
+                                img(src="#",alt="头像")
+                                <!-- <img src="" alt=""> -->
+                        .user-message-right
+                            ul
+                                li 你好!
+                                    b quwan
+                                li 账号状态：
+                                    b 已审核
+                                li
+                                    a#bindWeixin(href='javascript:;') 微信绑定
+            .col-md-4
+                .panel.panel-default
+                    .panel-body
+                        table
+                            tr
+                                td
+                                    span.money
+                                td
+                                    可用
+                                td(rowspan="3")
+                                    button.btn.btn-blue 充值
+                            tr
+                                td
+                                    span.money
+                                td
+                                    不可用
+                            tr
+                                td(colspan="2")
+                                    a(href='javascript:;') 提现 |
+                                    a(href='javascript:;') 交易明细
+            .col-md-4
+                .panel.panel-default
+                    .panel-body
         .panel.panel-default
-            .panel-heading 概况
+            .panel-heading 统计报表
             .panel-body
                 .row
                     .col-md-6
