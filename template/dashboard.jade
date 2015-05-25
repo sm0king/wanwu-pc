@@ -24,38 +24,97 @@ html
                         span.icon-bar
                         span.icon-bar
                         span.icon-bar
-                    a.navbar-brand(href='index.html')
-                    h3.navbar-line             
-                        block DashboardTitle
+                    h2.dashboard-title
+                        span 万物
+                        
+                    h4.dashboard-subtitle
+                        img(src='#{basePath}/img/dot.png')
+                        供应商平台
+                .dashboard-top-line
+                    span 
+                        | 客服热线
+                        span.navbar-phone 028-88888888
+                    span.separate
+                    a(href="javascript:;") 帮助中心
+                    span.separate
+                    a(href="javascript:;") 趣玩
+                    span.separate
+                    a(href="javascript:;") 退出
+
                                        
                 .navbar-default.sidebar(role='navigation')
                     .sidebar-nav.navbar-collapse
-                        ul.nav.in#side-menu
-                            li.loginInfo
-                                .row
-                                    .col-md-6
-                                        [登录用户]
-                                    .col-md-6
-                                        a(href='javascript:;').logout [ 退出 ]
+                        ul.nav.in#side-menu                            
                             block menu
                                 li(ui-sref-active='active')
-                                    a(href='#{basePath}home.html') 首页
-                                li(ui-sref-active='active')
-                                    a(href='#{basePath}order/index.html') 订单管理
-                                li(ui-sref-active='active')
-                                    a(href='#{basePath}product/index.html') 商品管理
-                                li(ui-sref-active='active')
-                                    a(href='#{basePath}Brand/index.html') 品牌管理
-                                li(ui-sref-active='active')
-                                    a(href='#{basePath}distributor/index.html') 分销商管理
-                                li(ui-sref-active='active')
-                                    a(href='#{basePath}capital/index.html') 资金管理
-                                li(ui-sref-active='active')
-                                    a(href='#{basePath}info/index.html') 信息维护    
-                                li(ui-sref-active='active')
-                                    a(href='#{basePath}message/index.html') 站内信  
-                div.nav-address
-                    首页 > 商品管理 > 商品详情        
+                                    a(href='#{basePath}home.html').large 首页
+
+                                li.navbar-group-title(href="#order_manage",data-toggle="collapse")
+                                    | 订单管理
+                                li#order_manage.collapse.in
+                                    ul
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}order/index.html') 待发货订单
+                                        li(ui-sref-active='active')
+                                            a(href='javascript:;') 已发货订单
+                                        li(ui-sref-active='active')
+                                            a(href='javascript:;') 退款订单
+                                        li(ui-sref-active='active')
+                                            a(href='javascript:;') 所有订单
+
+                                li.navbar-group-title(href="#product_manage",data-toggle="collapse")
+                                    | 商品管理
+                                li#product_manage.collapse
+                                    ul                                        
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}product/index.html') 出售中的商品
+                                        li(ui-sref-active='active')
+                                            a(href='javascript:;') 已下架商品
+                                        li(ui-sref-active='active')
+                                            a(href='javascript:;') 单件添加商品
+                                        li(ui-sref-active='active')
+                                            a(href='javascript:;') 批量导入商品
+
+                                li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
+                                    | 品牌管理
+                                li#brand_manage.collapse
+                                    ul
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}Brand/index.html') 品牌列表
+
+                                li.navbar-group-title(href="#retailer_manage",data-toggle="collapse")
+                                    | 分销商管理
+                                li#retailer_manage.collapse
+                                    ul
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}distributor/index.html') 分销商列表
+
+                                li.navbar-group-title(href="#capital_manage",data-toggle="collapse")
+                                    | 财务管理
+                                li#capital_manage.collapse
+                                    ul
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}capital/index.html') 我的账户
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}capital/record.html') 交易记录
+
+                                li.navbar-group-title(href="#baseinfo_manage",data-toggle="collapse")
+                                    | 基本信息维护
+                                li#baseinfo_manage.collapse
+                                    ul
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}info/index.html') 账户基本信息    
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}info/freight.html') 运费设置
+                                        li(ui-sref-active='active')
+                                            a(href='javascript:;') 支付信息设置
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}info/changepwd.html') 修改密码
+                                        li(ui-sref-active='active')
+                                            a(href='javascript:;') 交易记录
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}message/index.html') 站内信  
+                  
             #page-wrapper
                     block Right
         include foot.jade

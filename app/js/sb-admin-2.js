@@ -22,7 +22,7 @@ $(function() {
         height = height - topOffset;
         if (height < 1) height = 1;
         if (height > topOffset) {
-            $("#page-wrapper").css("min-height", (height) + "px");
+            $("#page-wrapper,#side-menu").css("min-height", (height) + "px");
         }
     });
 
@@ -33,4 +33,8 @@ $(function() {
     if (element.is('li')) {
         element.addClass('active');
     }
+
+    $('#side-menu').delegate('li.navbar-group-title','click', function(){
+        $(this).siblings('.in').collapse('hide');
+    });
 });
