@@ -17,7 +17,7 @@ function isHtml(filtName){
     return filtName.indexOf('.html') == filtName.length - 5;
 }
 
-module.exports = function (grunt) {
+function getTemplates(){
     var executeDir = process.cwd() + '/template',
         path = fs.readdirSync(executeDir);
 
@@ -35,6 +35,11 @@ module.exports = function (grunt) {
             path = path.concat(children);
         }
     }
+    return jadeTamplates;
+}
+
+module.exports = function (grunt) {
+    var jadeTamplates = getTemplates();
 
     //console.log(jadeTamplates);
     //return;
@@ -92,10 +97,17 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jade');
 
     grunt.event.on('watch', function(action, filepath){
-        var target = filepath.replace('template', 'app'),
-            config = {};
+        var config = {};
 
-        config[ target ] = filepath;
+        if (filepath.indexOf('.jade') >= 0) {
+            config = getTemplates();
+        }else{
+            var target = filepath.replace('template', 'app')
+            config[ target ] = filepath;
+        }
+        
+
+        
         grunt.config('jade.analysis.files', config);
     });
 
