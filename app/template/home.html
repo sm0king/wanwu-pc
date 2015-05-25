@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>面板        </title>
+    <link rel="stylesheet" href="plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="css/foot.css"/>
+    <link rel="stylesheet" href="css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="css/home.css"/>
+    <link rel="stylesheet" href="css/info.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            面板</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li class="loginInfo">
+                <div class="row">
+                  <div class="col-md-6">[登录用户]</div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
+                </div>
+              </li>
+              <li ui-sref-active="active"><a href="home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="order/index.html">订单管理</a></li>
+              <li ui-sref-active="active"><a href="product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="capital/index.html">资金管理</a></li>
+              <li ui-sref-active="active"><a href="info/index.html">信息维护    </a></li>
+              <li ui-sref-active="active"><a href="message/index.html">站内信  </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="home">
+          <ul class="list-group">
+            <li class="list-group-item basicInfo info"><img src="img/icon-auth.png" class="auth-img"/><span class="auth-stat">资质认证未提交</span><a href="javascript:;">提交认证资料</a><a class="question question-blue auth-tip">
+                <div class="tip">
+                  <div class="tip-acute"></div>
+                  <div class="tip-content">您需要先通过供应商资质认证后才能上架商品。</div>
+                </div></a><span id="bindWeixin"> <span class="blue">绑定微信</span>
+                <div class="tip-rectangle tdc"><span class="gray">请使用微信扫描下方二维码完成绑定</span>
+                  <div><img src="img/logo.png"/></div>
+                </div></span><a class="question question-blue">
+                <div class="tip">
+                  <div class="tip-acute"></div>
+                  <div class="tip-content">您需要先通过供应商资质认证后才能上架商品。</div>
+                </div></a></li>
+          </ul>
+          <ul class="list-group">
+            <li class="list-group-item">
+               
+              15个订单等待发货<a href="javascript:;" class="view">查看</a>
+            </li>
+            <li class="list-group-item">
+               
+              2个退货订单等待确认<a href="javascript:;" class="view">查看</a>
+            </li>
+          </ul>
+          <div class="row">
+            <div class="col-md-6">
+              <ul class="list-group">
+                <li class="list-group-item">98个品牌</li>
+                <li class="list-group-item">
+                   
+                  23个品牌等待提交审核<a href="javascript:;" class="view">查看</a>
+                </li>
+                <li class="list-group-item">
+                   
+                  75个品牌已上线<a href="javascript:;" class="view">查看</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-group">
+                <li class="list-group-item">0个商品</li>
+                <li class="list-group-item noProduct"><a class="addBrand">添加品牌</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">概况</div>
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <p class="itemTitle gray">销售额</p>
+                  <div class="plot">
+                    <canvas width="400" height="200" id="sale"></canvas>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <p class="itemTitle gray">分销商数量</p>
+                  <div class="plot">
+                    <canvas width="400" height="200" id="retailerNum"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有</p>
+    </div>
+    <script type="text/javascript" src="plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="js/dialog.js"></script>
+    <script type="text/javascript" src="plugs/Chart.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          var options1 = {
+              responsive: true,
+              tooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>",
+          };
+          var options2 = {
+              responsive: true,
+              tooltipTemplate: "<%if (label){%><%=label%> : <%}%><%= value %> 个分销商",
+          };
+          var ctxSale = document.getElementById('sale').getContext('2d');
+          var saleData = {
+              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              datasets: [
+                  {
+                      label: "My First dataset",
+                      fillColor: "rgba(220,220,220,0.2)",
+                      strokeColor: "rgba(220,220,220,1)",
+                      pointColor: "rgba(220,220,220,1)",
+                      pointStrokeColor: "#fff",
+                      pointHighlightFill: "#fff",
+                      pointHighlightStroke: "rgba(220,220,220,1)",
+                      data: [65, 59, 80, 81, 56, 55, 40]
+                  }
+              ]
+          };
+          new Chart(ctxSale).Line(saleData, options1);
+      
+          var ctxRetailer =  document.getElementById('retailerNum').getContext('2d');
+          var retailerData = {
+              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              datasets: [
+                  {
+                      label: "My Second dataset",
+                      fillColor: "rgba(151,187,205,0.2)",
+                      strokeColor: "rgba(151,187,205,1)",
+                      pointColor: "rgba(151,187,205,1)",
+                      pointStrokeColor: "#fff",
+                      pointHighlightFill: "#fff",
+                      pointHighlightStroke: "rgba(151,187,205,1)",
+                      data: [28, 48, 40, 19, 86, 27, 90]
+                  }
+              ]
+          };
+          new Chart(ctxRetailer).Line(retailerData, options2);
+      
+          $('#bindWeixin').click(function(){
+              var jqTarget = $(this);
+              if(!jqTarget.hasClass('active')){
+                  jqTarget.addClass('active');
+                  setTimeout(function(){
+                      $(document.body).one('click', function(){
+                          jqTarget.removeClass('active');
+                      });
+                  }, 0); 
+              }
+          });
+      })
+    </script>
+  </body>
+</html>

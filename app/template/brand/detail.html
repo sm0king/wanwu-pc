@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>面板        </title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/foot.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/product.css"/>
+    <link rel="stylesheet" href="../css/brand.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            品牌详情</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li class="loginInfo">
+                <div class="row">
+                  <div class="col-md-6">[登录用户]</div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
+                </div>
+              </li>
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
+              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
+              <li ui-sref-active="active"><a href="../info/index.html">信息维护    </a></li>
+              <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <form action="#" class="form-horizontal brand-detail">
+          <div class="form-group">
+              <label for="productName" class="control-label brand-left">商品品牌：</label>
+              <div class="col-md-6">
+                  <input type="text" id="productName" class="form-control" ng-model="productName">
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="" class="control-label brand-left">品牌logo:</label>
+              <div class="col-md-6">
+                  <label for="" class="control-label">图片大小请控制在150k以内</label>
+                  <div class="row brand-logo-img">
+                      <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                      <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                      <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                      <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                      <div class="m-img add-img"></div>
+                  </div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="quamess" class="control-label brand-left">品牌描述</label>
+              <div class="col-md-6">
+                  <textarea class="form-control" name="quamess" id="quamess" rows="10"></textarea>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="" class="control-label brand-left">品牌资质：</label>
+              <div class="col-md-6 m-qualification">
+                  <h5>包括品牌授权、质检报告、品牌相关证书等能说明对品牌拥有情况的资料</h5>
+              </div>
+          </div>
+          
+          <div class="qualification panel panel-default">
+              <div class="panel-body">
+                  <div class="form-group">
+                      <label for="quacon" class="quacon control-label brand-left">资质说明</label>
+                      <div class="col-md-6">
+                          <textarea class="form-control" name="quacon" id="quacon" rows="10"></textarea>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="validDate" class="control-label brand-left">有效日期</label>
+                      <div class="col-md-3">
+                          <input type="text" class="form-control" id='validDate'>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="" class="control-label brand-left">资质图片</label>
+                      <div class="col-md-6">
+                          <label for="" class="control-label">图片大小请控制在150k以内</label>
+                          <div class="row brand-logo-img">
+                              <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                              <div class="m-img add-img"></div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="addqua">
+              +增加品牌资质
+          </div>
+          <div class="btn-group btn-qua">
+              <button class="btn btn-default save-btn" type="submit">保存</button>
+              <button class="btn btn-default sub-btn" type="submit">保存并提交</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有</p>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('#validDate').datetimepicker({
+              format: 'yyyy-mm-dd',
+              language: 'zh-CN',
+              minView: 2,
+              autoclose: true
+          });
+      });
+    </script>
+  </body>
+</html>

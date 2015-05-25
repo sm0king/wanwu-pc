@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>待发货订单</title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/foot.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/order.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            待发货订单</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li class="loginInfo">
+                <div class="row">
+                  <div class="col-md-6">[登录用户]</div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
+                </div>
+              </li>
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
+              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
+              <li ui-sref-active="active"><a href="../info/index.html">信息维护    </a></li>
+              <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="order">
+          <ul class="nav nav-tabs nav-custom">
+            <li role="presentation" class="active"><a href="index.html">待发货订单</a></li>
+            <li role="presentation"><a href="returnofgoods.html">待退货订单</a></li>
+            <li role="presentation"><a href="all.html">所有订单</a></li>
+          </ul>
+          <div>
+            <div class="headBar">
+              <div class="btnBar pull-right">
+                <button type="button" class="btn btn-gray">下载全部未发货订单信息</button>
+                <button type="button" class="btn btn-bigblue">上传发货信息</button><a class="blue">下载发货信息模板</a>
+              </div>
+            </div>
+            <div class="table-responsive orderlist">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr class="titleTR">
+                    <td class="tdOrderNumber">
+                       
+                      订单编号: <span class="blue">8779641532</span>
+                    </td>
+                    <td class="retailer tdOrderPrice">分销价</td>
+                    <td class="receiver tdOrderConsignee">收货人</td>
+                    <td class="tdOrderAddress">收货地址</td>
+                    <td class="tdOrderTime">下单时间</td>
+                    <td class="tdOrderSta">状态</td>
+                    <td class="tdOrderRemark">备注</td>
+                    <td class="tdOrderAction">操作</td>
+                  </tr>
+                  <tr class="orderTR">
+                    <td class="productImgs"><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/></td>
+                    <td>￥387.00</td>
+                    <td>王刚</td>
+                    <td>四川省成都市高新区天府软件园E区E1栋</td>
+                    <td>015-03-12 17:38:48</td>
+                    <td>等待发货</td>
+                    <td class="Remark">客户要求每盒颜色不能重复</td>
+                    <td class="orderOperator"><a class="blue doExpress">发货</a><a class="blue doNoStock">无货反馈</a><a href="detail.html" class="blue">订单详情</a><a class="blue doCancelOrder">取消订单</a></td>
+                  </tr>
+                  <tr class="titleTR">
+                    <td>订单编号: <span class="blue">8779641532</span></td>
+                    <td class="retailer">分销价</td>
+                    <td class="receiver">收货人</td>
+                    <td>收货地址</td>
+                    <td>下单时间</td>
+                    <td>状态</td>
+                    <td>备注</td>
+                    <td>操作</td>
+                  </tr>
+                  <tr class="orderTR">
+                    <td class="productImgs"><img src="../img/logo.png"/><img src="../img/logo.png"/></td>
+                    <td>￥387.00</td>
+                    <td>王刚</td>
+                    <td>四川省成都市高新区天府软件园E区E1栋</td>
+                    <td>015-03-12 17:38:48</td>
+                    <td>等待发货</td>
+                    <td class="Remark">客户要求每盒颜色不能重复</td>
+                    <td class="orderOperator"><a class="blue doExpress">发货</a><a class="blue doNoStock">无货反馈</a><a href="detail.html" class="blue">订单详情</a><a class="blue doCancelOrder">取消订单</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="hidden">
+              <form id="expressForm" class="form-horizontal">
+                <div class="form-group">
+                  <label for="expressCompany" class="control-label col-sm-3">快递公司：</label>
+                  <div class="col-sm-7">
+                    <select id="expressCompany" class="form-control">
+                      <option value="0">顺丰</option>
+                      <option value="1">圆通</option>
+                      <option value="2">申通</option>
+                      <option value="3">中通</option>
+                      <option value="4">韵达</option>
+                      <option value="5">汇通</option>
+                      <option value="6">宅急送</option>
+                      <option value="7">天天</option>
+                      <option value="8">EMS</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="waybill" class="control-label col-sm-3">运单号：</label>
+                  <div class="col-sm-7">
+                    <input type="text" id="inputWaybill" class="form-control"/>
+                  </div>
+                </div>
+              </form>
+              <form id="noStockForm" class="form-horizontal"><span class="StockTitle">请选择无货商品</span>
+                <div class="noStockProducts">
+                  <div><img src="../img/logo.png" class="noStockProductImg"/>
+                    <div class="ok"></div>
+                  </div>
+                  <div><img src="../img/logo.png" class="noStockProductImg"/>
+                    <div class="ok"></div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <label for="input-noStock" class="control-label">无货原因：</label>
+                  </div>
+                  <div class="col-sm-12">               
+                    <textarea id="input-noStock" class="form-control"></textarea>
+                  </div>
+                </div>
+              </form>
+              <form id="returnofgoodsForm" class="form-horizontal">
+                <div class="form-group">
+                  <div class="col-sm-12">
+                    <label class="control-label">取消原因：</label>
+                  </div>
+                  <div class="col-sm-12">
+                    <textarea class="form-control"></textarea>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-12">选择图片上传（可选）：</div>
+                  <div class="col-sm-12 imgs">
+                    <div><img src="../img/logo.png"/><a class="btn-fork removeImg"></a></div>
+                    <div><a class="upload"></a></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="foot">
+              <nav class="clearfix">
+                <ul class="pull-right pagination">
+                  <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                  <li><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#" class="more">...</a></li>
+                  <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                  <li class="pagin-extend">共<i class="totalPage">7</i>页，到第
+                    <input type="text" class="text-input"/>页
+                    <button type="button" class="btn btn-blue">确定</button>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有</p>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('#checkAll').change(function(){
+              var checked = $(this).prop('checked');
+              $('.orderlist input[type=checkbox]').prop('checked', checked);
+          });
+          $(document.body).delegate('.doExpress', 'click', function(e){
+              $.dialog({
+                  content: $('#expressForm').clone(),
+                  title: '填写快递信息',
+                  buttons: [
+                      {
+                          text: '取消',
+                          click: function(dialog){ dialog.modal('hide'); }
+                      },
+                      {
+                          text: '确定',
+                          style: 'primary',
+                          click: function(dialog){
+                              //TODO:
+                              dialog.modal('hide');
+                          }
+                      }
+                  ]
+              });
+          });
+          $(document.body).delegate('.doNoStock', 'click', function(e){
+              var imgs = '';
+              $(e.currentTarget).parents('tr:first').children('.productImgs').children().each(function(i, e){
+                  imgs += '<div><img src="' + e.src + '" class="noStockProductImg"><div class="ok"></div></div>'
+              });
+              $('.noStockProducts').empty().append(imgs);
+              $.dialog({
+                  content: $('#noStockForm').clone(),
+                  title: '无货反馈',
+                  buttons: [
+                      {
+                          text: '取消',
+                          click: function(dialog){ dialog.modal('hide'); }
+                      },
+                      {
+                          text: '确定',
+                          style: 'primary',
+                          click: function(dialog){                                
+                              var errorMsg = [],
+                                  checkedProducts = dialog.find('div.checked');
+                              if(checkedProducts.length == 0){
+                                  errorMsg.push('请选择无货商品！');
+                              }
+                              var text = $.trim(dialog.find('#input-noStock').val());
+                              if(!text){
+                                  dialog.find('#input-noStock').parents('.form-group:first').addClass('has-error');
+                                  errorMsg.push('请输入反馈信息！');
+                              }else{
+                                  dialog.find('#input-noStock').parents('.form-group:first').removeClass('has-error');
+                              }
+                              dialog.find('.noStockProducts').prevAll().remove();
+                              if(errorMsg.length > 0){
+                                  var html ='<div class="alert alert-danger" role="alert">',
+                                      msg = null;
+                                  while(msg = errorMsg.shift()){
+                                      html += '<p>' + msg + '</p>';
+                                  }
+                                  html += '</div>';
+                                  dialog.find('.noStockProducts').before(html);
+                                  return;
+                              }
+                              //TODO:
+                              dialog.modal('hide');
+                          }
+                      }
+                  ]
+              });
+          });
+          $(document.body).delegate('.noStockProductImg', 'click', function(e){
+              $(e.currentTarget).parent().toggleClass('checked');
+          }).delegate('a.removeImg','click', function(e){
+              $(e.currentTarget).parent().remove();
+          });
+          $(document.body).delegate('.doCancelOrder', 'click', function(e){
+              $.dialog({
+                  content: $('#returnofgoodsForm').clone(),
+                  title: '取消订单',
+                  buttons: [
+                      {
+                          text: '取消',
+                          click: function(dialog){ dialog.modal('hide'); }
+                      },
+                      {
+                          text: '确定',
+                          style: 'primary',
+                          click: function(dialog){
+                              //TODO:
+                              dialog.modal('hide');
+                          }
+                      }
+                  ]
+              });
+          });
+      
+      });
+    </script>
+  </body>
+</html>
