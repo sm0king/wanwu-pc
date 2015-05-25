@@ -1,5 +1,6 @@
 .manageHome{
     margin-top: 10px;
+    padding-bottom: 20px;
 }
 .manageHome .group-title{
     color:#333333;
@@ -12,4 +13,72 @@
 }
 .manageHome .red{
     font-size: 1.2em;
+}
+.chart-header{
+    padding:0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+.chart-header h4{
+    font-size: 21px;
+}
+.blue-line:before,.green-line:before{
+    display: inline-block;
+    width: 42px;
+    height: 4px;
+    line-height: 4px;
+    text-indent: -999px;
+    border-radius: 1px;
+    margin:0 20px;
+}
+.blue-line:before{
+    content: 'blue';
+    background-color: #069dd5;
+}
+.green-line:before{
+    content:'green';
+    background-color: #4cbd4e;
+}
+.stage2{
+    margin:0 6px 0 9px;
+}
+.time{
+    margin:0 30px;
+}
+.time .text-input{
+    width:100px;
+    line-height: 34px;
+}
+.manageHome .form-group .btn-blue{
+    width:88px;
+}
+.supplierData{
+    display: inline-block;
+    width:300px;
+    vertical-align: top;
+    margin-left: 60px;
+}
+.supplierData table{
+    text-align: center;
+}
+.supplierData th{
+    width:148px;
+    text-align: center;
+    line-height: 300%;
+}
+.supplierData td{
+    line-height: 1.6;
+}
+.sortColor{
+    display: inline-block;
+    width:16px;
+    height:16px;
+    border: 1px solid #c5c5c5;
+    vertical-align: middle;
+    margin-right: 12px;
+}
+.sortName{
+    display: inline-block;
+    vertical-align: middle;
 }

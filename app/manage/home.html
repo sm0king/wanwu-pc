@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/foot.css"/>
     <link rel="stylesheet" href="../css/sb-admin-2.css"/>
     <link rel="stylesheet" href="../css/manage/home.css"/>
+    <link rel="stylesheet" href="../css/chart.custom.css"/>
   </head>
   <body>
     <div id="wrapper">
@@ -37,7 +38,7 @@
               <li ui-sref-active="active"><a href="../manage/album/index.html">专辑管理</a></li>
               <li ui-sref-active="active"><a href="../manage/complaint/index.html">投诉管理</a></li>
               <li ui-sref-active="active"><a href="../manage/report/index.html">举报管理</a></li>
-              <li ui-sref-active="active"><a href="../manage/account/index.html">账号设置 </a></li>
+              <li ui-sref-active="active"><a href="../manage/account/index.html">账号设置</a></li>
             </ul>
           </div>
         </div>
@@ -45,7 +46,116 @@
       </nav>
       <div id="page-wrapper">
         <div class="manageHome">
-          <div class="list-group"><a href="javascript:;" class="list-group-item"><span class="red">12</span>个等待审核供应商</a><a href="javascript:;" class="list-group-item"><span class="red">10</span>个等待审核品牌</a><a href="javascript:;" class="list-group-item"><span class="red">12</span>个等待处理投诉</a></div>
+          <div class="list-group"><a href="javascript:;" class="list-group-item"><span class="red">12</span>个等待审核供应商</a><a href="javascript:;" class="list-group-item"><span class="red">10</span>个等待审核品牌</a><a href="javascript:;" class="list-group-item"><span class="red">12</span>个等待处理投诉 </a><a href="javascript:;" class="list-group-item"><span class="red">10</span>个等待处理举报</a></div>
+          <div class="m-chart-market">
+            <div class="chart-header">
+              <h4>销售数据</h4>
+            </div>
+            <div class="m-datamark">
+              <div class="form-inline">
+                <div class="form-group">
+                  <label class="blue-line">
+                    <select id="marketData1" name="marketData1" class="form-control select">
+                      <option value="0">成交额（按发货时间）</option>
+                      <option value="1">分销成交额（按发货时间）</option>
+                      <option value="2">进货成交额（按发货时间）</option>
+                      <option value="3">退货额（按发货时间）</option>
+                    </select>
+                  </label>
+                  <label class="green-line">
+                    <select id="marketData2" name="marketData2" class="form-control select">
+                      <option value="0">成交额（按发货时间）</option>
+                      <option value="1">分销成交额（按发货时间）</option>
+                      <option value="2">进货成交额（按发货时间）</option>
+                      <option value="3">退货额（按发货时间）</option>
+                      <option value="4">（无）</option>
+                    </select>
+                  </label>
+                  <label class="time">
+                    <input type="text" id="timeBegin" class="text-input time-input"/><span class="stage2">~</span>
+                    <input type="text" id="timeEnd" class="text-input time-input"/>
+                  </label>
+                  <button type="button" class="btn btn-blue btn-search">查询</button>
+                </div>
+              </div>
+              <div class="m-chartCon plot">
+                <canvas width="800" height="300" id="chart-marketData"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="m-chart-branch">
+            <div class="chart-header">
+              <h4>分销商数据</h4>
+            </div>
+            <div class="m-datamark">
+              <div class="form-inline">
+                <div class="form-group">
+                  <label class="blue-line">分销商数量</label>
+                  <label class="green-line">店铺数量</label>
+                  <label class="time">
+                    <input type="text" id="timeBegin" class="text-input time-input"/><span class="stage2">~</span>
+                    <input type="text" id="timeEnd" class="text-input time-input"/>
+                  </label>
+                  <button type="button" class="btn btn-blue btn-search">查询</button>
+                </div>
+              </div>
+              <div class="m-chartCon plot">
+                <canvas width="800" height="300" id="chart-branchData"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="m-chart-supplier">
+            <div class="chart-header">
+              <h4>供应商数据</h4>
+            </div>
+            <div class="m-datamark">
+              <div class="form-inline">
+                <div class="form-group">
+                  <label class="blue-line">
+                    <select id="supplierData1" name="supplierData1" class="form-control select">
+                      <option value="0">供销商数量</option>
+                      <option value="1">品牌数量</option>
+                      <option value="2">商品数量</option>
+                    </select>
+                  </label>
+                  <label class="green-line">
+                    <select id="supplierData2" name="supplierData2" class="form-control select">
+                      <option value="0">供销商数量</option>
+                      <option value="1">品牌数量</option>
+                      <option value="2">商品数量</option>
+                      <option value="4">（无）</option>
+                    </select>
+                  </label>
+                  <label class="time">
+                    <input type="text" id="timeBegin" class="text-input time-input"/><span class="stage2">~</span>
+                    <input type="text" id="timeEnd" class="text-input time-input"/>
+                  </label>
+                  <button type="button" class="btn btn-blue btn-search">查询</button>
+                </div>
+              </div>
+              <div class="m-chartCon plot">
+                <canvas width="800" height="300" id="chart-supplierData"></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="m-Pie-supplier">
+            <div class="chart-header">
+              <h4>供应商数据</h4>
+            </div>
+            <div class="m-datamark">
+              <div class="m-chartCon plot">
+                <canvas width="300" height="300" id="pie-supplierData"></canvas>
+                <div class="supplierData">
+                  <table>
+                    <th>商品分类</th>
+                    <th>商品数量</th>
+                    <tbody id="pieDataShow"></tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="chartjs-tooltip"></div>
         </div>
       </div>
     </div>
@@ -60,5 +170,138 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript" src="../plugs/Chart.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('.time-input').datetimepicker({
+              format: 'yyyy-mm-dd',
+              language: 'zh-CN',
+              minView: 2,
+              autoclose: true
+          });
+      
+          //图表部分
+          var marketOption = {responsive: true,pointDot:false,multiTooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>"}
+          var branchOption = {responsive: true,pointDot:false,multiTooltipTemplate: "<%= value %> <% if(fillColor == '#069dd5') { %>店铺 <% }else{ %>分销商<% } %>",}
+          var supplierOption = {responsive: true,pointDot:false,multiTooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>",}
+          var marketLine = document.getElementById('chart-marketData').getContext('2d');
+          var branchLine = document.getElementById('chart-branchData').getContext('2d');
+          var supplierLine = document.getElementById('chart-supplierData').getContext('2d');
+          var supplierPie  = document.getElementById('pie-supplierData').getContext('2d');
+          var marketData = {
+              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              datasets:[{
+                      fillColor: "transparent",
+                      strokeColor: "#069dd5",
+                      pointStrokeColor: "#069dd5",
+                      pointHighlightFill: "#069dd5",
+                      pointHighlightStroke: "rgba(220,220,220,1)",
+                      data: [65, 59, 80, 81, 56, 55, 40]
+                  },{
+                      fillColor: "transparent",
+                      strokeColor: "#4cbd4e",
+                      pointStrokeColor: "#4cbd4e",
+                      pointHighlightFill: "#4cbd4e",
+                      pointHighlightStroke: "rgba(151,187,205,1)",
+                      data: [28, 48, 40, 19, 86, 27, 90]
+                  }]
+              }
+          var branchData = {
+              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              datasets:[{
+                      fillColor: "transparent",
+                      strokeColor: "#069dd5",
+                      pointStrokeColor: "#069dd5",
+                      pointHighlightFill: "#069dd5",
+                      pointHighlightStroke: "rgba(220,220,220,1)",
+                      data: [65, 59, 80, 81, 56, 55, 40]
+                  },{
+                      fillColor: "transparent",
+                      strokeColor: "#4cbd4e",
+                      pointStrokeColor: "#4cbd4e",
+                      pointHighlightFill: "#4cbd4e",
+                      pointHighlightStroke: "rgba(151,187,205,1)",
+                      data: [28, 48, 40, 19, 86, 27, 90]
+                  }]
+              }
+          var supplierData = {
+              labels: ["January", "February", "March", "April", "May", "June", "July"],
+              datasets:[{
+                      fillColor: "transparent",
+                      strokeColor: "#069dd5",
+                      pointStrokeColor: "#069dd5",
+                      pointHighlightFill: "#069dd5",
+                      pointHighlightStroke: "rgba(220,220,220,1)",
+                      data: [65, 59, 80, 81, 56, 55, 40]
+                  },{
+                      fillColor: "transparent",
+                      strokeColor: "#4cbd4e",
+                      pointStrokeColor: "#4cbd4e",
+                      pointHighlightFill: "#4cbd4e",
+                      pointHighlightStroke: "rgba(151,187,205,1)",
+                      data: [28, 48, 40, 19, 86, 27, 90]
+                  }]
+              }
+      
+          //画线
+          window.xxx = new Chart(marketLine).Line(marketData, marketOption);
+          new Chart(branchLine).Line(branchData, branchOption);
+          new Chart(supplierLine).Line(supplierData, supplierOption);
+          var pieSet ={tooltipTemplate: "<%if (label){%><%=label%> :  <%}%><%= value %>"}
+          var pieData =[{
+                  label:"女人",
+                  value:300,
+                  color:"#5b8dff"
+              },{
+                  label:"男人",
+                  value : 50,
+                  color : "#a55dff"
+              },{
+                  label:"配饰",
+                  value : 140,
+                  color : "#5bd6ff"
+              },{
+                  label:"数码",
+                  value : 95,
+                  color : "#ff5dcc"
+              },{
+                  label:"美妆",
+                  value : 67,
+                  color : "#90ffcc"
+              },{
+                  label:"家居",
+                  value : 56,
+                  color : "#69D2E7"
+              },{
+                  label:"亲子",
+                  value : 23,
+                  color : "#667d73"
+              },{
+                  label:"运动",
+                  value : 23,
+                  color : "#105535"
+              },{
+                  label:"食品",
+                  value : 45,
+                  color : "#baa519"
+              },{
+                  label:"办公",
+                  value : 56,
+                  color : "#ece093"
+              },{
+                  label:"汽车",
+                  value : 156,
+                  color : "#1220d4"
+              }]
+          new Chart(supplierPie).Pie(pieData,pieSet)
+          //生成数据列表 pieDataShow
+          var pieDataHtml = '';
+          var dataLength = pieData.length;
+          for(var i = 0 ; i < dataLength;i++){
+              pieDataHtml += '<tr><td><label><em class="sortColor" style="background-color: '+ pieData[i].color +';"></em><span class="sortName">'+pieData[i].label+'</span></label></td><td>'+pieData[i].value+'</td></tr>'
+          }
+          $('#pieDataShow').html(pieDataHtml);
+      });
+    </script>
   </body>
 </html>

@@ -1,9 +1,11 @@
 (function($){
-    var jqModal = null;
+    //var jqModal = null;
+
+    var zIndex = 1040;
 
     function getContainer(){
-        if (!jqModal) {
-            jqModal = $(
+        //if (!jqModal) {
+        var jqModal = $(
                 '<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">'+
                     '<div class="modal-dialog">'+
                         '<div class="modal-content">'+
@@ -21,7 +23,7 @@
                 '</div>'
             ).appendTo(document.body);
             jqModal.on('hidden.bs.modal', onDialogHidden)
-        }
+        //}
         return jqModal;
     };
 
@@ -52,16 +54,19 @@
             }
         }
         jqModal.modal(options);
+
+        $('.modal-backdrop:last').css('z-index', ++zIndex);
+        $('.modal:last').css('z-index', ++zIndex);
     }
 
     function onDialogHidden(e){        
-        var data = jqModal.data('options');
+        var data = $(this).data('options');
         if (data && $.isFunction(data.callback)) {
-            data.callback(!!data.result);
+            if (data.callback(!!data.result) !== false) {
+                $(this).remove();
+            }
         }
-        jqModal
-        .children('.modal-dialog').removeClass('modal-sm modal-lg')
-        .find('#myModalLabel,.modal-body').empty();
+        $(this).remove();
     }
 
     $.alert = function(text, title, callback){
