@@ -82,7 +82,7 @@
       </nav>
       <div id="page-wrapper">
         <form action="#" class="form-horizontal product-detail">
-          <div class="form-group">
+          <!-- <div class="form-group">
               <label for="taobaoLink" class="control-label">淘宝链接：</label>
               <div class="col-md-6">
                   <input type="text" id="taobaoLink" class="form-control">
@@ -99,12 +99,30 @@
                       </div>
                   </a>
               </div>
-          </div>
+          </div> -->
           <div class="form-group">
               <label for="productName" class="control-label require">商品名称：</label>
               <div class="col-md-6">
-                  <input type="text" id="productName" class="form-control" ng-model="productName">
+                  <input type="text" id="productName" class="form-control">
               </div>
+          </div>
+          <div class="form-group">
+              <label for="purchprice" class="control-label require">采购价</label>
+              <div class="col-md-3">
+                  <input type="text" id="purchprice" class="form-control">
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="marketprice" class="control-label require">市场价</label>
+              <div class="col-md-3">
+                  <input type="text" id="marketprice" class="form-control">
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="" class="control-label">建议零售价</label>
+              <input type="text" name="formPrice" class="formPrice form-control">
+              <span class="to">至</span>
+              <input type="text" name="toPrice" class="toPrice form-control">
           </div>
           <div class="form-group">
               <label class="control-label">分类：</label>

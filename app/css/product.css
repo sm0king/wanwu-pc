@@ -635,3 +635,57 @@
     opacity:0;
     cursor: pointer;
 }
+.product-detail .form-group .to{
+    padding:0 2px 0 8px;
+    float: left;
+    line-height: 34px;
+}
+.product-detail .formPrice,.product-detail .toPrice{
+    width:150px;
+    float: left;
+    margin-left: 6px;
+}
+.batchTitle{
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    line-height: 2.2;
+}
+.bathTab{
+    height: 54px;
+    line-height: 54px;
+}
+.bathTab a{
+    color:#000;
+}
+.product-batch .bathTab>li>a{
+    line-height: 31px;
+    padding:10px 25px;
+}
+.product-batch .bathTab>li.active>a{
+    margin:0;
+    cursor: pointer;
+    background-color: #fff;
+    border:1px solid #ddd;
+    border-top: 3px solid rgb(0, 153, 204);
+    border-bottom:1px hidden #fff;
+}
+.upTip{
+    background-color: #f1f6fa;
+    border:1px solid #ededed;
+    padding:6px 12px;
+    margin-top: 8px;
+}
+.btn-up{
+    color:#fff;
+    line-height: 120px;
+    background-color: #bcbcbc;
+    margin-right: 30px;
+    padding:6px 40px;
+    font-size: 16px;
+}
+.m-upButon{
+    margin-top: 28px;
+}
+.m-upButon .btn-up:last{
+    margin-right: 0px;
+};

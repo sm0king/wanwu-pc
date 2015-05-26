@@ -705,6 +705,7 @@ table.dataTable thead .sorting:after {
 .require:before{
     content:"*";
     margin-right: 4px;
+    color:red;
 }
 .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
     border-bottom-width: 1px;
