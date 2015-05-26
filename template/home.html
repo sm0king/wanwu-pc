@@ -69,27 +69,43 @@ block Right
                                     a#bindWeixin(href='javascript:;') 微信绑定
             .col-md-4
                 .panel.panel-default
-                    .panel-body
+                    .panel-body.moneyMessage
                         table
                             tr
-                                td
-                                    span.money
-                                td
+                                td.td-money
+                                    span.money(m="00") 4000
+                                td.td-state
                                     可用
                                 td(rowspan="3")
                                     button.btn.btn-blue 充值
                             tr
-                                td
-                                    span.money
-                                td
+                                td.td-money
+                                    span.money(m="00") 4000
+                                td.td-state
                                     不可用
                             tr
-                                td(colspan="2")
+                                td.td-action(colspan="2")
                                     a(href='javascript:;') 提现 |
                                     a(href='javascript:;') 交易明细
             .col-md-4
                 .panel.panel-default
-                    .panel-body
+                    .panel-body.actionmessage
+                        table
+                            tr
+                                td.tdw2 20
+                                td.tdw3 待处理订单
+                                td.tdw2 20
+                                td.tdw3 品牌待审核
+                            tr
+                                td.tdw2 20
+                                td.tdw3 退款订单
+                                td.tdw2 20
+                                td.tdw3 出售中商品
+                            tr
+                                td.tdw2 20
+                                td.tdw3 分销商
+                                td.tdw2 20
+                                td.tdw3 已下架
         .panel.panel-default
             .panel-heading 统计报表
             .panel-body

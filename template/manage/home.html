@@ -113,9 +113,9 @@ block foot
             });
 
             //图表部分
-            var marketOption = {responsive: true,pointDot:false,multiTooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>"}
-            var branchOption = {responsive: true,pointDot:false,multiTooltipTemplate: "<%= value %> <% if(fillColor == '#069dd5') { %>店铺 <% }else{ %>分销商<% } %>",}
-            var supplierOption = {responsive: true,pointDot:false,multiTooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>",}
+            var marketOption = {pointDot:false,multiTooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>"}
+            var branchOption = {pointDot:false,multiTooltipTemplate: "<%= value %> <% if(fillColor == '#069dd5') { %>店铺 <% }else{ %>分销商<% } %>",}
+            var supplierOption = {pointDot:false,multiTooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>",}
             var marketLine = document.getElementById('chart-marketData').getContext('2d');
             var branchLine = document.getElementById('chart-branchData').getContext('2d');
             var supplierLine = document.getElementById('chart-supplierData').getContext('2d');

@@ -17,30 +17,68 @@
     <div id="wrapper">
       <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
         <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
-          <h3 class="navbar-line">            提现</h3>
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <h2 class="dashboard-title"><span>万物</span></h2>
+          <h4 class="dashboard-subtitle"><img src="..//img/dot.png"/>供应商平台</h4>
         </div>
+        <div class="dashboard-top-line"><span>
+             
+            客服热线<span class="navbar-phone">028-88888888</span></span><span class="separate"></span><a href="javascript:;">帮助中心</a><span class="separate"></span><a href="javascript:;">趣玩</a><span class="separate"></span><a href="javascript:;">退出</a></div>
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
-            <ul id="side-menu" class="nav in">
-              <li class="loginInfo">
-                <div class="row">
-                  <div class="col-md-6">[登录用户]</div>
-                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
-                </div>
+            <ul id="side-menu" class="nav in">                           
+              <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
+              <li id="order_manage" class="collapse in">
+                <ul>
+                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
+                </ul>
               </li>
-              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
-              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
-              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
-              <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
-              <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
-              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
-              <li ui-sref-active="active"><a href="../info/index.html">信息维护    </a></li>
-              <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+              <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
+              <li id="product_manage" class="collapse">
+                <ul>                                       
+                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
+                </ul>
+              </li>
+              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
+              <li id="brand_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
+                </ul>
+              </li>
+              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
+              <li id="retailer_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../distributor/index.html">分销商列表</a></li>
+                </ul>
+              </li>
+              <li href="#capital_manage" data-toggle="collapse" class="navbar-group-title">财务管理</li>
+              <li id="capital_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../capital/index.html">我的账户</a></li>
+                  <li ui-sref-active="active"><a href="../capital/record.html">交易记录</a></li>
+                </ul>
+              </li>
+              <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
+              <li id="baseinfo_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../info/index.html">账户基本信息    </a></li>
+                  <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
+                  <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
+                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+                </ul>
+              </li>
             </ul>
           </div>
         </div>
-        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
       </nav>
       <div id="page-wrapper">
         <div class="capital cash-out">
