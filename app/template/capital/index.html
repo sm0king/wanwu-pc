@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>账户总览</title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/foot.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/capital.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            账户总览</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li class="loginInfo">
+                <div class="row">
+                  <div class="col-md-6">[登录用户]</div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
+                </div>
+              </li>
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
+              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
+              <li ui-sref-active="active"><a href="../info/index.html">信息维护    </a></li>
+              <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="capital">
+          <ul class="nav nav-tabs">
+            <li role="presentation" class="active"><a href="index.html">账户总览</a></li>
+            <li role="presentation"><a href="order_detail.html">订单明细</a></li>
+            <li role="presentation"><a href="operate_log.html">操作记录</a></li>
+          </ul>
+          <div>
+            <div class="info-group">
+              <p>账户余额</p>
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="money-group">
+                    <div class="money">8888.66</div>
+                    <div class="unit">元</div>
+                  </div>
+                </div>
+                <div class="col-lg-9 operator-group"><a class="btn-go">充值</a><a href="cash_out.html" class="btn-go">提现</a><a class="goto">查看明细</a></div>
+              </div>
+            </div>
+            <div class="info-group">
+              <p>不可用余额</p>
+              <div class="row">
+                <div class="col-lg-3">
+                  <div class="money-group">
+                    <div class="money">8888.66</div>
+                    <div class="unit">元</div>
+                  </div>
+                </div>
+                <div class="col-lg-9 operator-group"><a class="btn-go btn-hidden">X</a><a class="btn-go btn-hidden">X</a><a class="goto">查看明细</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有</p>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../js/dialog.js"></script>
+  </body>
+</html>

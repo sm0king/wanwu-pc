@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>面板        </title>
+    <link rel="stylesheet" href="../../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../../css/main.css"/>
+    <link rel="stylesheet" href="../../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../../css/foot.css"/>
+    <link rel="stylesheet" href="../../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../../css/manage/album.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            专辑详情</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li class="loginInfo">
+                <div class="row">
+                  <div class="col-md-6">[登录用户]</div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
+                </div>
+              </li>
+              <li ui-sref-active="active"><a href="../../manage/home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../../manage/supplier/index.html">供应商管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/album/index.html">专辑管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/complaint/index.html">投诉管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/report/index.html">举报管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/account/index.html">账号设置</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="album album-detail">
+          <form class="form-horizontal">
+            <div class="form-group">
+              <label for="albumTitle" class="control-label require">专辑名称</label>
+              <div class="col-md-8 col-lg-5">
+                <input type="text" id="albumTitle" class="form-control"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="albumExplain" class="control-label require">专辑说明</label>
+              <div class="col-md-8 col-lg-5">
+                <textarea id="albumExplain" class="form-control"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label require">专辑入口图</label>
+              <div class="col-md-8 col-lg-5">
+                <button class="btn btn-bigblue">上传图片</button>
+              </div>
+              <div class="clearfix"></div>
+              <div class="imgContainer form-aline"><img src="../../img/logo.png"/></div>
+            </div>
+            <div class="form-group">
+              <label class="control-label require">专辑详情图</label>
+              <div class="col-md-8 col-lg-5">
+                <button class="btn btn-bigblue">上传图片</button>
+              </div>
+              <div class="clearfix"></div>
+              <div class="imgContainer form-aline"><img src="../../img/logo.png"/></div>
+            </div>
+            <div class="form-group">
+              <label for="albumGoods" class="control-label require">专辑商品</label>
+              <div class="col-md-8 col-lg-5">
+                <textarea id="albumGoods" class="form-control"></textarea>
+              </div>
+              <div class="clearfix"></div>
+              <div class="form-aline red">(逗号分隔的商品ID)</div>
+            </div>
+            <div class="form-group">
+              <label for="albumOnlineDate" class="control-label require">上线时间</label>
+              <div class="col-md-4 col-lg-2">
+                <input type="text" id="albumOnlineDate" class="form-control"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="albumOnline" class="control-label require">是否上线</label>
+              <div class="col-md-8 col-lg-5">
+                <input type="checkbox" id="albumOnline"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-aline">
+                <button type="submit" id="btnSave" class="btn btn-blue">保存</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有</p>
+    </div>
+    <script type="text/javascript" src="../../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../../js/dialog.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          $('#albumOnlineDate').datetimepicker({
+              format: 'yyyy-mm-dd hh:ii',
+              language: 'zh-CN',
+              autoclose: true,
+              minuteStep: 1
+          });
+      });
+    </script>
+  </body>
+</html>

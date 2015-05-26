@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>提现账户列表</title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/foot.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/capital.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            提现账户列表</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li class="loginInfo">
+                <div class="row">
+                  <div class="col-md-6">[登录用户]</div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
+                </div>
+              </li>
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
+              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
+              <li ui-sref-active="active"><a href="../info/index.html">信息维护    </a></li>
+              <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="capital">
+          <h2>提现帐户列表</h2>
+          <div class="row">
+            <div class="col-lg-6">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr>
+                    <td><img src="../img/logo.png" class="bankLogo"/></td>
+                    <td>招商银行</td>
+                    <td>6226***123</td>
+                    <td>张小思</td>
+                    <td><a href="javascript:;" class="btn-fork"></a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="middleBar">
+            <button type="button" class="btn btn-bigblue">添加提现账户信息</button>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <form class="form-horizontal">
+                    <div class="form-group">
+                      <label for="account" class="control-label col-md-2">开户行：</label>
+                      <div class="col-md-8">
+                        <div class="cardSelector">
+                          <div class="cardInfo"><span class="owner">张三</span><span class="bank">招商银行</span><span class="cardNum">6226***123</span></div>
+                          <button data-toggle="dropdown" class="btn btn-default"><span class="caret"></span><span class="sr-only">Toggle Dropdown</span></button>
+                          <ul role="menu" class="dropdown-menu">
+                            <li><a href="javascript:;"><span class="owner">张三</span><span class="bank">中国银行</span><span class="cardNum">6226***123</span></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="account" class="control-label col-md-2">银行卡号：</label>
+                      <div class="col-md-8">
+                        <input type="text" id="account" class="form-control"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label col-md-2">银行：</label>
+                      <div class="col-md-8 textField">自助识别银行</div>
+                    </div>
+                    <div class="form-group">
+                      <label for="owner" class="control-label col-md-2">姓名：</label>
+                      <div class="col-md-8">
+                        <input type="text" id="owner" class="form-control"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="mobile" class="control-label col-md-2">手机号：</label>
+                      <div class="col-md-8">
+                        <div class="row">
+                          <div class="col-md-7 textField">138000138000</div>
+                          <div class="col-md-5">
+                            <button type="button" id="sendMsg" class="btn btn-bigblue sendMsg">获取短信验证</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="checkcode" class="control-label col-md-2">验证码：</label>
+                      <div class="col-md-8">
+                        <input type="text" id="checkcode" class="form-control"/>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有</p>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          var btnSendMsg = $('#sendMsg').click(function(){
+              if(!$(this).hasClass('disable')){
+                  $(this).addClass('disable').prop('disabled', true);
+                  setTimeout(function(){
+                      btnSendMsg.removeClass('disable').prop('disabled', false);
+                  }, 3000);
+              }
+          });
+      });
+      $(function(){
+          $('.cardSelector').delegate('a','click',function(e){
+              var item = $(e.currentTarget);
+              $(e.delegateTarget).children('.cardInfo').empty().append(item.clone().children());
+          });
+      });
+    </script>
+  </body>
+</html>

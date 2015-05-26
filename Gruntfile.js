@@ -110,7 +110,7 @@ module.exports = function (grunt) {
         },
         jade: {
             options:{
-                pretty: true
+                pretty:true
             },
             analysis:{
                 files:jadeTamplates
@@ -139,6 +139,7 @@ module.exports = function (grunt) {
         }
 
         //更新  Jade 配置
+
         grunt.config('jade.analysis.files', config);
     });
 

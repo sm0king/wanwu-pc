@@ -80,6 +80,7 @@
     text-align: center;
     color: #fff;
     background-color: #4cbd4e;
+    border-color: #4cbd4e; 
 }
 .verifySta.yes{
      color: #4cbd4e;
@@ -95,4 +96,9 @@
 }
 .brand .product-desc.stop-use{
     color: #de0a0a;
+}
+@media (max-width: 768px){
+    .brand-detail .m-qualification h5{
+        margin-top: 0px;
+    }
 }

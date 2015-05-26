@@ -140,10 +140,12 @@ body {
     color: #666666;
 }
 
-.sidebar .nav li a:hover,
+.sidebar .nav li a:hover{
+    background-color: #37424f;
+}
 .sidebar .nav li a.active,
 .sidebar .nav li a:focus{
-    background-color: rgb(54,54,54);
+    background-color: #22282e;
 }
 .sidebar .nav li a.active {    
     box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.3) inset;
@@ -159,7 +161,7 @@ a:hover,a:focus,a.active{
 .sidebar .nav li a {
     color: white;
     padding:0px 0px 0px 54px;
-    font-size: 12px;
+    font-size: 14px;
     position: relative;
     display: block;
 }

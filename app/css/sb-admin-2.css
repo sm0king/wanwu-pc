@@ -135,7 +135,7 @@ a{
 .sidebar ul li {
     
     margin-top: -1px;
-    line-height: 32px;
+    line-height: 42px;
 }
 
 .sidebar ul li a.active {
@@ -173,7 +173,7 @@ a{
         position: absolute;
         width: 210px;
         margin-top: 60px;
-        background-color: rgb(81,81,81);
+        background-color: #293038;
     }
 
     .navbar-top-links .dropdown-messages,
