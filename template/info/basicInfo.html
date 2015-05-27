@@ -1,0 +1,297 @@
+extends master.jade
+block InfoDefine
+
+block title
+    title 基本资料
+
+block DashboardTitle
+    基本资料
+
+block InfoContent
+    .basicInfo
+        .panel.panel-default
+            .panel-body
+                h4 基本资料
+                .hr
+                .alert.alert-icon.alert-info 请完善以下信息， 以便我们更好的为您服务                
+                form.form-horizontal#basicInfoForm
+                    h4.subtitle 基本资料
+                    .form-group
+                        label.control-label 用户名
+                        .col-md-8.form-text
+                            | quwan
+                    .form-group
+                        label(for="email").control-label 邮箱
+                        .col-md-8
+                            input#email(type="text", name="email").form-control
+                    .form-group
+                        label.control-label 手机
+                        .col-md-8.form-text
+                            | 186****1462
+                    .form-group
+                        label(for="phone").control-label 固话
+                        .col-md-8
+                            input#phone(type="text", name="phone").form-control
+                    .form-group
+                        label(for="fax").control-label 传真
+                        .col-md-8
+                            input#fax(type="text").form-control
+                    .form-group
+                        label.control-label.require 所在地区
+                        .col-md-8.form-comb
+                            .row
+                                .col-sm-4
+                                    select.form-control(name="province")#province
+                                .col-sm-4
+                                    select.form-control(name="city")#city
+                                .col-sm-4
+                                    select.form-control(name="area")#area
+                    .form-group
+                        label(for="street").control-label 街道地址
+                        .col-md-8
+                            input#street(type="text").form-control
+                    h4.subtitle 资格认证信息
+                    .form-group
+                        label(for="company").control-label.require 公司名称
+                        .col-md-8
+                            input#company(type="text", name="company").form-control
+                    .form-group
+                        label(for="license").control-label.require 营业执照号
+                        .col-md-8
+                            input#license(type="text", name="license").form-control
+                    .form-group
+                        label.control-label.require 营业执照
+                        .col-md-8
+                            button(type='button').btn.btn-bigblue 上传附件
+                    .form-group
+                        label(for="legalPerson").control-label.require 企业法人
+                        .col-md-8
+                            input#legalPerson(type="text", name="legalPerson").form-control
+                    .form-group
+                        label(for="idCard").control-label.require 身份证
+                        .col-md-8
+                            input#idCard(type="text", name="idCard").form-control
+                    .form-group
+                        label(for="businessCatalog").control-label.require 经营品类
+                        .col-md-8
+                            input#businessCatalog(type="text", name="businessCatalog").form-control
+                    .form-group
+                        label(for="groupCode").control-label.require 组织结构代码
+                        .col-md-8
+                            input#groupCode(type="text", name="groupCode").form-control
+                    .form-group
+                        label.control-label.require 税务登录证
+                        .col-md-8
+                            button(type='button').btn.btn-bigblue 上传附件
+                    .form-group
+                        label.control-label.require 经营品牌
+                        .col-md-8
+                            .brand-container
+                                .brand-logo
+                                    img(src="../img/logo.png")
+                                span 阿迪王
+                            .brand-container
+                                .brand-logo
+                                    a(href="javascript:;")#addBrand
+                                        img(src="../img/btn-add.png")
+                    .form-group
+                        .control-label
+                        .col-md-8
+                            input(type="checkbox")#protocol
+                            label(for="protocol") 我已阅读并同意
+                            a(href="#") 《XXXX协议》
+                    .form-group
+                        .control-label
+                        .col-md-8
+                            button(type="submit")#submit.btn.btn-blue 保存
+        .block-holder
+    .hidden
+        .brand-form#brandForm
+            form.form-horizontal
+                .form-group
+                    label(for="brandName").control-label.col-sm-4 品牌名称
+                    .col-sm-6
+                        input(type="text", name="brandName")#brandName.form-control
+                .form-group
+                    label(for="owner").control-label.col-sm-4 品牌拥有者
+                    .col-sm-6
+                        input(type="text", name="owner")#owner.form-control
+                .form-group
+                    label.control-label.col-sm-4 品牌Logo
+                    .col-sm-6
+                        button(type="button").btn.btn-bigblue 上传附件
+                .form-group
+                    label.control-label.col-sm-4 品牌授权书/商品注册证
+                    .col-sm-6
+                        button(type="button").btn.btn-bigblue 上传附件
+        
+block foot
+    script(type="text/javascript", src="../plugs/bootstrapvalidator/js/bootstrapValidator.min.js")
+    script(type="text/javascript", src="../plugs/bootstrapvalidator/js/language/zh_CN.js")
+    script(type="text/javascript").
+        var brandForm = $('#brandForm').remove();
+        $(function(){
+
+            //添加品牌按钮的点击事件
+            $('#addBrand').click(addBrand);
+
+            //基本资料表单校验配置
+            $('#basicInfoForm').bootstrapValidator({
+                framework: 'bootstrap',
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    email: {
+                        validators: {
+                            emailAddress: {
+                                message: '邮箱地址格式不正确！'
+                            }
+                        }
+                    },
+                    phone: {
+                        validators: {
+                            phone: {
+                                country: 'US',
+                                message: '电话号码格式不正确！'
+                            }
+                        }
+                    },
+                    province: {
+                        validators: {
+                            notEmpty: {
+                                message: '请选择省份！'
+                            }
+                        }
+                    },
+                    city: {
+                        validators: {
+                            notEmpty: {
+                                message: '请选择市！'
+                            }
+                        }
+                    },
+                    area: {
+                        validators: {
+                            notEmpty: {
+                                message: '请选择区县！'
+                            }
+                        }
+                    },
+                    company: {
+                        validators: {
+                            notEmpty: {
+                                message: '请输入公司名称！'
+                            }
+                        }
+                    },
+                    license: {
+                        validators: {
+                            notEmpty: {
+                                message: '请输入营业执照号！'
+                            }
+                        }
+                    },
+                    legalPerson: {
+                        validators: {
+                            notEmpty: {
+                                message: '请输入企业法人！'
+                            }
+                        }
+                    },
+                    idCard: {
+                        validators: {
+                            notEmpty: {
+                                message: '请输入法人身份证！'
+                            }
+                        }
+                    },
+                    legalPerson: {
+                        validators: {
+                            notEmpty: {
+                                message: '请输入企业法人！'
+                            }
+                        }
+                    },
+                    businessCatalog: {
+                        validators: {
+                            notEmpty: {
+                                message: '请输入经营品类！'
+                            }
+                        }
+                    },
+                    groupCode: {
+                        validators: {
+                            notEmpty: {
+                                message: '请输入组织结构代码！'
+                            }
+                        }
+                    }
+                }
+            });
+        });
+
+        function addBrand(){
+            //打开添加品牌表单对话框
+            $.dialog({
+                content: initBrandFormValidation(brandForm.clone().appendTo(document.body)),
+                title: '添加品牌',
+                buttons: [
+                    {
+                        text: '添加',
+                        click: onSaveBrand
+                    },
+                    {
+                        text: '取消',
+                        style: 'gray',
+                        click: onCancelBrand
+                    }
+                ]
+            });
+        }
+
+        //当保存品牌信息时的处理函数
+        //modal: 品牌表单Dom对象
+        function onSaveBrand(modal){
+            var jqForm = modal.find('#brandForm');
+            jqForm.bootstrapValidator('validate');
+            if(jqForm.data('bootstrapValidator').isValid() !== true) return;
+            modal.modal('hide');
+        }
+
+        //当点击了品牌表单对话框的 取消 按钮时的处理函数
+        function onCancelBrand(modal){
+            modal.modal('hide');
+        }
+
+        //初始化品牌表单的校验信息
+        //form: 品牌表单Dom对象
+        function initBrandFormValidation(form){
+            form.bootstrapValidator({
+                framework: 'bootstrap',
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {                    
+                    brandName: {
+                        validators: {
+                            notEmpty: {
+                                message: '请输入品牌名称！'
+                            }
+                        }
+                    },
+                    owner: {
+                        validators: {
+                            notEmpty: {
+                                message: '请输入品牌所有者！'
+                            }
+                        }
+                    }
+                }
+            });
+            return form;
+        }

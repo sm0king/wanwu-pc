@@ -1,0 +1,90 @@
+.relation{
+    padding-top: 20px;
+}
+
+/************************* 映射编辑页面相关样式 *************************/
+.extendSelector{
+    display: inline-block;
+    vertical-align: middle;
+}
+.viewBar{
+    width:150px;
+    height:34px;
+    border:1px solid #ccc;
+    background-color: #fff;
+    cursor: pointer;
+    padding:6px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+.selectorBar{
+    z-index: 1020;
+}
+.selectorBar .panel-heading{
+    text-align: center;
+    font-size: 16px;
+}
+.selectorBar .selector-title{
+    margin:0px 10px;
+    font-weight: bold;
+}
+.selectorBar .pagin.disable{
+    color:gray;
+}
+
+.selectorBar .selector-row{
+    white-space: nowrap;
+    overflow: hidden;
+}
+.selectorBar .selector-col{
+    width:250px;
+    height: 300px;
+    display: inline-block;
+    vertical-align: top;
+    border:1px solid #CCC;
+    margin-right: 10px;
+    overflow: auto;
+}
+
+.selectorBar .selector-col .input-group{
+    margin:5px;
+}
+
+.selectorBar .selector-col input{
+    padding:6px 5px;
+}
+
+.selectorBar .selector-col:last-child{
+    margin-right: 0px;
+}
+
+.selectorBar .selector-option{
+    display: block;
+    padding:7px 5px;
+    color:rgb(101,103,107);
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.selectorBar .selector-option:hover{
+    background-color: rgb(255,255,205);
+}
+
+.selectorBar .selector-option.active{
+    background-color: rgb(255,255,205);
+    color:red;
+    
+}
+
+.selectorBar .selector-option.haschild{
+    padding-right: 20px;
+}
+.selectorBar .selector-option.haschild:before{
+    font-family: 'Glyphicons Halflings';
+    content: "\e258";
+    float:right;
+    margin-right: -15px;
+    color:rgb(101,103,107);
+}

@@ -5,7 +5,7 @@
  */
 
 body {
-    background-color: white;
+    background-color: rgb(234,237,241);
     font-family: 微软雅黑,"Helvetica Neue",Helvetica,Arial,sans-serif;
     padding-bottom: 0px;
 }
@@ -415,7 +415,7 @@ table.dataTable thead .sorting:after {
     height: 15px;
 }
 
-.btn-bigblue,.btn-bigblue:hover{
+.btn-bigblue,.btn-bigblue:hover,.btn-bigblue:focus{
     background-color: #e6f5fb;
     border:1px #afd6e5 solid;
     border-radius: 0px;
@@ -640,7 +640,7 @@ table.dataTable thead .sorting:after {
 .hr{
     height: 0px;
     width: 100%;
-    border-top: 1px #ebebeb solid;
+    border-top: 1px #D7D7D7 solid;
     margin:35px 0px;
 }
 
@@ -705,6 +705,7 @@ table.dataTable thead .sorting:after {
 .require:before{
     content:"*";
     margin-right: 4px;
+    color:red;
 }
 .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
     border-bottom-width: 1px;
@@ -739,3 +740,28 @@ span.separate{
 span.separate:after{
     content:"|";
 }
+.form-text{
+    padding-top: 7px;
+}
+
+.block-holder{
+    height:1px;
+    width:100%;
+    margin-top: -1px;
+}
+
+/* 页面顶部公告条样式 */
+.alert{
+    padding:10px;
+    margin-bottom: 10px;
+    
+}
+.alert-icon{
+    padding-left: 35px;
+    background-repeat: no-repeat;
+    background-position: 10px center;
+}
+.alert-info{
+    background-image: url(../img/notice-info.png);
+}
+

@@ -1,0 +1,51 @@
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+
+    link(rel='stylesheet', href='../css/relation.css')     
+
+block DashboardTitle
+    编辑映射
+
+block Right
+    .relation
+        form.form-inline
+            .form-group
+                label.control-label 万物类目
+                .extendSelector
+                    .viewBar#wanwuCatalog
+                        span.gray 点击选择类目
+                    .selectorBar.hidden
+                        .panel.panel-default
+                            .panel-heading
+                                a(href="javascript:;").pagin.prev.disable
+                                    span.glyphicon.glyphicon-arrow-left
+                                span.selector-title
+                                a(href="javascript:;").pagin.next.disable
+                                    span.glyphicon.glyphicon-arrow-right
+                            .panel-body
+                                .selector-row                                                             
+                                    .selector-col
+                                        .input-group
+                                            input(type='text', placeholder="搜索").form-control
+                                            span.input-group-btn
+                                                button(type='button').btn.btn-blue.search 搜索
+                                            
+                                        a(href="javascript:;").selector-option.haschild CCC
+                                        a(href="javascript:;").selector-option.haschild CCC
+                                        a(href="javascript:;").selector-option.haschild CCC
+                                    .selector-col
+                                        a(href="javascript:;").selector-option.haschild CCC
+
+
+            span.glyphicon.glyphicon-transfer
+            .form-group
+                label(for="platform") 卖家平台
+                select#platform.form-control
+            .form-group
+                label.control-label 平台类目
+                input(type='text')#platform.form-control
+block foot
+    script(type="text/javascript", src="../js/manage/relation.js")
