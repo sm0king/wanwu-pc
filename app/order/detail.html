@@ -27,21 +27,20 @@
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
-              <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">我的订单</li>
-              <li id="order_manage" class="collapse in">
-                <ul>
-                  <li ui-sref-active="active"><a href="../order/index.html">我的订单</a></li>
-                  <!--
-                  li(ui-sref-active='active')
-                      a(href='javascript:;') 已发货订单
-                  li(ui-sref-active='active')
-                      a(href='javascript:;') 退款订单
-                  li(ui-sref-active='active')
-                      a(href='javascript:;') 所有订单
-                  
-                  -->
-                </ul>
+              <li ui-sref-active="active" class="navbar-group-title fiactive"><a href="../home.html">首页</a></li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title"><a href="../order/index.html">我的订单</a>
+                <!--
+                li#order_manage.collapse
+                    ul
+                        li(ui-sref-active='active')
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 已发货订单
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 退款订单
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 所有订单
+                
+                -->
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
@@ -65,11 +64,13 @@
                           a(href='../Brand/index.html') 品牌列表
               
               -->
-              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
-              <li id="retailer_manage" class="collapse">
-                <ul>
-                  <li ui-sref-active="active"><a href="../distributor/index.html">分销商列表</a></li>
-                </ul>
+              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title"><a href="../distributor/index.html">分销商列表</a>
+                <!--
+                li#retailer_manage.collapse
+                    ul
+                        li(ui-sref-active='active')
+                
+                -->
               </li>
               <li href="#capital_manage" data-toggle="collapse" class="navbar-group-title">财务管理</li>
               <li id="capital_manage" class="collapse">
