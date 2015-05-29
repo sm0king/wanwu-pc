@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
-    <title>帐户信息</title>
+    <title>基本资料</title>
     <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
@@ -28,40 +28,30 @@
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
               <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">我的订单</li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
               <li id="order_manage" class="collapse in">
                 <ul>
-                  <li ui-sref-active="active"><a href="../order/index.html">我的订单</a></li>
-                  <!--
-                  li(ui-sref-active='active')
-                      a(href='javascript:;') 已发货订单
-                  li(ui-sref-active='active')
-                      a(href='javascript:;') 退款订单
-                  li(ui-sref-active='active')
-                      a(href='javascript:;') 所有订单
-                  
-                  -->
+                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
                 </ul>
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
                 <ul>                                       
-                  <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件商品添加</a></li>
+                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">品牌列表</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">品牌管理</a></li>
                 </ul>
               </li>
-              <!--
-              li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
-                  | 品牌管理
-              li#brand_manage.collapse
-                  ul
-                      li(ui-sref-active='active')
-                          a(href='../Brand/index.html') 品牌列表
-              
-              -->
+              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
+              <li id="brand_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
+                </ul>
+              </li>
               <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
               <li id="retailer_manage" class="collapse">
                 <ul>
@@ -78,18 +68,12 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/index.html">基本信息   </a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">完善认证信息设置    </a></li>
+                  <li ui-sref-active="active"><a href="../info/index.html">账户基本信息    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
-                  <!--
-                  li(ui-sref-active='active')
-                      a(href='javascript:;') 交易记录
-                  li(ui-sref-active='active')
-                      a(href='../message/index.html') 站内信  
-                  
-                  -->
+                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
+                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
                 </ul>
               </li>
             </ul>
@@ -98,27 +82,7 @@
       </nav>
       <div id="page-wrapper">
         <div class="info">
-          <div class="info accountInfo">
-            <div class="gap">
-              <div class="face"><img src="../img/logo.png"/></div>
-              <button class="btn btn-bigblue upload">更换头像</button>
-            </div>
-            <div class="separate"></div>
-            <p> <span>登录账号：</span>abc123456</p>
-            <p> <span>绑定手机号：</span>138***3800</p>
-            <div class="line"> <span>绑定微信：</span>绑定微信后可通过微信收到相关处理通知，<span id="bindWeixin"><span class="blue">点此绑定</span>
-                <div class="tip-rectangle tdc"><span class="gray">请使用微信扫描下方二维码完成绑定</span>
-                  <div><img src="../img/logo.png"/></div>
-                </div></span></div>
-            <p> <span>淘宝店铺：</span>绑定淘宝店铺后可一键同步商品到万物，<a href="javascript:;" id="bindTaobao" class="blue">点此绑定</a></p>
-            <div>
-              <button type="button" class="btn btn-bigblue">同步商品</button>
-            </div>
-            <div class="separate"></div>
-            <div>API信息</div>
-            <div><span class="gray">Token：1326CB3D4EDF714E</span><a class="reset">重置</a></div>
-            <p class="downloadBar"><a href="#" class="download">API文档下载</a></p>
-          </div>
+          <div class="info"></div>
         </div>
       </div>
     </div>
@@ -133,20 +97,5 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
-    <script type="text/javascript">
-      $(function(){
-          $('#bindWeixin').click(function(){
-              var jqTarget = $(this);
-              if(!jqTarget.hasClass('active')){
-                  jqTarget.addClass('active');
-                  setTimeout(function(){
-                      $(document.body).one('click', function(){
-                          jqTarget.removeClass('active');
-                      });
-                  }, 0); 
-              }
-          });
-      });
-    </script>
   </body>
 </html>
