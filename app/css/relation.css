@@ -1,14 +1,37 @@
 .relation{
     padding-top: 20px;
 }
-
+.relation .hr{
+    margin:5px 0px 15px 0px;
+}
+.relation .hasValue{
+    font-weight: bold;
+    border-color:green;
+}
+.text-center{
+    text-align: center;
+}
+.require-after:after{
+    content:"*";
+    margin-left: 4px;
+    color:red;
+}
 /************************* 映射编辑页面相关样式 *************************/
+#btn_relationCatalog{
+    margin-left: 10px;
+}
+#platform{
+    padding:6px 10px;
+}
+#loadProperties{
+    cursor: pointer;
+}
 .extendSelector{
     display: inline-block;
     vertical-align: middle;
 }
 .viewBar{
-    width:150px;
+    width:200px;
     height:34px;
     border:1px solid #ccc;
     background-color: #fff;
@@ -18,6 +41,51 @@
     overflow: hidden;
     text-overflow:ellipsis;
 }
+.gap{
+    margin:0px 20px;
+    vertical-align: top;
+    padding: 5px 0px;
+}
+#platform{
+    width:150px;
+}
+#topForm label{
+    margin:0px 10px 0px 0px;
+}
+#topForm .form-group{
+    margin-bottom: 10px;
+}
+.platform-prop-text{
+    vertical-align: middle;
+    margin-left: 13px;
+    color:red;
+}
+
+.form-group>.select-prop,.form-group>.select-value{
+    margin-left: 10px;
+    width:166px;
+    height: 25px;
+    padding:0;
+
+}
+.propMap .btn-collapse{
+    margin-right: 5px;
+}
+.propMap .panel:hover{
+    outline: 2px solid #bce8f1;
+}
+.propMap .list-group-item:hover{
+    background-color: #ECECEC;
+}
+
+.propMap .list-group{
+    margin-bottom: 0px;
+}
+
+.propMap .panel-body .alert{
+    margin-bottom: 0px;
+}
+
 .selectorBar{
     z-index: 1020;
 }
@@ -87,4 +155,15 @@
     float:right;
     margin-right: -15px;
     color:rgb(101,103,107);
+}
+.selectorBar .selector-cover{
+    background-color: black;
+    opacity:0.3;
+    position: absolute;
+    z-index: 5;
+    top:0px;
+    left: 0px;
+}
+.selectorBar .panel{
+    margin-bottom: 0px;
 }

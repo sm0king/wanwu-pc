@@ -81,9 +81,7 @@
 #firstWeight,#firstWeightPrice,#afterWeight,#afterWeightPrice{
     width:67px;
 }
-#area{
-    width:124px;
-}
+
 
 .info .freightTable a.fork{
     width:16px;
@@ -217,6 +215,9 @@
     font-weight: normal;
     float: left;
     margin-right: 15px;
+}
+.basicInfo .btn-upload{
+    margin-bottom: 10px;
 }
 
 .form-comb{
