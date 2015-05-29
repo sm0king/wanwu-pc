@@ -45,7 +45,7 @@
                 selector = this.selector,
                 option = this.option;
 
-            option.pop && view.click(this.showSelector);
+            option.pop ? view.click(this.showSelector) : this.loadColumn(null);
             selector.click(function(){ return false; })
             .delegate('a.selector-option', 'click', $.proxy(this, 'onOptionClick'))
             .delegate('a.pagin', 'click', $.proxy(this, 'onPaginationButtonClick'))
@@ -69,7 +69,6 @@
 
                 if (!this.initData) { 
                     this.loadColumn(null);
-                    this.initData = true;
                 }
 
             }, this),0);
@@ -183,7 +182,10 @@
         loadColumn: function(parentObj, jqItem){
             var option = this.option,
                 provider = option.provider;
+
             if (!$.isFunction(provider)) { return; }
+
+            this.initData = true;
 
             this.showCover();
 
@@ -241,12 +243,12 @@
                 option = this.option;
 
             row.empty();
-            view.html('<span class="gray">' + option.viewTitle + '</span>');
+            view.html('<span class="select-view-title">' + option.viewTitle + '</span>');
 
             this.currentPage = 0;
             this.selected.length = 0;
             this.initData = false;
-            
+            !option.pop && this.loadColumn(null);
         },
         showCover: function(){
             var selector = this.selector,
@@ -266,13 +268,14 @@
     CatalogSelector.defaultOption = {
         cols: 2,
         colsWidth: 260,
-        colsHeight: 200,
+        colsHeight: 300,
         title: '选择',
         viewTitle: '点击选择',
         view: null,
         pop: true,
         appendHtml: true,
         container: document.body,
+        provider: null,
         adapter: function(d){ return d; },
         change: null
     };

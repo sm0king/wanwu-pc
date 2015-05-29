@@ -1,0 +1,93 @@
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+    link(rel='stylesheet', href='../css/product.css')     
+    link(rel='stylesheet', href='../css/catalog-selector.css')     
+
+block DashboardTitle
+    类目选择
+
+block Right
+    .product-catalog
+        form.form-inline
+            .form-group
+                input(type='text', placeholder="输入产品关键字，我们为您推荐类目")#input-groom.form-control
+            .form-group
+                button(type='button').btn.btn-blue.btn-search#btn-search 查询
+        #selector
+            #selector-container
+            .status-bar.alert.alert-warning
+                p
+                    span 您当前选择的类目：
+                    span#choice 
+                p
+                    sapn 类目说明：
+                    span#catalog-explain
+        .foot-bar
+            button(type='button').btn.btn-blue#btn-doNext
+                | 下一步，填写商品详情
+                span.glyphicon.glyphicon-arrow-right
+
+        
+
+block foot 
+    script(type='text/javascript', src='../js/catalog-selector.js')
+    script(type='text/javascript').
+        $(function(){
+            var selectorColCount = Math.floor($('.product-catalog').width() / CatalogSelector.defaultOption.colsWidth);
+            var keyword = '',
+                selector = window.cc = new CatalogSelector({
+                    pop: false,
+                    view: '#choice',
+                    container: $('#selector-container'),
+                    title: '选择商品类目',
+                    viewTitle: '',
+                    cols: selectorColCount,
+                    colsHeight: 400,
+                    provider: function(parentObj,callback){
+                        callback([
+                            {
+                                text: '测试1',
+                                hasChild: true
+                            },
+                            {
+                                text: '测试2',
+                                hasChild: false
+                            },
+                            {
+                                text: '测试3',
+                                hasChild: true
+                            }
+                        ]);
+                    },
+                    adapter: function(data){
+                        return data;
+                    }
+                });
+
+            $('#selector').width(selectorColCount * CatalogSelector.defaultOption.colsWidth + 22);
+
+            $('#btn-search').click(function(){
+                keyword = $.trim($('#input-groom').val());
+                selector.reset();
+            });
+
+            $('#input-groom').keyup(function(e){
+                if((e.keyCode || e.charCode) == 13){
+                    $('#btn-search').click();
+                    return false;
+                }
+            });
+
+            $('form').bind('submit',function(){
+                return false;
+            });
+
+            $('#btn-doNext').click(function(){
+                console.log(selector.getValue());
+            });
+        });
+
+

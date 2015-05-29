@@ -818,3 +818,39 @@
     display: block; 
     margin-bottom: 20px;
 }
+/******************************* 类目选择页面 *******************************/
+.product-catalog{
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 10px;
+    overflow: auto;
+}
+.product-catalog .form-group{
+    margin-bottom: 15px;
+}
+#selector-container,.product-catalog .status-bar{
+    margin-bottom: 15px;
+}
+#input-groom{
+    width:350px;
+}
+
+.product-catalog .status-bar>p{
+    margin-bottom: 0px;
+}
+.product-catalog #choice{
+    font-weight: bold;
+    color:rgb(255,114,0);
+}
+.product-catalog .catalog-icon{
+    margin:0px 5px;
+}
+.product-catalog #btn-doNext{
+    padding:0px 10px;
+}
+.product-catalog #btn-doNext>span{
+    margin-left: 5px;
+}
+.product-catalog .selectorBar .selector-col{
+    height: 400px;
+}
