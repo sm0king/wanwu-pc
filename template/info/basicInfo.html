@@ -56,50 +56,61 @@ block InfoContent
                         .col-md-8
                             input#company(type="text", name="company").form-control
                     .form-group
-                        label(for="license").control-label.require 营业执照号
-                        .col-md-8
-                            input#license(type="text", name="license").form-control
-                    .form-group
-                        label.control-label.require 营业执照
-                        .col-md-8
-                            button(type='button').btn.btn-bigblue 上传附件
-                    .form-group
-                        label(for="legalPerson").control-label.require 企业法人
-                        .col-md-8
-                            input#legalPerson(type="text", name="legalPerson").form-control
-                    .form-group
-                        label(for="idCard").control-label.require 身份证
-                        .col-md-8
-                            input#idCard(type="text", name="idCard").form-control
-                    .form-group
                         label(for="businessCatalog").control-label.require 经营品类
                         .col-md-8
                             input#businessCatalog(type="text", name="businessCatalog").form-control
                     .form-group
-                        label(for="groupCode").control-label.require 组织结构代码
+                        label.control-label.require 银行开户许可证
                         .col-md-8
-                            input#groupCode(type="text", name="groupCode").form-control
+                            button(type='button').btn.btn-bigblue.btn-upload 上传附件
+                            .row
+                                .col-xs-12
+                                    img(src="../img/logo.png").img-responsive
+                    .form-group
+                        label.control-label.require 营业执照
+                        .col-md-8
+                            button(type='button').btn.btn-bigblue.btn-upload 上传附件
+                            .row
+                                .col-xs-12
+                                    img(src="../img/logo.png").img-responsive  
+                    .form-group
+                        label.control-label.require 联系人身份证
+                        .col-md-4
+                            button(type='button').btn.btn-bigblue.btn-upload 上传正面
+                            .row
+                                .col-xs-12
+                                    img(src="../img/logo.png").img-responsive
+                        .col-md-4
+                            button(type='button').btn.btn-bigblue.btn-upload 上传反面
+                            .row
+                                .col-xs-12
+                                    img(src="../img/logo.png").img-responsive
+                    .form-group
+                        label.control-label.require 法人身份证
+                        .col-md-4
+                            button(type='button').btn.btn-bigblue.btn-upload 上传正面
+                            .row
+                                .col-xs-12
+                                    img(src="../img/logo.png").img-responsive
+                        .col-md-4
+                            button(type='button').btn.btn-bigblue.btn-upload 上传反面
+                            .row
+                                .col-xs-12
+                                    img(src="../img/logo.png").img-responsive
+                    .form-group
+                        label.control-label.require 组织结构代码证
+                        .col-md-8
+                            button(type='button').btn.btn-bigblue.btn-upload 上传附件
+                            .row
+                                .col-xs-12
+                                    img(src="../img/logo.png").img-responsive
                     .form-group
                         label.control-label.require 税务登录证
                         .col-md-8
-                            button(type='button').btn.btn-bigblue 上传附件
-                    .form-group
-                        label.control-label.require 经营品牌
-                        .col-md-8
-                            .brand-container
-                                .brand-logo
-                                    img(src="../img/logo.png")
-                                span 阿迪王
-                            .brand-container
-                                .brand-logo
-                                    a(href="javascript:;")#addBrand
-                                        img(src="../img/btn-add.png")
-                    .form-group
-                        .control-label
-                        .col-md-8
-                            input(type="checkbox")#protocol
-                            label(for="protocol") 我已阅读并同意
-                            a(href="#") 《XXXX协议》
+                            button(type='button').btn.btn-bigblue.btn-upload 上传附件
+                            .row
+                                .col-xs-12
+                                    img(src="../img/logo.png").img-responsive
                     .form-group
                         .control-label
                         .col-md-8
@@ -187,45 +198,10 @@ block foot
                             }
                         }
                     },
-                    license: {
-                        validators: {
-                            notEmpty: {
-                                message: '请输入营业执照号！'
-                            }
-                        }
-                    },
-                    legalPerson: {
-                        validators: {
-                            notEmpty: {
-                                message: '请输入企业法人！'
-                            }
-                        }
-                    },
-                    idCard: {
-                        validators: {
-                            notEmpty: {
-                                message: '请输入法人身份证！'
-                            }
-                        }
-                    },
-                    legalPerson: {
-                        validators: {
-                            notEmpty: {
-                                message: '请输入企业法人！'
-                            }
-                        }
-                    },
                     businessCatalog: {
                         validators: {
                             notEmpty: {
                                 message: '请输入经营品类！'
-                            }
-                        }
-                    },
-                    groupCode: {
-                        validators: {
-                            notEmpty: {
-                                message: '请输入组织结构代码！'
                             }
                         }
                     }

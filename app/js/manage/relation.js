@@ -22,6 +22,8 @@
         };
     }
 
+    //读取属性时的 XMLHttpRequest 对象，
+    //用于在用户切换类目时，终止请求，以节省资源
     var xhrPropLoader = {
         xhrArr: [],
         abort: function(){
@@ -34,7 +36,9 @@
 
     //加载万物类目属性与第三方平台类目属性
     function loadProperties(){
+        //读取类目信息
         var map = getCatalogMap();
+
         if (!map.platformId || !map.catId || !map.extCatId) { 
             $.alert('请选择类目！');
             return;
@@ -42,6 +46,9 @@
 
         $('#propMap').html('<div class="alert alert-warning text-center">正在加载。。。</div>');
 
+        //由于万物属性与第三方平台属性是两个接口，需要单独请求
+        //所以这里设置的几个变量用于同步两个接口的响应，
+        //在万物属性和第三方平台属性全部加载完成后，执行 onPropertiesLoaded 函数
         var current = 0, 
             count = 2,
             propArr = null,
@@ -120,7 +127,7 @@
 
         for(var i = 0, len = propArr.length; i < len;i++){
             var prop = propArr[ i ];
-            html += '<option value="' + prop.pid + '">' + prop.pname + '</option>';
+            html += '<option value="' + prop.pid + '">' + prop.name + '</option>';
         }
         html += '</select>';
         return html;

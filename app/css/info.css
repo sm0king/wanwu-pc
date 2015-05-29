@@ -216,6 +216,9 @@
     float: left;
     margin-right: 15px;
 }
+.basicInfo .btn-upload{
+    margin-bottom: 10px;
+}
 
 .form-comb{
     clear: both;
