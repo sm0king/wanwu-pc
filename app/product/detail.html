@@ -28,30 +28,40 @@
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
               <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">我的订单</li>
               <li id="order_manage" class="collapse in">
                 <ul>
-                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
+                  <li ui-sref-active="active"><a href="../order/index.html">我的订单</a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 已发货订单
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 退款订单
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 所有订单
+                  
+                  -->
                 </ul>
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
                 <ul>                                       
-                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
+                  <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">品牌列表</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">品牌管理</a></li>
                 </ul>
               </li>
-              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
-              <li id="brand_manage" class="collapse">
-                <ul>
-                  <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
-                </ul>
-              </li>
+              <!--
+              li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
+                  | 品牌管理
+              li#brand_manage.collapse
+                  ul
+                      li(ui-sref-active='active')
+                          a(href='../Brand/index.html') 品牌列表
+              
+              -->
               <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
               <li id="retailer_manage" class="collapse">
                 <ul>
@@ -68,12 +78,18 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/index.html">账户基本信息    </a></li>
+                  <li ui-sref-active="active"><a href="../info/index.html">基本信息   </a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">完善认证信息设置    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
-                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 交易记录
+                  li(ui-sref-active='active')
+                      a(href='../message/index.html') 站内信  
+                  
+                  -->
                 </ul>
               </li>
             </ul>
@@ -101,7 +117,7 @@
               </div>
           </div> -->
           <div class="panel panel-default">
-              <div class="panel-heading">填写基本信息</div>
+              <div class="panel-heading">商品基本信息</div>
               <div class="panel-body">
                   <div class="form-group">
                       <label for="productName" class="control-label require">商品名称：</label>
@@ -110,28 +126,29 @@
                       </div>
                   </div>
                   <div class="form-group">
-              <label class="control-label">商品分类：</label>
-              <div class="col-md-8 catalog">
-                  <div class="row">
-                      <div class="col-lg-3 col-md-4">
-                          <select id="product-catalog-1" class="form-control" readonly>
-                              <option value="1">分类</option>
-                          </select>
-                      </div>  
-                  </div>
-                  <!-- <div class="row">
-                      <div class="col-lg-12">
-                          <div class="panel panel-default">
-                              <div class="panel-body">
-                                  <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
-                                  <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
-                                  <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                      <label class="control-label">商品分类：</label>
+                      <div class="col-md-8 catalog">
+                          <div class="row">
+                              <div class="col-lg-3 col-md-4">
+                                  <select id="product-catalog-1" class="form-control" readonly>
+                                      <option value="1">分类</option>
+                                  </select>
                               </div>
+                              <a href="javascript:;" class="resort">修改分类</a>  
                           </div>
+                          <!-- <div class="row">
+                              <div class="col-lg-12">
+                                  <div class="panel panel-default">
+                                      <div class="panel-body">
+                                          <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                                          <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                                          <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div> -->
                       </div>
-                  </div> -->
-              </div>
-          </div>
+                  </div>
                   <div class="form-group">
                       <label for="productAttr" class="control-label">商品属性：</label>
                       <div class="col-md-10 attributes">
@@ -167,31 +184,62 @@
                           </div>
                       </div>
                   </div>
+                  <div class="form-group">
+                      <label for="productModel" class="control-label">商品规格：</label>
+                      <div class="col-md-7">
+                          <div class="table-responsive">
+                              <table class="table table-bordered table-center customTable table-model">
+                                  <thead>
+                                      <tr>
+                                          <td class="require">型号</td>
+                                          <td class="require">库存</td>
+                                          <td>重量(kg)</td>
+                                          <td>操作</td>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td>默认型号</td>
+                                          <td>300</td>
+                                          <td>12.5</td>
+                                          <td>
+                                              <a href="javascript:;" class="btn-dustbin"></a>
+                                          </td>
+                                      </tr>
+                                      <tr>
+                                          <td><input type="text" class="form-control"></td>
+                                          <td><input type="text" class="form-control"></td>
+                                          <td><input type="text" class="form-control"></td>
+                                          <td>
+                                              <a href="javascript:;" class="btn-ok save"></a>
+                                              <a href="javascript:;" class="btn-dustbin"></a>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+                          <a href="javascript:;" class="blue">+增加型号</a>
+                      </div>
+                  </div>
               </div>
           </div>
           <div class="panel panel-default">
-              <div class="panel-heading">产品销售信息</div>
+              <div class="panel-heading">商品销售信息</div>
               <div class="panel-body">
-                          <div class="form-group">
-                              <label for="purchprice" class="control-label require">采购价</label>
-                              <div class="col-md-3">
-                                  <input type="text" id="purchprice" class="form-control">
-                              </div>
-                          </div>
-                          <div class="form-group">
-                              <label for="marketprice" class="control-label require">市场价</label>
+                          <!-- <div class="form-group">
+                              <label for="marketprice" class="control-label require">市场价：</label>
                               <div class="col-md-3">
                                   <input type="text" id="marketprice" class="form-control">
                               </div>
-                          </div>
-                          <div class="form-group">
+                          </div> -->
+                          <!-- <div class="form-group">
                               <label for="formPrice" class="control-label">建议零售价</label>
                               <input type="text" name="formPrice" id="formPrice" class="formPrice form-control">
                               <span class="to">至</span>
                               <input type="text" name="toPrice" id="toPrice" class="toPrice form-control">
-                          </div>
+                          </div> -->
                           <div class="form-group">
-                              <label for="" class="control-label">商品价格：</label>
+                              <label for="" class="control-label">分销价：</label>
                               <div class="col-md-6">
                                   <div class="table-responsive">
                                       <table class="table table-bordered table-center customTable table-price">
@@ -227,55 +275,53 @@
                               </div>
                           </div>
                           <div class="form-group">
+                              <label for="purchprice" class="control-label require">建议零售价：</label>
+                              <div class="col-md-3">
+                                  <input type="text" id="purchprice" class="form-control">
+                              </div>
+                          </div>
+                          <div class="form-group">
                               <label for="productDescription" class="control-label">商品描述：</label>
                               <div class="col-md-6">
                                   <textarea id="productDescription" rows="10"></textarea>
                               </div>
                           </div>
-                          <div class="form-group">
+                          <!-- <div class="form-group">
                               <label class="control-label">颜色分类：</label>
-                              <div class="form-control">
-                                  <div class="m-sorts">
-                                      <div class="sort">
-                                          <label>
-                                              <i class="sortColor"></i>
-                                              <input type="checkbox">颜色</input>
-                                          </label>
-                                      </div>
-                                      <div class="sort">
-                                          <label>
-                                              <i class="sortColor"></i>
-                                              <input type="checkbox">颜色</input>
-                                          </label>
-                                      </div>
-                                      <div class="sort">
-                                          <label>
-                                              <i class="sortColor"></i>
-                                              <input type="checkbox">颜色</input>
-                                          </label>
-                                      </div>
-                                      <div class="sort">
-                                          <label>
-                                              <i class="sortColor"></i>
-                                              <input type="checkbox">颜色</input>
-                                          </label>
-                                      </div>
-                                      <div class="sort">
-                                          <label>
-                                              <i class="sortColor"></i>
-                                              <input type="checkbox">颜色</input>
-                                          </label>
-                                      </div>
-                                      <div class="sort">
-                                          <label>
-                                              <i class="sortColor"></i>
-                                              <input type="checkbox">颜色</input>
-                                          </label>
-                                      </div>
+                              <div class="m-sorts">
+                                  <div class="sort">
+                                      <label>
+                                          <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                      </label>
+                                  </div>
+                                  <div class="sort">
+                                      <label>
+                                          <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                      </label>
+                                  </div>
+                                  <div class="sort">
+                                      <label>
+                                          <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                      </label>
+                                  </div>
+                                  <div class="sort">
+                                      <label>
+                                          <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                      </label>
+                                  </div>
+                                  <div class="sort">
+                                      <label>
+                                          <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                      </label>
+                                  </div>
+                                  <div class="sort">
+                                      <label>
+                                          <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                      </label>
                                   </div>
                                   
                               </div>
-                          </div>
+                          </div> -->
                           <!-- <div class="form-group">
                               <label for="productBrand" class="control-label require">品牌：</label>
                               <div class="col-md-3">
@@ -293,43 +339,6 @@
                               <label for="productAdvice" class="control-label">参考零售价：</label>
                               <div class="col-md-3">
                                   <input id="productAdvice" type="text" class="form-control">
-                              </div>
-                          </div> -->
-                          <!-- <div class="form-group">
-                              <label for="productModel" class="control-label">商品规格：</label>
-                              <div class="col-md-7">
-                                  <div class="table-responsive">
-                                      <table class="table table-bordered table-center customTable table-model">
-                                          <thead>
-                                              <tr>
-                                                  <td class="require">型号</td>
-                                                  <td class="require">库存</td>
-                                                  <td>重量(kg)</td>
-                                                  <td>操作</td>
-                                              </tr>
-                                          </thead>
-                                          <tbody>
-                                              <tr>
-                                                  <td>默认型号</td>
-                                                  <td>300</td>
-                                                  <td>12.5</td>
-                                                  <td>
-                                                      <a href="javascript:;" class="btn-dustbin"></a>
-                                                  </td>
-                                              </tr>
-                                              <tr>
-                                                  <td><input type="text" class="form-control"></td>
-                                                  <td><input type="text" class="form-control"></td>
-                                                  <td><input type="text" class="form-control"></td>
-                                                  <td>
-                                                      <a href="javascript:;" class="btn-ok save"></a>
-                                                      <a href="javascript:;" class="btn-dustbin"></a>
-                                                  </td>
-                                              </tr>
-                                          </tbody>
-                                      </table>
-                                  </div>
-                                  <a href="javascript:;" class="blue">+增加型号</a>
                               </div>
                           </div> -->
                           <div class="form-group">
@@ -438,8 +447,9 @@
           <div class="row">
               <div class="stdLeft"></div>
               <div class="col-md-4">
-                  <button type="button" class="btn btn-blue">下一步</button>
-                  <a href="javascript:;" class="saveAndBack">保存后返回列表</a>
+                  <button type="button" class="btn btn-blue">提交产品</button>
+                  <button type="button" class="btn btn-blue">保存草稿</button>
+                  <!-- <a href="javascript:;" class="saveAndBack">保存后返回列表</a> -->
               </div>
           </div>
         </form>

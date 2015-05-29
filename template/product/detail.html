@@ -30,7 +30,7 @@ block Right
             </div>
         </div> -->
         <div class="panel panel-default">
-            <div class="panel-heading">填写基本信息</div>
+            <div class="panel-heading">商品基本信息</div>
             <div class="panel-body">
                 <div class="form-group">
                     <label for="productName" class="control-label require">商品名称：</label>
@@ -39,28 +39,29 @@ block Right
                     </div>
                 </div>
                 <div class="form-group">
-            <label class="control-label">商品分类：</label>
-            <div class="col-md-8 catalog">
-                <div class="row">
-                    <div class="col-lg-3 col-md-4">
-                        <select id="product-catalog-1" class="form-control" readonly>
-                            <option value="1">分类</option>
-                        </select>
-                    </div>  
-                </div>
-                <!-- <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
-                                <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
-                                <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                    <label class="control-label">商品分类：</label>
+                    <div class="col-md-8 catalog">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4">
+                                <select id="product-catalog-1" class="form-control" readonly>
+                                    <option value="1">分类</option>
+                                </select>
                             </div>
+                            <a href="javascript:;" class="resort">修改分类</a>  
                         </div>
+                        <!-- <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                                        <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                                        <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
                     </div>
-                </div> -->
-            </div>
-        </div>
+                </div>
                 <div class="form-group">
                     <label for="productAttr" class="control-label">商品属性：</label>
                     <div class="col-md-10 attributes">
@@ -96,31 +97,62 @@ block Right
                         </div>
                     </div>
                 </div>
+                <div class="form-group">
+                    <label for="productModel" class="control-label">商品规格：</label>
+                    <div class="col-md-7">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-center customTable table-model">
+                                <thead>
+                                    <tr>
+                                        <td class="require">型号</td>
+                                        <td class="require">库存</td>
+                                        <td>重量(kg)</td>
+                                        <td>操作</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>默认型号</td>
+                                        <td>300</td>
+                                        <td>12.5</td>
+                                        <td>
+                                            <a href="javascript:;" class="btn-dustbin"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td>
+                                            <a href="javascript:;" class="btn-ok save"></a>
+                                            <a href="javascript:;" class="btn-dustbin"></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <a href="javascript:;" class="blue">+增加型号</a>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading">产品销售信息</div>
+            <div class="panel-heading">商品销售信息</div>
             <div class="panel-body">
-                        <div class="form-group">
-                            <label for="purchprice" class="control-label require">采购价</label>
-                            <div class="col-md-3">
-                                <input type="text" id="purchprice" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="marketprice" class="control-label require">市场价</label>
+                        <!-- <div class="form-group">
+                            <label for="marketprice" class="control-label require">市场价：</label>
                             <div class="col-md-3">
                                 <input type="text" id="marketprice" class="form-control">
                             </div>
-                        </div>
-                        <div class="form-group">
+                        </div> -->
+                        <!-- <div class="form-group">
                             <label for="formPrice" class="control-label">建议零售价</label>
                             <input type="text" name="formPrice" id="formPrice" class="formPrice form-control">
                             <span class="to">至</span>
                             <input type="text" name="toPrice" id="toPrice" class="toPrice form-control">
-                        </div>
+                        </div> -->
                         <div class="form-group">
-                            <label for="" class="control-label">商品价格：</label>
+                            <label for="" class="control-label">分销价：</label>
                             <div class="col-md-6">
                                 <div class="table-responsive">
                                     <table class="table table-bordered table-center customTable table-price">
@@ -156,55 +188,53 @@ block Right
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="purchprice" class="control-label require">建议零售价：</label>
+                            <div class="col-md-3">
+                                <input type="text" id="purchprice" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="productDescription" class="control-label">商品描述：</label>
                             <div class="col-md-6">
                                 <textarea id="productDescription" rows="10"></textarea>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="control-label">颜色分类：</label>
-                            <div class="form-control">
-                                <div class="m-sorts">
-                                    <div class="sort">
-                                        <label>
-                                            <i class="sortColor"></i>
-                                            <input type="checkbox">颜色</input>
-                                        </label>
-                                    </div>
-                                    <div class="sort">
-                                        <label>
-                                            <i class="sortColor"></i>
-                                            <input type="checkbox">颜色</input>
-                                        </label>
-                                    </div>
-                                    <div class="sort">
-                                        <label>
-                                            <i class="sortColor"></i>
-                                            <input type="checkbox">颜色</input>
-                                        </label>
-                                    </div>
-                                    <div class="sort">
-                                        <label>
-                                            <i class="sortColor"></i>
-                                            <input type="checkbox">颜色</input>
-                                        </label>
-                                    </div>
-                                    <div class="sort">
-                                        <label>
-                                            <i class="sortColor"></i>
-                                            <input type="checkbox">颜色</input>
-                                        </label>
-                                    </div>
-                                    <div class="sort">
-                                        <label>
-                                            <i class="sortColor"></i>
-                                            <input type="checkbox">颜色</input>
-                                        </label>
-                                    </div>
+                            <div class="m-sorts">
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
                                 </div>
                                 
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="form-group">
                             <label for="productBrand" class="control-label require">品牌：</label>
                             <div class="col-md-3">
@@ -222,43 +252,6 @@ block Right
                             <label for="productAdvice" class="control-label">参考零售价：</label>
                             <div class="col-md-3">
                                 <input id="productAdvice" type="text" class="form-control">
-                            </div>
-                        </div> -->
-                        <!-- <div class="form-group">
-                            <label for="productModel" class="control-label">商品规格：</label>
-                            <div class="col-md-7">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered table-center customTable table-model">
-                                        <thead>
-                                            <tr>
-                                                <td class="require">型号</td>
-                                                <td class="require">库存</td>
-                                                <td>重量(kg)</td>
-                                                <td>操作</td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>默认型号</td>
-                                                <td>300</td>
-                                                <td>12.5</td>
-                                                <td>
-                                                    <a href="javascript:;" class="btn-dustbin"></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td><input type="text" class="form-control"></td>
-                                                <td>
-                                                    <a href="javascript:;" class="btn-ok save"></a>
-                                                    <a href="javascript:;" class="btn-dustbin"></a>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <a href="javascript:;" class="blue">+增加型号</a>
                             </div>
                         </div> -->
                         <div class="form-group">
@@ -367,8 +360,9 @@ block Right
         <div class="row">
             <div class="stdLeft"></div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-blue">下一步</button>
-                <a href="javascript:;" class="saveAndBack">保存后返回列表</a>
+                <button type="button" class="btn btn-blue">提交产品</button>
+                <button type="button" class="btn btn-blue">保存草稿</button>
+                <!-- <a href="javascript:;" class="saveAndBack">保存后返回列表</a> -->
             </div>
         </div>
 block foot 

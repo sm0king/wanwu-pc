@@ -12,10 +12,29 @@ block DashboardTitle
     分销商列表
 block Right    
     .product.distributor.distributor-index.
+        <h4 class="indexH3">分销商管理</h4>
         <div class="form-inline">
             <div class="form-group">
+                <label for="exampleInputAmount">分销商名称：</label>
                 <input type="text" class="form-control" id="exampleInputAmount" placeholder="分销商名/店铺名">
             </div>
+            <div class="form-group">
+                <label for="state">分销商状态：</label>
+                <div class="dropdown inline">
+                    <select name="" id="state" class="form-control">
+                        <option value="0">全部</option>
+                        <option value="1">出售中</option>
+                        <option value="2">已下架</option>
+                        <option value="3">草稿</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                    <label for="formDate" class="control-label">成交金额</label>
+                    <input type="text" name="formDate" id="formDate" class="formDate form-control">
+                    <span class="to">至</span>
+                    <input type="text" name="toDate" id="toDate" class="toDate form-control">
+                </div>
             <button type="submit" class="btn btn-primary searchBtn">
                 <span class="glyphicon glyphicon-search"></span>
                 查询
@@ -24,12 +43,12 @@ block Right
         <table id="distributorList" data-toggle="table" data-url="../testData2.json">
             <thead>
                 <tr>
-                    <th data-field="name" data-align="center" data-sortable="ture">分销商</th>
-                    <th data-field="shopNumber" data-align="center" data-sortable="ture">在售店铺数</th>
-                    <th data-field="goodsNumber" data-align="center" data-sortable="ture">上架商品数</th>
-                    <th data-field="salesNumber" data-align="center" data-sortable="ture">销量（30天）</th>
-                    <th data-field="salesVol" data-align="center" data-sortable="ture">销售额（30天）</th>
-                    <th data-field="consDate" data-align="center" data-sortable="ture">合作时间</th>
+                    <th data-field="name" data-align="center" data-sortable="ture">分销商名称</th>
+                    <th data-field="shopNumber" data-align="center" data-sortable="ture">分销金额（30天）</th>
+                    <th data-field="goodsNumber" data-align="center" data-sortable="ture">分销订单数（30天）</th>
+                    <th data-field="salesNumber" data-align="center" data-sortable="ture">退货订单数（30天）</th>
+                    <th data-field="consDate" data-align="center" data-sortable="ture">首次合作时间</th>
+                    <th data-field="salesVol" data-align="center" data-sortable="ture">状态</th>
                     <th data-formatter="actionFormatter" data-align="center" data-sortable="false">操作</th>
                 </tr>
             </thead>
@@ -42,7 +61,7 @@ block foot
         url: '../testData2.json'
         });
         function actionFormatter(value, row) {
-        var html ='<a class="action" href="#'+row.action.supplierID+'">联系供应商</a><a class="action" href="./detail.html#'+row.action.distributorID+'">详细信息</a>';
+        var html ='<a class="action" href="#'+row.action.supplierID+'">终止</a><a class="action" href="./detail.html#'+row.action.distributorID+'">查看分销商品</a>';
         console.log(value);
         console.log()
         return html;

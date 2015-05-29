@@ -1,6 +1,7 @@
 extends ../dashboard.jade
 block Define
     - var basePath = '../';
+    -var pagin_right = true;
 
 block header
 
@@ -33,6 +34,56 @@ block Right
                         span.glyphicon.glyphicon-plus
                         |京东商品Excel
             div.tab-pane#uphistory
+                .table-responsive.uplist
+                    table.table.table-bordered
+                        thead
+                            tr
+                                td 批次ID
+                                td 创建时间
+                                td 状态
+                                td 详情
+                        tbody
+                            tr
+                                td 9456713890065283
+                                td 2015-05-19 15:12:28
+                                td 
+                                    span.success 成功：
+                                        i#success 3 
+                                    span.failure 失败 
+                                        i#failure 0
+                                td
+                                    a(href="javascript:;") 查看
+                    div.foot
+                        include ../pagination.jade
+                .table-responsive.detaillist
+                    table.table.table-bordered
+                        thead
+                            tr
+                                td 商品名称
+                                td 商家编码
+                                td 状态
+                                td 信息
+                        tbody
+                            tr
+                                td 安必信SMSSY葡萄籽胶原蛋白咀嚼片
+                                td ptz
+                                td 
+                                    span.success 成功
+                                td
+                            tr
+                                td 安必信 仙人掌
+                                td K001
+                                td 
+                                    span.success 成功
+                                td
+                            tr
+                                td 安必信健腹王
+                                td 0012
+                                td 
+                                    span.success 成功
+                                td
+                    div.foot
+                        include ../pagination.jade
 block foot
     script.
         $(function(){

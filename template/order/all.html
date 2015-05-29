@@ -1,6 +1,7 @@
 extends master.jade
 block OrderDefine
-    -var active = 2;
+    -var active = 3;
+    -var selectedV = 0
     -var pagin_right = true;
 
 block title
@@ -11,37 +12,41 @@ block DashboardTitle
     所有订单
 
 block OrderContent
-    form.form-inline.searchBar
-        div
-            .form-group
-                label(for='orderNum').stdLable 订单编号：
-                input(type='text').form-control#orderNum
-            .form-group
-                label(for='receiver').stdLable2 收货人：
-                input(type='text').form-control#receiver
-            .form-group
-                label(for='concat') 联系方式：
-                input(type='text').form-control#concat
-        div
-            .form-group.timeSpan
-                label(for='timeBegin').stdLable 下单时间：
-                input(type='text').form-control#timeBegin
-                label(for='timeEnd').part 至
-                input(type='text').form-control#timeEnd
-            .form-group
-                label(for='state').stdLable2 订单状态：
-                select.form-control#state
-                    option(value='1') 状态1
-                    option(value='2') 状态2
-                    option(value='3') 状态3
-                
-        div
-            button.btn.btn-blue 查询
-    .headBar.gap30
-        .btnBar.pull-right
-            button(type='button').btn.btn-blue 确认退货
-        input(type='checkbox')#checkAll
-        label(for='checkAll') 全选
+    //
+        form.form-inline.searchBar
+            div
+                .form-group
+                    label(for='orderNum').stdLable 订单编号：
+                    input(type='text').form-control#orderNum
+                .form-group
+                    label(for='receiver').stdLable2 收货人：
+                    input(type='text').form-control#receiver
+                .form-group
+                    label(for='concat') 联系方式：
+                    input(type='text').form-control#concat
+            div
+                .form-group.timeSpan
+                    label(for='timeBegin').stdLable 下单时间：
+                    input(type='text').form-control#timeBegin
+                    label(for='timeEnd').part 至
+                    input(type='text').form-control#timeEnd
+                .form-group
+                    label(for='state').stdLable2 订单状态：
+                    select.form-control#state
+                        option(value='1') 状态1
+                        option(value='2') 状态2
+                        option(value='3') 状态3
+                    
+            div
+                button.btn.btn-blue 查询
+        .headBar.gap30
+            .btnBar.pull-right
+                button(type='button').btn.btn-blue 确认退货
+            input(type='checkbox')#checkAll
+            label(for='checkAll') 全选
+    .headBar
+            .btnBar
+                button.btn.btn-blue 导出订单
     .table-responsive.orderlist
         table.table.table-bordered
             tbody
@@ -82,7 +87,7 @@ block foot
                 var checked = $(this).prop('checked');
                 $('.orderlist input[type=checkbox]').prop('checked', checked);
             });
-            $('#timeBegin,#timeEnd').datetimepicker({
+            $('#orderStart,#orderEnd').datetimepicker({
                 format: 'yyyy-mm-dd',
                 language: 'zh-CN',
                 minView: 2,

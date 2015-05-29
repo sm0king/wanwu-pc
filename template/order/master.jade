@@ -2,6 +2,8 @@ extends ../dashboard.jade
 block Define
     -var basePath = '../';
     -var active = 0;
+    -var orderSta = ["全部","待发货","已发货","退款中","订单已完成","订单已关闭"];
+    -var selectedV = 1
     block OrderDefine
 
 block header
@@ -10,12 +12,45 @@ block header
 
 block Right
     .order
+        h4.indexH3 我的订单
+        form.queryOrder(action="#")
+            div.form-inline
+                div.form-group
+                    label(for="goodsName") 商品名称
+                    input.form-control#goodsName(type="text")
+                .form-group
+                    label(for="orderSta") 订单状态
+                    div.dropdown.inline.w140
+                        select.form-control#orderSta
+                            each sta , i in orderSta
+                                if i == selectedV
+                                    option(value=i,selected) #{sta}
+                                else
+                                   option(value=i) #{sta} 
+                .form-group
+                    label(for="orderStart") 成交时间
+                    input(type="text",name="orderStart")#orderStart.orderStart.form-control.w140
+                    span.to 至
+                    input(type="text",name="orderEnd")#orderEnd.orderEnd.form-control.w140
+            div.form-inline
+                div.form-group
+                    label(for="distributorName") 分销商
+                    input.form-control#distributorName(type="text")
+                div.form-group
+                    label(for="consigneeName") 收货人
+                    input.form-control.w140#consigneeName(type="text")
+                div.form-group
+                    label(for="orderName") 采购订单号
+                    input.form-control.orderName#orderName(type="text")
+                div.form-group
+                    button.btn.btn-blue 查询
         ul.nav.nav-tabs.nav-custom
             li(role='presentation',class=active==0 ? 'active' : '')
                 a(href='index.html') 待发货订单
             li(role='presentation',class=active==1 ? 'active' : '')
-                a(href='returnofgoods.html') 待退货订单
+                a(href='shipment.html') 已发货订单
             li(role='presentation',class=active==2 ? 'active' : '')
+                a(href='returnofgoods.html') 退款中
+            li(role='presentation',class=active==3 ? 'active' : '')
                 a(href='all.html') 所有订单
-        div
-            block OrderContent
+        block OrderContent

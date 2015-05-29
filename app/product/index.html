@@ -28,30 +28,40 @@
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
               <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">我的订单</li>
               <li id="order_manage" class="collapse in">
                 <ul>
-                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
+                  <li ui-sref-active="active"><a href="../order/index.html">我的订单</a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 已发货订单
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 退款订单
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 所有订单
+                  
+                  -->
                 </ul>
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
                 <ul>                                       
-                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
+                  <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">品牌列表</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">品牌管理</a></li>
                 </ul>
               </li>
-              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
-              <li id="brand_manage" class="collapse">
-                <ul>
-                  <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
-                </ul>
-              </li>
+              <!--
+              li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
+                  | 品牌管理
+              li#brand_manage.collapse
+                  ul
+                      li(ui-sref-active='active')
+                          a(href='../Brand/index.html') 品牌列表
+              
+              -->
               <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
               <li id="retailer_manage" class="collapse">
                 <ul>
@@ -68,12 +78,18 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/index.html">账户基本信息    </a></li>
+                  <li ui-sref-active="active"><a href="../info/index.html">基本信息   </a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">完善认证信息设置    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
-                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 交易记录
+                  li(ui-sref-active='active')
+                      a(href='../message/index.html') 站内信  
+                  
+                  -->
                 </ul>
               </li>
             </ul>
@@ -82,28 +98,74 @@
       </nav>
       <div id="page-wrapper">
         <div class="product">
-          <form action="#" class="form-inline">
-              <div class="form-group">
-                  <label for="productName">商品名称：</label>
-                  <input type="text" class="form-control">
-              </div>
-              <div class="form-group">
-                  <label for="state">上架状态：</label>
-                  <div class="dropdown inline">
-                      <select name="" id="state" class="form-control">
-                          <option value="0">全部</option>
-                          <option value="1">已上架</option>
-                          <option value="2">已下架</option>
-                      </select>
+          <h4 class="indexH3">商品列表</h4>
+          <form action="#" class="querycond">
+              <div class="form-inline">
+                  <div class="form-group">
+                      <label for="productName">商品名称：</label>
+                      <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <label for="state">商品状态：</label>
+                      <div class="dropdown inline">
+                          <select name="" id="state" class="form-control">
+                              <option value="0">全部</option>
+                              <option value="1">出售中</option>
+                              <option value="2">已下架</option>
+                              <option value="3">草稿</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="formDate" class="control-label">商品更新时间</label>
+                      <input type="text" name="formDate" id="formDate" class="formDate form-control">
+                      <span class="to">—</span>
+                      <input type="text" name="toDate" id="toDate" class="toDate form-control">
                   </div>
               </div>
+              <div class="form-inline">
+                  <div class="form-group">
+                      <label for="productName">商品分类：</label>
+                      <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <label for="state">商品品牌：</label>
+                      <div class="dropdown inline">
+                          <select name="" id="state" class="form-control">
+                              <option value="0">全部</option>
+                              <option value="1">出售中</option>
+                              <option value="2">已下架</option>
+                              <option value="3">草稿</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group price-group">
+                      <label for="formPrice" class="control-label">商品价格</label>
+                      <input type="text" name="formPrice" id="formPrice" class="formPrice form-control">
+                      <span class="to">—</span>
+                      <input type="text" name="toPrice" id="toPrice" class="toPrice form-control">
+                  </div>
+                  <div class="form-group">
+                      <button class="btn btn-blue">查询</button>
+                      <!-- <button class="btn btn-bigblue" id='addBrand'>添加商品</button> -->
+                  </div>
+              </div>
+              <div class="form-inline">
+                  <div class="form-group">
+                      <button class="btn btn-blue">单件添加商品</button>
+                      <button class="btn btn-blue">导入产品</button>
+                      <button class="btn btn-blue">批量删除</button>
+                  </div>
+                  
+              </div>
+              
           </form>
-          <button class="btn btn-blue">查询</button>
-          <button class="btn btn-bigblue" id='addBrand'>添加商品</button>
+          
           <div class="table-responsive">
               <table class="table table-bordered">
                   <thead>
                       <tr>
+                          <td><input id ="all" type="checkbox"></td>
                           <td>商品图片</td>
                           <td class="detailed">详细信息</td>
                           <td>分销价</td>
@@ -114,6 +176,7 @@
                   </thead>
                   <tbody>
                       <tr ng-repeat="pro in productList">
+                          <td class="center"><input id ="1" type="checkbox"></td>
                           <td class="product-td-img">
                               <img class="product-img" src="../img/logo.png" alt="">
                           </td>
@@ -133,7 +196,7 @@
                               <input type="text" value="50" class="form-control input-stack">
                           </td>
                           <td class="center">
-                              <a href="" class="green">已上架</a>
+                              <a href="javascript:;" class="green upAction" updata="1">已上架</a>
                           </td>
                           <td>
                               <div class="row product-operator">
@@ -147,6 +210,7 @@
                           </td>
                       </tr>
                       <tr ng-repeat="pro in productList">
+                          <td class="center"><input id ="2" type="checkbox"></td>
                           <td class="product-td-img">
                               <img class="product-img" src="../img/logo.png" alt="">
                           </td>
@@ -166,7 +230,7 @@
                               <input type="text" value="50" class="form-control input-stack">
                           </td>
                           <td class="center">
-                              <a href="" class="red">未上架</a>
+                              <a href="javascript:;" class="red upAction" updata="2">未上架</a>
                           </td>
                           <td>
                               <div class="row product-operator">
@@ -218,6 +282,27 @@
     <script type="text/javascript">
       $(function(){
           $('select').dropkick();
+      
+          $('#formDate,#toDate').datetimepicker({
+              format: 'yyyy-mm-dd',
+              language: 'zh-CN',
+              minView: 2,
+              autoclose: true
+          });
+          $(document.body).delegate('.upAction','click',function(e){
+              $.dialog({
+                  content:'商品状态 <label class="radio-inline"><input type="radio">上架</label><label class="radio-inline"><input type="radio">下架</label>',
+                  title:"修改商品状态",
+                  buttons:[{
+                          text:'保存',
+                          style:'blue',
+                          click:function(dialog){
+                              //TODO
+                              dialog.modal('hide');
+                          }
+                  }]
+              })
+          })
       });
     </script>
   </body>

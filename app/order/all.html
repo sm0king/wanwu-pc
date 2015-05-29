@@ -28,30 +28,40 @@
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
               <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">我的订单</li>
               <li id="order_manage" class="collapse in">
                 <ul>
-                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
+                  <li ui-sref-active="active"><a href="../order/index.html">我的订单</a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 已发货订单
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 退款订单
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 所有订单
+                  
+                  -->
                 </ul>
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
                 <ul>                                       
-                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
+                  <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">品牌列表</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">品牌管理</a></li>
                 </ul>
               </li>
-              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
-              <li id="brand_manage" class="collapse">
-                <ul>
-                  <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
-                </ul>
-              </li>
+              <!--
+              li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
+                  | 品牌管理
+              li#brand_manage.collapse
+                  ul
+                      li(ui-sref-active='active')
+                          a(href='../Brand/index.html') 品牌列表
+              
+              -->
               <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
               <li id="retailer_manage" class="collapse">
                 <ul>
@@ -68,12 +78,18 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/index.html">账户基本信息    </a></li>
+                  <li ui-sref-active="active"><a href="../info/index.html">基本信息   </a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">完善认证信息设置    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
-                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 交易记录
+                  li(ui-sref-active='active')
+                      a(href='../message/index.html') 站内信  
+                  
+                  -->
                 </ul>
               </li>
             </ul>
@@ -82,96 +98,135 @@
       </nav>
       <div id="page-wrapper">
         <div class="order">
-          <ul class="nav nav-tabs nav-custom">
-            <li role="presentation"><a href="index.html">待发货订单</a></li>
-            <li role="presentation"><a href="returnofgoods.html">待退货订单</a></li>
-            <li role="presentation" class="active"><a href="all.html">所有订单</a></li>
-          </ul>
-          <div>
-            <form class="form-inline searchBar">
-              <div>
-                <div class="form-group">
-                  <label for="orderNum" class="stdLable">订单编号：</label>
-                  <input type="text" id="orderNum" class="form-control"/>
-                </div>
-                <div class="form-group">
-                  <label for="receiver" class="stdLable2">收货人：</label>
-                  <input type="text" id="receiver" class="form-control"/>
-                </div>
-                <div class="form-group">
-                  <label for="concat">联系方式：</label>
-                  <input type="text" id="concat" class="form-control"/>
-                </div>
+          <h4 class="indexH3">我的订单</h4>
+          <form action="#" class="queryOrder">
+            <div class="form-inline">
+              <div class="form-group">
+                <label for="goodsName">商品名称</label>
+                <input id="goodsName" type="text" class="form-control"/>
               </div>
-              <div>
-                <div class="form-group timeSpan">
-                  <label for="timeBegin" class="stdLable">下单时间：</label>
-                  <input type="text" id="timeBegin" class="form-control"/>
-                  <label for="timeEnd" class="part">至</label>
-                  <input type="text" id="timeEnd" class="form-control"/>
-                </div>
-                <div class="form-group">
-                  <label for="state" class="stdLable2">订单状态：</label>
-                  <select id="state" class="form-control">
-                    <option value="1">状态1</option>
-                    <option value="2">状态2</option>
-                    <option value="3">状态3</option>
+              <div class="form-group">
+                <label for="orderSta">订单状态</label>
+                <div class="dropdown inline w140">
+                  <select id="orderSta" class="form-control">
+                    <option value="0" selected="selected">全部</option>
+                    <option value="1">待发货 </option>
+                    <option value="2">已发货 </option>
+                    <option value="3">退款中 </option>
+                    <option value="4">订单已完成 </option>
+                    <option value="5">订单已关闭 </option>
                   </select>
                 </div>
               </div>
-              <div>
+              <div class="form-group">
+                <label for="orderStart">成交时间</label>
+                <input type="text" name="orderStart" id="orderStart" class="orderStart form-control w140"/><span class="to">至</span>
+                <input type="text" name="orderEnd" id="orderEnd" class="orderEnd form-control w140"/>
+              </div>
+            </div>
+            <div class="form-inline">
+              <div class="form-group">
+                <label for="distributorName">分销商</label>
+                <input id="distributorName" type="text" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label for="consigneeName">收货人</label>
+                <input id="consigneeName" type="text" class="form-control w140"/>
+              </div>
+              <div class="form-group">
+                <label for="orderName">采购订单号</label>
+                <input id="orderName" type="text" class="form-control orderName"/>
+              </div>
+              <div class="form-group">
                 <button class="btn btn-blue">查询</button>
               </div>
-            </form>
-            <div class="headBar gap30">
-              <div class="btnBar pull-right">
-                <button type="button" class="btn btn-blue">确认退货</button>
-              </div>
-              <input type="checkbox" id="checkAll"/>
-              <label for="checkAll">全选</label>
             </div>
-            <div class="table-responsive orderlist">
-              <table class="table table-bordered">
-                <tbody>
-                  <tr class="titleTR">
-                    <td class="tdOrderNumber">订单编号: <span class="blue">8779641532</span></td>
-                    <td class="retailer tdOrderPrice">分销价</td>
-                    <td class="receiver tdOrderConsignee">收货人</td>
-                    <td class="tdOrderAddress">收货地址</td>
-                    <td class="tdOrderTime">下单时间</td>
-                    <td class="tdOrderSta">状态</td>
-                    <td class="tdOrderRemark">备注</td>
-                    <td class="tdOrderAction">操作</td>
-                  </tr>
-                  <tr class="orderTR">
-                    <td class="productImgs"><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/></td>
-                    <td>￥387.00</td>
-                    <td>王刚</td>
-                    <td>四川省成都市高新区天府软件园E区E1栋</td>
-                    <td>015-03-12 17:38:48</td>
-                    <td>等待发货</td>
-                    <td class="Remark">客户要求每盒颜色不能重复</td>
-                    <td class="orderOperator"><a href="detail.html" class="blue">订单详情</a></td>
-                  </tr>
-                </tbody>
-              </table>
+          </form>
+          <ul class="nav nav-tabs nav-custom">
+            <li role="presentation"><a href="index.html">待发货订单</a></li>
+            <li role="presentation"><a href="shipment.html">已发货订单</a></li>
+            <li role="presentation"><a href="returnofgoods.html">退款中</a></li>
+            <li role="presentation" class="active"><a href="all.html">所有订单</a></li>
+          </ul>
+          <!--
+          form.form-inline.searchBar
+              div
+                  .form-group
+                      label(for='orderNum').stdLable 订单编号：
+                      input(type='text').form-control#orderNum
+                  .form-group
+                      label(for='receiver').stdLable2 收货人：
+                      input(type='text').form-control#receiver
+                  .form-group
+                      label(for='concat') 联系方式：
+                      input(type='text').form-control#concat
+              div
+                  .form-group.timeSpan
+                      label(for='timeBegin').stdLable 下单时间：
+                      input(type='text').form-control#timeBegin
+                      label(for='timeEnd').part 至
+                      input(type='text').form-control#timeEnd
+                  .form-group
+                      label(for='state').stdLable2 订单状态：
+                      select.form-control#state
+                          option(value='1') 状态1
+                          option(value='2') 状态2
+                          option(value='3') 状态3
+                      
+              div
+                  button.btn.btn-blue 查询
+          .headBar.gap30
+              .btnBar.pull-right
+                  button(type='button').btn.btn-blue 确认退货
+              input(type='checkbox')#checkAll
+              label(for='checkAll') 全选
+          -->
+          <div class="headBar">
+            <div class="btnBar">
+              <button class="btn btn-blue">导出订单</button>
             </div>
-            <div class="foot">
-              <nav class="clearfix">
-                <ul class="pull-right pagination">
-                  <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-                  <li><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#" class="more">...</a></li>
-                  <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
-                  <li class="pagin-extend">共<i class="totalPage">7</i>页，到第
-                    <input type="text" class="text-input"/>页
-                    <button type="button" class="btn btn-blue">确定</button>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+          </div>
+          <div class="table-responsive orderlist">
+            <table class="table table-bordered">
+              <tbody>
+                <tr class="titleTR">
+                  <td class="tdOrderNumber">订单编号: <span class="blue">8779641532</span></td>
+                  <td class="retailer tdOrderPrice">分销价</td>
+                  <td class="receiver tdOrderConsignee">收货人</td>
+                  <td class="tdOrderAddress">收货地址</td>
+                  <td class="tdOrderTime">下单时间</td>
+                  <td class="tdOrderSta">状态</td>
+                  <td class="tdOrderRemark">备注</td>
+                  <td class="tdOrderAction">操作</td>
+                </tr>
+                <tr class="orderTR">
+                  <td class="productImgs"><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/><img src="../img/logo.png"/></td>
+                  <td>￥387.00</td>
+                  <td>王刚</td>
+                  <td>四川省成都市高新区天府软件园E区E1栋</td>
+                  <td>015-03-12 17:38:48</td>
+                  <td>等待发货</td>
+                  <td class="Remark">客户要求每盒颜色不能重复</td>
+                  <td class="orderOperator"><a href="detail.html" class="blue">订单详情</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="foot">
+            <nav class="clearfix">
+              <ul class="pull-right pagination">
+                <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#" class="more">...</a></li>
+                <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                <li class="pagin-extend">共<i class="totalPage">7</i>页，到第
+                  <input type="text" class="text-input"/>页
+                  <button type="button" class="btn btn-blue">确定</button>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
@@ -196,7 +251,7 @@
               var checked = $(this).prop('checked');
               $('.orderlist input[type=checkbox]').prop('checked', checked);
           });
-          $('#timeBegin,#timeEnd').datetimepicker({
+          $('#orderStart,#orderEnd').datetimepicker({
               format: 'yyyy-mm-dd',
               language: 'zh-CN',
               minView: 2,

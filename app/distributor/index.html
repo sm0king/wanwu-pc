@@ -30,30 +30,40 @@
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
               <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">我的订单</li>
               <li id="order_manage" class="collapse in">
                 <ul>
-                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
+                  <li ui-sref-active="active"><a href="../order/index.html">我的订单</a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 已发货订单
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 退款订单
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 所有订单
+                  
+                  -->
                 </ul>
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
                 <ul>                                       
-                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
+                  <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">品牌列表</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">品牌管理</a></li>
                 </ul>
               </li>
-              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
-              <li id="brand_manage" class="collapse">
-                <ul>
-                  <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
-                </ul>
-              </li>
+              <!--
+              li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
+                  | 品牌管理
+              li#brand_manage.collapse
+                  ul
+                      li(ui-sref-active='active')
+                          a(href='../Brand/index.html') 品牌列表
+              
+              -->
               <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
               <li id="retailer_manage" class="collapse">
                 <ul>
@@ -70,12 +80,18 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/index.html">账户基本信息    </a></li>
+                  <li ui-sref-active="active"><a href="../info/index.html">基本信息   </a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">完善认证信息设置    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
                   <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
-                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 交易记录
+                  li(ui-sref-active='active')
+                      a(href='../message/index.html') 站内信  
+                  
+                  -->
                 </ul>
               </li>
             </ul>
@@ -84,10 +100,29 @@
       </nav>
       <div id="page-wrapper">
         <div class="product distributor distributor-index">
+          <h4 class="indexH3">分销商管理</h4>
           <div class="form-inline">
               <div class="form-group">
+                  <label for="exampleInputAmount">分销商名称：</label>
                   <input type="text" class="form-control" id="exampleInputAmount" placeholder="分销商名/店铺名">
               </div>
+              <div class="form-group">
+                  <label for="state">分销商状态：</label>
+                  <div class="dropdown inline">
+                      <select name="" id="state" class="form-control">
+                          <option value="0">全部</option>
+                          <option value="1">出售中</option>
+                          <option value="2">已下架</option>
+                          <option value="3">草稿</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="form-group">
+                      <label for="formDate" class="control-label">成交金额</label>
+                      <input type="text" name="formDate" id="formDate" class="formDate form-control">
+                      <span class="to">至</span>
+                      <input type="text" name="toDate" id="toDate" class="toDate form-control">
+                  </div>
               <button type="submit" class="btn btn-primary searchBtn">
                   <span class="glyphicon glyphicon-search"></span>
                   查询
@@ -96,12 +131,12 @@
           <table id="distributorList" data-toggle="table" data-url="../testData2.json">
               <thead>
                   <tr>
-                      <th data-field="name" data-align="center" data-sortable="ture">分销商</th>
-                      <th data-field="shopNumber" data-align="center" data-sortable="ture">在售店铺数</th>
-                      <th data-field="goodsNumber" data-align="center" data-sortable="ture">上架商品数</th>
-                      <th data-field="salesNumber" data-align="center" data-sortable="ture">销量（30天）</th>
-                      <th data-field="salesVol" data-align="center" data-sortable="ture">销售额（30天）</th>
-                      <th data-field="consDate" data-align="center" data-sortable="ture">合作时间</th>
+                      <th data-field="name" data-align="center" data-sortable="ture">分销商名称</th>
+                      <th data-field="shopNumber" data-align="center" data-sortable="ture">分销金额（30天）</th>
+                      <th data-field="goodsNumber" data-align="center" data-sortable="ture">分销订单数（30天）</th>
+                      <th data-field="salesNumber" data-align="center" data-sortable="ture">退货订单数（30天）</th>
+                      <th data-field="consDate" data-align="center" data-sortable="ture">首次合作时间</th>
+                      <th data-field="salesVol" data-align="center" data-sortable="ture">状态</th>
                       <th data-formatter="actionFormatter" data-align="center" data-sortable="false">操作</th>
                   </tr>
               </thead>
@@ -140,7 +175,7 @@
       url: '../testData2.json'
       });
       function actionFormatter(value, row) {
-      var html ='<a class="action" href="#'+row.action.supplierID+'">联系供应商</a><a class="action" href="./detail.html#'+row.action.distributorID+'">详细信息</a>';
+      var html ='<a class="action" href="#'+row.action.supplierID+'">终止</a><a class="action" href="./detail.html#'+row.action.distributorID+'">查看分销商品</a>';
       console.log(value);
       console.log()
       return html;
