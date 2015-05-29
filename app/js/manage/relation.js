@@ -230,6 +230,7 @@
             return;
         }
 
+
         $('#propMap').children('.panel').each(function(){
             var jqPanel = $(this),
                 prop = jqPanel.find('.select-prop').val(),
@@ -340,12 +341,13 @@
 
     var platformCatalogSelector = new CatalogSelector($.extend({}, platformCatalog));
 
+    //平台下拉框的值改变时的处理函数
     $('#platform').change(function(){
         platformCatalogSelector.reset();
         catalogChange();
     });
 
-
+    //点击的关联类目按钮时的处理函数
     $('#btn_relationCatalog').click(function(){
         var map = getCatalogMap();
         ajax('/cat/relation/index', {
