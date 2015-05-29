@@ -70,13 +70,14 @@ html
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}product/index.html') 商品列表
                                         li(ui-sref-active='active')
-                                            a(href='javascript:;') 单件商品添加
+                                            a(href='#{basePath}product/catalogChoice.html') 单件商品添加
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}product/batch.html') 批量导入商品
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}Brand/index.html') 品牌列表
-                                        li(ui-sref-active='active')
-                                            a(href='javascript:;') 品牌管理
+                                        //
+                                            li(ui-sref-active='active')
+                                                a(href='javascript:;') 品牌管理
                                 //
                                     li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
                                         | 品牌管理
@@ -105,14 +106,15 @@ html
                                     | 基本信息维护
                                 li#baseinfo_manage.collapse
                                     ul
+                                        //
+                                            li(ui-sref-active='active')
+                                                a(href='#{basePath}info/index.html') 基本信息   
                                         li(ui-sref-active='active')
-                                            a(href='#{basePath}info/index.html') 基本信息   
-                                        li(ui-sref-active='active')
-                                            a(href='#{basePath}info/basicinfo.html') 完善认证信息设置    
+                                            a(href='#{basePath}info/basicinfo.html') 完善认证信息    
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}info/freight.html') 运费设置
                                         li(ui-sref-active='active')
-                                            a(href='javascript:;') 支付信息设置
+                                            a(href='#{basePath}info/paymessage.html') 支付信息设置
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}info/changepwd.html') 修改密码
                                         //

@@ -47,10 +47,13 @@
               <li id="product_manage" class="collapse">
                 <ul>                                       
                   <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件商品添加</a></li>
+                  <li ui-sref-active="active"><a href="../product/catalogChoice.html">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="../product/batch.html">批量导入商品</a></li>
                   <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">品牌管理</a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 品牌管理
+                  -->
                 </ul>
               </li>
               <!--
@@ -78,10 +81,13 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/index.html">基本信息   </a></li>
-                  <li ui-sref-active="active"><a href="../info/basicinfo.html">完善认证信息设置    </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='../info/index.html') 基本信息   
+                  -->
+                  <li ui-sref-active="active"><a href="../info/basicinfo.html">完善认证信息    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
+                  <li ui-sref-active="active"><a href="../info/paymessage.html">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
                   <!--
                   li(ui-sref-active='active')
@@ -98,11 +104,15 @@
       </nav>
       <div id="page-wrapper">
         <div class="capital">
-          <ul class="nav nav-tabs">
-            <li role="presentation"><a href="index.html">账户总览</a></li>
-            <li role="presentation"><a href="order_detail.html">订单明细</a></li>
-            <li role="presentation" class="active"><a href="operate_log.html">操作记录</a></li>
-          </ul>
+          <!--
+          ul.nav.nav-tabs
+              li(role='presentation',class=active==0 ? 'active' : '')
+                  a(href='index.html') 账户总览
+              li(role='presentation',class=active==1 ? 'active' : '')
+                  a(href='order_detail.html') 订单明细
+              li(role='presentation',class=active==2 ? 'active' : '')
+                  a(href='operate_log.html') 操作记录
+          -->
           <div>
             <div class="info-group">
               <h3>资金记录 </h3>

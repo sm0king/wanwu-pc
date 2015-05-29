@@ -11,6 +11,12 @@ block InfoContent
     .basicInfo
         .panel.panel-default
             .panel-body
+                p.gray.tip 您需要进一步提交公司认证资料后才能上架商品
+                .schedule.step-1
+                    img.img-responsive.scheduleImg-1.scheduleImg(src='../img/schedule-1.png')
+                    img.img-responsive.scheduleImg-2.scheduleImg(src='../img/schedule-2.png')
+                    img.img-responsive.scheduleImg-3.scheduleImg(src='../img/schedule-3.png')
+                .hr
                 h4 基本资料
                 .hr
                 .alert.alert-icon.alert-info 请完善以下信息， 以便我们更好的为您服务                
@@ -52,6 +58,15 @@ block InfoContent
                             input#street(type="text").form-control
                     h4.subtitle 资格认证信息
                     .form-group
+                        label.control-label.require 用户类型
+                        .col-md-8
+                            label.radio-inline
+                                input(type="radio",value="0",name="usertype")
+                                企业用户
+                            label.radio-inline
+                                input(type="radio",value="1",name="usertype")
+                                个人用户
+                    .form-group
                         label(for="company").control-label.require 公司名称
                         .col-md-8
                             input#company(type="text", name="company").form-control
@@ -65,52 +80,52 @@ block InfoContent
                             button(type='button').btn.btn-bigblue.btn-upload 上传附件
                             .row
                                 .col-xs-12
-                                    img(src="../img/logo.png").img-responsive
+                                    img(src="../img/logo.png").img-responsive.showImg
                     .form-group
                         label.control-label.require 营业执照
                         .col-md-8
                             button(type='button').btn.btn-bigblue.btn-upload 上传附件
                             .row
                                 .col-xs-12
-                                    img(src="../img/logo.png").img-responsive  
+                                    img(src="../img/logo.png").img-responsive.showImg  
                     .form-group
                         label.control-label.require 联系人身份证
                         .col-md-4
                             button(type='button').btn.btn-bigblue.btn-upload 上传正面
                             .row
                                 .col-xs-12
-                                    img(src="../img/logo.png").img-responsive
+                                    img(src="../img/logo.png").img-responsive.showImg
                         .col-md-4
                             button(type='button').btn.btn-bigblue.btn-upload 上传反面
                             .row
                                 .col-xs-12
-                                    img(src="../img/logo.png").img-responsive
+                                    img(src="../img/logo.png").img-responsive.showImg
                     .form-group
                         label.control-label.require 法人身份证
                         .col-md-4
                             button(type='button').btn.btn-bigblue.btn-upload 上传正面
                             .row
                                 .col-xs-12
-                                    img(src="../img/logo.png").img-responsive
+                                    img(src="../img/logo.png").img-responsive.showImg
                         .col-md-4
                             button(type='button').btn.btn-bigblue.btn-upload 上传反面
                             .row
                                 .col-xs-12
-                                    img(src="../img/logo.png").img-responsive
+                                    img(src="../img/logo.png").img-responsive.showImg
                     .form-group
                         label.control-label.require 组织结构代码证
                         .col-md-8
                             button(type='button').btn.btn-bigblue.btn-upload 上传附件
                             .row
                                 .col-xs-12
-                                    img(src="../img/logo.png").img-responsive
+                                    img(src="../img/logo.png").img-responsive.showImg
                     .form-group
                         label.control-label.require 税务登录证
                         .col-md-8
                             button(type='button').btn.btn-bigblue.btn-upload 上传附件
                             .row
                                 .col-xs-12
-                                    img(src="../img/logo.png").img-responsive
+                                    img(src="../img/logo.png").img-responsive.showImg
                     .form-group
                         .control-label
                         .col-md-8
@@ -137,17 +152,19 @@ block InfoContent
                         button(type="button").btn.btn-bigblue 上传附件
         
 block foot
-    script(type="text/javascript", src="../plugs/bootstrapvalidator/js/bootstrapValidator.min.js")
-    script(type="text/javascript", src="../plugs/bootstrapvalidator/js/language/zh_CN.js")
+    link(rel='stylesheet', href='#{basePath}plugs/imagebox/imagebox.css')
+    script(type="text/javascript", src="#{basePath}plugs/imagebox/imagebox.js")
     script(type="text/javascript").
         var brandForm = $('#brandForm').remove();
         $(function(){
+            //点击查看原图
+            $('.showImg').imagebox();
 
             //添加品牌按钮的点击事件
             $('#addBrand').click(addBrand);
 
             //基本资料表单校验配置
-            $('#basicInfoForm').bootstrapValidator({
+            /*$('#basicInfoForm').bootstrapValidator({
                 framework: 'bootstrap',
                 icon: {
                     valid: 'glyphicon glyphicon-ok',
@@ -206,7 +223,7 @@ block foot
                         }
                     }
                 }
-            });
+            });*/
         });
 
         function addBrand(){

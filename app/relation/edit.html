@@ -47,10 +47,13 @@
               <li id="product_manage" class="collapse">
                 <ul>                                       
                   <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件商品添加</a></li>
+                  <li ui-sref-active="active"><a href="../product/catalogChoice.html">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="../product/batch.html">批量导入商品</a></li>
                   <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">品牌管理</a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 品牌管理
+                  -->
                 </ul>
               </li>
               <!--
@@ -78,10 +81,13 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/index.html">基本信息   </a></li>
-                  <li ui-sref-active="active"><a href="../info/basicinfo.html">完善认证信息设置    </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='../info/index.html') 基本信息   
+                  -->
+                  <li ui-sref-active="active"><a href="../info/basicinfo.html">完善认证信息    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
+                  <li ui-sref-active="active"><a href="../info/paymessage.html">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
                   <!--
                   li(ui-sref-active='active')
@@ -98,38 +104,82 @@
       </nav>
       <div id="page-wrapper">
         <div class="relation">
-          <form class="form-inline">
+          <form id="topForm" class="form-inline">
             <div class="form-group">
               <label class="control-label">万物类目</label>
               <div class="extendSelector">
                 <div id="wanwuCatalog" class="viewBar"><span class="gray">点击选择类目</span></div>
-                <div class="selectorBar hidden">
-                  <div class="panel panel-default">
-                    <div class="panel-heading"><a href="javascript:;" class="pagin prev disable"><span class="glyphicon glyphicon-arrow-left"></span></a><span class="selector-title"></span><a href="javascript:;" class="pagin next disable"><span class="glyphicon glyphicon-arrow-right"></span></a></div>
-                    <div class="panel-body">
-                      <div class="selector-row">                                                            
-                        <div class="selector-col">
-                          <div class="input-group">
-                            <input type="text" placeholder="搜索" class="form-control"/><span class="input-group-btn">
-                              <button type="button" class="btn btn-blue search">搜索</button></span>
-                          </div><a href="javascript:;" class="selector-option haschild">CCC</a><a href="javascript:;" class="selector-option haschild">CCC</a><a href="javascript:;" class="selector-option haschild">CCC</a>
-                        </div>
-                        <div class="selector-col"><a href="javascript:;" class="selector-option haschild">CCC</a></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
-            </div><span class="glyphicon glyphicon-transfer"></span>
+            </div><span class="gap glyphicon glyphicon-transfer"></span>
             <div class="form-group">
               <label for="platform">卖家平台</label>
-              <select id="platform" class="form-control"></select>
+              <select id="platform" class="form-control">
+                <option value="">请选择平台</option>
+                <option value="4">京东</option>
+                <option value="3">美丽说</option>
+              </select>
             </div>
             <div class="form-group">
               <label class="control-label">平台类目</label>
-              <input type="text" id="platform" class="form-control"/>
+              <div class="extendSelector">
+                <div id="platformCatalog" class="viewBar"><span class="gray">点击选择类目</span></div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="button" id="btn_relationCatalog" class="btn btn-blue">关联类目</button>
             </div>
           </form>
+          <div class="hr"></div>
+          <div id="propMap" class="propMap">
+            <div class="alert alert-warning text-center"><a href="javascript:;">点击加载属性</a></div>
+            <div class="panel panel-default hidden">
+              <div class="panel-heading propMap-title">
+                <form class="form-inline"><a href="#FFF" data-toggle="collapse" class="btn-collapse"> 
+                    <sapn class="glyphicon glyphicon-plus"></sapn></a>
+                  <div class="form-group">
+                    <label class="control-label">万物属性</label>
+                    <select class="form-control select-prop">
+                      <option value="3">dssd</option>
+                    </select>
+                  </div><span class="gap glyphicon glyphicon-transfer"></span>
+                  <div class="form-group">
+                    <label class="control-label">平台属性</label><span class="platform-prop-text">XXXXXX</span>
+                  </div>
+                </form>
+              </div>
+              <div id="FFF" class="collapse">
+                <div class="panel-body">
+                  <ul class="list-group">
+                    <li class="list-group-item">
+                      <form class="form-inline">
+                        <div class="form-group">
+                          <label class="control-label">万物属性值</label>
+                          <select class="form-control select-prop"></select>
+                        </div><span class="gap glyphicon glyphicon-transfer"></span>
+                        <div class="form-group">
+                          <label class="control-label">平台属性值</label><span class="platform-prop-text">XXXXXX</span>
+                        </div>
+                      </form>
+                    </li>
+                    <li class="list-group-item">
+                      <form class="form-inline">
+                        <div class="form-group">
+                          <label class="control-label">万物属性值</label>
+                          <select class="form-control select-prop"></select>
+                        </div><span class="gap glyphicon glyphicon-transfer"></span>
+                        <div class="form-group">
+                          <label class="control-label">平台属性值</label><span class="platform-prop-text">XXXXXX</span>
+                        </div>
+                      </form>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="footBar">
+            <button type="button" class="btn btn-blue">关联属性</button>
+          </div>
         </div>
       </div>
     </div>
@@ -144,6 +194,7 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript" src="../js/catalog-selector.js"></script>
     <script type="text/javascript" src="../js/manage/relation.js"></script>
   </body>
 </html>

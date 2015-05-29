@@ -1,0 +1,40 @@
+extends master.jade
+block InfoDefine
+    -var bankList =["建设银行","工商银行","招商银行","中国银行","农业银行","交通银行","浦发银行","广发银行","中信银行","光大银行","兴业银行","平安银行","民生银行","华夏银行","邮储银行","北京银行","上海银行","渤海银行","上海农商"]
+block title
+    title 支付信息设置
+
+block DashboardTitle
+    支付信息设置
+
+block InfoContent
+    h4.indexH3 支付信息维护
+    div.row
+        div.col-md-6
+            form.form-horizontal.pwdForm
+                .form-group
+                    label.control-label.col-lg-4
+                        国内银行：
+                    div.col-lg-8
+                        select.form-control
+                            each bank,i in bankList
+                                option(value=i+7) #{bank}
+                .form-group
+                    label.control-label.col-lg-4
+                        开户行名称：
+                    div.col-lg-8
+                        input(type=text).form-control
+                .form-group
+                    label.control-label.col-lg-4
+                        银行卡号：
+                    div.col-lg-8
+                        input(type=text).form-control
+                .form-group
+                    label.control-label.col-lg-4
+                        收款人/收款公司：
+                    div.col-lg-8
+                        input(type=text).form-control
+            .row
+                .col-lg-4 &nbsp;
+                .col-lg-8.btnBar
+                    button.btn.btn-blue 保存
