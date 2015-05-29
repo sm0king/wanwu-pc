@@ -64,25 +64,25 @@ fieldset[disabled] .btn-danger {
 }
 .btn-default {
   text-shadow: 0 1px 0 #fff;
-  background-image: -webkit-linear-gradient(top, #fff 0%, #e0e0e0 100%);
-  background-image:      -o-linear-gradient(top, #fff 0%, #e0e0e0 100%);
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e0e0e0));
-  background-image:         linear-gradient(to bottom, #fff 0%, #e0e0e0 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe0e0e0', GradientType=0);
+  background-image: -webkit-linear-gradient(top, #069dd5 0%, #047199 100%);
+  background-image:      -o-linear-gradient(top, #069dd5 0%, #047199 100%);
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#069dd5), to(#047199));
+  background-image:         linear-gradient(to bottom, #069dd5 0%, #047199 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff069dd5', endColorstr='#ff047199', GradientType=0);
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
-  border-color: #dbdbdb;
+  border-color: #046a90;
   border-color: #ccc;
 }
 .btn-default:hover,
 .btn-default:focus {
-  background-color: #e0e0e0;
+  background-color: #047199;
   background-position: 0 -15px;
 }
 .btn-default:active,
 .btn-default.active {
-  background-color: #e0e0e0;
-  border-color: #dbdbdb;
+  background-color: #047199;
+  border-color: #046a90;
 }
 .btn-default.disabled,
 .btn-default[disabled],
@@ -102,7 +102,7 @@ fieldset[disabled] .btn-default:active,
 .btn-default.disabled.active,
 .btn-default[disabled].active,
 fieldset[disabled] .btn-default.active {
-  background-color: #e0e0e0;
+  background-color: #047199;
   background-image: none;
 }
 .btn-primary {
