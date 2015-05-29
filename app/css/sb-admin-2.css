@@ -707,6 +707,11 @@ table.dataTable thead .sorting:after {
     margin-right: 4px;
     color:red;
 }
+.require-after:after{
+    content:"*";
+    margin-left: 4px;
+    color:red;
+}
 .table-bordered>thead>tr>td, .table-bordered>thead>tr>th{
     border-bottom-width: 1px;
 }

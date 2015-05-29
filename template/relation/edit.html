@@ -11,41 +11,67 @@ block DashboardTitle
 
 block Right
     .relation
-        form.form-inline
+        form.form-inline#topForm
             .form-group
                 label.control-label 万物类目
                 .extendSelector
                     .viewBar#wanwuCatalog
                         span.gray 点击选择类目
-                    .selectorBar.hidden
-                        .panel.panel-default
-                            .panel-heading
-                                a(href="javascript:;").pagin.prev.disable
-                                    span.glyphicon.glyphicon-arrow-left
-                                span.selector-title
-                                a(href="javascript:;").pagin.next.disable
-                                    span.glyphicon.glyphicon-arrow-right
-                            .panel-body
-                                .selector-row                                                             
-                                    .selector-col
-                                        .input-group
-                                            input(type='text', placeholder="搜索").form-control
-                                            span.input-group-btn
-                                                button(type='button').btn.btn-blue.search 搜索
-                                            
-                                        a(href="javascript:;").selector-option.haschild CCC
-                                        a(href="javascript:;").selector-option.haschild CCC
-                                        a(href="javascript:;").selector-option.haschild CCC
-                                    .selector-col
-                                        a(href="javascript:;").selector-option.haschild CCC
-
-
-            span.glyphicon.glyphicon-transfer
+            span.gap.glyphicon.glyphicon-transfer
             .form-group
                 label(for="platform") 卖家平台
                 select#platform.form-control
+                    option(value="") 请选择平台
+                    option(value="4") 京东
+                    option(value="3") 美丽说
             .form-group
                 label.control-label 平台类目
-                input(type='text')#platform.form-control
+                .extendSelector
+                    .viewBar#platformCatalog
+                        span.gray 点击选择类目
+            .form-group
+                button(type="button")#btn_relationCatalog.btn.btn-blue 关联类目
+        .hr
+        .propMap#propMap
+            .alert.alert-warning.text-center
+                a(href="javascript:;") 点击加载属性
+            .panel.panel-default.hidden
+                .panel-heading.propMap-title
+                    form.form-inline
+                        a(href="#FFF",data-toggle="collapse").btn-collapse 
+                            sapn.glyphicon.glyphicon-plus
+                        .form-group
+                            label.control-label 万物属性
+                            select.form-control.select-prop
+                                option(value="3") dssd
+                        span.gap.glyphicon.glyphicon-transfer
+                        .form-group
+                            label.control-label 平台属性
+                            span.platform-prop-text XXXXXX
+                #FFF.collapse
+                    .panel-body
+                        ul.list-group
+                            li.list-group-item
+                                form.form-inline
+                                    .form-group
+                                        label.control-label 万物属性值
+                                        select.form-control.select-prop
+                                    span.gap.glyphicon.glyphicon-transfer
+                                    .form-group
+                                        label.control-label 平台属性值
+                                        span.platform-prop-text XXXXXX
+                            li.list-group-item
+                                form.form-inline
+                                    .form-group
+                                        label.control-label 万物属性值
+                                        select.form-control.select-prop
+                                    span.gap.glyphicon.glyphicon-transfer
+                                    .form-group
+                                        label.control-label 平台属性值
+                                        span.platform-prop-text XXXXXX
+        .footBar
+            button(type="button").btn.btn-blue 关联属性
+
 block foot
+    script(type="text/javascript", src="../js/catalog-selector.js")
     script(type="text/javascript", src="../js/manage/relation.js")
