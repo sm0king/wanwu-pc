@@ -230,7 +230,7 @@
             return;
         }
 
-        $('#propMap').children().each(function(){
+        $('#propMap').children('.panel').each(function(){
             var jqPanel = $(this),
                 prop = jqPanel.find('.select-prop').val(),
                 extProp = jqPanel.data('ext-prop-id'),
@@ -267,8 +267,7 @@
         });
         //console.log(map);return;
 
-        if (!canSubmit) { return;}
-
+        if (!canSubmit || !map.length) { return;}
         
         ajax('/cat/relation/relation_props_value_multiple', {
             map: JSON.stringify({
@@ -343,6 +342,7 @@
 
     $('#platform').change(function(){
         platformCatalogSelector.reset();
+        catalogChange();
     });
 
 
