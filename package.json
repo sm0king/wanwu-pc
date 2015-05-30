@@ -14,8 +14,9 @@
     "grunt-contrib-connect": "~0.10.1",
     "grunt-contrib-copy": "~0.8.0",
     "grunt-contrib-jade": "~0.14.0",
-    "grunt-contrib-uglify": "~0.9.1",
-    "grunt-contrib-watch": "^0.6.1"
+    "grunt-contrib-uglify": "~1.9.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "jade-inheritance": "^0.2.0"
   },
   "scripts": {
     "start": "grunt server"

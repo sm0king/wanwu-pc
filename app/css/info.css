@@ -1,5 +1,5 @@
 .info{
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .info .itemTitle{
@@ -40,9 +40,9 @@
     margin:26px 0px;
 }
 
-.info .control-label{
+/*.info .control-label{
     color:#999999;
-}
+}*/
 
 .info .btnBar{
     text-align: center;    
@@ -81,9 +81,7 @@
 #firstWeight,#firstWeightPrice,#afterWeight,#afterWeightPrice{
     width:67px;
 }
-#area{
-    width:124px;
-}
+
 
 .info .freightTable a.fork{
     width:16px;
@@ -193,4 +191,84 @@
 }
 .info .accountInfo .downloadBar{
     margin:10px 0px;
+}
+
+/****************************** 以下是新版样式 ******************************/
+
+/* 基本资料 */
+.basicInfo label{
+    color:#666666;
+}
+.basicInfo h4{
+    margin:0;
+    font-weight: 700;
+}
+.basicInfo h4.subtitle{
+    color:#666666;
+    margin: 20px 0px 10px 0px;
+}
+.basicInfo .hr{
+    margin:10px 0px;
+}
+.basicInfo .control-label{
+    width:150px;
+    font-weight: normal;
+    float: left;
+    margin-right: 15px;
+}
+.basicInfo .btn-upload{
+    margin-bottom: 10px;
+}
+
+.form-comb{
+    clear: both;
+}
+
+.basicInfo .form-control{
+    padding:6px 10px;
+}
+
+@media (min-width: 970px) {
+
+    /* 表单输入框的最大宽度 */
+    .basicInfo .form-control{
+        max-width: 400px;
+    }
+
+    /* 所在地区等组合字段的最大宽度，要算上 margin 与padding */
+    .basicInfo .form-comb{
+        max-width: 430px;
+        clear:none;
+    }
+}
+.brand-container{
+    text-align: center;
+    width:60px;
+    margin-right: 15px;
+    float: left;
+}
+.brand-container:last-child{
+    margin-right: 0px;
+}
+.brand-container img{
+    max-width: 100%;
+    max-height: 100%;
+}
+.brand-logo{
+    display: table-cell;
+    vertical-align: middle;
+    height: 60px;
+}
+.brand-container span{
+    margin-top: 10px;
+    color:#666666;
+}
+#protocol{
+    vertical-align: top;
+}
+#submit{
+    width:150px;
+}
+.help-block{
+    margin-bottom: 0px;
 }

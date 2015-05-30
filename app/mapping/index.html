@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>面板        </title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/foot.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../css/mapping.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+          <h2 class="dashboard-title"><span>万物</span></h2>
+          <h4 class="dashboard-subtitle"><img src="..//img/dot.png"/>供应商平台</h4>
+        </div>
+        <div class="dashboard-top-line"><span>
+             
+            客服热线<span class="navbar-phone">028-88888888</span></span><span class="separate"></span><a href="javascript:;">帮助中心</a><span class="separate"></span><a href="javascript:;">趣玩</a><span class="separate"></span><a href="javascript:;">退出</a></div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">                           
+              <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
+              <li id="order_manage" class="collapse in">
+                <ul>
+                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
+                </ul>
+              </li>
+              <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
+              <li id="product_manage" class="collapse">
+                <ul>                                       
+                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
+                </ul>
+              </li>
+              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
+              <li id="brand_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
+                </ul>
+              </li>
+              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
+              <li id="retailer_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../distributor/index.html">分销商列表</a></li>
+                </ul>
+              </li>
+              <li href="#capital_manage" data-toggle="collapse" class="navbar-group-title">财务管理</li>
+              <li id="capital_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../capital/index.html">我的账户</a></li>
+                  <li ui-sref-active="active"><a href="../capital/record.html">交易记录</a></li>
+                </ul>
+              </li>
+              <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
+              <li id="baseinfo_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../info/index.html">账户基本信息    </a></li>
+                  <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
+                  <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
+                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
+                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="mapping">
+          <div class="form-inline row">
+              <div class="form-group col-md-5">
+                  <label for="">万物类目</label>
+                  <div class="category">
+                      <select name="" id="" class="form-control">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4</option>
+                          <option value="">5</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="form-group col-md-2">
+                  <!-- span.glyphicon.glyphicon-transfer{} -->
+                  <label class="selMall" for="selMall">卖家平台</label>
+                  <select name="selMall" id="selMall" class="form-control">
+                      <option value="">1</option>
+                      <option value="">2</option>
+                      <option value="">3</option>
+                      <option value="">4</option>
+                      <option value="">5</option>
+                  </select>
+              </div>
+              <div class="form-group col-md-5">
+                  <label for="">平台类目</label>
+                  <div class="category">
+                      <select name="" id="" class="form-control">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                          <option value="">4</option>
+                          <option value="">5</option>
+                      </select>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有 京ICP备09017905号 </p>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../js/dialog.js"></script>
+  </body>
+</html>

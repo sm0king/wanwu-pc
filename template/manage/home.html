@@ -4,6 +4,7 @@ block title
 
 block header
     link(rel='stylesheet', href='#{basePath}css/manage/home.css')
+    link(rel='stylesheet', href='#{basePath}css/chart.custom.css')
 
 block DashboardTitle
     首页
@@ -99,6 +100,7 @@ block Right
                             th 商品分类
                             th 商品数量
                             tbody#pieDataShow
+        #chartjs-tooltip
 block foot
     script(type='text/javascript',src='#{basePath}plugs/Chart.min.js').
     script(type='text/javascript').
@@ -111,10 +113,9 @@ block foot
             });
 
             //图表部分
-            var marketOption = {responsive: true,pointDot:false,multiTooltipTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%>: ￥<%}%><%= datasets[i].value %></li><%}%></ul>",tooltipTemplate: "<%if (label){%><%=label%>: ￥<%}%><%= value %>"}
-            var branchOption1 = {responsive: true,pointDot:false,tooltipTemplate: "<%if (label){%><%=label%> : <%}%><%= value %> 店铺",}
-            var branchOption2 = {responsive: true,pointDot:false,tooltipTemplate: "<%if (label){%><%=label%> : <%}%><%= value %> 分销商",}
-            var supplierOption = {responsive: true,pointDot:false,tooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>",}
+            var marketOption = {pointDot:false,multiTooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>"}
+            var branchOption = {pointDot:false,multiTooltipTemplate: "<%= value %> <% if(fillColor == '#069dd5') { %>店铺 <% }else{ %>分销商<% } %>",}
+            var supplierOption = {pointDot:false,multiTooltipTemplate: "<%if (label){%><%=label%> : ￥ <%}%><%= value %>",}
             var marketLine = document.getElementById('chart-marketData').getContext('2d');
             var branchLine = document.getElementById('chart-branchData').getContext('2d');
             var supplierLine = document.getElementById('chart-supplierData').getContext('2d');
@@ -124,15 +125,15 @@ block foot
                 datasets:[{
                         fillColor: "transparent",
                         strokeColor: "#069dd5",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
+                        pointStrokeColor: "#069dd5",
+                        pointHighlightFill: "#069dd5",
                         pointHighlightStroke: "rgba(220,220,220,1)",
                         data: [65, 59, 80, 81, 56, 55, 40]
                     },{
                         fillColor: "transparent",
                         strokeColor: "#4cbd4e",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
+                        pointStrokeColor: "#4cbd4e",
+                        pointHighlightFill: "#4cbd4e",
                         pointHighlightStroke: "rgba(151,187,205,1)",
                         data: [28, 48, 40, 19, 86, 27, 90]
                     }]
@@ -142,15 +143,15 @@ block foot
                 datasets:[{
                         fillColor: "transparent",
                         strokeColor: "#069dd5",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
+                        pointStrokeColor: "#069dd5",
+                        pointHighlightFill: "#069dd5",
                         pointHighlightStroke: "rgba(220,220,220,1)",
                         data: [65, 59, 80, 81, 56, 55, 40]
                     },{
                         fillColor: "transparent",
                         strokeColor: "#4cbd4e",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
+                        pointStrokeColor: "#4cbd4e",
+                        pointHighlightFill: "#4cbd4e",
                         pointHighlightStroke: "rgba(151,187,205,1)",
                         data: [28, 48, 40, 19, 86, 27, 90]
                     }]
@@ -160,15 +161,15 @@ block foot
                 datasets:[{
                         fillColor: "transparent",
                         strokeColor: "#069dd5",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
+                        pointStrokeColor: "#069dd5",
+                        pointHighlightFill: "#069dd5",
                         pointHighlightStroke: "rgba(220,220,220,1)",
                         data: [65, 59, 80, 81, 56, 55, 40]
                     },{
                         fillColor: "transparent",
                         strokeColor: "#4cbd4e",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
+                        pointStrokeColor: "#4cbd4e",
+                        pointHighlightFill: "#4cbd4e",
                         pointHighlightStroke: "rgba(151,187,205,1)",
                         data: [28, 48, 40, 19, 86, 27, 90]
                     }]
@@ -176,7 +177,7 @@ block foot
 
             //画线
             window.xxx = new Chart(marketLine).Line(marketData, marketOption);
-            new Chart(branchLine).Line(branchData, branchOption1);
+            new Chart(branchLine).Line(branchData, branchOption);
             new Chart(supplierLine).Line(supplierData, supplierOption);
             var pieSet ={tooltipTemplate: "<%if (label){%><%=label%> :  <%}%><%= value %>"}
             var pieData =[{

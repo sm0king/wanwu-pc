@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>面板        </title>
+    <link rel="stylesheet" href="../../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../../css/main.css"/>
+    <link rel="stylesheet" href="../../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../../css/foot.css"/>
+    <link rel="stylesheet" href="../../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../../css/manage/product.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            供应商管理</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li class="loginInfo">
+                <div class="row">
+                  <div class="col-md-6">[登录用户]</div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
+                </div>
+              </li>
+              <li ui-sref-active="active"><a href="../../manage/home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../../manage/supplier/index.html">供应商管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/album/index.html">专辑管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/complaint/index.html">投诉管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/report/index.html">举报管理</a></li>
+              <li ui-sref-active="active"><a href="../../manage/account/index.html">账号设置</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="product">
+          <form class="form-inline searchForm">
+            <div class="form-group">
+              <label for="productName" class="control-label">商品名称：</label>
+              <input type="text" id="productName" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <label for="supplier" class="control-label">供应商：</label>
+              <input type="text" id="supplier" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <label for="state" class="control-label">上架状态：</label>
+              <select id="state" class="form-control">
+                <option value="0">全部</option>
+                <option value="0">已上架</option>
+                <option value="0">已下架</option>
+              </select>
+            </div>
+            <div class="clearfix">
+              <button class="btn btn-blue">查询</button>
+            </div>
+          </form>
+          <div class="table-responsive product-table">
+            <table class="table table-bordered">
+              <tbody>
+                <tr class="titleTR">
+                  <td>供应商</td>
+                  <td>商品图片</td>
+                  <td>详细信息</td>
+                  <td>分销价</td>
+                  <td>库存</td>
+                  <td>上架</td>
+                  <td>操作</td>
+                </tr>
+                <tr class="dataTR">
+                  <td>趣玩</td>
+                  <td> <img src="../../img/logo.png" class="productImg"/></td>
+                  <td class="product-info">
+                    <p>美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画···</p>
+                    <div><a href="javascript:;" class="blue">箱包皮具</a><a href="javascript:;" class="blue">热销女包</a><a href="javascript:;" class="blue">男包</a></div>
+                  </td>
+                  <td>￥388.00</td>
+                  <td>50</td>
+                  <td><a class="btn-ok"></a></td>
+                  <td> <a href="../product/detail.html" class="btn-view"></a></td>
+                </tr>
+                <tr class="titleTR">
+                  <td>供应商</td>
+                  <td>商品图片</td>
+                  <td>详细信息</td>
+                  <td>分销价</td>
+                  <td>库存</td>
+                  <td>上架</td>
+                  <td>操作</td>
+                </tr>
+                <tr class="dataTR">
+                  <td>趣玩</td>
+                  <td> <img src="../../img/logo.png" class="productImg"/></td>
+                  <td class="product-info">
+                    <p>美国进口53 Paper pencil 蓝牙触控笔ipad电容笔 高精度电容笔 绘画···</p>
+                    <div><a href="javascript:;" class="blue">箱包皮具</a><a href="javascript:;" class="blue">热销女包</a><a href="javascript:;" class="blue">男包</a></div>
+                  </td>
+                  <td>￥388.00</td>
+                  <td>50</td>
+                  <td><a class="btn-fork"></a></td>
+                  <td> <a href="../product/detail.html" class="btn-view"></a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <nav class="clearfix">
+              <ul class="pull-right pagination">
+                <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#" class="more">...</a></li>
+                <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                <li class="pagin-extend">共<i class="totalPage">7</i>页，到第
+                  <input type="text" class="text-input"/>页
+                  <button type="button" class="btn btn-blue">确定</button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有</p>
+    </div>
+    <script type="text/javascript" src="../../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../../js/dialog.js"></script>
+  </body>
+</html>

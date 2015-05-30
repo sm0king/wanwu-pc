@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>面板        </title>
+    <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
+    <link rel="stylesheet" href="../css/main.css"/>
+    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../css/foot.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/product.css"/>
+  </head>
+  <body>
+    <div id="wrapper">
+      <nav role="navigation" style="margin-bottom: 0" class="navbar navbar-default navbar-static-top">
+        <div class="navbar-header">
+          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="index.html" class="navbar-brand"></a>
+          <h3 class="navbar-line">            在售分销商</h3>
+        </div>
+        <div role="navigation" class="navbar-default sidebar">
+          <div class="sidebar-nav navbar-collapse">
+            <ul id="side-menu" class="nav in">
+              <li class="loginInfo">
+                <div class="row">
+                  <div class="col-md-6">[登录用户]</div>
+                  <div class="col-md-6"><a href="javascript:;" class="logout">[ 退出 ]</a></div>
+                </div>
+              </li>
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li ui-sref-active="active"><a href="../order/index.html">订单管理</a></li>
+              <li ui-sref-active="active"><a href="../product/index.html">商品管理</a></li>
+              <li ui-sref-active="active"><a href="../Brand/index.html">品牌管理</a></li>
+              <li ui-sref-active="active"><a href="../distributor/index.html">分销商管理</a></li>
+              <li ui-sref-active="active"><a href="../capital/index.html">资金管理</a></li>
+              <li ui-sref-active="active"><a href="../info/index.html">信息维护    </a></li>
+              <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-address">首页 > 商品管理 > 商品详情        </div>
+      </nav>
+      <div id="page-wrapper">
+        <div class="retailer">
+          <div class="page-header">
+            <div class="row">
+              <div class="col-lg-2"><img src="../img/logo.png" class="img-thumbnail retailer-img"/></div>
+              <div class="col-lg-10">
+                <p class="product-name">苹果（Apple）iPhone 6 Plus (A1593) 16GB 深空灰色 移动4G手机</p>
+                <p class="grayText">食物>饮料>茶叶</p>
+              </div>
+            </div>
+          </div>
+          <p class="retailer-count">在售分销商，共<span class="red">56</span>家</p>
+          <table class="table table-bordered retailer-table">
+            <thead>
+              <tr>
+                <td>分销商名称</td>
+                <td>上架店铺</td>
+                <td>销量（30天）</td>
+                <td>销售额（30天）</td>
+                <td>联系分销商</td>
+                <td>是否允许分销</td>
+              </tr>
+            </thead>
+            <tbody id="retailerRows">
+              <tr>
+                <td class="leftTitle">分销商店铺名</td>
+                <td> 
+                  <div class="default"> <a href="javascript:;" class="shops">3 / 3</a></div>
+                </td>
+                <td>
+                  <div class="default text">120</div>
+                </td>
+                <td>
+                  <div class="default text">120</div>
+                </td>
+                <td>
+                  <div class="default text"><a class="contact"></a></div>
+                </td>
+                <td>
+                  <div class="default">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"/>允许分销
+                      </label>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="foot">
+            <nav class="clearfix">
+              <ul class="pull-right pagination">
+                <li><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#" class="more">...</a></li>
+                <li><a href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+                <li class="pagin-extend">共<i class="totalPage">7</i>页，到第
+                  <input type="text" class="text-input"/>页
+                  <button type="button" class="btn btn-blue">确定</button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div id="retailerDetail" class="retailerDetail">
+            <div class="table-responsive">
+              <table class="table table-bordered retailer-table">
+                <thead>
+                  <tr>
+                    <td>上架店铺</td>
+                    <td>销量</td>
+                    <td>销售额</td>
+                    <td>联系分销商</td>
+                    <td>是否允许分销</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="leftTitle">分销商店铺名</td>
+                    <td>
+                      <div class="default text">120</div>
+                    </td>
+                    <td>
+                      <div class="default text">120</div>
+                    </td>
+                    <td>
+                      <div class="default text"><a class="contact"></a></div>
+                    </td>
+                    <td>
+                      <div class="default">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox"/>允许分销
+                          </label>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="bottomBar">
+              <button type="button" class="closeretailerDetail btn btn-blue pull-right">关闭</button>
+              <div class="clearfix"></div>
+            </div><a href="javascript:;" class="closeretailerDetail btn-gray-x-big"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+    <p><a href="javascript:void(0);">服务协议</a>| <a href="javascript:void(0);">联系我们</a></p>
+    <p class="comp">Copyright &copy; 2015 万物wanwu.com版权所有</p>
+    </div>
+    <script type="text/javascript" src="../plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="../plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+    <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
+    <script type="text/javascript" src="../js/sb-admin-2.js"></script>
+    <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript" src="../js/jquery.extend.js"></script>
+    <script type="text/javascript">
+      $(function(){
+          var jqDialog = $('#retailerDetail');
+          jqDialog.find('.closeretailerDetail').click(function(){ $(this).parents('.retailerDetail:first').hide(); });
+          $(document.body).delegate('a.shops','click', function(e){
+              jqDialog.center();
+          });
+      });
+    </script>
+  </body>
+</html>
