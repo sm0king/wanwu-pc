@@ -118,6 +118,9 @@
             <div id="selector-container"></div>
             <div class="status-bar alert alert-warning">
               <p><span>您当前选择的类目：</span><span id="choice"> </span></p>
+              <p id="search"><span>请选择类目</span>
+                <ul id="searchChoice" class="searchChoice"></ul>
+              </p>
               <p>
                 <sapn>类目说明：</sapn><span id="catalog-explain"></span>
               </p>
@@ -178,15 +181,18 @@
       
           $('#btn-search').click(function(){
               keyword = $.trim($('#input-groom').val());
-              selector.reset();
+              //selector.reset();
+              //搜索所有符合的类目
+              searchCata(keyword)
           });
-      
+          /* 暂时不使用。
           $('#input-groom').keyup(function(e){
               if((e.keyCode || e.charCode) == 13){
                   $('#btn-search').click();
                   return false;
               }
           });
+          */
       
           $('form').bind('submit',function(){
               return false;
@@ -195,6 +201,47 @@
           $('#btn-doNext').click(function(){
               console.log(selector.getValue());
           });
+      
+          function searchCata(name,callback){
+              //url supplier
+              $.ajax({
+                  method: "POST",
+                  dataType:'json',
+                  url:"http://123.59.58.104/supplier/product/add/search_category_by_name",
+                  data:{cat_name:name}
+              }).success(function(data){
+                  var dataLength = data.length;
+                  for(var i = 0;i < dataLength;i++){
+                      var cataD = fid(data[i],[]);
+                      var level = cataD.length;
+                      var dataHtml = ""
+                      for(var j = level ; j>1 ;j--){
+                          dataHtml +=cataD[j-1]+'<i> >> </i>';
+                      }
+                      dataHtml += cataD[0]
+                      dataHtml = '<li class="seachData" data="'+i+'">'+dataHtml+'</li>';
+                      $("#searchChoice").append(dataHtml);
+                  }
+                  $('#searchChoice').on('click','.seachData',function(){
+                      var dID = $(this).attr('data');
+                      var clickData = data[dID];
+                  })
+              }).error(function(data){
+                  debugger
+              })
+          };
+          function fid(data,cataData){
+              if(data && data.level>0){
+                  if(data.parentCat){
+                      var tm =[{text:data.catName,hasChild}]
+              }
+                  var tm =[data.catName]
+                  cataData = $.merge(cataData,tm)
+                  return fid(data.parentCat,cataData)
+              }else{
+                  return cataData;
+              }
+          }
       });
     </script>
   </body>
