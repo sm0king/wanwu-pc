@@ -4,9 +4,10 @@
 
 .order .headBar{
     height: 50px;
-    padding:9px 15px;
-    border:1px #e2e2e2 solid;
-    margin-top: -1px;
+    padding:9px 0px;
+    /*border:1px #e2e2e2 solid;*/
+    /*margin-top: -1px;*/
+    margin: 12px 0;
     line-height: 27px;
 }
 
@@ -29,7 +30,7 @@
 }
 
 .order .orderlist{
-    margin-top: 18px;
+    margin-top: 5px;
 }
 
 .order td{
@@ -287,4 +288,35 @@
     display: block;
     margin-top: -25px;
     padding-left: 10px;
+}
+.indexH3{
+    line-height: 2;
+    border-bottom: 1px solid #ddd;
+}
+.indexH3:before{
+    display: inline-block;
+    content:' ';
+    width:2px;
+    height:20px;
+    vertical-align: middle;
+    margin-right: 6px;
+    background-color: rgb(0,153,204);
+}
+.queryOrder .form-inline .form-group{
+    margin:10px 0;
+}
+.queryOrder .form-group .w140{
+    width:140px;
+}
+.queryOrder  .form-inline .orderName{
+    width:299px;
+}
+.order .nav-custom.nav-tabs>li.active>a, .order .nav-custom.nav-tabs>li.active>a:hover{
+    border-color: #fff;
+    border-bottom: 3px #069dd5 solid;
+}
+.order .nav-custom.nav{
+    border:none;
+    border-bottom: 1px solid #ddd;
+    margin-top: 20px;
 }

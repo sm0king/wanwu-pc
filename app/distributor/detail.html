@@ -29,36 +29,50 @@
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
-              <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
-              <li id="order_manage" class="collapse in">
-                <ul>
-                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
-                </ul>
+              <li ui-sref-active="active" class="navbar-group-title fiactive"><a href="../home.html">首页</a></li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title"><a href="../order/index.html">我的订单</a>
+                <!--
+                li#order_manage.collapse
+                    ul
+                        li(ui-sref-active='active')
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 已发货订单
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 退款订单
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 所有订单
+                
+                -->
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
                 <ul>                                       
-                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
-                </ul>
-              </li>
-              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
-              <li id="brand_manage" class="collapse">
-                <ul>
+                  <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
+                  <li ui-sref-active="active"><a href="../product/catalogChoice.html">单件商品添加</a></li>
+                  <li ui-sref-active="active"><a href="../product/batch.html">批量导入商品</a></li>
                   <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 品牌管理
+                  -->
                 </ul>
               </li>
-              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
-              <li id="retailer_manage" class="collapse">
-                <ul>
-                  <li ui-sref-active="active"><a href="../distributor/index.html">分销商列表</a></li>
-                </ul>
+              <!--
+              li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
+                  | 品牌管理
+              li#brand_manage.collapse
+                  ul
+                      li(ui-sref-active='active')
+                          a(href='../Brand/index.html') 品牌列表
+              
+              -->
+              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title"><a href="../distributor/index.html">分销商列表</a>
+                <!--
+                li#retailer_manage.collapse
+                    ul
+                        li(ui-sref-active='active')
+                
+                -->
               </li>
               <li href="#capital_manage" data-toggle="collapse" class="navbar-group-title">财务管理</li>
               <li id="capital_manage" class="collapse">
@@ -70,12 +84,21 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/index.html">账户基本信息    </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='../info/index.html') 基本信息   
+                  -->
+                  <li ui-sref-active="active"><a href="../info/basicinfo.html">完善认证信息    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
+                  <li ui-sref-active="active"><a href="../info/paymessage.html">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
-                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 交易记录
+                  li(ui-sref-active='active')
+                      a(href='../message/index.html') 站内信  
+                  
+                  -->
                 </ul>
               </li>
             </ul>

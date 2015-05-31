@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
-    <title>订单详情</title>
+    <title>支付信息设置</title>
     <link rel="stylesheet" href="../plugs/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../css/foot.css"/>
     <link rel="stylesheet" href="../css/sb-admin-2.css"/>
-    <link rel="stylesheet" href="../css/order.css"/>
+    <link rel="stylesheet" href="../css/info.css"/>
   </head>
   <body>
     <div id="wrapper">
@@ -104,70 +104,63 @@
         </div>
       </nav>
       <div id="page-wrapper">
-        <div class="order detail">
-          <h2>订单信息</h2>
-          <p> <span>订单号：</span>8779641532</p>
-          <p> <span>收 货 人：</span>张三</p>
-          <p> <span>地    址：</span>四川成都市高新区绕城环线以外天府软件园B区B3栋503</p>
-          <p> <span>手机号码：</span>151****7768</p>
-          <p> <span>邮编：</span>610041</p>
-          <p> <span>电子邮箱：</span>service@quwan.com</p>
-          <p> <span>下单时间：</span>2015-03-12  17:38:48</p>
-          <p> <span>备注：</span>不加盐不加醋</p>
-          <h2>支付信息</h2>
-          <p> <span>支付状态：</span>已支付</p>
-          <p> <span>分销价格：</span>109.00</p>
-          <p> <span>支付金额：</span>109.00</p>
-          <p> <span>付款时间：</span>2015-03-12  17:38:48</p>
-          <h2>快递信息</h2>
-          <p> <span>快递公司：</span>顺丰速运</p>
-          <p> <span>运单号：</span>123456789</p>
-          <p> <span>发货时间：</span>2013-7-11   15:49:43</p>
-          <h2>订单状态</h2>
-          <div class="table-responsive streamTable">
-            <table class="table">
-              <thead>
-                <tr>
-                  <td class="timeTD">时间</td>
-                  <td class="tdcon">状态</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="tdlf">2015-3-12 16:12:27</td>
-                  <td class="tdcon">您的订单开始处理</td>
-                </tr>
-                <tr>
-                  <td class="tdlf">2015-3-12 16:12:31</td>
-                  <td class="tdcon">您的订单待配货</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <h2>商品清单</h2>
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-                <tr>
-                  <td>商品编号</td>
-                  <td>商品名称</td>
-                  <td>售价</td>
-                  <td>分销价</td>
-                  <td>数量</td>
-                  <td>分销总额</td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>XXXXXXXXX</td>
-                  <td> <a href="javascript:;" class="blue">美国进口53 Paper pencil 蓝牙触控笔</a></td>
-                  <td>￥300.00</td>
-                  <td>￥320.00</td>
-                  <td>50</td>
-                  <td>16000.00</td>
-                </tr>
-              </tbody>
-            </table>
+        <div class="info">
+          <h4 class="indexH3">支付信息维护</h4>
+          <div class="row">
+            <div class="col-md-6">
+              <form class="form-horizontal pwdForm">
+                <div class="form-group">
+                  <label class="control-label col-lg-4">国内银行：</label>
+                  <div class="col-lg-8">
+                    <select class="form-control">
+                      <option value="7">建设银行</option>
+                      <option value="8">工商银行</option>
+                      <option value="9">招商银行</option>
+                      <option value="10">中国银行</option>
+                      <option value="11">农业银行</option>
+                      <option value="12">交通银行</option>
+                      <option value="13">浦发银行</option>
+                      <option value="14">广发银行</option>
+                      <option value="15">中信银行</option>
+                      <option value="16">光大银行</option>
+                      <option value="17">兴业银行</option>
+                      <option value="18">平安银行</option>
+                      <option value="19">民生银行</option>
+                      <option value="20">华夏银行</option>
+                      <option value="21">邮储银行</option>
+                      <option value="22">北京银行</option>
+                      <option value="23">上海银行</option>
+                      <option value="24">渤海银行</option>
+                      <option value="25">上海农商</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-lg-4">开户行名称：</label>
+                  <div class="col-lg-8">
+                    <input class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-lg-4">银行卡号：</label>
+                  <div class="col-lg-8">
+                    <input class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="control-label col-lg-4">收款人/收款公司：</label>
+                  <div class="col-lg-8">
+                    <input class="form-control"/>
+                  </div>
+                </div>
+              </form>
+              <div class="row">
+                <div class="col-lg-4">&nbsp;</div>
+                <div class="col-lg-8 btnBar">
+                  <button class="btn btn-blue">保存</button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

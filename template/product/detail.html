@@ -11,7 +11,7 @@ block DashboardTitle
 
 block Right
     form(action='#').form-horizontal.product-detail.
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label for="taobaoLink" class="control-label">淘宝链接：</label>
             <div class="col-md-6">
                 <input type="text" id="taobaoLink" class="form-control">
@@ -28,257 +28,329 @@ block Right
                     </div>
                 </a>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="productName" class="control-label require">商品名称：</label>
-            <div class="col-md-6">
-                <input type="text" id="productName" class="form-control" ng-model="productName">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label">分类：</label>
-            <div class="col-md-8 catalog">
-                <div class="row">
-                    <div class="col-lg-3 col-md-4">
-                        <select id="product-catalog-1" class="form-control">
-                            <option value="1">分类</option>
-                            <option value="2">分类aaaaaaaaaaaaaaaaaaaaaa</option>
-                            <option value="3">分类</option>
-                        </select>
-                    </div>  
-                    <div class="col-lg-3 col-md-4">
-                        <select id="product-catalog-2" class="form-control">
-                            <option value="1">分类</option>
-                            <option value="2">分类</option>
-                            <option value="3">分类</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-3 col-md-4">
-                        <select id="product-catalog-2" class="form-control">
-                            <option value="1">分类</option>
-                            <option value="2">分类</option>
-                            <option value="3">分类</option>
-                        </select>
-                    </div>  
-                    <div class="col-lg-3 col-md-4">
-                        <select id="product-catalog-2" class="form-control">
-                            <option value="1">分类</option>
-                            <option value="2">分类</option>
-                            <option value="3">分类</option>
-                        </select>
-                    </div>  
-                    <div class="col-lg-3 col-md-4">
-                        <input type="text" class="form-control">
-                    </div>                 
-                    <div class="col-lg-3 col-md-4">
-                        <button class="btn btn-blue btn-block btn-icon-magnifier" type="button"><span class="glyphicon glyphicon-search"></span>查询</button>
+        </div> -->
+        <div class="panel panel-default">
+            <div class="panel-heading">商品基本信息</div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="productName" class="control-label require">商品名称：</label>
+                    <div class="col-md-6">
+                        <input type="text" id="productName" class="form-control">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-body">
-                                <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
-                                <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
-                                <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                <div class="form-group">
+                    <label class="control-label">商品分类：</label>
+                    <div class="col-md-8 catalog">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4">
+                                <select id="product-catalog-1" class="form-control" readonly>
+                                    <option value="1">分类</option>
+                                </select>
                             </div>
+                            <a href="javascript:;" class="resort">修改分类</a>  
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                                        <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                                        <div><a href="javascript:;">XXXX>XXXX>XXXX</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="productAttr" class="control-label">商品属性：</label>
+                    <div class="col-md-10 attributes">
+                        <div class="m-attribute">
+                            <div class="attribute" id="attributes">
+                                <label for="" class="control-label">材质</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="attribute">
+                                <label for="" class="control-label">类型</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="attribute">
+                                <label for="" class="control-label">品牌</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="attribute">
+                                <label for="" class="control-label">货号</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="attribute">
+                                <label for="" class="control-label">产地</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="attribute">
+                                <label for="" class="control-label">货号</label>
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="m-addattr">
+                            <a href="javascript:;">添加商品属性</a>
+                            <span class="grey">如果您觉得我们提供的商品属性无法满足您的需求，您可以手动添加产品属性</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="productDescription" class="control-label">商品描述：</label>
-            <div class="col-md-6">
-                <textarea id="productDescription" rows="10"></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="productBrand" class="control-label require">品牌：</label>
-            <div class="col-md-3">
-                <select id="productBrand" class="form-control">
-                    <option value="1">品牌</option>
-                    <option value="2">品牌</option>
-                    <option value="3">品牌</option>
-                </select>
-            </div>
-            <div class="col-md-6 text-cell">
-                仅可选择本供应商已审核品牌，若还未添加品牌，请<a href="javascript:;">在此添加</a>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="" class="control-label">商品价格：</label>
-            <div class="col-md-6">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-center customTable table-price">
-                        <thead>
-                            <tr>
-                                <td class="require">购买数量</td>
-                                <td class="require">价格</td>
-                                <td class="col-operator">操作</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><div class="buyNumber">1</div></td>
-                                <td>80</td>
-                                <td>
-                                    <a href="javascript:;" class="btn-dustbin"></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <div class="buyNumber"><input type="text" class="form-control"></div>
-                                </td>
-                                <td><input type="text" class="form-control"></td>
-                                <td>
-                                    <a href="javascript:;" class="btn-ok save"></a>
-                                    <a href="javascript:;" class="btn-dustbin"></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="form-group">
+                    <label for="productModel" class="control-label">商品规格：</label>
+                    <div class="col-md-7">
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-center customTable table-model">
+                                <thead>
+                                    <tr>
+                                        <td class="require">型号</td>
+                                        <td class="require">库存</td>
+                                        <td>重量(kg)</td>
+                                        <td>操作</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>默认型号</td>
+                                        <td>300</td>
+                                        <td>12.5</td>
+                                        <td>
+                                            <a href="javascript:;" class="btn-dustbin"></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td><input type="text" class="form-control"></td>
+                                        <td>
+                                            <a href="javascript:;" class="btn-ok save"></a>
+                                            <a href="javascript:;" class="btn-dustbin"></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <a href="javascript:;" class="blue">+增加型号</a>
+                    </div>
                 </div>
-                <a href="javascript:;" class="blue">+增加价格区间</a>
             </div>
         </div>
-        <div class="form-group">
-            <label for="productAdvice" class="control-label">参考零售价：</label>
-            <div class="col-md-3">
-                <input id="productAdvice" type="text" class="form-control">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="productModel" class="control-label">商品规格：</label>
-            <div class="col-md-7">
-                <div class="table-responsive">
-                    <table class="table table-bordered table-center customTable table-model">
-                        <thead>
-                            <tr>
-                                <td class="require">型号</td>
-                                <td class="require">库存</td>
-                                <td>重量(kg)</td>
-                                <td>操作</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>默认型号</td>
-                                <td>300</td>
-                                <td>12.5</td>
-                                <td>
-                                    <a href="javascript:;" class="btn-dustbin"></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="text" class="form-control"></td>
-                                <td><input type="text" class="form-control"></td>
-                                <td>
-                                    <a href="javascript:;" class="btn-ok save"></a>
-                                    <a href="javascript:;" class="btn-dustbin"></a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <a href="javascript:;" class="blue">+增加型号</a>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="productLocation" class="control-label">商品所在地：</label>
-            <div class="col-md-3">
-                <input id="productLocation" type="text" class="form-control">
-            </div>
-            <div class="col-md-4">
-                <a href="javascript:;" class="blue">默认供应商所在省</a>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="productLocation" class="control-label require">商品图片：</label>
-            <div class="col-md-9 product-images">
-                <!-- <button class="btn btn-default" type="buttn">上传图片</button>图片大小请控制在150K以内
-                <div class="row product-images"> -->
-                    <div>
-                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
-                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
-                    </div>
-                    <div>
-                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
-                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
-                    </div>
-                    <div>
-                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
-                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
-                    </div>
-                    <div>
-                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
-                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
-                    </div>
-                    <div>
-                        <a href="javascript:;" class="upload"></a>
-                        <input type="file" id="fileupload" name="mypic" class="fileupload">
-                    </div>
-                    <span class="gray">
-                        每张图片大小请控制在150K以内
-                    </span>
-                <!-- </div> -->
+        <div class="panel panel-default">
+            <div class="panel-heading">商品销售信息</div>
+            <div class="panel-body">
+                        <!-- <div class="form-group">
+                            <label for="marketprice" class="control-label require">市场价：</label>
+                            <div class="col-md-3">
+                                <input type="text" id="marketprice" class="form-control">
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group">
+                            <label for="formPrice" class="control-label">建议零售价</label>
+                            <input type="text" name="formPrice" id="formPrice" class="formPrice form-control">
+                            <span class="to">至</span>
+                            <input type="text" name="toPrice" id="toPrice" class="toPrice form-control">
+                        </div> -->
+                        <div class="form-group">
+                            <label for="" class="control-label">分销价：</label>
+                            <div class="col-md-6">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-center customTable table-price">
+                                        <thead>
+                                            <tr>
+                                                <td class="require">购买数量</td>
+                                                <td class="require">价格</td>
+                                                <td class="col-operator">操作</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><div class="buyNumber">1</div></td>
+                                                <td>80</td>
+                                                <td>
+                                                    <a href="javascript:;" class="btn-dustbin"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="buyNumber"><input type="text" class="form-control"></div>
+                                                </td>
+                                                <td><input type="text" class="form-control"></td>
+                                                <td>
+                                                    <a href="javascript:;" class="btn-ok save"></a>
+                                                    <a href="javascript:;" class="btn-dustbin"></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <a href="javascript:;" class="blue">+增加价格区间</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="purchprice" class="control-label require">建议零售价：</label>
+                            <div class="col-md-3">
+                                <input type="text" id="purchprice" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productDescription" class="control-label">商品描述：</label>
+                            <div class="col-md-6">
+                                <textarea id="productDescription" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <label class="control-label">颜色分类：</label>
+                            <div class="m-sorts">
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                <div class="sort">
+                                    <label>
+                                        <input type="checkbox"><i class="sortColor"></i>颜色</input>
+                                    </label>
+                                </div>
+                                
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group">
+                            <label for="productBrand" class="control-label require">品牌：</label>
+                            <div class="col-md-3">
+                                <select id="productBrand" class="form-control">
+                                    <option value="1">品牌</option>
+                                    <option value="2">品牌</option>
+                                    <option value="3">品牌</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 text-cell">
+                                仅可选择本供应商已审核品牌，若还未添加品牌，请<a href="javascript:;">在此添加</a>
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group">
+                            <label for="productAdvice" class="control-label">参考零售价：</label>
+                            <div class="col-md-3">
+                                <input id="productAdvice" type="text" class="form-control">
+                            </div>
+                        </div> -->
+                        <div class="form-group">
+                            <label for="productLocation" class="control-label">商品所在地：</label>
+                            <div class="col-md-3">
+                                <input id="productLocation" type="text" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <a href="javascript:;" class="blue">默认供应商所在省</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="productLocation" class="control-label require">商品图片：</label>
+                            <div class="col-md-9 product-images">
+                                <!-- <button class="btn btn-default" type="buttn">上传图片</button>图片大小请控制在150K以内
+                                <div class="row product-images"> -->
+                                    <div>
+                                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                                    </div>
+                                    <div>
+                                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                                    </div>
+                                    <div>
+                                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                                    </div>
+                                    <div>
+                                        <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                                        <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                                    </div>
+                                    <div>
+                                        <a href="javascript:;" class="upload"></a>
+                                        <input type="file" id="fileupload" name="mypic" class="fileupload">
+                                    </div>
+                                    <span class="gray">
+                                        每张图片大小请控制在150K以内
+                                    </span>
+                                <!-- </div> -->
 
+                            </div>
+                        </div>
+                        <!-- <div class="row desc">
+                            <div class="stdLeft"></div>
+                            <div class="col-md-9">
+                                <span class="gray">
+                                    每张图片大小请控制在150K以内
+                                </span>
+                            </div>                
+                        </div> -->
+                        <div class="form-group">
+                            <label class="control-label">商品详情：</label>
+                            <div class="col-md-9">
+                                <script id="productDetail" name="content" type="text/plain"></script>
+                            </div>   
+                        </div>
+                        <div class="row desc">
+                            <div class="stdLeft"></div>
+                            <div class="col-md-9">
+                                <div class="gray ">
+                                    图片大小请控制在150K以内
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">热门标签：</label>
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="tagsinput" id="tagsinput">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="stdLeft"></div>
+                            <dib class="col-md-9">
+                                <div class="row product-hotflags" id="flags">
+                                    <div class="">
+                                        <button type="button" >春节</button>
+                                    </div>
+                                    <div class="">
+                                        <button type="button" >抱枕</button>
+                                    </div>
+                                    <div class="">
+                                        <button type="button" >抱枕</button>
+                                    </div>
+                                    <div class="">
+                                        <button type="button" >抱枕</button>
+                                    </div>
+                                    <div class="">
+                                        <button type="button" >抱枕</button>
+                                    </div>
+                                    <div class="">
+                                        <button type="button" >春节</button>
+                                    </div>
+                                </div>
+                            </dib>
+                        </div>
             </div>
         </div>
-        <!-- <div class="row desc">
-            <div class="stdLeft"></div>
-            <div class="col-md-9">
-                <span class="gray">
-                    每张图片大小请控制在150K以内
-                </span>
-            </div>                
-        </div> -->
-        <div class="form-group">
-            <label class="control-label">商品详情：</label>
-            <div class="col-md-9">
-                <script id="productDetail" name="content" type="text/plain"></script>
-            </div>   
-        </div>
-        <div class="row desc">
-            <div class="stdLeft"></div>
-            <div class="col-md-9">
-                <div class="gray ">
-                    图片大小请控制在150K以内
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label">热门标签：</label>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="tagsinput" id="tagsinput">
-            </div>
-        </div>
-        <div class="row">
-            <div class="stdLeft"></div>
-            <dib class="col-md-9">
-                <div class="row product-hotflags" id="flags">
-                    <div class="">
-                        <button type="button" >春节</button>
-                    </div>
-                    <div class="">
-                        <button type="button" >抱枕</button>
-                    </div>
-                    <div class="">
-                        <button type="button" >抱枕</button>
-                    </div>
-                    <div class="">
-                        <button type="button" >抱枕</button>
-                    </div>
-                    <div class="">
-                        <button type="button" >抱枕</button>
-                    </div>
-                    <div class="">
-                        <button type="button" >春节</button>
-                    </div>
-                </div>
-            </dib>
-        </div>
+
         <div class="row">
             <div class="stdLeft"></div>
             <div class="col-md-9">
@@ -288,8 +360,9 @@ block Right
         <div class="row">
             <div class="stdLeft"></div>
             <div class="col-md-4">
-                <button type="button" class="btn btn-blue">下一步</button>
-                <a href="javascript:;" class="saveAndBack">保存后返回列表</a>
+                <button type="button" class="btn btn-blue">提交产品</button>
+                <button type="button" class="btn btn-blue">保存草稿</button>
+                <!-- <a href="javascript:;" class="saveAndBack">保存后返回列表</a> -->
             </div>
         </div>
 block foot 

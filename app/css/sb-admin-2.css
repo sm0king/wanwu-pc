@@ -5,9 +5,9 @@
  */
 
 body {
-    background-color: rgb(234,237,241);
-    font-family: 微软雅黑,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    padding-bottom: 0px;
+    background-color: white;/*rgb(234,237,241);*/
+    font-family: 微软雅黑 "Helvetica Neue",Helvetica,Arial,sans-serif;
+    margin-bottom: 162px;
 }
 a{
     cursor: pointer;
@@ -138,7 +138,7 @@ a{
     line-height: 42px;
 }
 
-.sidebar ul li a.active {
+.sidebar .nav ul li a.active {
     background-color: #eee;
 }
 

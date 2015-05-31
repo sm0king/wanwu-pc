@@ -27,36 +27,50 @@
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
-              <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
-              <li id="order_manage" class="collapse in">
-                <ul>
-                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
-                </ul>
+              <li ui-sref-active="active" class="navbar-group-title fiactive"><a href="../home.html">首页</a></li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title"><a href="../order/index.html">我的订单</a>
+                <!--
+                li#order_manage.collapse
+                    ul
+                        li(ui-sref-active='active')
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 已发货订单
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 退款订单
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 所有订单
+                
+                -->
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
                 <ul>                                       
-                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
-                </ul>
-              </li>
-              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
-              <li id="brand_manage" class="collapse">
-                <ul>
+                  <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
+                  <li ui-sref-active="active"><a href="../product/catalogChoice.html">单件商品添加</a></li>
+                  <li ui-sref-active="active"><a href="../product/batch.html">批量导入商品</a></li>
                   <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 品牌管理
+                  -->
                 </ul>
               </li>
-              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
-              <li id="retailer_manage" class="collapse">
-                <ul>
-                  <li ui-sref-active="active"><a href="../distributor/index.html">分销商列表</a></li>
-                </ul>
+              <!--
+              li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
+                  | 品牌管理
+              li#brand_manage.collapse
+                  ul
+                      li(ui-sref-active='active')
+                          a(href='../Brand/index.html') 品牌列表
+              
+              -->
+              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title"><a href="../distributor/index.html">分销商列表</a>
+                <!--
+                li#retailer_manage.collapse
+                    ul
+                        li(ui-sref-active='active')
+                
+                -->
               </li>
               <li href="#capital_manage" data-toggle="collapse" class="navbar-group-title">财务管理</li>
               <li id="capital_manage" class="collapse">
@@ -68,12 +82,21 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/index.html">账户基本信息    </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='../info/index.html') 基本信息   
+                  -->
+                  <li ui-sref-active="active"><a href="../info/basicinfo.html">完善认证信息    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
+                  <li ui-sref-active="active"><a href="../info/paymessage.html">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
-                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 交易记录
+                  li(ui-sref-active='active')
+                      a(href='../message/index.html') 站内信  
+                  
+                  -->
                 </ul>
               </li>
             </ul>
@@ -82,35 +105,26 @@
       </nav>
       <div id="page-wrapper">
         <div class="info">
-          <ul class="nav nav-tabs nav-custom">
-            <li role="presentation"><a href="index.html">概况</a></li>
-            <li role="presentation" class="active"><a href="account.html">帐户信息</a></li>
-            <li role="presentation"><a href="auth.html">认证信息</a></li>
-            <li role="presentation"><a href="changepwd.html">修改密码</a></li>
-            <li role="presentation"><a href="freight.html">运费设置</a></li>
-          </ul>
-          <div>
-            <div class="info accountInfo">
-              <div class="gap">
-                <div class="face"><img src="../img/logo.png"/></div>
-                <button class="btn btn-bigblue upload">更换头像</button>
-              </div>
-              <div class="separate"></div>
-              <p> <span>登录账号：</span>abc123456</p>
-              <p> <span>绑定手机号：</span>138***3800</p>
-              <div class="line"> <span>绑定微信：</span>绑定微信后可通过微信收到相关处理通知，<span id="bindWeixin"><span class="blue">点此绑定</span>
-                  <div class="tip-rectangle tdc"><span class="gray">请使用微信扫描下方二维码完成绑定</span>
-                    <div><img src="../img/logo.png"/></div>
-                  </div></span></div>
-              <p> <span>淘宝店铺：</span>绑定淘宝店铺后可一键同步商品到万物，<a href="javascript:;" id="bindTaobao" class="blue">点此绑定</a></p>
-              <div>
-                <button type="button" class="btn btn-bigblue">同步商品</button>
-              </div>
-              <div class="separate"></div>
-              <div>API信息</div>
-              <div><span class="gray">Token：1326CB3D4EDF714E</span><a class="reset">重置</a></div>
-              <p class="downloadBar"><a href="#" class="download">API文档下载</a></p>
+          <div class="info accountInfo">
+            <div class="gap">
+              <div class="face"><img src="../img/logo.png"/></div>
+              <button class="btn btn-bigblue upload">更换头像</button>
             </div>
+            <div class="separate"></div>
+            <p> <span>登录账号：</span>abc123456</p>
+            <p> <span>绑定手机号：</span>138***3800</p>
+            <div class="line"> <span>绑定微信：</span>绑定微信后可通过微信收到相关处理通知，<span id="bindWeixin"><span class="blue">点此绑定</span>
+                <div class="tip-rectangle tdc"><span class="gray">请使用微信扫描下方二维码完成绑定</span>
+                  <div><img src="../img/logo.png"/></div>
+                </div></span></div>
+            <p> <span>淘宝店铺：</span>绑定淘宝店铺后可一键同步商品到万物，<a href="javascript:;" id="bindTaobao" class="blue">点此绑定</a></p>
+            <div>
+              <button type="button" class="btn btn-bigblue">同步商品</button>
+            </div>
+            <div class="separate"></div>
+            <div>API信息</div>
+            <div><span class="gray">Token：1326CB3D4EDF714E</span><a class="reset">重置</a></div>
+            <p class="downloadBar"><a href="#" class="download">API文档下载</a></p>
           </div>
         </div>
       </div>

@@ -79,3 +79,12 @@
 .selectorBar .panel{
     margin-bottom: 0px;
 }
+.searchChoice li,.searchChoice{
+    padding:0;
+    margin:0;
+    list-style: none;
+    cursor: pointer;
+}
+.searchChoice li{
+    margin:8px;
+}

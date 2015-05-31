@@ -44,11 +44,13 @@
 }
 
 .product .form-inline {
-    padding: 20px 0px;
+    /*padding: 20px 0px;*/
+    padding:0px;
 }
 
 .product .table-responsive {
-    margin-top: 30px;
+    /*margin-top: 30px;*/
+    margin-top: -10px;
 }
 
 .product .product-img {
@@ -110,6 +112,7 @@
 
 .product-detail {
     padding-top: 15px;
+    padding-bottom: 20px;
 }
 
 .product-detail .catalog>.row>div {
@@ -635,7 +638,186 @@
     opacity:0;
     cursor: pointer;
 }
-
+.product-detail .form-group .to{
+    padding:0 2px 0 8px;
+    float: left;
+    line-height: 34px;
+}
+.product-detail .formPrice,.product-detail .toPrice{
+    width:150px;
+    float: left;
+    margin-left: 6px;
+}
+.batchTitle{
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    line-height: 2.2;
+}
+.bathTab{
+    height: 54px;
+    line-height: 54px;
+}
+.bathTab a{
+    color:#000;
+}
+.product-batch .bathTab>li>a{
+    line-height: 31px;
+    padding:10px 25px;
+}
+.product-batch .bathTab>li.active>a{
+    margin:0;
+    cursor: pointer;
+    background-color: #fff;
+    border:1px solid #ddd;
+    border-top: 3px solid rgb(0, 153, 204);
+    border-bottom:1px hidden #fff;
+}
+.upTip{
+    background-color: #f1f6fa;
+    border:1px solid #ededed;
+    padding:6px 12px;
+    margin-top: 8px;
+}
+.btn-up{
+    color:#fff;
+    line-height: 120px;
+    background-color: #bcbcbc;
+    margin-right: 30px;
+    padding:6px 40px;
+    font-size: 16px;
+}
+.m-upButon{
+    margin-top: 28px;
+}
+.m-upButon .btn-up:last{
+    margin-right: 0px;
+}
+.attributes{
+    background-color: #ededed;
+    padding:16px;
+    border:1px solid #ddd;
+    margin-left: 5px;
+}
+.attribute{
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.product-detail .attribute label{
+    width:auto;
+}
+.attribute .form-control{
+    display: inline-block;
+    width:160px;
+}
+.m-addattr{
+    padding-top: 8px;
+    border-top: 1px solid #ddd;
+}
+.m-addattr a{
+    color:rgb(0,153,204);
+}
+.m-addattr a:before{
+    display: inline-block;
+    background-color: rgb(0,153,204);
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\2b";
+    color: #fff;
+    font-weight: 100;
+    padding: 5px 3px;
+    font-size: 12px;
+    margin: 0 6px;
+}
+.m-addattr .grey{
+    color:grey;
+}
+.sort{
+    display: inline-block;
+}
+.m-sorts{
+    padding-left: 5px;
+    float: left;
+    margin-top: 6px;
+}
+.sortColor{
+    display: inline-block;
+    width:13px;
+    height:13px;
+    background-color: rgb(0,153,204);
+}
+.sort input:before{
+    /* display: inline-block;
+    width:13px;
+    height:13px;
+    content:' '; */
+}
+.indexH3{
+    line-height: 2;
+    border-bottom: 1px solid #ddd;
+}
+.indexH3:before{
+    display: inline-block;
+    content:' ';
+    width:2px;
+    height:20px;
+    vertical-align: middle;
+    margin-right: 6px;
+    background-color: rgb(0,153,204);
+}
+.product-detail .btn-blue{
+    padding:0 30px;
+    margin-right: 30px;
+}
+.product .form-inline .formDate,.product .form-inline .toDate,.product .form-inline .formPrice,.product .form-inline .toPrice{
+    width:105px;
+    padding:6px 12px;
+}
+.product .form-inline .form-group{
+    margin:10px 0;
+}
+.table-responsive thead{
+    background-color: #ededed;
+}
+.resort{
+    line-height: 34px;
+}
+.uplist{
+    margin-top: 8px;
+}
+.uplist .table-bordered{
+    margin-bottom: 0;
+}
+.uplist .success,.detaillist .success{
+    color:#008000;
+}
+.uplist .failure,.detaillist .failure{
+    color:#ff0000;
+}
+.success i,.failure i{
+    font-style: normal;
+}
+.price-group{
+    margin-left: 28px;
+}
+.upAction:after{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\270f";
+    padding-left: 6px;
+}
+.btn-que{
+    display: block; 
+    margin-bottom: 20px;
+}
 /******************************* 类目选择页面 *******************************/
 .product-catalog{
     background-color: #fff;

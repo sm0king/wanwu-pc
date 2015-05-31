@@ -27,36 +27,50 @@
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
-              <li ui-sref-active="active"><a href="../home.html" class="large">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理</li>
-              <li id="order_manage" class="collapse in">
-                <ul>
-                  <li ui-sref-active="active"><a href="../order/index.html">待发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已发货订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">退款订单</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">所有订单</a></li>
-                </ul>
+              <li ui-sref-active="active" class="navbar-group-title fiactive"><a href="../home.html">首页</a></li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title"><a href="../order/index.html">我的订单</a>
+                <!--
+                li#order_manage.collapse
+                    ul
+                        li(ui-sref-active='active')
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 已发货订单
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 退款订单
+                        li(ui-sref-active='active')
+                            a(href='javascript:;') 所有订单
+                
+                -->
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
                 <ul>                                       
-                  <li ui-sref-active="active"><a href="../product/index.html">出售中的商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">已下架商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">单件添加商品</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">批量导入商品</a></li>
-                </ul>
-              </li>
-              <li href="#brand_manage" data-toggle="collapse" class="navbar-group-title">品牌管理</li>
-              <li id="brand_manage" class="collapse">
-                <ul>
+                  <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
+                  <li ui-sref-active="active"><a href="../product/catalogChoice.html">单件商品添加</a></li>
+                  <li ui-sref-active="active"><a href="../product/batch.html">批量导入商品</a></li>
                   <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 品牌管理
+                  -->
                 </ul>
               </li>
-              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
-              <li id="retailer_manage" class="collapse">
-                <ul>
-                  <li ui-sref-active="active"><a href="../distributor/index.html">分销商列表</a></li>
-                </ul>
+              <!--
+              li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
+                  | 品牌管理
+              li#brand_manage.collapse
+                  ul
+                      li(ui-sref-active='active')
+                          a(href='../Brand/index.html') 品牌列表
+              
+              -->
+              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title"><a href="../distributor/index.html">分销商列表</a>
+                <!--
+                li#retailer_manage.collapse
+                    ul
+                        li(ui-sref-active='active')
+                
+                -->
               </li>
               <li href="#capital_manage" data-toggle="collapse" class="navbar-group-title">财务管理</li>
               <li id="capital_manage" class="collapse">
@@ -68,12 +82,21 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <li ui-sref-active="active"><a href="../info/basicInfo.html">账户基本信息    </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='../info/index.html') 基本信息   
+                  -->
+                  <li ui-sref-active="active"><a href="../info/basicinfo.html">完善认证信息    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">支付信息设置</a></li>
+                  <li ui-sref-active="active"><a href="../info/paymessage.html">支付信息设置</a></li>
                   <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
-                  <li ui-sref-active="active"><a href="javascript:;">交易记录</a></li>
-                  <li ui-sref-active="active"><a href="../message/index.html">站内信  </a></li>
+                  <!--
+                  li(ui-sref-active='active')
+                      a(href='javascript:;') 交易记录
+                  li(ui-sref-active='active')
+                      a(href='../message/index.html') 站内信  
+                  
+                  -->
                 </ul>
               </li>
             </ul>
@@ -85,6 +108,9 @@
           <div class="basicInfo">
             <div class="panel panel-default">
               <div class="panel-body">
+                <p class="gray tip">您需要进一步提交公司认证资料后才能上架商品</p>
+                <div class="schedule step-1"><img src="../img/schedule-1.png" class="img-responsive scheduleImg-1 scheduleImg"/><img src="../img/schedule-2.png" class="img-responsive scheduleImg-2 scheduleImg"/><img src="../img/schedule-3.png" class="img-responsive scheduleImg-3 scheduleImg"/></div>
+                <div class="hr"></div>
                 <h4>基本资料</h4>
                 <div class="hr"></div>
                 <div class="alert alert-icon alert-info">请完善以下信息， 以便我们更好的为您服务                </div>
@@ -140,33 +166,20 @@
                   </div>
                   <h4 class="subtitle">资格认证信息</h4>
                   <div class="form-group">
+                    <label class="control-label require">用户类型</label>
+                    <div class="col-md-8">
+                      <label class="radio-inline">
+                        <input type="radio" value="0" name="usertype"/>企业用户
+                      </label>
+                      <label class="radio-inline">
+                        <input type="radio" value="1" name="usertype"/>个人用户
+                      </label>
+                    </div>
+                  </div>
+                  <div class="form-group">
                     <label for="company" class="control-label require">公司名称</label>
                     <div class="col-md-8">
                       <input id="company" type="text" name="company" class="form-control"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="license" class="control-label require">营业执照号</label>
-                    <div class="col-md-8">
-                      <input id="license" type="text" name="license" class="form-control"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label require">营业执照</label>
-                    <div class="col-md-8">
-                      <button type="button" class="btn btn-bigblue">上传附件</button>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="legalPerson" class="control-label require">企业法人</label>
-                    <div class="col-md-8">
-                      <input id="legalPerson" type="text" name="legalPerson" class="form-control"/>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="idCard" class="control-label require">身份证</label>
-                    <div class="col-md-8">
-                      <input id="idCard" type="text" name="idCard" class="form-control"/>
                     </div>
                   </div>
                   <div class="form-group">
@@ -176,33 +189,69 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label for="groupCode" class="control-label require">组织结构代码</label>
+                    <label class="control-label require">银行开户许可证</label>
                     <div class="col-md-8">
-                      <input id="groupCode" type="text" name="groupCode" class="form-control"/>
+                      <button type="button" class="btn btn-bigblue btn-upload">上传附件</button>
+                      <div class="row">
+                        <div class="col-xs-12"><img src="../img/logo.png" class="img-responsive showImg"/></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label require">营业执照</label>
+                    <div class="col-md-8">
+                      <button type="button" class="btn btn-bigblue btn-upload">上传附件</button>
+                      <div class="row">
+                        <div class="col-xs-12"><img src="../img/logo.png" class="img-responsive showImg"/></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label require">联系人身份证</label>
+                    <div class="col-md-4">
+                      <button type="button" class="btn btn-bigblue btn-upload">上传正面</button>
+                      <div class="row">
+                        <div class="col-xs-12"><img src="../img/logo.png" class="img-responsive showImg"/></div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <button type="button" class="btn btn-bigblue btn-upload">上传反面</button>
+                      <div class="row">
+                        <div class="col-xs-12"><img src="../img/logo.png" class="img-responsive showImg"/></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label require">法人身份证</label>
+                    <div class="col-md-4">
+                      <button type="button" class="btn btn-bigblue btn-upload">上传正面</button>
+                      <div class="row">
+                        <div class="col-xs-12"><img src="../img/logo.png" class="img-responsive showImg"/></div>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <button type="button" class="btn btn-bigblue btn-upload">上传反面</button>
+                      <div class="row">
+                        <div class="col-xs-12"><img src="../img/logo.png" class="img-responsive showImg"/></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label require">组织结构代码证</label>
+                    <div class="col-md-8">
+                      <button type="button" class="btn btn-bigblue btn-upload">上传附件</button>
+                      <div class="row">
+                        <div class="col-xs-12"><img src="../img/logo.png" class="img-responsive showImg"/></div>
+                      </div>
                     </div>
                   </div>
                   <div class="form-group">
                     <label class="control-label require">税务登录证</label>
                     <div class="col-md-8">
-                      <button type="button" class="btn btn-bigblue">上传附件</button>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label class="control-label require">经营品牌</label>
-                    <div class="col-md-8">
-                      <div class="brand-container">
-                        <div class="brand-logo"><img src="../img/logo.png"/></div><span>阿迪王</span>
+                      <button type="button" class="btn btn-bigblue btn-upload">上传附件</button>
+                      <div class="row">
+                        <div class="col-xs-12"><img src="../img/logo.png" class="img-responsive showImg"/></div>
                       </div>
-                      <div class="brand-container">
-                        <div class="brand-logo"><a href="javascript:;" id="addBrand"><img src="../img/btn-add.png"/></a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="control-label"></div>
-                    <div class="col-md-8">
-                      <input type="checkbox" id="protocol"/>
-                      <label for="protocol">我已阅读并同意</label><a href="#">《XXXX协议》</a>
                     </div>
                   </div>
                   <div class="form-group">
@@ -260,17 +309,19 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
-    <script type="text/javascript" src="../plugs/bootstrapvalidator/js/bootstrapValidator.min.js"></script>
-    <script type="text/javascript" src="../plugs/bootstrapvalidator/js/language/zh_CN.js"></script>
+    <link rel="stylesheet" href="../plugs/imagebox/imagebox.css"/>
+    <script type="text/javascript" src="../plugs/imagebox/imagebox.js"></script>
     <script type="text/javascript">
       var brandForm = $('#brandForm').remove();
       $(function(){
+          //点击查看原图
+          $('.showImg').imagebox();
       
           //添加品牌按钮的点击事件
           $('#addBrand').click(addBrand);
       
           //基本资料表单校验配置
-          $('#basicInfoForm').bootstrapValidator({
+          /*$('#basicInfoForm').bootstrapValidator({
               framework: 'bootstrap',
               icon: {
                   valid: 'glyphicon glyphicon-ok',
@@ -321,50 +372,15 @@
                           }
                       }
                   },
-                  license: {
-                      validators: {
-                          notEmpty: {
-                              message: '请输入营业执照号！'
-                          }
-                      }
-                  },
-                  legalPerson: {
-                      validators: {
-                          notEmpty: {
-                              message: '请输入企业法人！'
-                          }
-                      }
-                  },
-                  idCard: {
-                      validators: {
-                          notEmpty: {
-                              message: '请输入法人身份证！'
-                          }
-                      }
-                  },
-                  legalPerson: {
-                      validators: {
-                          notEmpty: {
-                              message: '请输入企业法人！'
-                          }
-                      }
-                  },
                   businessCatalog: {
                       validators: {
                           notEmpty: {
                               message: '请输入经营品类！'
                           }
                       }
-                  },
-                  groupCode: {
-                      validators: {
-                          notEmpty: {
-                              message: '请输入组织结构代码！'
-                          }
-                      }
                   }
               }
-          });
+          });*/
       });
       
       function addBrand(){

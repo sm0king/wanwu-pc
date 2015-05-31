@@ -272,3 +272,16 @@
 .help-block{
     margin-bottom: 0px;
 }
+.indexH3{
+    line-height: 2;
+    border-bottom: 1px solid #ddd;
+}
+.indexH3:before{
+    display: inline-block;
+    content:' ';
+    width:2px;
+    height:20px;
+    vertical-align: middle;
+    margin-right: 6px;
+    background-color: rgb(0,153,204);
+}

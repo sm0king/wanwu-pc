@@ -1,0 +1,94 @@
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+    -var pagin_right = true;
+
+block header
+
+    link(rel='stylesheet', href='../css/product.css')     
+
+block DashboardTitle
+    商品详情
+
+block Right
+    .product-batch
+        h4.batchTitle 批量商品导入
+        ul.nav.nav-tabs.bathTab#bathTab
+            li.active
+                a(href="#upfile") 文件上传
+            li
+                a(href="#uphistory") 上传历史
+        div.tab-content
+            div.tab-pane.active#upfile
+                div.upTip
+                    p 目前只支持淘宝、天猫、京东店铺商品的导入,淘宝和天猫的商品可以通过淘宝助理导出，京东店铺使用商家助手导出。
+                    p 自动创建产品，商家编码为空时，系统自动创建，格式：WW+流水号。例如：商品：WW28071192043687，商品Sku：WW28071192043687_颜色_尺码
+                div.m-upButon
+                    a.btn.btn-up(role="button",src="javascript:;")
+                        span.glyphicon.glyphicon-plus
+                        |京东商品Excel
+                    a.btn.btn-up(role="button",src="javascript:;")
+                        span.glyphicon.glyphicon-plus
+                        |京东商品Excel
+                    a.btn.btn-up(role="button",src="javascript:;")
+                        span.glyphicon.glyphicon-plus
+                        |京东商品Excel
+            div.tab-pane#uphistory
+                .table-responsive.uplist
+                    table.table.table-bordered
+                        thead
+                            tr
+                                td 批次ID
+                                td 创建时间
+                                td 状态
+                                td 详情
+                        tbody
+                            tr
+                                td 9456713890065283
+                                td 2015-05-19 15:12:28
+                                td 
+                                    span.success 成功：
+                                        i#success 3 
+                                    span.failure 失败 
+                                        i#failure 0
+                                td
+                                    a(href="javascript:;") 查看
+                    div.foot
+                        include ../pagination.jade
+                .table-responsive.detaillist
+                    table.table.table-bordered
+                        thead
+                            tr
+                                td 商品名称
+                                td 商家编码
+                                td 状态
+                                td 信息
+                        tbody
+                            tr
+                                td 安必信SMSSY葡萄籽胶原蛋白咀嚼片
+                                td ptz
+                                td 
+                                    span.success 成功
+                                td
+                            tr
+                                td 安必信 仙人掌
+                                td K001
+                                td 
+                                    span.success 成功
+                                td
+                            tr
+                                td 安必信健腹王
+                                td 0012
+                                td 
+                                    span.success 成功
+                                td
+                    div.foot
+                        include ../pagination.jade
+block foot
+    script.
+        $(function(){
+            $('#bathTab a').click(function(e){
+                e.preventDefault();
+                $(this).tab('show');
+            });
+        })

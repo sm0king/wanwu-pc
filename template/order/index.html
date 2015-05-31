@@ -1,11 +1,12 @@
 extends master.jade
 block OrderDefine
     -var active = 0;
+    -var selected = 1;
     -var pagin_right = true;
     -var reason = "取消原因：";
 
 block title
-    title 待发货订单
+    title 我的订单
 
 
 block DashboardTitle
@@ -13,10 +14,10 @@ block DashboardTitle
 
 block OrderContent
     .headBar
-        .btnBar.pull-right
-            button(type='button').btn.btn-gray 下载全部未发货订单信息
-            button(type='button').btn.btn-bigblue 上传发货信息
-            a.blue 下载发货信息模板
+        .btnBar
+            button(type='button').btn.btn-blue 导出订单
+            button(type='button').btn.btn-blue 上传发货信息
+            a.blue 发货信息模板
     .table-responsive.orderlist
         table.table.table-bordered
             tbody
@@ -210,6 +211,11 @@ block foot
                     ]
                 });
             });
-
+            $('#orderStart,#orderEnd').datetimepicker({
+                format: 'yyyy-mm-dd',
+                language: 'zh-CN',
+                minView: 2,
+                autoclose: true
+            });
         });
 
