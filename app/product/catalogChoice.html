@@ -146,6 +146,14 @@
     <script type="text/javascript" src="../js/catalog-selector.js"></script>
     <script type="text/javascript">
       $(function(){
+          function ajax(url, data){
+              return $.ajax({
+                  url: url,
+                  type: 'post',
+                  dataType: 'json',
+                  data: $.extend({ m: Math.random() }, data)
+              });
+          }
           var selectorColCount = Math.floor($('.product-catalog').width() / CatalogSelector.defaultOption.colsWidth);
           var keyword = '',
               selector = window.cc = new CatalogSelector({
@@ -157,23 +165,20 @@
                   cols: selectorColCount,
                   colsHeight: 400,
                   provider: function(parentObj,callback){
-                      callback([
-                          {
-                              text: '测试1',
-                              hasChild: true
-                          },
-                          {
-                              text: '测试2',
-                              hasChild: false
-                          },
-                          {
-                              text: '测试3',
-                              hasChild: true
-                          }
-                      ]);
+                      ajax('/cat/relation/ajax_get_category_list',{
+                          category_id: parentObj ? parentObj.catId : 0,
+                          m: Math.random()
+                      }).done(function(result){
+                          callback(result);
+                      }).error(function(msg){
+                          debugger;
+                      })
                   },
                   adapter: function(data){
-                      return data;
+                      return {
+                          hasChild: true,
+                          text: data.catName
+                      };
                   }
               });
       
@@ -216,15 +221,16 @@
                       var level = cataD.length;
                       var dataHtml = ""
                       for(var j = level ; j>1 ;j--){
-                          dataHtml +=cataD[j-1]+'<i> >> </i>';
+                          dataHtml +=cataD[j-1].text+'<i> >> </i>';
                       }
-                      dataHtml += cataD[0]
+                      dataHtml += cataD[0].text
                       dataHtml = '<li class="seachData" data="'+i+'">'+dataHtml+'</li>';
                       $("#searchChoice").append(dataHtml);
                   }
                   $('#searchChoice').on('click','.seachData',function(){
                       var dID = $(this).attr('data');
-                      var clickData = data[dID];
+                      var clickData = fid(data[dID],[]);
+                      window.cc.addColumn(clickData)
                   })
               }).error(function(data){
                   debugger
@@ -233,9 +239,11 @@
           function fid(data,cataData){
               if(data && data.level>0){
                   if(data.parentCat){
-                      var tm =[{text:data.catName,hasChild}]
-              }
-                  var tm =[data.catName]
+                      var tm =[{text:data.catName,hasChild:true}]
+                  }else{
+                      var tm =[{text:data.catName,hasChild:false}]
+                  }
+                  //var tm =[data.catName]
                   cataData = $.merge(cataData,tm)
                   return fid(data.parentCat,cataData)
               }else{

@@ -699,7 +699,7 @@
     margin-left: 5px;
 }
 .attribute{
-    display: inline-block;
+    /*display: inline-block;*/
     margin-bottom: 10px;
 }
 .product-detail .attribute label{
@@ -853,4 +853,11 @@
 }
 .product-catalog .selectorBar .selector-col{
     height: 400px;
+}
+.attribute .control-label{
+    margin-right: 16px;
+}
+.product-detail .form-group  .attribute .to{
+    float:none;
+    padding:0;
 }
