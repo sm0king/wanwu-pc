@@ -28,20 +28,24 @@
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
-              <li ui-sref-active="active" class="navbar-group-title fiactive"><a href="../home.html">首页</a></li>
-              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title"><a href="../order/index.html">我的订单</a>
-                <!--
-                li#order_manage.collapse
-                    ul
-                        li(ui-sref-active='active')
-                        li(ui-sref-active='active')
-                            a(href='javascript:;') 已发货订单
-                        li(ui-sref-active='active')
-                            a(href='javascript:;') 退款订单
-                        li(ui-sref-active='active')
-                            a(href='javascript:;') 所有订单
-                
-                -->
+              <li ui-sref-active="active"><a href="../home.html">首页</a></li>
+              <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理
+                <li id="order_manage" class="collapse">
+                  <ul>
+                    <li id="order_manage" class="collapse in"><a href="../order/index.html">我的订单</a></li>
+                  </ul>
+                  <!--
+                  ul
+                      li(ui-sref-active='active')
+                      li(ui-sref-active='active')
+                          a(href='javascript:;') 已发货订单
+                      li(ui-sref-active='active')
+                          a(href='javascript:;') 退款订单
+                      li(ui-sref-active='active')
+                          a(href='javascript:;') 所有订单
+                  
+                  -->
+                </li>
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
@@ -65,7 +69,11 @@
                           a(href='../Brand/index.html') 品牌列表
               
               -->
-              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title"><a href="../distributor/index.html">分销商列表</a>
+              <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
+              <li id="retailer_manage" class="collapse">
+                <ul>
+                  <li ui-sref-active="active"><a href="../distributor/index.html">分销商列表</a></li>
+                </ul>
                 <!--
                 li#retailer_manage.collapse
                     ul
@@ -106,29 +114,32 @@
       </nav>
       <div id="page-wrapper">
         <div class="product-catalog">
-          <form class="form-inline">
-            <div class="form-group">
-              <input type="text" placeholder="输入产品关键字，我们为您推荐类目" id="input-groom" class="form-control"/>
-            </div>
-            <div class="form-group">
-              <button type="button" id="btn-search" class="btn btn-blue btn-search">查询</button>
-            </div>
-          </form>
-          <div id="selector">
-            <div id="selector-container"></div>
-            <div class="status-bar alert alert-warning">
-              <p><span>您当前选择的类目：</span><span id="choice"> </span></p>
-              <p id="search"><span>请选择类目</span>
-                <ul id="searchChoice" class="searchChoice"></ul>
-              </p>
-              <p>
-                <sapn>类目说明：</sapn><span id="catalog-explain"></span>
-              </p>
-            </div>
+          <!--
+          form.form-inline
+              .form-group
+                  input(type='text', placeholder="输入产品关键字，我们为您推荐类目")#input-groom.form-control
+              .form-group
+                  button(type='button').btn.btn-blue.btn-search#btn-search 查询
+          -->
+        </div>
+        <div id="selector">
+          <div id="selector-container"></div>
+          <div class="status-bar alert alert-warning">
+            <!--
+            p
+                span 您当前选择的类目：
+                span#choice 
+            -->
           </div>
-          <div class="foot-bar">
-            <button type="button" id="btn-doNext" class="btn btn-blue">下一步，填写商品详情<span class="glyphicon glyphicon-arrow-right"></span></button>
-          </div>
+          <p id="search"><span>请选择类目</span>
+            <ul id="searchChoice" class="searchChoice"></ul>
+          </p>
+          <p>
+            <sapn>类目说明：</sapn><span id="catalog-explain"></span>
+          </p>
+        </div>
+        <div class="foot-bar">
+          <button type="button" id="btn-doNext" class="btn btn-blue">下一步，填写商品详情<span class="glyphicon glyphicon-arrow-right"></span></button>
         </div>
       </div>
     </div>
@@ -165,13 +176,14 @@
                   cols: selectorColCount,
                   colsHeight: 400,
                   provider: function(parentObj,callback){
-                      ajax('/cat/relation/ajax_get_category_list',{
+                      ajax('http://123.59.58.104/supplier/product/add/ajax_get_category_list',{
                           category_id: parentObj ? parentObj.catId : 0,
                           m: Math.random()
                       }).done(function(result){
                           callback(result);
                       }).error(function(msg){
-                          debugger;
+                          //debugger;
+                          alert('初始化错误，请联系管理员');
                       })
                   },
                   adapter: function(data){
@@ -181,7 +193,6 @@
                       };
                   }
               });
-      
           $('#selector').width(selectorColCount * CatalogSelector.defaultOption.colsWidth + 22);
       
           $('#btn-search').click(function(){
@@ -229,26 +240,61 @@
                   }
                   $('#searchChoice').on('click','.seachData',function(){
                       var dID = $(this).attr('data');
+      
                       var clickData = fid(data[dID],[]);
-                      window.cc.addColumn(clickData)
+                      //window.cc.addColumn(clickData)
+                      window.cc.option.provider = function(clickData,callback){
+                          callback(data[dID]);
+                      }
+                      window.cc.option.adapter = function(data){
+                          var child = data.parentCat ? true:false;
+                          return {
+                              hasChild: child,
+                              text: data.catName
+                          };
+                      }
+      
+                      fidcataData(data[dID]);
+      
                   })
               }).error(function(data){
-                  debugger
+                  //debugger
+                  alert('网络错误或者错误的请求，请联系管理员');
               })
           };
           function fid(data,cataData){
               if(data && data.level>0){
-                  if(data.parentCat){
-                      var tm =[{text:data.catName,hasChild:true}]
-                  }else{
-                      var tm =[{text:data.catName,hasChild:false}]
-                  }
-                  //var tm =[data.catName]
+                  var isch = data.parentCat ? true:false;
+                  var tm =[{text:data.catName,hasChild:isch,parentId:data.parentId}]
                   cataData = $.merge(cataData,tm)
                   return fid(data.parentCat,cataData)
               }else{
                   return cataData;
               }
+          }
+          function fidcataData(data){
+              if(data){
+                  ajax('http://123.59.58.104/supplier/product/add/ajax_get_category_list',{
+                      category_id: data.parentId ? data.parentId : 0,
+                      m: Math.random()
+                  }).done(function(result){
+                      window.cc.addColumn(result);
+                      fidcataData(data.parentCat)
+                  })
+              }else{return false;}
+              /*
+              window.cc.option.provider:function(parentObj,callback){
+                  ajax('http://123.59.58.104/supplier/product/add/ajax_get_category_list',{
+                      category_id: parentObj ? parentObj.catId : 0,
+                      m: Math.random()
+                  }).done(function(result){
+                      callback(result);
+                  }).error(function(msg){
+                      //debugger;
+                      alert('初始化错误，请联系管理员');
+                  })
+              }
+              */
           }
       });
     </script>

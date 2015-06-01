@@ -36,7 +36,5 @@ $(function() {
 
     $('#side-menu').delegate('li.navbar-group-title','click', function(){
         $(this).siblings('.in').collapse('hide');
-        $(this).siblings().removeClass('fiactive')
-        $(this).addClass('fiactive');
     });
 });

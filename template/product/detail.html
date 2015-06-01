@@ -79,25 +79,46 @@ block Right
                                     <option value="4">分类4</option>
                                 </select>
                             </div>
-                            <div class="attribute clearfix">
+                            <div class="attribute clearfix sellvirtue">
                                 <label for="" class="control-label">品牌:</label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox">颜色</input>
+                                    <input type="checkbox" value="颜色11">颜色11X</input>
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox">颜色</input>
+                                    <input type="checkbox" value="颜色12">颜色12X</input>
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox">颜色</input>
+                                    <input type="checkbox" value="颜色13">颜色13X</input>
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox">颜色</input>
+                                    <input type="checkbox" value="颜色14">颜色14X</input>
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox">颜色</input>
+                                    <input type="checkbox" value="颜色15">颜色15X</input>
                                 </label>
                                 <label class="checkbox-inline">
-                                    <input type="checkbox">颜色</input>
+                                    <input type="checkbox" value="颜色16">颜色16X</input>
+                                </label>
+                            </div>
+                            <div class="attribute clearfix sellvirtue">
+                                <label for="" class="control-label">品牌:</label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="颜色21">颜色21X</input>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="颜色22">颜色22X</input>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="颜色23">颜色23X</input>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="颜色24">颜色24X</input>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="颜色25">颜色25X</input>
+                                </label>
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" value="颜色26">颜色26X</input>
                                 </label>
                             </div>
                             <div class="attribute clearfix">
@@ -157,7 +178,7 @@ block Right
                     <label for="productModel" class="control-label">商品规格：</label>
                     <div class="col-md-7">
                         <div class="table-responsive">
-                            <table class="table table-bordered table-center customTable table-model">
+                            <table class="table table-bordered table-center customTable table-model" id="sellvirtueTable">
                                 <thead>
                                     <tr>
                                         <td class="require">型号</td>
@@ -426,3 +447,57 @@ block foot
     script(type='text/javascript', src='../plugs/ueditor/ueditor.all.min.js')
     script(type='text/javascript', src='../plugs/jquery.tagsinput.js') 
     script(type='text/javascript', src='../js/product_detail.js')
+    script.
+        $('.sellvirtue input').change(function(e){
+            //$(this).parents('.sellvirtue').index('.sellvirtue')
+
+            var virLen = $('.sellvirtue').length;
+            var virArr =[]
+            for(var i = 0; i < virLen;i++){
+                var sellDom = $('input:checked',$('.sellvirtue').eq(i));
+                var tm = [];
+                for(var j = 0; j < sellDom.length; j++){
+                    tm.push(sellDom[0].value);
+                }
+                virArr.push(sellDom);
+            }
+            var ArrValue = doExchange(virArr);
+            var tdHtml = ''
+            for(var n = 0; n < ArrValue.length; n++){
+                var valArr = ArrValue[n].split(';');
+                var newArr =[]
+                for(var m =0; m < valArr.length;m++){
+                    var tem = valArr[m];
+                    newArr.push($.trim($('input[value = "'+tem+'"]').parent().text()));
+                }
+                var newStr = newArr.join('--');
+                tdHtml += '<tr><td><input type="hidden" value="'+ArrValue[n]+'"> <input type="text" class="form-control" value="'+newStr+'" readonly></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><a href="javascript:;" class="btn-ok save"></a><a href="javascript:;" class="btn-dustbin"></a></td></tr>';
+            }
+            $('#sellvirtueTable tbody').html(tdHtml);
+            
+        })
+        function doExchange(doubleArrays){
+            var len=doubleArrays.length;
+            if(len>=2){
+                var len1=doubleArrays[0].length;
+                var len2=doubleArrays[1].length;
+                var newlen=len1*len2;
+                var temp=new Array(newlen);
+                var index=0;
+                for(var i=0;i<len1;i++){
+                    for(var j=0;j<len2;j++){
+                        temp[index]=$(doubleArrays[0][i]).val()+';'+$(doubleArrays[1][j]).val();
+                        index++;
+                    }
+                }
+                var newArray=new Array(len-1);
+                if(len>2){
+                    newArray[1]=doubleArrays[2];
+                }
+                newArray[0]=temp;
+                return doExchange(newArray);
+            }
+            else{
+                return doubleArrays[0];
+            }
+        }

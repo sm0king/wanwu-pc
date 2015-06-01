@@ -11,17 +11,19 @@ block DashboardTitle
 
 block Right
     .product-catalog
-        form.form-inline
-            .form-group
-                input(type='text', placeholder="输入产品关键字，我们为您推荐类目")#input-groom.form-control
-            .form-group
-                button(type='button').btn.btn-blue.btn-search#btn-search 查询
+            //
+                form.form-inline
+                    .form-group
+                        input(type='text', placeholder="输入产品关键字，我们为您推荐类目")#input-groom.form-control
+                    .form-group
+                        button(type='button').btn.btn-blue.btn-search#btn-search 查询
         #selector
             #selector-container
             .status-bar.alert.alert-warning
-                p
-                    span 您当前选择的类目：
-                    span#choice 
+                    //
+                        p
+                            span 您当前选择的类目：
+                            span#choice 
                 p#search
                     span 请选择类目
                     ul#searchChoice.searchChoice
@@ -58,13 +60,14 @@ block foot
                     cols: selectorColCount,
                     colsHeight: 400,
                     provider: function(parentObj,callback){
-                        ajax('/cat/relation/ajax_get_category_list',{
+                        ajax('http://123.59.58.104/supplier/product/add/ajax_get_category_list',{
                             category_id: parentObj ? parentObj.catId : 0,
                             m: Math.random()
                         }).done(function(result){
                             callback(result);
                         }).error(function(msg){
-                            debugger;
+                            //debugger;
+                            alert('初始化错误，请联系管理员');
                         })
                     },
                     adapter: function(data){
@@ -74,7 +77,6 @@ block foot
                         };
                     }
                 });
-
             $('#selector').width(selectorColCount * CatalogSelector.defaultOption.colsWidth + 22);
 
             $('#btn-search').click(function(){
@@ -122,26 +124,61 @@ block foot
                     }
                     $('#searchChoice').on('click','.seachData',function(){
                         var dID = $(this).attr('data');
+
                         var clickData = fid(data[dID],[]);
-                        window.cc.addColumn(clickData)
+                        //window.cc.addColumn(clickData)
+                        window.cc.option.provider = function(clickData,callback){
+                            callback(data[dID]);
+                        }
+                        window.cc.option.adapter = function(data){
+                            var child = data.parentCat ? true:false;
+                            return {
+                                hasChild: child,
+                                text: data.catName
+                            };
+                        }
+
+                        fidcataData(data[dID]);
+
                     })
                 }).error(function(data){
-                    debugger
+                    //debugger
+                    alert('网络错误或者错误的请求，请联系管理员');
                 })
             };
             function fid(data,cataData){
                 if(data && data.level>0){
-                    if(data.parentCat){
-                        var tm =[{text:data.catName,hasChild:true}]
-                    }else{
-                        var tm =[{text:data.catName,hasChild:false}]
-                    }
-                    //var tm =[data.catName]
+                    var isch = data.parentCat ? true:false;
+                    var tm =[{text:data.catName,hasChild:isch,parentId:data.parentId}]
                     cataData = $.merge(cataData,tm)
                     return fid(data.parentCat,cataData)
                 }else{
                     return cataData;
                 }
+            }
+            function fidcataData(data){
+                if(data){
+                    ajax('http://123.59.58.104/supplier/product/add/ajax_get_category_list',{
+                        category_id: data.parentId ? data.parentId : 0,
+                        m: Math.random()
+                    }).done(function(result){
+                        window.cc.addColumn(result);
+                        fidcataData(data.parentCat)
+                    })
+                }else{return false;}
+                /*
+                window.cc.option.provider:function(parentObj,callback){
+                    ajax('http://123.59.58.104/supplier/product/add/ajax_get_category_list',{
+                        category_id: parentObj ? parentObj.catId : 0,
+                        m: Math.random()
+                    }).done(function(result){
+                        callback(result);
+                    }).error(function(msg){
+                        //debugger;
+                        alert('初始化错误，请联系管理员');
+                    })
+                }
+                */
             }
         });
 

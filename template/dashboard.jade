@@ -46,13 +46,15 @@ html
                     .sidebar-nav.navbar-collapse
                         ul.nav.in#side-menu                            
                             block menu
-                                li(ui-sref-active='active').navbar-group-title.fiactive
+                                li(ui-sref-active='active')
                                     a(href='#{basePath}home.html') 首页
-
                                 li.navbar-group-title(href="#order_manage",data-toggle="collapse")
-                                    a(href='#{basePath}order/index.html') 我的订单
-                                    //
-                                        li#order_manage.collapse
+                                    |订单管理
+                                    li#order_manage.collapse
+                                        ul
+                                            li#order_manage.collapse.in
+                                                a(href='#{basePath}order/index.html') 我的订单
+                                        //
                                             ul
                                                 li(ui-sref-active='active')
                                                 li(ui-sref-active='active')
@@ -86,7 +88,11 @@ html
                                                 a(href='#{basePath}Brand/index.html') 品牌列表
 
                                 li.navbar-group-title(href="#retailer_manage",data-toggle="collapse")
-                                    a(href='#{basePath}distributor/index.html') 分销商列表
+                                    | 分销商管理
+                                li#retailer_manage.collapse
+                                    ul
+                                        li(ui-sref-active='active')
+                                            a(href='#{basePath}distributor/index.html') 分销商列表
                                     //
                                         li#retailer_manage.collapse
                                             ul
