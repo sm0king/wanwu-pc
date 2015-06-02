@@ -404,9 +404,12 @@
 
                         if (checked) {
                             var index = indexOf(dataArr, checked.catId);
-                            var jqItem = jqDom.children('a').eq(index);
-                            jqItem.addClass('active');
-                            selected.push(jqItem);
+                            if (index >= 0) {
+                                var jqItem = jqDom.children('a').eq(index);
+                                jqItem.addClass('active');
+                                selected.push(jqItem);
+                            }
+                            
                         }
                     }
 
