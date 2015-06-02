@@ -16,16 +16,17 @@ block InfoContent
                     img.img-responsive.scheduleImg-1.scheduleImg(src='../img/schedule-1.png')
                     img.img-responsive.scheduleImg-2.scheduleImg(src='../img/schedule-2.png')
                     img.img-responsive.scheduleImg-3.scheduleImg(src='../img/schedule-3.png')
-                .hr
-                h4 基本资料
-                .hr
-                .alert.alert-icon.alert-info 请完善以下信息， 以便我们更好的为您服务                
+                .hr              
                 form.form-horizontal#basicInfoForm
                     h4.subtitle 基本资料
                     .form-group
                         label.control-label 用户名
                         .col-md-8.form-text
                             | quwan
+                    .form-group
+                        label.control-label 用户头像
+                        .col-md-8.form-text
+                            button(type="button").btn.btn-bigblue.btn-upload 上传头像
                     .form-group
                         label(for="email").control-label 邮箱
                         .col-md-8
