@@ -238,7 +238,7 @@
             this.refreshPaginButtons();
         },
         //添加一列数据
-        addColumn: function(dataArr){
+        addColumn: function(dataArr, autoFocus){
             var option = this.option,
                 fnAdapter = option.adapter;
 
@@ -256,18 +256,30 @@
                         html +
                     '</div>';
 
-            var index = this.row.append($(html).data('dataArr', dataArr).find('input').keyup($.proxy(this, 'onSearchInputKeyup')).end()).children().length - 1;
+            var jqDom = $(html).data('dataArr', dataArr).find('input').keyup($.proxy(this, 'onSearchInputKeyup')).end();
+                index = this.row.append(jqDom).children().length - 1;
 
-            this.setColumn(index, Math.min(option.cols - 1, index));
+            autoFocus !== false && this.setColumn(index, Math.min(option.cols - 1, index));
+            return jqDom;
         },
         //加载一列数据
         loadColumn: function(parentObj, jqItem){
+            this.initData = true;
+
+            this.loadData(parentObj, function(data){
+                if (!data || !data.length) {
+                    jqItem && jqItem.removeClass('haschild');
+                    return;
+                }
+                
+                this.addColumn(data);
+            });
+        },
+        loadData: function(parentObj, cb){
             var option = this.option,
                 provider = option.provider;
 
             if (!$.isFunction(provider)) { return; }
-
-            this.initData = true;
 
             this.showCover();
 
@@ -275,12 +287,7 @@
 
                 this.hideCover();
 
-                if (!data || !data.length) {
-                    jqItem && jqItem.removeClass('haschild');
-                    return;
-                }
-                
-                this.addColumn(data);
+                cb.call(this, data);
             }, this));
         },
         //搜索函数
@@ -325,7 +332,7 @@
             }
         },
         //重置选择器
-        reset: function(){
+        reset: function(autoInit){
             var row = this.row,
                 view = this.view,
                 option = this.option;
@@ -336,7 +343,7 @@
             this.currentPage = 0;
             this.selected.length = 0;
             this.initData = false;
-            !option.pop && this.loadColumn(null);
+            autoInit !== false && !option.pop && this.loadColumn(null);
         },
         //在选择器上显示一个遮罩
         showCover: function(){
@@ -352,6 +359,67 @@
         hideCover: function(){
             var cover = this.cover;
             cover.stop(true,true).hide();
+        },
+        setData: function(searchObj){
+            this.reset(false);
+
+            var parentObj = searchObj.parentCat,
+                dataSet = [],
+                fun = function(){
+                    this.loadData(parentObj, function(data){
+                        if (!data || !data.length) {
+                            finish.call(this);
+                            return;
+                        }
+
+                        data.checked = searchObj;
+                        dataSet.push(data);
+
+                        if (!parentObj) {
+                            finish.call(this);
+                            return;
+                        }
+
+                        parentObj = parentObj.parentCat || null;
+                        searchObj = searchObj.parentCat;
+
+                        fun();
+                    });
+                },
+                indexOf = function(arr, catId){
+                    for(var i = 0, len = arr.length;i < len;i++){
+                        if (arr[ i ].catId == catId) {
+                            return i;
+                        }
+                    }
+                    return -1;
+                },
+                finish = function(){
+                    var option = this.option,
+                        dataArr = null;
+
+                    while(dataArr = dataSet.pop()){
+                        var jqDom = this.addColumn(dataArr),
+                            checked = dataArr.checked;
+
+                        if (checked) {
+                            var index = indexOf(dataArr, checked.catId);
+                            var jqItem = jqDom.children('a').eq(index);
+                            jqItem.addClass('active');
+                            selected.push(jqItem);
+                        }
+                    }
+
+                    //刷新视图的Dom ,展示用户所选择的类目路径
+                    this.refreshViewBar();
+
+                    //刷新翻页按钮
+                    this.refreshPaginButtons();
+
+                    //调用 change 函数
+                    $.isFunction(option.change) && option.change(this, data);
+                };
+            fun();
         }
     };
 
