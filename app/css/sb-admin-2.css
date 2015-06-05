@@ -769,4 +769,6 @@ span.separate:after{
 .alert-info{
     background-image: url(../img/notice-info.png);
 }
-
+.bg-blue{
+    background-color: rgb(0,153,204);
+}

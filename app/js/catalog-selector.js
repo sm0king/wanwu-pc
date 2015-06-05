@@ -365,7 +365,7 @@
 
             var parentObj = searchObj.parentCat,
                 dataSet = [],
-                fun = function(){
+                fun = $.proxy(function(){
                     this.loadData(parentObj, function(data){
                         if (!data || !data.length) {
                             finish.call(this);
@@ -385,7 +385,7 @@
 
                         fun();
                     });
-                },
+                },this),
                 indexOf = function(arr, catId){
                     for(var i = 0, len = arr.length;i < len;i++){
                         if (arr[ i ].catId == catId) {
@@ -407,7 +407,7 @@
                             if (index >= 0) {
                                 var jqItem = jqDom.children('a').eq(index);
                                 jqItem.addClass('active');
-                                selected.push(jqItem);
+                                this.selected.push(jqItem);
                             }
                             
                         }

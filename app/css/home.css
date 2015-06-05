@@ -92,7 +92,7 @@
 }
 .homeMessage .money:after{
     content:"."attr(m);
-    font-size: 0.4em
+    font-size: 6px;
 }
 .moneyMessage table,.actionmessage table{
     width:100%;
@@ -117,4 +117,7 @@
 .actionmessage .tdw3{
     width:30%;
     text-align: left;
+}
+.user-message-right b:first-child{
+    padding-left: 6px;
 }

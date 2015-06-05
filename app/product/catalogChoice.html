@@ -114,32 +114,29 @@
       </nav>
       <div id="page-wrapper">
         <div class="product-catalog">
-          <!--
-          form.form-inline
-              .form-group
-                  input(type='text', placeholder="输入产品关键字，我们为您推荐类目")#input-groom.form-control
-              .form-group
-                  button(type='button').btn.btn-blue.btn-search#btn-search 查询
-          -->
-        </div>
-        <div id="selector">
-          <div id="selector-container"></div>
-          <div class="status-bar alert alert-warning">
-            <!--
-            p
-                span 您当前选择的类目：
-                span#choice 
-            -->
+          <form class="form-inline">
+            <div class="form-group">
+              <input type="text" placeholder="输入产品关键字，我们为您推荐类目" id="input-groom" class="form-control"/>
+            </div>
+            <div class="form-group">
+              <button type="button" id="btn-search" class="btn btn-blue btn-search">查询</button>
+            </div>
+          </form>
+          <div id="selector">
+            <div id="selector-container"></div>
+            <div class="status-bar alert alert-warning">
+              <p><span>您当前选择的类目：</span><span id="choice"> </span></p>
+              <p id="search"><span>请选择类目</span>
+                <ul id="searchChoice" class="searchChoice"></ul>
+              </p>
+              <p>
+                <sapn>类目说明：</sapn><span id="catalog-explain"></span>
+              </p>
+            </div>
           </div>
-          <p id="search"><span>请选择类目</span>
-            <ul id="searchChoice" class="searchChoice"></ul>
-          </p>
-          <p>
-            <sapn>类目说明：</sapn><span id="catalog-explain"></span>
-          </p>
-        </div>
-        <div class="foot-bar">
-          <button type="button" id="btn-doNext" class="btn btn-blue">下一步，填写商品详情<span class="glyphicon glyphicon-arrow-right"></span></button>
+          <div class="foot-bar">
+            <button type="button" id="btn-doNext" class="btn btn-blue">下一步，填写商品详情<span class="glyphicon glyphicon-arrow-right"></span></button>
+          </div>
         </div>
       </div>
     </div>
@@ -215,7 +212,13 @@
           });
       
           $('#btn-doNext').click(function(){
-              console.log(selector.getValue());
+              if($($('.selectorBar .active:last')).parent().is('.selector-col:last')){
+                  console.log(selector.getValue());
+              }else{
+                  alert('请正确选择叶子类目');
+                  return;
+              }
+              
           });
       
           function searchCata(name,callback){
@@ -240,21 +243,9 @@
                   }
                   $('#searchChoice').on('click','.seachData',function(){
                       var dID = $(this).attr('data');
-      
-                      var clickData = fid(data[dID],[]);
-                      //window.cc.addColumn(clickData)
-                      window.cc.option.provider = function(clickData,callback){
-                          callback(data[dID]);
-                      }
-                      window.cc.option.adapter = function(data){
-                          var child = data.parentCat ? true:false;
-                          return {
-                              hasChild: child,
-                              text: data.catName
-                          };
-                      }
-      
-                      fidcataData(data[dID]);
+                      window.cc.setData(data[dID]);
+                      //var clickData = fid(data[dID],[]);
+                      //;
       
                   })
               }).error(function(data){

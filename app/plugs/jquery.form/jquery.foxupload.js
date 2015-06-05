@@ -13,7 +13,8 @@
 		var imgval= $(this).find(".imgval");
 		imgval.val('');
 		$(this).wrap("<form id='"+uploadforname+"' action='"+imgloapurl+"' method='post' enctype='multipart/form-data'></form>");
-		$(this).find(".fileupload").change(function(){
+		$(this).find(".fileupload").on('change',upFunction(this));
+		function upFunction(){
 			if(maxCount > 1 && showimg.children().length >= maxCount){
 				$.alert('最多只能上传 ' + maxCount + ' 张图片！');
 				return;
@@ -49,6 +50,8 @@
 					tmpv=imgval.val();
 					if(tmpv!='') data.newFileName=','+data.newFileName;
 					imgval.val(imgval.val()+data.newFileName);
+					
+					$(this).find(".fileupload").on('change',upFunction(this));
 				},
 				error:function(xhr){
 					btn.html("上传失败");
@@ -57,7 +60,7 @@
 					progress.hide();
 				}
 			});
-		});
+		}
 		this.delegate('a.removeImg','click',function(e){
 			var img =  $(e.currentTarget).parent();
 			var fileName = img.attr('data-filename');

@@ -31,10 +31,25 @@ $(function() {
         return this.href == url || url.href.indexOf(this.href) == 0;
     }).addClass('active').parent().parent().addClass('in').parent();
     if (element.is('li')) {
-        element.addClass('active');
+        element.addClass('active in');
+        element.prev().addClass('bg-blue')
     }
 
     $('#side-menu').delegate('li.navbar-group-title','click', function(){
         $(this).siblings('.in').collapse('hide');
+        $(this).siblings('.navbar-group-title').removeClass('bg-blue');
+        $(this).addClass('bg-blue')
     });
+
+
+    $('productAdvice').blur(function(){
+        if ($('#shopPrice').val() >= $('#productAdvice').val() && $('#productAdvice').val() > 0) {
+            alert('零售价必须大于等于分销价！请重新输入');
+            $('productAdvice').focus();
+            return ;
+        }
+    })
+    function PriceCate(){
+        
+    }
 });

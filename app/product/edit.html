@@ -205,7 +205,7 @@
                                   </div>
                                   
                               </div>
-                              <!-- <div class="attribute clearfix sellvirtue">
+                              <div class="attribute clearfix sellvirtue">
                                   <label for="" class="control-label">品牌:</label>
                                   <label class="checkbox-inline">
                                       <input type="checkbox" value="颜色21">颜色21X</input>
@@ -226,7 +226,7 @@
                                       <input type="checkbox" value="颜色26">颜色26X</input>
                                   </label>
                               </div>
-                              <div class="attribute clearfix sellvirtue">
+                              <!-- <div class="attribute clearfix sellvirtue">
                                   <label for="" class="control-label">品牌:</label>
                                   <label class="checkbox-inline">
                                       <input type="checkbox" value="颜色31">颜色31X</input>
@@ -355,7 +355,7 @@
                                           <td>操作</td>
                                       </tr>
                                   </thead>
-                                  <tbody id="version_body">
+                                  <tbody>
                                       <tr>
                                           <td>默认型号</td>
                                           <td>300</td>
@@ -642,10 +642,9 @@
               }
               tm.length && virArr.push(tm);
           }
-          var tdHtml = ''
           if(virArr.length === virLen){
               var ArrValue = doExchange(virArr);
-              
+              var tdHtml = ''
               if($.isArray(ArrValue)){
                   for(var n = 0; n < ArrValue.length; n++){
                       var valArr = ArrValue[n].split(';');
@@ -655,16 +654,16 @@
                           newArr.push($.trim($('.m-attribute input[value = "'+tem+'"]').parent().text()));
                       }
                       var newStr = newArr.join('--');
-                      if($('#version_body input[value="'+ArrValue[n]+'"]').length > 0){
-                          tdHtml += '<tr>'+$('#version_body input[value="'+ArrValue[n]+'"]').parent().parent().html()+'</tr>';
+                      if($('input[value="'+ArrValue[n]+'"]').length > 0){
+                          tdHtml += $('input[value="'+ArrValue[n]+'"]').parent().parent().html();
                       }else{
                           tdHtml += '<tr><td><input type="hidden" value="'+ArrValue[n]+'"> <span>'+newStr+'</span></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><a href="javascript:;" class="btn-ok save"></a><a href="javascript:;" class="btn-dustbin"></a></td></tr>';
                       }
                   }
               }
               
-              
-          }$('#version_body').html(tdHtml); 
+              $('#sellvirtueTable tbody').html(tdHtml); 
+          }
           
           
       })

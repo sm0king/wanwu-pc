@@ -70,7 +70,7 @@
 }
 .selectorBar .selector-cover{
     background-color: black;
-    opacity:0.3;
+    opacity:0;
     position: absolute;
     z-index: 5;
     top:0px;

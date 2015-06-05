@@ -180,11 +180,11 @@ a:hover,a:focus,a.active{
     font-size: 14px;
     padding:5px 0px 5px 38px;
     color:white;
-    background-color: rgb(0,153,204);
+    /*background-color: rgb(0,153,204);*/
     cursor: pointer;
 }
-.sidebar .nav>li.navbar-group-title{
-
+.sidebar .nav>li.navbar-group-title:hover{
+    background-color: rgb(0,153,204);
 }
 .sidebar .nav>li.navbar-group-title:before{
     content: ">";
