@@ -40,16 +40,4 @@ $(function() {
         $(this).siblings('.navbar-group-title').removeClass('bg-blue');
         $(this).addClass('bg-blue')
     });
-
-
-    $('productAdvice').blur(function(){
-        if ($('#shopPrice').val() >= $('#productAdvice').val() && $('#productAdvice').val() > 0) {
-            alert('零售价必须大于等于分销价！请重新输入');
-            $('productAdvice').focus();
-            return ;
-        }
-    })
-    function PriceCate(){
-        
-    }
 });
