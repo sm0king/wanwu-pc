@@ -4,7 +4,7 @@ block Define
 
 block header
 
-    link(rel='stylesheet', href='../css/product.css')     
+    link(rel='stylesheet', href='../css/product.css')
 
 block DashboardTitle
     商品详情
@@ -19,12 +19,12 @@ block Right
             <div class="col-md-4 btn-bar">
                 <button type="button" class="btn btn-blue">获取商品信息</button>
                 <button type="button" class="btn btn-blue">全店搬家</button>
-                <a href="javascript:;" class="question question-blue hidden-xs hidden-sm">                    
-                    <div class="tip">  
+                <a href="javascript:;" class="question question-blue hidden-xs hidden-sm">
+                    <div class="tip">
                         <div class="tip-acute"></div>
                         <div class="tip-content">
                             此功能会将商品所在店铺的全部商品全部搬家到万物。
-                        </div> 
+                        </div>
                     </div>
                 </a>
             </div>
@@ -47,7 +47,7 @@ block Right
                                     <option value="1">分类</option>
                                 </select>
                             </div>
-                            <a href="javascript:;" class="resort">修改分类</a>  
+                            <a href="javascript:;" class="resort">修改分类</a>
                         </div>
                         <!-- <div class="row">
                             <div class="col-lg-12">
@@ -101,7 +101,7 @@ block Right
                                         <input type="checkbox" value="颜色16">颜色16X</input>
                                     </label>
                                 </div>
-                                
+
                             </div>
                             <!-- <div class="attribute clearfix sellvirtue">
                                 <label for="" class="control-label">品牌:</label>
@@ -231,7 +231,7 @@ block Right
                             </div>
                             <div class="attribute">
                                 <label for="" class="control-label">货号</label>
-                                <input type="text" class="form-control"> 
+                                <input type="text" class="form-control">
                             </div>-->
                         </div>
                         <div class="m-addattr">
@@ -375,7 +375,7 @@ block Right
                                         <input type="checkbox"><i class="sortColor"></i>颜色</input>
                                     </label>
                                 </div>
-                                
+
                             </div>
                         </div> -->
                         <!-- <div class="form-group">
@@ -444,13 +444,13 @@ block Right
                                 <span class="gray">
                                     每张图片大小请控制在150K以内
                                 </span>
-                            </div>                
+                            </div>
                         </div> -->
                         <div class="form-group">
                             <label class="control-label">商品详情：</label>
                             <div class="col-md-9">
                                 <script id="productDetail" name="content" type="text/plain"></script>
-                            </div>   
+                            </div>
                         </div>
                         <div class="row desc">
                             <div class="stdLeft"></div>
@@ -468,7 +468,7 @@ block Right
                         </div>
                         <div class="row">
                             <div class="stdLeft"></div>
-                            <dib class="col-md-9">
+                            <div class="col-md-9 col-xs-10 col-xs-offset-2 col-md-offset-0">
                                 <div class="row product-hotflags" id="flags">
                                     <div class="">
                                         <button type="button" >春节</button>
@@ -489,7 +489,7 @@ block Right
                                         <button type="button" >春节</button>
                                     </div>
                                 </div>
-                            </dib>
+                            </div>
                         </div>
             </div>
         </div>
@@ -501,16 +501,16 @@ block Right
         </div>
         <div class="row">
             <div class="stdLeft"></div>
-            <div class="col-md-4">
+            <div class="col-lg-4">
                 <button type="button" class="btn btn-blue">提交商品</button>
                 <button type="button" class="btn btn-blue">保存草稿</button>
                 <!-- <a href="javascript:;" class="saveAndBack">保存后返回列表</a> -->
             </div>
         </div>
-block foot 
-    script(type='text/javascript', src='../plugs/ueditor/ueditor.config.js') 
+block foot
+    script(type='text/javascript', src='../plugs/ueditor/ueditor.config.js')
     script(type='text/javascript', src='../plugs/ueditor/ueditor.all.min.js')
-    script(type='text/javascript', src='../plugs/jquery.tagsinput.js') 
+    script(type='text/javascript', src='../plugs/jquery.tagsinput.js')
     script(type='text/javascript', src='../js/product_detail.js')
     script.
         $('.sellvirtue input').change(function(e){
@@ -529,7 +529,7 @@ block foot
             var tdHtml = ''
             if(virArr.length === virLen){
                 var ArrValue = doExchange(virArr);
-                
+
                 if($.isArray(ArrValue)){
                     for(var n = 0; n < ArrValue.length; n++){
                         var valArr = ArrValue[n].split(';');
@@ -546,11 +546,11 @@ block foot
                         }
                     }
                 }
-                
-                
-            }$('#version_body').html(tdHtml); 
-            
-            
+
+
+            }$('#version_body').html(tdHtml);
+
+
         })
         /*function doExchange(doubleArrays){
             var len=doubleArrays.length;

@@ -14,19 +14,23 @@ a{
 }
 
 #wrapper {
-    width: 100%;    
+    width: 100%;
 }
 
 #page-wrapper {
     padding: 0 15px;
     min-height: 568px;
 }
-
+@media(max-width:768px) {
+  .sidebar{
+    background-color: #666;
+  }
+}
 @media(min-width:768px) {
     #page-wrapper {
         position: inherit;
         margin: 0 0 0 210px;
-        padding: 0px 20px 0px 20px;
+        padding: 0px 20px 10px 20px;
         /*border-left: 1px solid #e7e7e7;*/
     }
 }
@@ -95,7 +99,7 @@ a{
     margin:0px;
 }
 
-.dashboard-title{    
+.dashboard-title{
     margin-left: 20px;
 }
 
@@ -133,7 +137,7 @@ a{
 }
 
 .sidebar ul li {
-    
+
     margin-top: -1px;
     line-height: 42px;
 }
@@ -759,7 +763,7 @@ span.separate:after{
 .alert{
     padding:10px;
     margin-bottom: 10px;
-    
+
 }
 .alert-icon{
     padding-left: 35px;
@@ -782,5 +786,3 @@ span.separate:after{
 .M-upBrowser a{
     color: rgb(20,42,250);
 }
-
-
