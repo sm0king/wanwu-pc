@@ -1,5 +1,5 @@
 .supplier{
-    padding-top: 10px;
+    padding:10px 0;
 }
 
 .supplier .form-inline>.form-group{
@@ -35,8 +35,10 @@
 
 .supplier.detail .form-group>label{
     float: left;
-    width:90px;
+    width:120px;
     text-align: left;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 .supplier.detail .form-group>label p{
     text-align: center;
