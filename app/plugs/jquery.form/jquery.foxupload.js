@@ -12,10 +12,13 @@
         var uploadforname = 'myupload' + $(this).attr('id');
         var imgval = $(this).find(".imgval");
         imgval.val('');
+        var InutHtml = "";
+    	var ObjTime = new Date().getTime()
+    	var BoxId = "Box"+ObjTime;
         $(this).wrap("<form id='" + uploadforname + "' action='" + imgloapurl + "' method='post' enctype='multipart/form-data'></form>");
-        $(this).find(".fileupload").on('change', upFunction(this));
-
-        function upFunction(ObjThis) {
+        $(this).on('change','.fileupload',function(){
+        	var InutHtml = this.outerHTML;
+        	$(this).wrap('<div id="'+BoxId+'">');
             if (maxCount > 1 && showimg.children().length >= maxCount) {
                 $.alert('最多只能上传 ' + maxCount + ' 张图片！');
                 return;
@@ -57,16 +60,19 @@
                     if (tmpv != '') data.newFileName = ',' + data.newFileName;
                     imgval.val(imgval.val() + data.newFileName);
 
-                    $(ObjThis).find(".fileupload").on('change', upFunction(ObjThis));
+                    $('#'+BoxId).html('');
+          			$('#'+BoxId).html(InutHtml);
                 },
                 error: function(xhr) {
                     btn.html("上传失败");
                     bar.width('0')
                     files.html(xhr.responseText);
                     progress.hide();
+                    $('#'+BoxId).html('');
+          			$('#'+BoxId).html(InutHtml);
                 }
             });
-        }
+        });
         this.delegate('a.removeImg', 'click', function(e) {
             var img = $(e.currentTarget).parent();
             var fileName = img.attr('data-filename');

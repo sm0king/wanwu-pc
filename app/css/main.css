@@ -482,3 +482,8 @@ ul>li.collapse{
     display: none;
     overflow: hidden;
 }
+.gt_holder .gt_slider .gt_ajax_tip.success{
+    right: -60px;
+    top: 1px;
+}
+

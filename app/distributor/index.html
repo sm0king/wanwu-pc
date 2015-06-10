@@ -35,17 +35,6 @@
                   <ul>
                     <li id="order_manage" class="collapse in"><a href="../order/index.html">我的订单</a></li>
                   </ul>
-                  <!--
-                  ul
-                      li(ui-sref-active='active')
-                      li(ui-sref-active='active')
-                          a(href='javascript:;') 已发货订单
-                      li(ui-sref-active='active')
-                          a(href='javascript:;') 退款订单
-                      li(ui-sref-active='active')
-                          a(href='javascript:;') 所有订单
-                  
-                  -->
                 </li>
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
@@ -55,32 +44,13 @@
                   <li ui-sref-active="active"><a href="../product/catalogChoice.html">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="../product/batch.html">批量导入商品</a></li>
                   <li ui-sref-active="active"><a href="../Brand/index.html">品牌列表</a></li>
-                  <!--
-                  li(ui-sref-active='active')
-                      a(href='javascript:;') 品牌管理
-                  -->
                 </ul>
               </li>
-              <!--
-              li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
-                  | 品牌管理
-              li#brand_manage.collapse
-                  ul
-                      li(ui-sref-active='active')
-                          a(href='../Brand/index.html') 品牌列表
-              
-              -->
               <li href="#retailer_manage" data-toggle="collapse" class="navbar-group-title">分销商管理</li>
               <li id="retailer_manage" class="collapse">
                 <ul>
                   <li ui-sref-active="active"><a href="../distributor/index.html">分销商列表</a></li>
                 </ul>
-                <!--
-                li#retailer_manage.collapse
-                    ul
-                        li(ui-sref-active='active')
-                
-                -->
               </li>
               <li href="#capital_manage" data-toggle="collapse" class="navbar-group-title">财务管理</li>
               <li id="capital_manage" class="collapse">
@@ -92,21 +62,10 @@
               <li href="#baseinfo_manage" data-toggle="collapse" class="navbar-group-title">基本信息维护</li>
               <li id="baseinfo_manage" class="collapse">
                 <ul>
-                  <!--
-                  li(ui-sref-active='active')
-                      a(href='../info/index.html') 基本信息   
-                  -->
                   <li ui-sref-active="active"><a href="../info/basicinfo.html">完善认证信息    </a></li>
                   <li ui-sref-active="active"><a href="../info/freight.html">运费设置</a></li>
                   <li ui-sref-active="active"><a href="../info/paymessage.html">支付信息设置</a></li>
-                  <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码</a></li>
-                  <!--
-                  li(ui-sref-active='active')
-                      a(href='javascript:;') 交易记录
-                  li(ui-sref-active='active')
-                      a(href='../message/index.html') 站内信  
-                  
-                  -->
+                  <li ui-sref-active="active"><a href="../info/changepwd.html">修改密码                  </a></li>
                 </ul>
               </li>
             </ul>
@@ -114,6 +73,12 @@
         </div>
       </nav>
       <div id="page-wrapper">
+        <!--[if lt IE 9]
+        .M-upBrowser
+            p.upBrowser 检测到您的浏览器存在兼容性问题，请您使用
+                a(href="http://browsehappy.com/" target="_blank") 万物推荐浏览器
+        -->
+        <!--[endif]-->
         <div class="product distributor distributor-index">
           <h4 class="indexH3">分销商管理</h4>
           <div class="form-inline">

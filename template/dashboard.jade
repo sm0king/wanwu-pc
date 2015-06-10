@@ -54,15 +54,6 @@ html
                                         ul
                                             li#order_manage.collapse.in
                                                 a(href='#{basePath}order/index.html') 我的订单
-                                        //
-                                            ul
-                                                li(ui-sref-active='active')
-                                                li(ui-sref-active='active')
-                                                    a(href='javascript:;') 已发货订单
-                                                li(ui-sref-active='active')
-                                                    a(href='javascript:;') 退款订单
-                                                li(ui-sref-active='active')
-                                                    a(href='javascript:;') 所有订单
 
                                 li.navbar-group-title(href="#product_manage",data-toggle="collapse")
                                     | 商品管理
@@ -76,16 +67,6 @@ html
                                             a(href='#{basePath}product/batch.html') 批量导入商品
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}Brand/index.html') 品牌列表
-                                        //
-                                            li(ui-sref-active='active')
-                                                a(href='javascript:;') 品牌管理
-                                //
-                                    li.navbar-group-title(href="#brand_manage",data-toggle="collapse")
-                                        | 品牌管理
-                                    li#brand_manage.collapse
-                                        ul
-                                            li(ui-sref-active='active')
-                                                a(href='#{basePath}Brand/index.html') 品牌列表
 
                                 li.navbar-group-title(href="#retailer_manage",data-toggle="collapse")
                                     | 分销商管理
@@ -93,10 +74,6 @@ html
                                     ul
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}distributor/index.html') 分销商列表
-                                    //
-                                        li#retailer_manage.collapse
-                                            ul
-                                                li(ui-sref-active='active')
 
                                 li.navbar-group-title(href="#capital_manage",data-toggle="collapse")
                                     | 财务管理
@@ -111,9 +88,6 @@ html
                                     | 基本信息维护
                                 li#baseinfo_manage.collapse
                                     ul
-                                        //
-                                            li(ui-sref-active='active')
-                                                a(href='#{basePath}info/index.html') 基本信息   
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}info/basicinfo.html') 完善认证信息    
                                         li(ui-sref-active='active')
@@ -121,15 +95,14 @@ html
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}info/paymessage.html') 支付信息设置
                                         li(ui-sref-active='active')
-                                            a(href='#{basePath}info/changepwd.html') 修改密码
-                                        //
-                                            li(ui-sref-active='active')
-                                                a(href='javascript:;') 交易记录
-                                            li(ui-sref-active='active')
-                                                a(href='#{basePath}message/index.html') 站内信  
-                  
+                                            a(href='#{basePath}info/changepwd.html') 修改密码                  
             #page-wrapper
-                    block Right
+                //[if lt IE 9]
+                    .M-upBrowser
+                        p.upBrowser 检测到您的浏览器存在兼容性问题，请您使用
+                            a(href="http://browsehappy.com/" target="_blank") 万物推荐浏览器
+                //[endif]
+                block Right
         include foot.jade
         script(type='text/javascript',src='#{basePath}plugs/jquery/jquery.min.js')
         script(type='text/javascript',src='#{basePath}plugs/bootstrap/js/bootstrap.min.js')
