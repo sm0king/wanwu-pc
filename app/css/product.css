@@ -18,7 +18,9 @@
     height: 100px;
     padding: 15px 15px;
 }
-
+.product .table>tbody>tr>td>span {
+    margin: 0 5px;
+}
 .product .table>thead>tr>td {
     text-align: center;
 }
@@ -52,7 +54,7 @@
 
 .product .table-responsive {
     /*margin-top: 30px;*/
-    margin-top: -10px;
+    /*margin-top: -10px;*/
 }
 
 .product .product-img {
