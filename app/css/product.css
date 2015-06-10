@@ -1,4 +1,6 @@
-.product {}
+.product {
+  padding-top: 10px;
+}
 
 .product .table {
     margin-bottom: 0px;
@@ -815,14 +817,14 @@
     padding-left: 6px;
 }
 .btn-que{
-    display: block; 
+    display: block;
     margin-bottom: 20px;
 }
 /******************************* 类目选择页面 *******************************/
 .product-catalog{
     background-color: #fff;
-    margin-top: 20px;
-    padding: 10px;
+    /*margin-top: 20px;*/
+    padding:20px 10px;
     overflow: auto;
 }
 .product-catalog .form-group{

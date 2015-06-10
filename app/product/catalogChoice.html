@@ -78,7 +78,7 @@
                 a(href="http://browsehappy.com/" target="_blank") 万物推荐浏览器
         -->
         <!--[endif]-->
-        <div class="product-catalog">
+        <div class="product product-catalog">
           <form class="form-inline">
             <div class="form-group">
               <input type="text" placeholder="输入产品关键字，我们为您推荐类目" id="input-groom" class="form-control"/>
@@ -90,7 +90,7 @@
           <div id="selector">
             <div id="selector-container"></div>
             <div class="status-bar alert alert-warning">
-              <p><span>您当前选择的类目：</span><span id="choice"> </span></p>
+              <p><span>您当前选择的类目：</span><span id="choice"></span></p>
               <p id="search"><span>请选择类目</span>
                 <ul id="searchChoice" class="searchChoice"></ul>
               </p>
@@ -183,7 +183,7 @@
                   alert('请正确选择叶子类目');
                   return;
               }
-              
+      
           });
       
           function searchCata(name,callback){
