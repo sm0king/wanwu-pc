@@ -168,30 +168,46 @@
                                           <input type="checkbox" value="颜色16">颜色16X</input>
                                       </label>
                                   </div>
+                                  <div class="clearfix ortherVirtue">
+                                      <label class="checkbox-inline ortherCheck">
+                                          其他:
+                                          <input type="text">
+                                          <button class="btn btn-blue" type="button">添加</button>
+                                      </label>
+                                  </div>
                                   
                               </div>
-                              <!-- <div class="attribute clearfix sellvirtue">
+                               <div class="attribute clearfix sellvirtue">
                                   <label for="" class="control-label">品牌:</label>
-                                  <label class="checkbox-inline">
-                                      <input type="checkbox" value="颜色21">颜色21X</input>
-                                  </label>
-                                  <label class="checkbox-inline">
-                                      <input type="checkbox" value="颜色22">颜色22X</input>
-                                  </label>
-                                  <label class="checkbox-inline">
-                                      <input type="checkbox" value="颜色23">颜色23X</input>
-                                  </label>
-                                  <label class="checkbox-inline">
-                                      <input type="checkbox" value="颜色24">颜色24X</input>
-                                  </label>
-                                  <label class="checkbox-inline">
-                                      <input type="checkbox" value="颜色25">颜色25X</input>
-                                  </label>
-                                  <label class="checkbox-inline">
-                                      <input type="checkbox" value="颜色26">颜色26X</input>
-                                  </label>
+                                  <div class="virtueList clearfix">
+                                      <label class="checkbox-inline">
+                                          <input type="checkbox" value="颜色21">颜色21X</input>
+                                      </label>
+                                      <label class="checkbox-inline">
+                                          <input type="checkbox" value="颜色22">颜色22X</input>
+                                      </label>
+                                      <label class="checkbox-inline">
+                                          <input type="checkbox" value="颜色23">颜色23X</input>
+                                      </label>
+                                      <label class="checkbox-inline">
+                                          <input type="checkbox" value="颜色24">颜色24X</input>
+                                      </label>
+                                      <label class="checkbox-inline">
+                                          <input type="checkbox" value="颜色25">颜色25X</input>
+                                      </label>
+                                      <label class="checkbox-inline">
+                                          <input type="checkbox" value="颜色26">颜色26X</input>
+                                      </label>
+                                  </div>
+                                  <div class="clearfix ortherVirtue">
+                                      <label class="checkbox-inline ortherCheck">
+                                          其他:
+                                          <input type="text">
+                                          <button class="btn btn-blue" type="button">添加</button>
+                                      </label>
+                                  </div>
                               </div>
-                              <div class="attribute clearfix sellvirtue">
+                              <!--<div class="attribute clearfix sellvirtue">
                                   <label for="" class="control-label">品牌:</label>
                                   <label class="checkbox-inline">
                                       <input type="checkbox" value="颜色31">颜色31X</input>
@@ -496,7 +512,7 @@
                                       </div>
                                       <div>
                                           <a href="javascript:;" class="upload"></a>
-                                          <input type="file" id="fileupload" name="mypic" class="fileupload">
+                                          <input type="file" id="fileupload" name="mypic" class="fileupload" accept="image/png, image/jpeg,image/jpg,image/bmp">
                                       </div>
                                       <span class="gray">
                                           每张图片大小请控制在150K以内
@@ -593,7 +609,7 @@
     <script type="text/javascript" src="../plugs/jquery.tagsinput.js"> </script>
     <script type="text/javascript" src="../js/product_detail.js"></script>
     <script>
-      $('.sellvirtue input').change(function(e){
+      $('.sellvirtue').on('change','input',function(e){
           //$(this).parents('.sellvirtue').index('.sellvirtue')
       
           var virLen = $('.sellvirtue').length;
@@ -632,32 +648,6 @@
           
           
       })
-      /*function doExchange(doubleArrays){
-          var len=doubleArrays.length;
-          if(len>=2){
-              var len1=doubleArrays[0].length;
-              var len2=doubleArrays[1].length;
-              var newlen=len1*len2;
-              var temp=new Array(newlen);
-              var index=0;
-              for(var i=0;i<len1;i++){
-                  for(var j=0;j<len2;j++){
-                      temp[index]=doubleArrays[0][i]+';'+doubleArrays[1][j];
-                      index++;
-                  }
-              }
-              var newArray=new Array(len-1);
-              if(len>2){
-                  newArray[1]=doubleArrays[2];
-              }
-              newArray[0]=temp;
-              return doExchange(newArray);
-          }
-          else{
-              return doubleArrays[0];
-          }
-      }
-      */
       function doExchange(x){
           var h = x.length;
           var w = x[0].length;
@@ -704,6 +694,40 @@
               alert('零售价必须大于等于分销价！请重新输入');
               $('productAdvice').focus();
           }
+      }
+      //自定义销售属性
+      $('.ortherVirtue').keypress(function(e){
+          if((e.keyCode || e.charCode) == 13 && $.trim($(this).find('input').val()).length > 0){
+              AddVirtue($.trim($(this).find('input').val()),$(this));
+          }
+      });
+      $('.ortherVirtue').on('click','.btn',function(){
+          var tmNode = $(this).parent().parent();
+          AddVirtue($.trim(tmNode.find('input').val()),tmNode)
+      })
+      function AddVirtue(dataValue,JQObj){
+          var VirtueHtml = '<label class="checkbox-inline"><input type="checkbox" value="'+dataValue+'">'+dataValue+'</input></label>';
+          var ListJQDom = JQObj.prev();
+          var searchNode = ListJQDom.children(':contains("'+dataValue+'")');
+          //virtueList
+          if(searchNode.length <= 0){
+              ListJQDom.append(VirtueHtml)
+              JQObj.find('input').val('')
+          }else{
+              var ll = 0;
+              for(var i = 0; i < searchNode.length; i++){
+                  if ($.trim($(searchNode[i]).text()) == dataValue){
+                      ll ++
+                  }
+              }
+              if(ll > 0){
+                  alert('已有属性，请不要重复添加！');
+              }else{
+                  ListJQDom.append(VirtueHtml)
+                  JQObj.find('input').val('')
+              }
+          }
+          return false;
       }
     </script>
   </body>

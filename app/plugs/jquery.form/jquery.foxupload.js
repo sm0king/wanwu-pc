@@ -16,8 +16,14 @@
     	var ObjTime = new Date().getTime()
     	var BoxId = "Box"+ObjTime;
         $(this).wrap("<form id='" + uploadforname + "' action='" + imgloapurl + "' method='post' enctype='multipart/form-data'></form>");
-        $(this).on('change','.fileupload',function(){
+        $(this).on('change','.fileupload',function(e){
         	var InutHtml = this.outerHTML;
+            if (this.files[0].size > 1048576) {
+                $.alert('文件太大,仅允许小于1M的图像文件');
+                $('#'+BoxId).html('');
+                $('#'+BoxId).html(InutHtml);
+                return;
+            };
         	$(this).wrap('<div id="'+BoxId+'">');
             if (maxCount > 1 && showimg.children().length >= maxCount) {
                 $.alert('最多只能上传 ' + maxCount + ' 张图片！');

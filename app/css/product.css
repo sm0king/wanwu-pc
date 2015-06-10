@@ -868,3 +868,14 @@
 .virtueList{
     margin-left: 96px;
 }
+.form-horizontal .virtueList .ortherCheck{
+    padding-top: 5px;
+}
+.ortherVirtue{
+    margin-left: 96px;
+}
+.ortherVirtue .btn{
+    height: 26px;
+    line-height: 26px;
+    margin-top: -2px;
+}
