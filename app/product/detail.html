@@ -77,7 +77,12 @@
                 a(href="http://browsehappy.com/" target="_blank") 万物推荐浏览器
         -->
         <!--[endif]-->
-        <form action="#" class="form-horizontal product-detail">
+        <div class="m-contentNav">
+          <div class="listNav"><a href="#BasicInformation">商品基本信息</a></div>
+          <div class="listNav"><a href="#SalesInformation">销售信息</a></div>
+          <div class="listNav"><a href="#GoodsDetails">商品详情</a></div>
+        </div>
+        <form action="#" id="productForm" class="form-horizontal product-detail">
           <!-- <div class="form-group">
               <label for="taobaoLink" class="control-label">淘宝链接：</label>
               <div class="col-md-6">
@@ -96,13 +101,16 @@
                   </a>
               </div>
           </div> -->
-          <div class="panel panel-default">
+          <div class="panel panel-default" id="BasicInformation">
               <div class="panel-heading">商品基本信息</div>
               <div class="panel-body">
                   <div class="form-group">
                       <label for="productName" class="control-label require">商品名称：</label>
                       <div class="col-md-6">
-                          <input type="text" id="productName" class="form-control">
+                          <input type="text" id="productName" name="productName" class="form-control" maxlength="30">
+                      </div>
+                      <div class="col-md-4 tipCon">
+                          <span>建议在标题中包含品牌、商品名称及产品关键特性，少于30字（空格不计数）<i>(<em id="titleWorldNumber">0</em>/30)</i></span>
                       </div>
                   </div>
                   <div class="form-group">
@@ -146,26 +154,36 @@
                                       <option value="4">分类4</option>
                                   </select>
                               </div>
+                              <div class="attribute clearfix">
+                                  <label for="" class="control-label">品牌:</label>
+                                  <select id="" class="form-control">
+                                      <option value="1">品牌1</option>
+                                      <option value="2">品牌2</option>
+                                      <option value="3">品牌3</option>
+                                      <option value="4">品牌4</option>
+                                  </select>
+                                  <span class="tipCon">品牌审核通过是商品上架的前提之一</span>
+                              </div>
                               <div class="attribute clearfix sellvirtue">
                                   <label for="" class="control-label">品牌:</label>
                                   <div class="virtueList clearfix">
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色11">颜色11X</input>
+                                          <input type="checkbox" value="颜色1h:颜色11">颜色11X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色12">颜色12X</input>
+                                          <input type="checkbox" value="颜色1h:颜色12">颜色12X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色13">颜色13X</input>
+                                          <input type="checkbox" value="颜色1h:颜色13">颜色13X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色14">颜色14X</input>
+                                          <input type="checkbox" value="颜色1h:颜色14">颜色14X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色15">颜色15X</input>
+                                          <input type="checkbox" value="颜色1h:颜色15">颜色15X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色16">颜色16X</input>
+                                          <input type="checkbox" value="颜色1h:颜色16">颜色16X</input>
                                       </label>
                                   </div>
                                   <div class="clearfix ortherVirtue">
@@ -181,22 +199,22 @@
                                   <label for="" class="control-label">品牌:</label>
                                   <div class="virtueList clearfix">
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色21">颜色21X</input>
+                                          <input type="checkbox" value="颜色2h:颜色21">颜色21X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色22">颜色22X</input>
+                                          <input type="checkbox" value="颜色2h:颜色22">颜色22X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色23">颜色23X</input>
+                                          <input type="checkbox" value="颜色2h:颜色23">颜色23X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色24">颜色24X</input>
+                                          <input type="checkbox" value="颜色2h:颜色24">颜色24X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色25">颜色25X</input>
+                                          <input type="checkbox" value="颜色2h:颜色25">颜色25X</input>
                                       </label>
                                       <label class="checkbox-inline">
-                                          <input type="checkbox" value="颜色26">颜色26X</input>
+                                          <input type="checkbox" value="颜色2h:颜色26">颜色26X</input>
                                       </label>
                                   </div>
                                   <div class="clearfix ortherVirtue">
@@ -326,6 +344,7 @@
                   <div class="form-group" id="comMes">
                       <label for="productModel" class="control-label">商品规格：</label>
                       <div class="col-md-7">
+                          <span class="tipCon" style="line-height:34px;">您需要选择所有的规格属性，才能组合成完整的规格信息 </span>
                           <div class="table-responsive">
                               <table class="table table-bordered table-center customTable table-model" id="sellvirtueTable">
                                   <thead>
@@ -362,15 +381,16 @@
                   </div>
               </div>
           </div>
-          <div class="panel panel-default">
+          <div class="panel panel-default" id="SalesInformation">
               <div class="panel-heading">商品销售信息</div>
               <div class="panel-body">
-                          <!-- <div class="form-group">
-                              <label for="marketprice" class="control-label require">市场价：</label>
+                          <div class="form-group">
+                              <label for="shopPrice" class="control-label require">基础分销价：</label>
                               <div class="col-md-3">
-                                  <input type="text" id="marketprice" class="form-control">
+                                  <input type="text" id="shopPrice" name="shopPrice" class="form-control">
                               </div>
-                          </div> -->
+                              <span class="tipCon" style="line-height:34px;">分销商采购商品的价格</span>
+                          </div>
                           <!-- <div class="form-group">
                               <label for="formPrice" class="control-label">建议零售价</label>
                               <input type="text" name="formPrice" id="formPrice" class="formPrice form-control">
@@ -414,16 +434,26 @@
                               </div>
                           </div>
                           <div class="form-group">
-                              <label for="purchprice" class="control-label require">建议零售价：</label>
+                              <label for="productAdvice" class="control-label require">建议零售价：</label>
                               <div class="col-md-3">
-                                  <input type="text" id="purchprice" class="form-control">
+                                  <input type="text" id="productAdvice" name="productAdvice" class="form-control">
                               </div>
+                              <span class="tipCon" style="line-height:34px;">分销到其他平台的零售市场价，例如： 京东的市场价</span>
+                          </div>
+                          <div class="form-group">
+                              <label for="purchprice" class="control-label">分销商限价：</label>
+                              <div class="col-md-3">
+                                  <input id="purchprice" name="purchprice" type="text" class="form-control">
+                              </div>
+                              <span class="tipCon" style="line-height:34px;">限制分销商的最低售价，如果低于该价格，供应商有权不处理订单</span>
                           </div>
                           <div class="form-group">
                               <label for="productDescription" class="control-label">商品描述：</label>
                               <div class="col-md-6">
-                                  <textarea id="productDescription" rows="10"></textarea>
+                                  <textarea id="productDescription" rows="10" maxlength="150"></textarea>
+                                  <i class="DescriptionWord">(<em id="DescriptionWorldNumber">0</em>/150)</i>
                               </div>
+          
                           </div>
                           <!-- <div class="form-group">
                               <label class="control-label">颜色分类：</label>
@@ -486,39 +516,36 @@
                                   <input id="productLocation" type="text" class="form-control">
                               </div>
                               <div class="col-md-4">
-                                  <a href="javascript:;" class="blue">默认供应商所在省</a>
+                                  <a href="javascript:;" style="line-height:34px;" class="blue">默认供应商所在省</a>
                               </div>
                           </div>
                           <div class="form-group">
                               <label for="productLocation" class="control-label require">商品图片：</label>
                               <div class="col-md-9 product-images">
-                                  <!-- <button class="btn btn-default" type="buttn">上传图片</button>图片大小请控制在150K以内
-                                  <div class="row product-images"> -->
-                                      <div>
-                                          <img src="/img/logo.png" class="img-responsive center-block" alt="">
-                                          <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
-                                      </div>
-                                      <div>
-                                          <img src="/img/logo.png" class="img-responsive center-block" alt="">
-                                          <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
-                                      </div>
-                                      <div>
-                                          <img src="/img/logo.png" class="img-responsive center-block" alt="">
-                                          <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
-                                      </div>
-                                      <div>
-                                          <img src="/img/logo.png" class="img-responsive center-block" alt="">
-                                          <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
-                                      </div>
-                                      <div>
-                                          <a href="javascript:;" class="upload"></a>
-                                          <input type="file" id="fileupload" name="mypic" class="fileupload" accept="image/png, image/jpeg,image/jpg,image/bmp">
-                                      </div>
-                                      <span class="gray">
-                                          每张图片大小请控制在150K以内
-                                      </span>
-                                  <!-- </div> -->
-          
+                                  <span class="gray">
+                                          每张图片大小请控制在150K以内,第一张图为默认主图，要求图片尺寸在700*700像素以上，1M以内，否则不能分销到其他平台    
+                                  </span>
+                                  </br>
+                                  <div>
+                                      <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                                      <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                                  </div>
+                                  <div>
+                                      <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                                      <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                                  </div>
+                                  <div>
+                                      <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                                      <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                                  </div>
+                                  <div>
+                                      <img src="/img/logo.png" class="img-responsive center-block" alt="">
+                                      <a href="javascript:;" class="glyphicon glyphicon-remove"></a>
+                                  </div>
+                                  <div>
+                                      <a href="javascript:;" class="upload"></a>
+                                      <input type="file" id="fileupload" name="mypic" class="fileupload" accept="image/png, image/jpeg,image/jpg,image/bmp">
+                                  </div>
                               </div>
                           </div>
                           <!-- <div class="row desc">
@@ -529,9 +556,10 @@
                                   </span>
                               </div>                
                           </div> -->
-                          <div class="form-group">
+                          <div class="form-group" id="GoodsDetails">
                               <label class="control-label">商品详情：</label>
                               <div class="col-md-9">
+                                  <span class="gray">商品详情不少于5个字符，图片大小500K以内   </span>
                                   <script id="productDetail" name="content" type="text/plain"></script>
                               </div>   
                           </div>
@@ -578,9 +606,6 @@
           </div>
           <div class="row">
               <div class="stdLeft"></div>
-              <div class="col-md-9">
-                  <p>温馨提示：标红部分信息如果不填写商品将不能上架，不过您仍然可以保存商品信息，以后再来完善。</p>
-              </div>
           </div>
           <div class="row">
               <div class="stdLeft"></div>
@@ -608,127 +633,179 @@
     <script type="text/javascript" src="../plugs/ueditor/ueditor.all.min.js"></script>
     <script type="text/javascript" src="../plugs/jquery.tagsinput.js"> </script>
     <script type="text/javascript" src="../js/product_detail.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>
     <script>
-      $('.sellvirtue').on('change','input',function(e){
-          //$(this).parents('.sellvirtue').index('.sellvirtue')
+      $(function(){
+          //验证
+          $('#productForm').bootstrapValidator({
+              icon: {
+                  valid: 'glyphicon glyphicon-ok',
+                  invalid: 'glyphicon glyphicon-remove',
+                  validating: 'glyphicon glyphicon-refresh'
+              },
+              fields:{
+                  productName:{
+                      validators:{
+                          notEmpty: {
+                              message: '商品名不能为空'
+                          }
+                      }
+                  },
+                  shopPrice:{
+                      validators:{
+                          notEmpty: {
+                              message: '基础分销价不能为空'
+                          },
+                          numeric:{
+                              message: '价格只能为数字'
+                          }
+                      }
+                  },
+                  productAdvice:{
+                      validators:{
+                          numeric:{
+                              message: '价格只能为数字'
+                          }
+                      }
+                  },
+                  purchprice:{
+                      validators:{
+                          numeric:{
+                              message: '价格只能为数字'
+                          }
+                      }
+                  }
+              }
+          })
+          $('.sellvirtue').on('change','input',function(e){
+              //$(this).parents('.sellvirtue').index('.sellvirtue')
       
-          var virLen = $('.sellvirtue').length;
-          var virArr =[]
-          for(var i = 0; i < virLen;i++){
-              var sellDom = $('input:checked',$('.sellvirtue').eq(i));
-              var tm = [];
-              for(var j = 0; j < sellDom.length; j++){
-                  tm.push(sellDom[j].value);
+              var virLen = $('.sellvirtue').length;
+              var virArr =[]
+              for(var i = 0; i < virLen;i++){
+                  var sellDom = $('input:checked',$('.sellvirtue').eq(i));
+                  var tm = [];
+                  for(var j = 0; j < sellDom.length; j++){
+                      tm.push(sellDom[j].value);
+                  }
+                  tm.length && virArr.push(tm);
               }
-              tm.length && virArr.push(tm);
-          }
-          var tdHtml = ''
-          if(virArr.length === virLen){
-              var ArrValue = doExchange(virArr);
-              
-              if($.isArray(ArrValue)){
-                  for(var n = 0; n < ArrValue.length; n++){
-                      var valArr = ArrValue[n].split(';');
-                      var newArr =[]
-                      for(var m =0; m < valArr.length;m++){
-                          var tem = valArr[m];
-                          newArr.push($.trim($('.m-attribute input[value = "'+tem+'"]').parent().text()));
-                      }
-                      var newStr = newArr.join('--');
-                      if($('#version_body input[value="'+ArrValue[n]+'"]').length > 0){
-                          tdHtml += '<tr>'+$('#version_body input[value="'+ArrValue[n]+'"]').parent().parent().html()+'</tr>';
-                      }else{
-                          tdHtml += '<tr><td><input type="hidden" value="'+ArrValue[n]+'"> <span>'+newStr+'</span></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><a href="javascript:;" class="btn-ok save"></a><a href="javascript:;" class="btn-dustbin"></a></td></tr>';
+              var tdHtml = ''
+              if(virArr.length === virLen){
+                  var ArrValue = doExchange(virArr);
+                  
+                  if($.isArray(ArrValue)){
+                      for(var n = 0; n < ArrValue.length; n++){
+                          var valArr = ArrValue[n].split(';');
+                          var newArr =[]
+                          for(var m =0; m < valArr.length;m++){
+                              var tem = valArr[m];
+                              newArr.push($.trim($('.m-attribute input[value = "'+tem+'"]').parent().text()));
+                          }
+                          var newStr = newArr.join('--');
+                          if($('#version_body input[value="'+ArrValue[n]+'"]').length > 0){
+                              tdHtml += '<tr>'+$('#version_body input[value="'+ArrValue[n]+'"]').parent().parent().html()+'</tr>';
+                          }else{
+                              tdHtml += '<tr><td><input type="hidden" value="'+ArrValue[n]+'"> <span>'+newStr+'</span></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><a href="javascript:;" class="btn-ok save"></a><a href="javascript:;" class="btn-dustbin"></a></td></tr>';
+                          }
                       }
                   }
-              }
-              
-              
-          }$('#version_body').html(tdHtml); 
-          
-          
-      })
-      function doExchange(x){
-          var h = x.length;
-          var w = x[0].length;
-          var i, j;
-          var m = [], n;
-          m[i = h] = 1;
-          while (i--)
-                  m[i] = m[i + 1] * x[i].length;
-          n = m[0];
-          var newArray =[];
-          for (i = 0; i < n; i++) {
-              var tem = [];
-              for (j = 0; j < h; j++){
-                  tem.push(x[j][~~(i % m[j] / m[j + 1])]);
-              }
-              newArray.push(tem.join(';'));
-          }
-          return newArray;
-      }
-      //保存商品属性。
-      $('#comMes').on('click','.save',function(e){
-          var thisTr = $(this).parents('tr');
-          var allTd = thisTr.find('td');
-          var tdLen = allTd.length;
-          for(var i = 0; i < tdLen; i++){
-              var tmValue = $(allTd[i]).find('input').val();
-              if(tmValue){$(allTd[i]).html(tmValue);}
-          }
-      })
-      //删除商品属性
-      $('#comMes').on('click','.btn-dustbin',function(e){
-          var thisTr = $(this).parents('tr');
-          $(thisTr).hide();
-      })
-      // 商品价格验证
-      $('#productAdvice').blur(function(){
-          $(this).val()>0 ? PriceCate() :alerts('价格必须大于零');
-      })
-      $('#shopPrice').blur(function(){
-          $(this).val()>0 ? PriceCate() :alerts('价格必须大于零');
-      })
-      function PriceCate(){
-          if ($('#shopPrice').val() >= $('#productAdvice').val()) {
-              alert('零售价必须大于等于分销价！请重新输入');
-              $('productAdvice').focus();
-          }
-      }
-      //自定义销售属性
-      $('.ortherVirtue').keypress(function(e){
-          if((e.keyCode || e.charCode) == 13 && $.trim($(this).find('input').val()).length > 0){
-              AddVirtue($.trim($(this).find('input').val()),$(this));
-          }
-      });
-      $('.ortherVirtue').on('click','.btn',function(){
-          var tmNode = $(this).parent().parent();
-          AddVirtue($.trim(tmNode.find('input').val()),tmNode)
-      })
-      function AddVirtue(dataValue,JQObj){
-          var VirtueHtml = '<label class="checkbox-inline"><input type="checkbox" value="'+dataValue+'">'+dataValue+'</input></label>';
-          var ListJQDom = JQObj.prev();
-          var searchNode = ListJQDom.children(':contains("'+dataValue+'")');
-          //virtueList
-          if(searchNode.length <= 0){
-              ListJQDom.append(VirtueHtml)
-              JQObj.find('input').val('')
-          }else{
-              var ll = 0;
-              for(var i = 0; i < searchNode.length; i++){
-                  if ($.trim($(searchNode[i]).text()) == dataValue){
-                      ll ++
+              }$('#version_body').html(tdHtml); 
+          })
+          function doExchange(x){
+              var h = x.length;
+              var w = x[0].length;
+              var i, j;
+              var m = [], n;
+              m[i = h] = 1;
+              while (i--)
+                      m[i] = m[i + 1] * x[i].length;
+              n = m[0];
+              var newArray =[];
+              for (i = 0; i < n; i++) {
+                  var tem = [];
+                  for (j = 0; j < h; j++){
+                      tem.push(x[j][~~(i % m[j] / m[j + 1])]);
                   }
+                  newArray.push(tem.join(';'));
               }
-              if(ll > 0){
-                  alert('已有属性，请不要重复添加！');
-              }else{
+              return newArray;
+          }
+          //保存商品属性。
+          $('#comMes').on('click','.save',function(e){
+              var thisTr = $(this).parents('tr');
+              var allTd = thisTr.find('td');
+              var tdLen = allTd.length;
+              for(var i = 0; i < tdLen; i++){
+                  var tmValue = $(allTd[i]).find('input').val();
+                  if(tmValue){$(allTd[i]).html(tmValue);}
+              }
+          })
+          //删除商品属性
+          $('#comMes').on('click','.btn-dustbin',function(e){
+              var thisTr = $(this).parents('tr');
+              $(thisTr).hide();
+          })
+          // 商品价格验证
+          $('#productAdvice').blur(function(){
+              $(this).val()>0 ? PriceCate() :alert('价格必须大于零');
+          })
+          $('#shopPrice').blur(function(){
+              $(this).val()>0 ? PriceCate() :alert('价格必须大于零');
+          })
+          function PriceCate(){
+              if ($('#shopPrice').val() >= $('#productAdvice').val()) {
+                  alert('零售价必须大于等于分销价！请重新输入');
+                  $('productAdvice').focus();
+              }
+          }
+          //自定义销售属性
+          $('.ortherVirtue').keypress(function(e){
+              if((e.keyCode || e.charCode) == 13 && $.trim($(this).find('input').val()).length > 0){
+                  AddVirtue($.trim($(this).find('input').val()),$(this));
+              }
+          });
+          $('.ortherVirtue').on('click','.btn',function(){
+              var tmNode = $(this).parent().parent();
+              AddVirtue($.trim(tmNode.find('input').val()),tmNode)
+          })
+          function AddVirtue(dataValue,JQObj){
+              var VirtueHtml = '<label class="checkbox-inline"><input type="checkbox" value="'+JQObj.prev().find('input')[0].value.split(':')[0]+':-'+JQObj.prev().find('input').length+'">'+dataValue+'</input></label>';
+              var ListJQDom = JQObj.prev();
+              var searchNode = ListJQDom.children(':contains("'+dataValue+'")');
+              //virtueList
+              if(searchNode.length <= 0){
                   ListJQDom.append(VirtueHtml)
                   JQObj.find('input').val('')
+              }else{
+                  var ll = 0;
+                  for(var i = 0; i < searchNode.length; i++){
+                      if ($.trim($(searchNode[i]).text()) == dataValue){
+                          ll ++
+                      }
+                  }
+                  if(ll > 0){
+                      alert('已有属性，请不要重复添加！');
+                  }else{
+                      ListJQDom.append(VirtueHtml)
+                      JQObj.find('input').val('')
+                  }
               }
+              return false;
           }
-          return false;
-      }
+          //检测标题字数。
+          $('#productName').keyup(function(e){
+              var wordLength = $.trim(this.value).length;
+              if(wordLength <= 30){$('#titleWorldNumber').html(wordLength)}
+              return;
+          })
+          //检测商品描述字数
+          $('#productDescription').keyup(function(e){
+              var wordLength = $.trim(this.value).length;
+              if(wordLength <= 150){$('#DescriptionWorldNumber').html(wordLength)}
+          })
+      })
     </script>
   </body>
 </html>

@@ -628,6 +628,7 @@
 }
 .product .detailed{
     min-width: 180px;
+    max-width: 500px;
 }
 .fileupload{
     position: absolute;
@@ -879,3 +880,59 @@
     line-height: 26px;
     margin-top: -2px;
 }
+.m-contentNav{
+    width: 140px;
+    height: 120px;
+    /* border: 1px solid; */
+    position: fixed;
+    right: 5px;
+    top: 45%;
+    background-color: rgba(23,23,23,.4);
+    z-index: 99;
+    box-shadow: 0 0 10px rgba(23, 23, 23, .6);
+}
+.listNav{
+    height: 40px;
+    line-height:40px;
+    padding-left: 14px;
+    cursor: pointer;
+}
+.listNav:hover{
+    background-color: rgba(255,255,255,0.2);
+}
+.listNav a{
+    display: block;
+    color: white;
+}
+.tipCon{
+    font-size: 12px;
+    color: #999999;
+}
+.tipCon i,.tipCon em{
+    font-style: normal;
+}
+.tipCon i{
+    color: red;
+}
+.btn-uploads,.btn-uploads input{
+    width: 75px;
+    height: 75px;
+}
+.btn-uploads .upload {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: url(../img/add.png) center center no-repeat;
+}
+.DescriptionWord{
+    font-style: normal;
+    position: absolute;
+    right: 18px;
+    bottom: 5px;
+    color: #999999;
+}
+.gray{
+    line-height: 34px;
+}
+

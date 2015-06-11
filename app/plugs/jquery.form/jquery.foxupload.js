@@ -24,7 +24,7 @@
                 $('#'+BoxId).html(InutHtml);
                 return;
             };
-        	$(this).wrap('<div id="'+BoxId+'">');
+        	$(this).wrap('<div id="'+BoxId+'" style="border:0;">');
             if (maxCount > 1 && showimg.children().length >= maxCount) {
                 $.alert('最多只能上传 ' + maxCount + ' 张图片！');
                 return;

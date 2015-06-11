@@ -115,3 +115,11 @@
     height: 162px;
     resize:none;
 }
+.messageLeft{
+    width: 60%;
+    float: left;
+}
+.messageRight{
+    width: 60%;
+    float: right;
+}
