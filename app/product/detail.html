@@ -102,7 +102,8 @@
                   <div class="form-group">
                       <label for="productName" class="control-label require">商品名称：</label>
                       <div class="col-md-6">
-                          <input type="text" id="productName" class="form-control">
+                          <input type="text" id="productName" class="form-control" placeholder="建议在标题中包含品牌、商品名称及产品关键特性，少于30字（空格不计数）">
+                          <div class="alert alert-danger hide" role="alert">商品标题不能为空或填写错误</div>
                       </div>
                   </div>
                   <div class="form-group">
@@ -308,7 +309,7 @@
                       </div>
                   </div>
                   <div class="form-group" id="comMes">
-                      <label for="productModel" class="control-label">商品规格：</label>
+                      <label for="productModel" class="control-label require">商品规格：</label>
                       <div class="col-md-7">
                           <div class="table-responsive">
                               <table class="table table-bordered table-center customTable table-model" id="sellvirtueTable">
@@ -342,6 +343,7 @@
                               </table>
                           </div>
                           <a href="javascript:;" class="blue">+增加型号</a>
+                          <div class="gray help-block">您需要选择所有的规格属性，才能组合成完整的规格信息</div>
                       </div>
                   </div>
               </div>
@@ -362,7 +364,7 @@
                               <input type="text" name="toPrice" id="toPrice" class="toPrice form-control">
                           </div> -->
                           <div class="form-group">
-                              <label for="" class="control-label">分销价：</label>
+                              <label for="" class="control-label require">分销价：</label>
                               <div class="col-md-6">
                                   <div class="table-responsive">
                                       <table class="table table-bordered table-center customTable table-price">
@@ -395,6 +397,7 @@
                                       </table>
                                   </div>
                                   <a href="javascript:;" class="blue">+增加价格区间</a>
+                                  <span class="gray help-block">分销商采购商品的价格</span>
                               </div>
                           </div>
                           <div class="form-group">
@@ -402,6 +405,14 @@
                               <div class="col-md-3">
                                   <input type="text" id="purchprice" class="form-control">
                               </div>
+                              <span class="gray help-block">分销到其他平台的零售市场价，例如： 京东的市场价</span>
+                          </div>
+                          <div class="form-group">
+                              <label for="purchprice" class="control-label">分销商限价：</label>
+                              <div class="col-md-3">
+                                  <input type="text" id="purchprice" class="form-control">
+                              </div>
+                              <span class="gray help-block">限制分销商的最低售价，如果低于该价格，供应商有权不处理订单</span>
                           </div>
                           <div class="form-group">
                               <label for="productDescription" class="control-label">商品描述：</label>
@@ -496,13 +507,14 @@
                                       </div>
                                       <div>
                                           <a href="javascript:;" class="upload"></a>
-                                          <input type="file" id="fileupload" name="mypic" class="fileupload">
+                                          <input type="file" id="fileupload" name="mypic" class="fileupload hide">
                                       </div>
-                                      <span class="gray">
-                                          每张图片大小请控制在150K以内
-                                      </span>
-                                  <!-- </div> -->
           
+                                      <span class="gray help-block">
+                                           第一张图为默认主图，要求图片尺寸在700*700像素以上，1M以内，否则不能分销到其他平台
+                                      </span>
+                                      <span class="alert alert-danger col-md-8" role="alert">请填写商品图片</span>
+                                  <!-- </div> -->
                               </div>
                           </div>
                           <!-- <div class="row desc">
@@ -514,7 +526,7 @@
                               </div>
                           </div> -->
                           <div class="form-group">
-                              <label class="control-label">商品详情：</label>
+                              <label class="control-label require">商品详情：</label>
                               <div class="col-md-9">
                                   <script id="productDetail" name="content" type="text/plain"></script>
                               </div>
@@ -522,9 +534,10 @@
                           <div class="row desc">
                               <div class="stdLeft"></div>
                               <div class="col-md-9">
-                                  <div class="gray ">
-                                      图片大小请控制在150K以内
+                                  <div class="gray help-block">
+                                      商品详情不少于5个字符，图片大小500K以内
                                   </div>
+                                  <span class="alert alert-danger col-md-8" role="alert">商品详情不能少于5个字</span>
                               </div>
                           </div>
                           <div class="form-group">
@@ -570,7 +583,7 @@
               <div class="stdLeft"></div>
               <div class="col-lg-4">
                   <button type="button" class="btn btn-blue">提交商品</button>
-                  <button type="button" class="btn btn-blue">保存草稿</button>
+                  <button type="button" class="btn btn-blue save-draft">保存草稿</button>
                   <!-- <a href="javascript:;" class="saveAndBack">保存后返回列表</a> -->
               </div>
           </div>
@@ -629,8 +642,6 @@
       
       
           }$('#version_body').html(tdHtml);
-      
-      
       })
       /*function doExchange(doubleArrays){
           var len=doubleArrays.length;
@@ -705,6 +716,8 @@
               $('productAdvice').focus();
           }
       }
+      
+      //提交验证
     </script>
   </body>
 </html>
