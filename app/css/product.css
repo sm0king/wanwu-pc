@@ -935,4 +935,6 @@
 .gray{
     line-height: 34px;
 }
-
+#sellvirtueTable tr td:last-child{
+    display: none;
+}

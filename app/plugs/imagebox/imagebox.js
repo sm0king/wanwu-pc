@@ -55,19 +55,38 @@
 			var width = this.width;
 			var height = this.height;
 			if (width > maxWidth || height > maxHeight) {
-				if (width / height > maxWidth / maxHeight) {
-					height = height * maxWidth / width;
-					width = maxWidth;
-				} else {
-					width = width * maxHeight / height;
-					height = maxHeight;
-				}
+				// if (width / height > maxWidth / maxHeight) {
+				// 	height = height * maxWidth / width;
+				// 	width = maxWidth;
+				// } else {
+				// 	width = width * maxHeight / height;
+				// 	height = maxHeight;
+				// }
+				if (width > maxWidth) {
+					$('.imagebox .content').animate({
+						top:'5%',
+						left:'5%',
+						width:'90%',
+						height:this.height,
+					})
+				};
+				if (width < maxWidth) {
+					$('.imagebox .content').css("margin","0 auto 15px");
+					$('.imagebox .content').animate({
+						top:'5%',
+						left:'0',
+						right:'0',
+						width:this.width,
+						height:this.height
+					})
+				};
+			}else{
+				$('.imagebox .content').animate({
+					marginLeft: width / -2 + 'px',
+					marginTop: height / -2 + 'px', width: width,
+					height: height
+				}, 150);
 			}
-			$('.imagebox .content').animate({
-				marginLeft: width / -2 + 'px',
-				marginTop: height / -2 + 'px', width: width,
-				height: height
-			}, 150);
 			$('.imagebox img').attr('src', imageURL);
 		};
 	}
