@@ -487,3 +487,9 @@ ul>li.collapse{
     top: 1px;
 }
 
+.form-group{
+    *zoom: 1;
+}
+.clearfix{
+    *zoom: 1;
+}

@@ -2,6 +2,7 @@
     margin-top: 20px;
     margin-left: 0;
 }
+
 .brand-logo-img .thumbnail{
     width: 75px;
     height: 75px;
@@ -10,7 +11,11 @@
     padding: 0;
 }
 .brand-logo-img .m-img{
+    width: 75px;
+    height: 75px;
     display: inline-block;
+    *zoom:1;
+    *display:inline;
 }
 .brand-logo-img .add-img{
     cursor: pointer;

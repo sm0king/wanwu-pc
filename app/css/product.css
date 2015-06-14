@@ -230,6 +230,8 @@
 .product-hotflags>div {
     display: inline-block;
     position: relative;
+    *display: inline;
+    *zoom: 1;
 }
 
 .product-hotflags button {
@@ -270,6 +272,8 @@
     width: 75px;
     height: 75px;
     display: inline-block;
+    *zoom:1;
+    *display: inline;
     vertical-align: top;
 }
 

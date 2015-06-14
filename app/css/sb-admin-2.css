@@ -403,6 +403,8 @@ table.dataTable thead .sorting:after {
 
 .dropdown.inline{
     display: inline-block;
+    *display: inline;
+    *zoom:1;
 }
 
 .btn-blue{
