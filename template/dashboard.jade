@@ -13,7 +13,11 @@ html
         link(rel='stylesheet', href='#{basePath}css/main.css')
         link(rel='stylesheet', href='#{basePath}js/metisMenu/metisMenu.min.css')        
         link(rel='stylesheet', href='#{basePath}css/foot.css')   
-        link(rel='stylesheet', href='#{basePath}css/sb-admin-2.css')       
+        link(rel='stylesheet', href='#{basePath}css/sb-admin-2.css') 
+        <!--[if lt IE 9]>
+        script(src="#{basePath}plugs/html5shiv.min.js")
+        script(src="#{basePath}plugs/respond.min.js")
+        <![endif]-->
         block header
     body
         #wrapper
@@ -97,11 +101,11 @@ html
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}info/changepwd.html') 修改密码                  
             #page-wrapper
-                //[if lt IE 9]
-                    .M-upBrowser
-                        p.upBrowser 检测到您的浏览器存在兼容性问题，请您使用
-                            a(href="http://browsehappy.com/" target="_blank") 万物推荐浏览器
-                //[endif]
+                <!--[if lt IE 9]>
+                .M-upBrowser
+                   p.upBrowser 检测到您的浏览器存在兼容性问题，请您使用
+                     a(href="http://browsehappy.com/" target="_blank") 万物推荐浏览器
+                <![endif]-->
                 block Right
         include foot.jade
         script(type='text/javascript',src='#{basePath}plugs/jquery/jquery.min.js')

@@ -12,7 +12,9 @@ body {
 a{
     cursor: pointer;
 }
-
+ul{
+    *margin: 0;
+}
 #wrapper {
     width: 100%;
 }
@@ -177,6 +179,7 @@ a{
         position: absolute;
         width: 210px;
         margin-top: 60px;
+        *left:0px;
         background-color: #293038;
     }
 
