@@ -935,6 +935,43 @@
 .gray{
     line-height: 34px;
 }
-#sellvirtueTable tr td:last-child{
-    display: none;
+.warntop li{
+    display: inline-block;
+    list-style: none;
+    margin-right: 10px;
 }
+.warntop li:before{
+    content:attr(id);
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    border-radius: 15px;
+    background-color: rgb(44,128,182);
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+    margin-right: 10px;
+}
+.warnCont{
+    background-color: rgb(238,245,249);
+    border:1px solid rgb(225,225,227);
+    padding:6px;
+    margin-bottom: 18px;
+}
+.contLeft{
+    float: left;
+    width: 90px;
+}
+.warnCont ol{
+    margin-left: 90px;
+    margin-bottom:0;
+}
+.warnCont li{
+    line-height: 24px;
+}
+
+
+
+
+
+

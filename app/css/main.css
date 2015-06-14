@@ -486,4 +486,14 @@ ul>li.collapse{
     right: -60px;
     top: 1px;
 }
+.M-upBrowser{
+    line-height: 46px;
+    height: 46px;
+    background-color: rgb(239,253,230);
+    padding-left: 18px;
+    color: rgb(38,38,38);
+}
+.M-upBrowser a{
+    color: rgb(20,42,250);
+}
 

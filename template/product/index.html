@@ -11,7 +11,29 @@ block DashboardTitle
 block Right    
     .product.
         <h4 class="indexH3">商品列表</h4>
-        <form action="#" class="querycond">
+        <div class="m-warning">
+            <div class="warntop">
+                <ul>
+                    <li id="1">导出分销商品</li>
+                    <li id="2">导入卖家平台</li>
+                    <li id="3">导出卖家平台订单</li>
+                    <li id="4">订单导入万物</li>
+                    <li id="5">订单状态更新到平台</li>
+                </ul>
+            </div>
+            <div class="warnCont">
+                <div class="contLeft">操作注意事项</div>
+                <ol>
+                    <li>分销商登陆万物分销平台，导出卖家平台对应分销商品列表Excel</li>
+                    <li>分销商将Excel导入到各平台，例如：淘宝商家可以使用淘宝助理v5.7导入到本地库存宝贝，执行上传宝贝功能</li>
+                    <li>订单导入后，等待万物供应商处理订单，通常24小时内发货</li>
+                    <li>个别平台不支持导入订单同步发货状态，请手动更新</li>
+                    <li>订单详情可以查看物流详情</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- <form action="#" class="querycond">
             <div class="form-inline">
                 <div class="form-group">
                     <label for="productName">商品名称：</label>
@@ -59,7 +81,7 @@ block Right
                 </div>
                 <div class="form-group">
                     <button class="btn btn-blue">查询</button>
-                    <!-- <button class="btn btn-bigblue" id='addBrand'>添加商品</button> -->
+                    <!- <button class="btn btn-bigblue" id='addBrand'>添加商品</button> ->
                 </div>
             </div>
             <div class="form-inline">
@@ -71,8 +93,8 @@ block Right
                 </div>
                 
             </div>
-            
-        </form>
+        </form> -->
+
         
         <div class="table-responsive">
             <table class="table table-bordered">
