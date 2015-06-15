@@ -24,11 +24,11 @@
           <h4 class="dashboard-subtitle"><img src="..//img/dot.png"/>供应商平台</h4>
         </div>
         <div class="dashboard-top-line"><span>
-
+             
             客服热线<span class="navbar-phone">028-88888888</span></span><span class="separate"></span><a href="javascript:;">帮助中心</a><span class="separate"></span><a href="javascript:;">趣玩</a><span class="separate"></span><a href="javascript:;">退出</a></div>
         <div role="navigation" class="navbar-default sidebar">
           <div class="sidebar-nav navbar-collapse">
-            <ul id="side-menu" class="nav in">
+            <ul id="side-menu" class="nav in">                           
               <li ui-sref-active="active"><a href="../home.html">首页</a></li>
               <li href="#order_manage" data-toggle="collapse" class="navbar-group-title">订单管理
                 <li id="order_manage" class="collapse">
@@ -39,7 +39,7 @@
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
-                <ul>
+                <ul>                                       
                   <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
                   <li ui-sref-active="active"><a href="../product/catalogChoice.html">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="../product/batch.html">批量导入商品</a></li>
@@ -136,11 +136,11 @@
                       <button class="btn btn-blue">批量删除</button>
                       <button class="btn btn-blue">一键搬家</button>
                   </div>
-
+                  
               </div>
-
+              
           </form>
-
+          
           <div class="table-responsive">
               <table class="table table-bordered">
                   <thead>
@@ -226,7 +226,7 @@
                   </tbody>
               </table>
           </div>
-          <nav class="clearfix">
+          <nav>
               <ul class="pagination">
                   <li><a href="javascript:;" aria-label="Previous">&laquo;</a></li>
                   <li><a href="javascript:;">1</a></li>
@@ -240,7 +240,7 @@
                       <i class="totalPage">7</i>页，到第<input type="text" class="text-input">页
                       <button class="btn btn-blue">确定</button>
                   </li>
-
+                  
               </ul>
           </nav>
         </div>
@@ -262,7 +262,7 @@
     <script type="text/javascript">
       $(function(){
           $('select').dropkick();
-
+      
           $('#formDate,#toDate').datetimepicker({
               format: 'yyyy-mm-dd',
               language: 'zh-CN',
