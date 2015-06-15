@@ -1,6 +1,3 @@
 node_modules
-app/plugs/jquery
-app/plugs/bootstrap/js
-app/plugs/bootstrap/fonts
-app/plugs/bootstrapvalidator
+app
 *.log
