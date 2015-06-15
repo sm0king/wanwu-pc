@@ -19,13 +19,13 @@ block Right
                     span.green 审核通过
                     button(type='button').btn.btn-gray#setUnaudit 设为未审核
                     span 设置为未审核后供应商需要重新提交审核资料
-        .rowGroup
+        .form-group
             button.btn.btn-gray#enableEdit 启用编辑
-        .rowGroup
+        .form-group
             button.btn.btn-gray#resetPWD 重置密码
-            span.resetPWD-tip 
+            span.resetPWD-tip
                 // 这里显示重置后的密码
-        form.form-horizontal            
+        form.form-horizontal
             .form-group
                 label.control-label 登录账号：
                 .col-sm-6
@@ -110,4 +110,3 @@ block foot
     script(type='text/javascript').
         $('#uploadIDCard').foxupload('http://123.59.58.104/supplier/upload/file.php?action=add');
         $('#uploadLicense').foxupload('http://123.59.58.104/supplier/upload/file.php?action=add');
-

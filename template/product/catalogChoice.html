@@ -3,14 +3,14 @@ block Define
     - var basePath = '../';
 
 block header
-    link(rel='stylesheet', href='../css/product.css')     
-    link(rel='stylesheet', href='../css/catalog-selector.css')     
+    link(rel='stylesheet', href='../css/product.css')
+    link(rel='stylesheet', href='../css/catalog-selector.css')
 
 block DashboardTitle
     类目选择
 
 block Right
-    .product-catalog
+    .product.product-catalog
         form.form-inline
             .form-group
                 input(type='text', placeholder="输入产品关键字，我们为您推荐类目")#input-groom.form-control
@@ -21,7 +21,7 @@ block Right
             .status-bar.alert.alert-warning
                 p
                     span 您当前选择的类目：
-                    span#choice 
+                    span#choice
                 p#search
                     span 请选择类目
                     ul#searchChoice.searchChoice
@@ -33,9 +33,9 @@ block Right
                 | 下一步，填写商品详情
                 span.glyphicon.glyphicon-arrow-right
 
-        
 
-block foot 
+
+block foot
     script(type='text/javascript', src='../js/catalog-selector.js')
     script(type='text/javascript').
         $(function(){
@@ -103,7 +103,7 @@ block foot
                     alert('请正确选择叶子类目');
                     return;
                 }
-                
+
             });
 
             function searchCata(name,callback){
@@ -173,5 +173,3 @@ block foot
                 */
             }
         });
-
-

@@ -497,3 +497,9 @@ ul>li.collapse{
     color: rgb(20,42,250);
 }
 
+.form-group{
+    *zoom: 1;
+}
+.clearfix{
+    *zoom: 1;
+}

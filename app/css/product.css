@@ -1,4 +1,6 @@
-.product {}
+.product {
+  padding-top: 10px;
+}
 
 .product .table {
     margin-bottom: 0px;
@@ -16,7 +18,9 @@
     height: 100px;
     padding: 15px 15px;
 }
-
+.product .table>tbody>tr>td>span {
+    margin: 0 5px;
+}
 .product .table>thead>tr>td {
     text-align: center;
 }
@@ -50,7 +54,7 @@
 
 .product .table-responsive {
     /*margin-top: 30px;*/
-    margin-top: -10px;
+    /*margin-top: -10px;*/
 }
 
 .product .product-img {
@@ -226,6 +230,8 @@
 .product-hotflags>div {
     display: inline-block;
     position: relative;
+    *display: inline;
+    *zoom: 1;
 }
 
 .product-hotflags button {
@@ -266,6 +272,8 @@
     width: 75px;
     height: 75px;
     display: inline-block;
+    *zoom:1;
+    *display: inline;
     vertical-align: top;
 }
 
@@ -816,14 +824,14 @@
     padding-left: 6px;
 }
 .btn-que{
-    display: block; 
+    display: block;
     margin-bottom: 20px;
 }
 /******************************* 类目选择页面 *******************************/
 .product-catalog{
     background-color: #fff;
-    margin-top: 20px;
-    padding: 10px;
+    /*margin-top: 20px;*/
+    padding:20px 10px;
     overflow: auto;
 }
 .product-catalog .form-group{
@@ -869,6 +877,7 @@
 .virtueList{
     margin-left: 96px;
 }
+<<<<<<< HEAD
 .form-horizontal .virtueList .ortherCheck{
     padding-top: 5px;
 }
@@ -975,3 +984,5 @@
 
 
 
+=======
+>>>>>>> 24e51fbf649e105b3f623161820112096705ab7a

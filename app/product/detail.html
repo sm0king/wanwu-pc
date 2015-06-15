@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="../css/main.css"/>
     <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../css/foot.css"/>
-    <link rel="stylesheet" href="../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../css/sb-admin-2.css"/><!--[if lt IE 9]>
+    <script src="../plugs/html5shiv.min.js"></script>
+    <script src="../plugs/respond.min.js"></script><![endif]-->
     <link rel="stylesheet" href="../css/product.css"/>
   </head>
   <body>
@@ -72,12 +74,10 @@
           </div>
         </div>
       </nav>
-      <div id="page-wrapper">
-        <!--[if lt IE 9]-->
+      <div id="page-wrapper"><!--[if lt IE 9]>
         <div class="M-upBrowser">
           <p class="upBrowser">检测到您的浏览器存在兼容性问题，请您使用<a href="http://browsehappy.com/" target="_blank">万物推荐浏览器</a></p>
-        </div>
-        <!--[endif]-->
+        </div><![endif]-->
         <div class="m-contentNav">
           <div class="listNav"><a href="#BasicInformation">商品基本信息</a></div>
           <div class="listNav"><a href="#SalesInformation">销售信息</a></div>
@@ -92,12 +92,12 @@
               <div class="col-md-4 btn-bar">
                   <button type="button" class="btn btn-blue">获取商品信息</button>
                   <button type="button" class="btn btn-blue">全店搬家</button>
-                  <a href="javascript:;" class="question question-blue hidden-xs hidden-sm">                    
-                      <div class="tip">  
+                  <a href="javascript:;" class="question question-blue hidden-xs hidden-sm">
+                      <div class="tip">
                           <div class="tip-acute"></div>
                           <div class="tip-content">
                               此功能会将商品所在店铺的全部商品全部搬家到万物。
-                          </div> 
+                          </div>
                       </div>
                   </a>
               </div>
@@ -123,7 +123,7 @@
                                       <option value="1">分类</option>
                                   </select>
                               </div>
-                              <a href="javascript:;" class="resort">修改分类</a>  
+                              <a href="javascript:;" class="resort">修改分类</a>
                           </div>
                           <!-- <div class="row">
                               <div class="col-lg-12">
@@ -194,7 +194,7 @@
                                           <button class="btn btn-blue" type="button">添加</button>
                                       </label>
                                   </div>
-                                  
+          
                               </div>
                                <div class="attribute clearfix sellvirtue">
                                   <label for="" class="control-label">品牌:</label>
@@ -333,7 +333,7 @@
                               </div>
                               <div class="attribute">
                                   <label for="" class="control-label">货号</label>
-                                  <input type="text" class="form-control"> 
+                                  <input type="text" class="form-control">
                               </div>-->
                           </div>
                           <div class="m-addattr">
@@ -343,7 +343,7 @@
                       </div>
                   </div>
                   <div class="form-group" id="comMes">
-                      <label for="productModel" class="control-label">商品规格：</label>
+                      <label for="productModel" class="control-label require">商品规格：</label>
                       <div class="col-md-7">
                           <span class="tipCon" style="line-height:34px;">您需要选择所有的规格属性，才能组合成完整的规格信息 </span>
                           <div class="table-responsive">
@@ -378,6 +378,7 @@
                               </table>
                           </div>
                           <a href="javascript:;" class="blue">+增加型号</a>
+                          <div class="gray help-block">您需要选择所有的规格属性，才能组合成完整的规格信息</div>
                       </div>
                   </div>
               </div>
@@ -399,7 +400,7 @@
                               <input type="text" name="toPrice" id="toPrice" class="toPrice form-control">
                           </div> -->
                           <div class="form-group">
-                              <label for="" class="control-label">分销价：</label>
+                              <label for="" class="control-label require">分销价：</label>
                               <div class="col-md-6">
                                   <div class="table-responsive">
                                       <table class="table table-bordered table-center customTable table-price">
@@ -432,6 +433,7 @@
                                       </table>
                                   </div>
                                   <a href="javascript:;" class="blue">+增加价格区间</a>
+                                  <span class="gray help-block">分销商采购商品的价格</span>
                               </div>
                           </div>
                           <div class="form-group">
@@ -489,7 +491,7 @@
                                           <input type="checkbox"><i class="sortColor"></i>颜色</input>
                                       </label>
                                   </div>
-                                  
+          
                               </div>
                           </div> -->
                           <!-- <div class="form-group">
@@ -555,21 +557,22 @@
                                   <span class="gray">
                                       每张图片大小请控制在150K以内
                                   </span>
-                              </div>                
+                              </div>
                           </div> -->
                           <div class="form-group" id="GoodsDetails">
-                              <label class="control-label">商品详情：</label>
+                              <label class="control-label require">商品详情：</label>
                               <div class="col-md-9">
                                   <span class="gray">商品详情不少于5个字符，图片大小500K以内   </span>
                                   <script id="productDetail" name="content" type="text/plain"></script>
-                              </div>   
+                              </div>
                           </div>
-                          <!-- <div class="row desc">
+                          <!-- <div class="row desc clearfix">
                               <div class="stdLeft"></div>
                               <div class="col-md-9">
-                                  <div class="gray ">
-                                      图片大小请控制在150K以内
+                                  <div class="gray help-block">
+                                      商品详情不少于5个字符，图片大小500K以内
                                   </div>
+                                  <span class="alert alert-danger col-md-8" role="alert">商品详情不能少于5个字</span>
                               </div>
                           </div> -->
                           <div class="form-group">
@@ -580,7 +583,7 @@
                           </div>
                           <div class="row">
                               <div class="stdLeft"></div>
-                              <dib class="col-md-9">
+                              <div class="col-md-9 col-xs-10 col-xs-offset-2 col-md-offset-0">
                                   <div class="row product-hotflags" id="flags">
                                       <div class="">
                                           <button type="button" >春节</button>
@@ -601,7 +604,7 @@
                                           <button type="button" >春节</button>
                                       </div>
                                   </div>
-                              </dib>
+                              </div>
                           </div>
               </div>
           </div>
@@ -610,9 +613,9 @@
           </div>
           <div class="row">
               <div class="stdLeft"></div>
-              <div class="col-md-4">
+              <div class="col-lg-4">
                   <button type="button" class="btn btn-blue">提交商品</button>
-                  <button type="button" class="btn btn-blue">保存草稿</button>
+                  <button type="button" class="btn btn-blue save-draft">保存草稿</button>
                   <!-- <a href="javascript:;" class="saveAndBack">保存后返回列表</a> -->
               </div>
           </div>
@@ -630,9 +633,9 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
-    <script type="text/javascript" src="../plugs/ueditor/ueditor.config.js"> </script>
+    <script type="text/javascript" src="../plugs/ueditor/ueditor.config.js"></script>
     <script type="text/javascript" src="../plugs/ueditor/ueditor.all.min.js"></script>
-    <script type="text/javascript" src="../plugs/jquery.tagsinput.js"> </script>
+    <script type="text/javascript" src="../plugs/jquery.tagsinput.js"></script>
     <script type="text/javascript" src="../js/product_detail.js"></script>
     <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
     <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>

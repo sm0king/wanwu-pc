@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="../../css/main.css"/>
     <link rel="stylesheet" href="../../js/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../../css/foot.css"/>
-    <link rel="stylesheet" href="../../css/sb-admin-2.css"/>
+    <link rel="stylesheet" href="../../css/sb-admin-2.css"/><!--[if lt IE 9]>
+    <script src="../../plugs/html5shiv.min.js"></script>
+    <script src="../../plugs/respond.min.js"></script><![endif]-->
     <link rel="stylesheet" href="../../css/manage/supplier.css"/>
     <link rel="stylesheet" href="../../plugs/jquery.form/foxupload.css"/>
   </head>
@@ -43,12 +45,10 @@
           </div>
         </div>
       </nav>
-      <div id="page-wrapper">
-        <!--[if lt IE 9]-->
+      <div id="page-wrapper"><!--[if lt IE 9]>
         <div class="M-upBrowser">
           <p class="upBrowser">检测到您的浏览器存在兼容性问题，请您使用<a href="http://browsehappy.com/" target="_blank">万物推荐浏览器</a></p>
-        </div>
-        <!--[endif]-->
+        </div><![endif]-->
         <div class="supplier detail">
           <form class="form-horizontal">
             <div class="form-group">
@@ -58,14 +58,14 @@
               </div>
             </div>
           </form>
-          <div class="rowGroup">
+          <div class="form-group">
             <button id="enableEdit" class="btn btn-gray">启用编辑</button>
           </div>
-          <div class="rowGroup">
-            <button id="resetPWD" class="btn btn-gray">重置密码</button><span class="resetPWD-tip"> 
+          <div class="form-group">
+            <button id="resetPWD" class="btn btn-gray">重置密码</button><span class="resetPWD-tip">
               <!-- 这里显示重置后的密码--></span>
           </div>
-          <form class="form-horizontal">           
+          <form class="form-horizontal">
             <div class="form-group">
               <label class="control-label">登录账号：</label>
               <div class="col-sm-6"><span class="account">gys001</span>

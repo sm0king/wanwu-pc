@@ -1,4 +1,4 @@
-$(function(){ 
+$(function(){
     var ue = UE.getEditor('productDetail');
     $('#tagsinput').tagsInput();
     $('#flags').delegate('button','click', function(e){
@@ -19,4 +19,23 @@ $(function(){
         //debugger;
         //$(e.currentTarget).parent().toggleClass('selected');
     });
+
+    $('.save-draft').on('click',function(){
+        verify.productName();
+    });
+
+    // 表单验证
+    var verify = {
+      productName : function(){
+        var item = $('#productName');
+        if (!item.val()) {
+          item.siblings('div.alert').removeClass('hide');
+          var h = item.offset().top-5;
+          $("html,body").animate({scrollTop: h}, 500);
+        }
+      },
+      productImg : function(){
+        
+      }
+    };
 });
