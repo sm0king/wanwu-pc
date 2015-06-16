@@ -2,6 +2,12 @@
     padding-top: 10px;
     font-size: 1.28em;
 }
+.home .black{
+  color: #000;
+}
+.home .alert{
+  font-size: 14px;
+}
 .home .basicInfo>*{
     vertical-align: middle;
 }
@@ -10,7 +16,7 @@
     width:33px;
     height: 24px;
 }
-.home .auth-stat{    
+.home .auth-stat{
     margin-right: 25px;
 }
 .home .basicInfo .question{
