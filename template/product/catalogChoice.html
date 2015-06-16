@@ -20,6 +20,7 @@ block Right
             p#search
                 span 类目提示
                 ul#searchChoice.searchChoice
+            p#noSearch.noSearch 没有查到相关类目，请使用类目选择器进行选择。
             a.CloseTip.glyphicon.glyphicon-remove#CloseTip
         #selector
             #selector-container
@@ -103,7 +104,6 @@ block foot
 
             $('#btn-doNext').click(function(){
                 if($($('.selectorBar .active:last')).parent().is('.selector-col:last')){
-                    console.log(selector.getValue());
                 }else{
                     alert('请正确选择叶子类目');
                     return;
@@ -120,27 +120,35 @@ block foot
                     data:{cat_name:name}
                 }).success(function(data){
                     var dataLength = data.length;
-                    for(var i = 0;i < dataLength;i++){
-                        var cataD = fid(data[i],[]);
-                        var level = cataD.length;
-                        var dataHtml = ""
-                        for(var j = level ; j>1 ;j--){
-                            dataHtml +=cataD[j-1].text+'<i> >> </i>';
-                        }
-                        dataHtml += cataD[0].text
-                        dataHtml = '<li class="seachData" data="'+i+'">'+dataHtml+'</li>';
-                        $("#searchChoice").append(dataHtml);
-                        $('#searchTip').slideDown();
-                    }
-                    $('#searchChoice').on('click','.seachData',function(){
-                        var dID = $(this).attr('data');
-                        window.cc.setData(data[dID]);
-                        //var clickData = fid(data[dID],[]);
-                        //;
+                    if(dataLength > 0){
+                        $('#noSearch').hide();
+                        $('#search').show();
+                        for(var i = 0;i < dataLength;i++){
+                            var cataD = fid(data[i],[]);
+                            var level = cataD.length;
+                            var dataHtml = ""
+                            for(var j = level ; j>1 ;j--){
+                                dataHtml +=cataD[j-1].text+'<i> >> </i>';
+                            }
+                            dataHtml += cataD[0].text
+                            dataHtml = '<li class="seachData" data="'+i+'">'+dataHtml+'</li>';
+                            $("#searchChoice").append(dataHtml);
+                        }/*
+                        $('#searchChoice').on('click','.seachData',function(){
+                            var dID = $(this).attr('data');
+                            //window.cc.setData(data[dID]);
+                            //var clickData = fid(data[dID],[]);
+                            //;
 
-                    })
+                        })*/
+                    }else{
+                        $('#noSearch').show();
+                        $('#search').hide();
+                    }
+
+                    $('#searchTip').slideDown();
+                    
                 }).error(function(data){
-                    //debugger
                     alert('网络错误或者错误的请求，请联系管理员');
                 })
             };
