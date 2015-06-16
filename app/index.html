@@ -1,562 +1,234 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <title>万物</title>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="renderer" content="webkit">
-    <link rel="stylesheet" href="./plugs/bootstrap/css/bootstrap.min.css" />
-    <style type="text/css">
-    .page-header {
-        padding-left: 50px;
-        padding-right: 50px;
-    }
-    
-    .login {
-        float: right;
-        margin-top: 18px;
-        width: 288px;
-    }
-    
-    .login a {
-        margin-left: 15px;
-        display: inline-block;
-    }
-    
-    .green {
-        color: #4cbd4e;
-    }
-    
-    .blue {
-        background-color: #069dd5;
-        color: #fff;
-        height: 36px;
-        border-radius: 18px;
-        width: 110px;
-        text-align: center;
-        text-decoration: none;
-        font-size: 16px;
-        line-height: 60px;
-        float: right;
-        line-height: 38px;
-    }
-    
-    .blue:hover,
-    .blue:focus {
-        color: #fff;
-        text-decoration: none;
-    }
-    
-    .center {
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        left: 0px;
-        margin-top: -106px;
-        width: 100%;
-    }
-    
-    .text {
-        font-size: 32px;
-        color: white;
-    }
-    
-    .greenBtn,
-    .blueBtn {
-        display: inline-block;
-        width: 365px;
-        height: 97px;
-        line-height: 97px;
-        text-align: center;
-        border-radius: 5px;
-        margin-top: 70px;
-    }
-    
-    .greenBtn {
-        background-color: #4cbd4e;
-    }
-    
-    .blueBtn {
-        background-color: #069dd5;
-    }
-    
-    .desc {
-        position: absolute;
-    }
-    
-    .desc p {
-        font-size: 28px;
-        color: white;
-        text-shadow: 0px 0px 5px #000;
-    }
-    
-    p.big {
-        font-size: 80px;
-        text-shadow: 0px 0px 5px #61300a;
-    }
-    
-    .page-header {
-        padding: 31px 75px 21px 75px;
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        z-index: 2;
-        margin: 0;
-        background-color: rgba(0, 0, 0, .6);
-        border: none;
-    }
-    
-    .foot {
-        padding: 31px 75px 21px 75px;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 230px;
-        z-index: 2;
-        /*background-color: gray;*/
-        
-        text-align: center;
-        /*display: none;*/
-    }
-    
-    .foot-link {
-        margin-top: 50px;
-    }
-    
-    .foot-link,
-    .foot-link a {
-        color: #069dd5;
-    }
-    
-    .foot-copy {
-        color: #c3c3c3;
-    }
-    
-    .pageDown {
-        background: url(img/pageDown.png) 0 0 no-repeat;
-        width: 55px;
-        height: 55px;
-        display: inline-block;
-        position: absolute;
-        margin-left: -27px;
-        left: 50%;
-        bottom: 15px;
-        z-index: 2;
-        opacity: 0.7;
-    }
-    /*old*/
-    
-    html,
-    body {
-        margin: 0;
-        padding: 0;
-    }
-    
-    .sliders .slider1 {
-        background-image: url(./img/slider1.jpg);
-    }
-    
-    .sliders .slider2 {
-        background-image: url(./img/slider2.jpg);
-    }
-    
-    .sliders .slider3 {
-        background-image: url(./img/slider3.jpg);
-    }
-    
-    .sliders .slider4 {
-        background-image: url(./img/slider4.jpg);
-    }
-    
-    .sliders {
-        width: 100%;
-    }
-    
-    .sliders ul {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        /*max-width: 1920px; */
-        
-        min-width: 1007px;
-        margin: 0 auto;
-    }
-    
-    .sliders li {
-        position: absolute;
-        left: 50%;
-        top: 0;
-        width: 1920px;
-        height: 100%;
-        margin: 0 0 0 -960px;
-        display: none;
-        z-index: 1;
-        -webkit-background-size: cover;
-        background-size: cover;
-        background-position: center center;
-    }
-    
-    .sliders li:first-child {
-        display: block;
-    }
-    
-    .circle {
-        position: relative;
-        width: 100%;
-        height: 52px;
-        margin-top: -52px;
-        background: transparent url(./img/linearbot.png) repeat-x left top;
-        text-align: center;
-        z-index: 5;
-    }
-    
-    .circle span {
-        margin: 0 5px;
-        padding: 2px 5px;
-        background: transparent url(./img/nav.png) no-repeat center center;
-        cursor: pointer;
-    }
-    
-    .circle span.on {
-        background-image: url(./img/navcur.png);
-    }
-    
-    .lgIco {
-        width: 35px;
-        height: 35px;
-        -webkit-background-size: 100%;
-        background-position: center center;
-        background-size: 100%;
-        background-position: center center;
-    }
-    
-    .weibo {
-        background-image: url(./img/weibo.png);
-    }
-    
-    .weixin {
-        background-image: url(./img/weixin.png);
-    }
-    
-    .qq {
-        background-image: url(./img/qq.png);
-    }
-    
-    .bncont {
-        position: relative;
-        width: 948px;
-        height: 100%;
-        margin: 0 auto;
-    }
-    
-    .bntxt {
-        position: absolute;
-        left: -90px;
-        top: 50%;
-        width: 620px;
-        height: 388px;
-        margin-top: -195px;
-        z-index: 10;
-        /*background-color: rgba(0,0,0,.4);*/
-        
-        color: #fff;
-        border-radius: 2px;
-        font-family: "Microsoft YaHei";
-        font-size: 20px;
-        padding: 0 20px;
-    }
-    
-    .bntxt h2 {
-        width: 100%;
-        overflow: hidden;
-        font-size: 48px;
-        padding-top: 175px;
-        height: 0;
-        text-align: left;
-    }
-    /* .bntxt.fist h2{
-        padding-top: 124px;
-    }
-    .bntxt.last h2{
-        padding-top: 36px;
-    } */
-    
-    .bntxt.fist a {
-        margin-top: 49px;
-        margin-bottom: -31px;
-    }
-    
-    .bntxt a {
-        display: block;
-        width: 162px;
-        /*height: 0;*/
-        
-        overflow: hidden;
-        margin: 0 auto;
-        /*padding-top: 60px;*/
-        
-        height: 60px;
-        text-align: center;
-        line-height: 58px;
-        font-size: 20px;
-        margin-top: 30px;
-        float: left;
-        margin-right: 44px;
-        background-color: #069dd5;
-        border-radius: 4px;
-        box-shadow: 0 0 2px rgba(0, 0, 0, .6);
-        color: #fff;
-        text-decoration: none;
-    }
-    
-    .AppStore {
-        /*background: transparent url(./img/downico.png) no-repeat 0 0;*/
-        
-        background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjE5cHgiIGhlaWdodD0iMjNweCIgdmlld0JveD0iMCAwIDE5IDIzIiBlbmFibGUtYmFja2dyb3VuZD0ibmV3IDAgMCAxOSAyMyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQoJPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTE3Ljk3NywxNi4zNzJjLTAuMTExLDAuMzM0LTAuMjI5LDAuNjUyLTAuMzU0LDAuOTU5Yy0wLjMwNSwwLjcyMi0wLjY2NiwxLjM4OC0xLjA4MiwxLjk5OA0KCQljLTAuNTcsMC44MzQtMS4wMzUsMS40MDktMS4zOTYsMS43MjljLTAuNTU3LDAuNTI2LTEuMTUyLDAuNzk4LTEuNzkxLDAuODEyYy0wLjQ1OSwwLTEuMDEtMC4xMzQtMS42NTYtMC40MDQNCgkJYy0wLjY0Ni0wLjI3MS0xLjIzOC0wLjQwNi0xLjc4MS0wLjQwNmMtMC41NjksMC0xLjE4MSwwLjEzNi0xLjgzMywwLjQwNnMtMS4xOCwwLjQxNC0xLjU4MiwwLjQyNw0KCQljLTAuNjEyLDAuMDI4LTEuMjIzLTAuMjUtMS44MzMtMC44MzNjLTAuMzg5LTAuMzQ4LTAuODc1LTAuOTQ0LTEuNDU4LTEuNzkyYy0wLjYyNS0wLjkwMi0xLjEzOS0xLjk1LTEuNTQyLTMuMTQ2DQoJCWMtMC40MjktMS4yOTEtMC42NDUtMi41NDEtMC42NDUtMy43NDhjMC0xLjM4OSwwLjI5Mi0yLjU4MywwLjg3NS0zLjU4M2MwLjQ1OC0wLjgwNSwxLjA2OS0xLjQ0LDEuODMzLTEuOTA2DQoJCWMwLjc2NC0wLjQ2NiwxLjU5LTAuNzA0LDIuNDc5LTAuNzE4YzAuNDg2LDAsMS4xMjUsMC4xNTMsMS45MTYsMC40NThzMS4yOTcsMC40NTksMS41MiwwLjQ1OWMwLjE2NywwLDAuNzI5LTAuMTgxLDEuNjg4LTAuNTQyDQoJCWMwLjktMC4zMzQsMS42NjYtMC40NzIsMi4yOTEtMC40MTdjMS42OTMsMC4xNCwyLjk2NSwwLjgyNiwzLjgxMSwyLjA2MmMtMS41MTQsMC45NDQtMi4yNjIsMi4yNjMtMi4yNDgsMy45NTcNCgkJYzAuMDE0LDEuMzE4LDAuNDc5LDIuNDE3LDEuMzk2LDMuMjkxQzE2Ljk5OCwxNS44MzcsMTcuNDYzLDE2LjE1LDE3Ljk3NywxNi4zNzJ6IE0xMy42NDUsMS4xMDUNCgkJYzAuMDE0LDAuMTM5LDAuMDIxLDAuMjc4LDAuMDIxLDAuNDE3YzAsMS4wNDItMC4zNjksMi4wMTQtMS4xMDQsMi45MTVjLTAuODg5LDEuMDctMS45MTgsMS41NTYtMy4wODMsMS40NTkNCgkJQzkuNDY1LDUuNzcxLDkuNDU4LDUuNjM5LDkuNDU4LDUuNTAxYzAtMSwwLjM3Ni0xLjkzOCwxLjEyNi0yLjgxMmMwLjM3NS0wLjQ0MywwLjg1LTAuODEyLDEuNDI4LTEuMTA0DQoJCUMxMi41ODYsMS4yOTMsMTMuMTMxLDEuMTMzLDEzLjY0NSwxLjEwNXoiLz4NCjwvc3ZnPg0K");
-        background-repeat: no-repeat;
-        background-size: 36px;
-        background-position: 10px 6px;
-        padding-left: 37px;
-    }
-    
-    .Android {
-        /*background: transparent url(./img/downico.png) no-repeat 0 -98px;*/
-        
-        background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz48IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4iICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0i5Zu+5b2iIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjEwMjRweCIgaGVpZ2h0PSIxMDI0cHgiIHZpZXdCb3g9IjAgMCAxMDI0IDEwMjQiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDEwMjQgMTAyNCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+ICA8cGF0aCBmaWxsPSIjZmZmIiBkPSJNMjAwLjM4NCA0NTEuOTM2Yy0yOS43NiAwLTUzLjk1Mi0yNS4wMjQtNTMuOTUyLTU1Ljg3MmwwLjA2NC0yMTMuODI0YzAtMzAuOTEyIDI0LjEyOC01NS44NzIgNTMuOTUyLTU1Ljg3MiAyOS44MjQgMCA1My45NTIgMjQuOTYgNTMuOTUyIDU1Ljg3MmwwIDIxMy44MjRDMjU0LjMzNiA0MjYuOTEyIDIzMC4xNDQgNDUyIDIwMC4zODQgNDUxLjkzNk02MzEuMDQgNjcwLjk0NGwzNy42MzIgNzEuMTY4YzEuOTg0IDMuNzEyIDAuNzA0IDguNDQ4LTIuOTQ0IDEwLjU2LTMuNjQ4IDEuOTg0LTguMTkyIDAuNjQtMTAuMTc2LTMuMDcyTDYxNy41MzYgNjc3LjY2NGMtMzIgMTQuNzItNjcuODQgMjMuMDQtMTA1LjY2NCAyMi45NzYtMzcuNzYgMC03My42LTguMTkyLTEwNS40NzItMjIuODQ4TDM2OC4zODQgNzQ5LjUzNmMtMS45ODQgMy43NzYtNi41MjggNS4xMi0xMC4xMTIgMy4wNzJDMzU0LjU2IDc1MC41NiAzNTMuMjE2IDc0NS44MjQgMzU1LjI2NCA3NDIuMTEybDM3LjYzMi03MS4xNjhDMzE4LjkxMiA2MzEuNDU2IDI3Ny41NjggNTU2LjE5MiAyNzcuNTY4IDQ2OS43OTJsNDY4LjYwOCAwLjA2NEM3NDYuMTc2IDU1Ni4yNTYgNzA0Ljg5NiA2MzEuMzI4IDYzMS4wNCA2NzAuOTQ0TTQwMS4zNDQgNTU4LjY4OGMtMTEuMiAwLTIwLjI4OCA5LjQ3Mi0yMC4yODggMjEuMDU2IDAgMTEuNTg0IDkuMDg4IDIxLjEyIDIwLjM1MiAyMS4xMiAxMS4yNjQgMCAyMC4zNTItOS41MzYgMjAuNDE2LTIxLjEyQzQyMS43NiA1NjguMTYgNDEyLjYwOCA1NTguNjg4IDQwMS4zNDQgNTU4LjY4OE02MjIuNTkyIDU1Ni41MTJjLTExLjIgMC0yMC4zNTIgOS40MDgtMjAuMzUyIDIxLjEyIDAgMTEuNTg0IDkuMTUyIDIxLjEyIDIwLjM1MiAyMS4xMiAxMS4yIDAgMjAuMzUyLTkuNiAyMC4zNTItMjEuMTJDNjQyLjk0NCA1NjUuOTIgNjMzLjc5MiA1NTYuNTEyIDYyMi41OTIgNTU2LjUxMk0yNzcuNDQgNDUwLjMzNmwwLjA2NC0zNTUuNzc2YzAtMzIuOTYgMjUuNzI4LTU5LjU4NCA1Ny41MzYtNTkuNTg0bDI4LjQxNiAwIDAuMDY0LTEzMi42NzJjMC0zMC44NDggMjQuMTkyLTU1Ljg3MiA1My44ODgtNTUuODcyIDI5LjgyNCAwIDYyLjU5MiAyNS4wODggNjIuNTkyIDU1LjkzNmwwIDEzMi42NzIgNjQuMTkyIDAgMC0xMzIuNjcyYzAtMzAuNzg0IDI0LjE5Mi01NS44NzIgNTMuOTUyLTU1LjgwOCAyOS44MjQgMCA2MC40MTYgMjUuMDI0IDYwLjQxNiA1NS44NzJsMCAxMzIuNjcyIDMwLjcyIDBjMzEuNzQ0IDAgNTcuNiAyNi42MjQgNTcuNiA1OS41ODRsLTAuMDY0IDM1NS44NEwyNzcuNDQgNDUwLjMzNnpNODc3LjUwNCAzOTYuMTkyYzAgMzAuODQ4LTI0LjEyOCA1NS44NzItNTMuOTUyIDU1Ljg3Mi0yOS43NiAwLTUzLjk1Mi0yNS4wMjQtNTMuOTUyLTU1Ljg3MmwwLjA2NC0yMTYuMDY0YzAtMzAuOTEyIDI0LjEyOC01NS44NzIgNTMuOTUyLTU1Ljg3MiAyOS43NiAwIDUzLjg4OCAyNC45NiA1My44ODggNTUuODcyTDg3Ny41MDQgMzk2LjE5MnoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDgxMikgc2NhbGUoMSwgLTEpIi8+PC9zdmc+");
-        background-size: 45px;
-        background-repeat: no-repeat;
-        background-position: 8px 6px;
-        padding-left: 45px;
-    }
-    
-    .page {
-        position: relative;
-        width: 100%;
-        background-color: #fff;
-        background-attachment: fixed;
-        background-position: center 0;
-        background-repeat: no-repeat;
-        -webkit-background-size: cover;
-        background-size: cover;
-    }
-    
-    .page1 {
-        background-image: url(./img/page1.jpg);
-    }
-    
-    .page2 {
-        background-image: url(./img/page2.jpg);
-    }
-    
-    .page3 {
-        background-image: url(./img/page3.jpg);
-    }
-    
-    .con3 {
-        margin-bottom: 39px;
-    }
-    
-    .contxt3 h2 {
-        background: transparent url(./img/contxt3.png) no-repeat 15px top;
-    }
-    
-    .contxt1 h2 {
-        background: transparent url(./img/contxt1.png) no-repeat 15px top;
-    }
-    
-    .contxt2 h2 {
-        background: transparent url(./img/contxt2.png) no-repeat 15px top;
-    }
-    
-    .contxt4 h2 {
-        background: transparent url(./img/contxt4.png) no-repeat 15px top;
-    }
-    .cont-box{
-        position: relative;
-        width:100%;
-        height: 100%;
-        background-color: rgba(0,0,0,.4);
-    }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="万物（wanwu.com）是全网货源一键分销的移动供销平台，完全免费，海量货源集散地，无货也可开店赚钱，对接淘宝，微店，京东，拍拍，有赞等多家电商平台，让分销商拥有海量货源一键分销，无货开店赚钱，让供应商可以一键铺货库存同步，获得海量订单。"/>
+    <meta name="keywords" content="分销,微商,微店,微信,ERP,朋友圈,微购物,淘宝一键搬家,拍拍,有赞,卖家,开店,店铺,易订货,一键分销,旺铺"/>
+    <title>万物 - 全网货源一键分销，淘宝微店多店铺商品轻松管理，订单价格库存实时同步</title>
+    <!-- Bootstrap -->
+    <link href="./style/backend/app/assets/css/normalize.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="./style/backend/app/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="./style/backend/app/assets/css/site.css" rel="stylesheet" type="text/css" media="screen">
+    <html xmlns:wb="http://open.weibo.com/wb">
+    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 
 <body>
-    <div class="page-header" id="header">
-        <img src="./img/logo.png" alt="">
-        <div class="login">
-            <a href="javascript:void(0);" target="_blank" class="lgIco weibo"> </a>
-            <a class="lgIco weixin" id="lgIco"> </a>
-            <a href="javascript:void(0);" class="lgIco qq"></a>
-            <a href="/supplier/user/login" class="blue">我是供应商</a>
+    <div class="header">
+        <div class="free-img"></div>
+        <div class="top">
+            <div class="container">
+                <a href="" class="logo"><img src="./style/backend/app/assets/img/logo.png" alt="万物logo"></a>
+                <div class="pull-right links">
+                    <a href=""><span class="icon icon-wx"></span></a>
+                    <a href=""><span class="icon icon-qq"></span></a>
+                    <a href="">
+                        <span class="icon icon-wb">
+                            <wb:share-button appkey="2432354467" addition="simple" type="button" ralateUid="5582640749" default_text="【万物】全网货源一键分销，完全免费的海量优质货源集散地，对接淘宝，微店，京东，拍拍，有赞等主流电商平台，一键分销+代发货，无需自建仓库，无货也开店赚钱。http://wanwu.com" pic="http%3A%2F%2Fww3.sinaimg.cn%2Fmw1024%2F62992659jw1et4vph3swej20m80m80uv.jpg" picture_search="false"></wb:share-button>
+                        </span>
+                    </a>
+                    <a class="btn btn-default btn-orange" href="/supplier/user/login">我是供应商</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="banner">
+                <div class="desc pc">
+                    <h1>万物 · 全网货源一键分销</h1>
+                    <h2>海量货源集散地，无货也开店赚钱</h2>
+                    <div class="download">
+                        <a href="" class="btn btn-default btn-blue"><span class="icon icon-ios"></span>App Store</a>
+                        <a href="" class="btn btn-default btn-blue"><span class="icon icon-android"></span>Android</a>
+                    </div>
+                </div>
+                <div class="phone-img"></div>
+            </div>
         </div>
     </div>
-    <div class="sliders" id="sliders">
-        <ul class="slider" id="slider">
-            <li class="slider1">
-                <div class="cont-box">
-                    <div class="bncont contxt1">
-                        <div class="bntxt fist">
-                            <h2>相见恨晚的货源平台</h2>
-                            <a href="javascript:void(0);" class="AppStore">AppStore</a>
-                            <a href="javascript:void(0);" class="Android">Android</a>
-                        </div>
-                    </div>
+    <div class="container items">
+        <div class="row title-switch">
+            <div class="col-md-6 col-sm-6 col-xs-6 sub-title text-align-right">
+                <h3 id="btnFx" class="active">我是分销商</h3></div>
+            <div class="col-md-6 col-sm-6 col-xs-6 sub-title">
+                <h3 id="btnGy">我是供应商</h3></div>
+        </div>
+        <div class="row fx">
+            <div class="col-md-3 col-sm-6 col-xs-12 item">
+                <img src="./style/backend/app/assets/img/fx-i-1.jpg" alt="全网一键分销">
+                <div class="item-title">
+                    全网一键分销
                 </div>
-            </li>
-            <li class="slider2 ">
-                <div class="cont-box">
-                    <div class="bncont contxt2">
-                        <div class="bntxt">
-                            <h2>全网全平台</br>无数店铺，一个应用</br>下载万物分销商App，不管是淘宝还是微店，再多店铺也能轻松打理！</h2>
-                            <a href="javascript:void(0);" class="AppStore">AppStore</a>
-                            <a href="javascript:void(0);" class="Android">Android</a>
-                        </div>
-                    </div>
+                <div class="item-desc">
+                    主流电商接入，淘宝京东微店
+                    <br> 再多店铺，轻松一键分销
                 </div>
-            </li>
-            <li class="slider3">
-                <div class="cont-box">
-                    <div class="bncont contxt3">
-                        <div class="bntxt">
-                            <h2>全球货源</br>海量优质商品供给您的事业</br>
-                        已有众多供应商入驻万物平台，海量商品为你解决供应链难题！</h2>
-                            <a href="javascript:void(0);" class="AppStore">AppStore</a>
-                            <a href="javascript:void(0);" class="Android">Android</a>
-                        </div>
-                    </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 item">
+                <img src="./style/backend/app/assets/img/fx-i-2.jpg" alt="全网一键分销">
+                <div class="item-title">
+                    海量优质货源
                 </div>
-            </li>
-            <li class="slider4">
-                <div class="cont-box">
-                    <div class="bncont contxt4">
-                        <div class="bntxt last">
-                            <h2>真正免费</br>使用“0”门槛
-                        </br>无需任何费用，仅需一个手机号即可成为万物平台分销商，货物积压、滞销风险万物通通替你解决！</h2>
-                            <a href="javascript:void(0);" class="AppStore">AppStore</a>
-                            <a href="javascript:void(0);" class="Android">Android</a>
-                        </div>
-                    </div>
+                <div class="item-desc">
+                    千万供应商，全球供货，
+                    <br> 海量优质货源，解决缺货烦恼
                 </div>
-            </li>
-        </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 item">
+                <img src="./style/backend/app/assets/img/fx-i-3.jpg" alt="全网一键分销">
+                <div class="item-title">
+                    全免费零成本
+                </div>
+                <div class="item-desc">
+                    先卖货后付款，0佣金0手续费
+                    <br> 手机快速注册，免费培训
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 item">
+                <img src="./style/backend/app/assets/img/fx-i-4.jpg" alt="全网一键分销">
+                <div class="item-title">
+                    一件代发、发货快
+                </div>
+                <div class="item-desc">
+                    无需自建仓库，无货也开店
+                    <br> 一件也代发货，发货更快
+                </div>
+            </div>
+            <div class="col-md-12 text-align-right">
+                <a href="javascript:void(0);" id="clickDown" class="link-join">立即入驻 <span>》</span></a>
+            </div>
+        </div>
+        <div class="row gy" style="display:none">
+            <div class="col-md-3 col-sm-6 col-xs-12 item">
+                <img src="./style/backend/app/assets/img/gy-i-1.jpg" alt="全网一键分销">
+                <div class="item-title">
+                    全网一键铺货
+                </div>
+                <div class="item-desc">
+                    海量分销商，主流电商平台
+                    <br> 全网一键分销，大幅提高订单
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 item">
+                <img src="./style/backend/app/assets/img/gy-i-2.jpg" alt="全网一键分销">
+                <div class="item-title">
+                    价格库存同步
+                </div>
+                <div class="item-desc">
+                    实时同步库存，避免超买
+                    <br> 控制商品价格，维护品牌价值
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 item">
+                <img src="./style/backend/app/assets/img/gy-i-3.jpg" alt="全网一键分销">
+                <div class="item-title">
+                    全免费零成本
+                </div>
+                <div class="item-desc">
+                    无任何费用，0佣金，0手续费
+                    <br> 千万分销渠道，占领市场
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12 item">
+                <img src="./style/backend/app/assets/img/gy-i-4.jpg" alt="全网一键分销">
+                <div class="item-title">
+                    实时数据趋势
+                </div>
+                <div class="item-desc">
+                    了解销售状况，发现爆款
+                    <br> 响应市场变化，获海量订单
+                </div>
+            </div>
+            <div class="col-md-12 text-align-right">
+                <a href="/supplier/user/login" class="link-join">立即入驻 <span>》</span></a>
+            </div>
+        </div>
+        <div class="row brand-title" style="display:none">
+            <div class="col-md-12 sub-title">
+                <h3>品牌库</h3>
+            </div>
+        </div>
+        <div class="row brand" style="display:none">
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-11.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-12.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-13.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-14.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-15.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-16.jpg" alt=""></div>
+        </div>
+        <div class="row brand brand-2" style="display:none">
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-21.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-22.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-23.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-24.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-25.jpg" alt=""></div>
+            <div class="col-md-2 col-sm-4 col-xs-6 item"><img src="./style/backend/app/assets/img/b-26.jpg" alt=""></div>
+        </div>
+        <div class="row demo-title" style="display:none">
+            <div class="col-md-12 sub-title">
+                <h3>客户案例</h3>
+            </div>
+        </div>
+        <div class="row demo" style="display:none">
+            <div class="col-md-3 col-sm-6 col-xs-12"><img src="./style/backend/app/assets/img/demo-1.jpg" alt=""></div>
+            <div class="col-md-3 col-sm-6 col-xs-12"><img src="./style/backend/app/assets/img/demo-2.jpg" alt=""></div>
+            <div class="col-md-3 col-sm-6 col-xs-12"><img src="./style/backend/app/assets/img/demo-3.jpg" alt=""></div>
+            <div class="col-md-3 col-sm-6 col-xs-12"><img src="./style/backend/app/assets/img/demo-4.jpg" alt=""></div>
+        </div>
     </div>
-    <div class="content" id="content">
-        <div class="page page1"></div>
-        <div class="page page2"></div>
-        <div class="page page3"></div>
-        <!-- <img src="./img/page1.jpg">
-        <img src="./img/page2.jpg">
-        <img src="./img/page3.jpg"> -->
+    <div class="footer">
+        Copyright 2011-2015 wanwu.com 万物网版权所有 | 京ICP备09017905号
     </div>
-    <div class="foot" id="foot">
-        <p class="foot-link">
-            <a href="javascript:;">服务协议</a> |
-            <a href="javascript:;">联系我们</a>
-        </p>
-        <p class="foot-copy">
-            Copyright &copy; 2015 万物wanwu.com版权所有 京ICP备09017905号
-        </p>
-    </div>
-    <script src="./plugs/jquery/jquery.min.js"></script>
-    <!-- <script src="js/unslider.min.js"></script>-->
-    <script type="text/javascript">
-    $.fn.picfade = function(configs) {
-        var settings = $.extend({
-            tags: "li",
-            toggleClass: "on",
-            auto: true,
-            shownav: true,
-            timerange: 6000
-        }, configs || {});
-        return this.each(function() {
-            var container = this;
-            var $tags = $(container).children();
-            var tagslen = $tags.size();
-            if (tagslen < 2) {
-                return false
-            }
-            var curid = 0;
-            var targetid = 0;
-            var timer = null;
-            if (settings.shownav) {
-                var $nav = $('<div class="circle"></div>').insertAfter(container);
-                var navStr = "";
-                for (var i = 0; i < tagslen; i++) {
-                    navStr += "<span>&nbsp;</span>"
-                }
-                var $as = $nav.html(navStr).children();
-                $as.first().addClass(settings.toggleClass);
-                $as.each(function(i, item) {
-                    $(item).mouseover(function() {
-                        settings.auto = false;
-                        targetid = i;
-                        fade(curid, targetid);
-                        curid = targetid
-                    }).mouseout(function() {
-                        settings.auto = true
-                    })
-                })
-            }
-            $(container).hover(function() {
-                settings.auto = false
-            }, function() {
-                settings.auto = true
-            });
-            timer = window.setInterval(function() {
-                if (!settings.auto) {
-                    return false
-                }
-                if (targetid === tagslen - 1) {
-                    targetid = 0
-                } else {
-                    targetid += 1
-                }
-                fade(curid, targetid);
-                curid = targetid
-            }, settings.timerange);
-
-            function fade(cid, nextid) {
-                if (cid === nextid) {
-                    return false
-                }
-                $tags.eq(cid).fadeOut(1000);
-                $tags.eq(nextid).fadeIn(800);
-                if (settings.shownav) {
-                    $as.eq(cid).removeClass(settings.toggleClass);
-                    $as.eq(nextid).addClass(settings.toggleClass)
-                }
-            }
-        })
-    };
-    $(function() {
-        // $('#slider').unslider();
-        var $body = $("body");
-        var winHeight = $(window).height();
-        var bodyheight = $body.height();
-        $("#sliders").animate({
-            height: (winHeight - 150) > 540 ? winHeight : 540
-        }, 100, function() {});
-        $(".page").animate({
-            height: (winHeight - 150) > 540 ? winHeight : 540
-        }, 100, function() {});
-        $(window).resize(function() {
-            winHeight = $(window).height();
-            bodyheight = $body.height();
-            $("#sliders").animate({
-                height: (winHeight - 150) > 540 ? winHeight : 540
-            }, 100, function() {})
-            $(".page").animate({
-                height: (winHeight - 150) > 540 ? winHeight : 540
-            }, 100, function() {})
-        });
-        $("#slider").picfade({
-            timerange: 3000
-        })
-    })
-    </script>
+    <script src="./style/backend/app/assets/js/jquery-1.11.3.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./style/backend/app/assets/js/ie10-viewport-bug-workaround.js"></script>
 </body>
 
 </html>
+<script>
+$(function() {
+    $("#btnFx").click(function() {
+        $(this).addClass("active");
+        $("#btnGy").removeClass("active");
+        $(".fx").show();
+        $(".gy").hide();
+    });
+    $("#btnGy").click(function() {
+        $(this).addClass("active");
+        $("#btnFx").removeClass("active");
+        $(".gy").show();
+        $(".fx").hide();
+    });
+    $('#clickDown').bind('click',function(e){
+        var browser = {
+            versions: function () {
+            var u = navigator.userAgent, app = navigator.appVersion;
+                return { //移动终端浏览器版本信息 
+                    ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端 
+                    android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或uc浏览器 
+                    iPhone: u.indexOf('iPhone') > -1, //是否为iPhone或者QQHD浏览器 
+                    iPad: u.indexOf('iPad') > -1, //是否iPad 
+                };
+            }(),
+        }
+        if (browser.versions.iPhone || browser.versions.iPad || browser.versions.ios) {
+            window.location.href = "http://www.wanwu.com/#ios";
+        }
+        if (browser.versions.android) {
+            window.location.href = "http://www.wanwu.com/#Android";
+        }
+        if (!browser.versions.iPhone && !browser.versions.iPad && !browser.versions.ios && !browser.versions.android) {
+            window.location.href = "http://www.wanwu.com/#";
+        };
+    })
+})
+</script>
