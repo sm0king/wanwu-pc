@@ -978,11 +978,13 @@
 .warnCont li{
     line-height: 24px;
 }
-
-
-
-
-
-
-=======
->>>>>>> 24e51fbf649e105b3f623161820112096705ab7a
+.searchTip{
+    position: relative;
+    display: none;
+}
+.CloseTip{
+    position: absolute;
+    right:5px;
+    top:5px;
+    /*content: "\e014";*/
+}

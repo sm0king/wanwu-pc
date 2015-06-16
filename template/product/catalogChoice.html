@@ -16,18 +16,22 @@ block Right
                 input(type='text', placeholder="输入产品关键字，我们为您推荐类目")#input-groom.form-control
             .form-group
                 button(type='button').btn.btn-blue.btn-search#btn-search 查询
+        .searchTip.alert.alert-warning#searchTip
+            p#search
+                span 类目提示
+                ul#searchChoice.searchChoice
+            a.CloseTip.glyphicon.glyphicon-remove#CloseTip
         #selector
             #selector-container
             .status-bar.alert.alert-warning
                 p
                     span 您当前选择的类目：
                     span#choice
-                p#search
-                    span 请选择类目
-                    ul#searchChoice.searchChoice
-                p
-                    sapn 类目说明：
-                    span#catalog-explain
+                
+                //
+                    p
+                        sapn 类目说明：
+                        span#catalog-explain
         .foot-bar
             button(type='button').btn.btn-blue#btn-doNext
                 | 下一步，填写商品详情
@@ -76,6 +80,7 @@ block foot
                     }
                 });
             $('#selector').width(selectorColCount * CatalogSelector.defaultOption.colsWidth + 22);
+            $('#searchTip').width(selectorColCount * CatalogSelector.defaultOption.colsWidth);
 
             $('#btn-search').click(function(){
                 keyword = $.trim($('#input-groom').val());
@@ -125,6 +130,7 @@ block foot
                         dataHtml += cataD[0].text
                         dataHtml = '<li class="seachData" data="'+i+'">'+dataHtml+'</li>';
                         $("#searchChoice").append(dataHtml);
+                        $('#searchTip').slideDown();
                     }
                     $('#searchChoice').on('click','.seachData',function(){
                         var dID = $(this).attr('data');
@@ -172,4 +178,8 @@ block foot
                 }
                 */
             }
+            //删除提示
+            $('#CloseTip').bind('click',function(e){
+                $('#searchTip').slideUp();
+            })
         });
