@@ -140,7 +140,7 @@
                   </div>
                   <div class="form-group">
                       <label for="productAttr" class="control-label">商品属性：</label>
-                      <div class="col-md-10 attributes">
+                      <div class="col-md-9 attributes">
                           <div class="m-attribute">
                               <div class="attribute" id="attributes">
                                   <label for="" class="control-label">材质:</label>
@@ -344,7 +344,7 @@
                   </div>
                   <div class="form-group" id="comMes">
                       <label for="productModel" class="control-label require">商品规格：</label>
-                      <div class="col-md-7">
+                      <div class="col-md-9">
                           <span class="tipCon" style="line-height:34px;">您需要选择所有的规格属性，才能组合成完整的规格信息 </span>
                           <div class="table-responsive">
                               <table class="table table-bordered table-center customTable table-model" id="sellvirtueTable">
@@ -401,7 +401,7 @@
                           </div> -->
                           <div class="form-group">
                               <label for="" class="control-label require">分销价：</label>
-                              <div class="col-md-6">
+                              <div class="col-md-9">
                                   <div class="table-responsive">
                                       <table class="table table-bordered table-center customTable table-price">
                                           <thead>
@@ -452,11 +452,10 @@
                           </div>
                           <div class="form-group">
                               <label for="productDescription" class="control-label">商品描述：</label>
-                              <div class="col-md-6">
+                              <div class="col-md-9">
                                   <textarea id="productDescription" rows="10" maxlength="150"></textarea>
                                   <i class="DescriptionWord">(<em id="DescriptionWorldNumber">0</em>/150)</i>
                               </div>
-          
                           </div>
                           <!-- <div class="form-group">
                               <label class="control-label">颜色分类：</label>
@@ -526,7 +525,7 @@
                               <label for="productLocation" class="control-label require">商品图片：</label>
                               <div class="col-md-9 product-images">
                                   <span class="gray">
-                                          每张图片大小请控制在150K以内,第一张图为默认主图，要求图片尺寸在700*700像素以上，1M以内，否则不能分销到其他平台    
+                                          每张图片大小请控制在150K以内,第一张图为默认主图，要求图片尺寸在700*700像素以上，1M以内，否则不能分销到其他平台
                                   </span>
                                   </br>
                                   <div>
@@ -698,7 +697,7 @@
               var tdHtml = ''
               if(virArr.length === virLen){
                   var ArrValue = doExchange(virArr);
-                  
+      
                   if($.isArray(ArrValue)){
                       for(var n = 0; n < ArrValue.length; n++){
                           var valArr = ArrValue[n].split(';');
@@ -715,7 +714,7 @@
                           }
                       }
                   }
-              }$('#version_body').html(tdHtml); 
+              }$('#version_body').html(tdHtml);
           })
           function doExchange(x){
               var h = x.length;
@@ -803,7 +802,13 @@
               var wordLength = $.trim(this.value).length;
               if(wordLength <= 30){$('#titleWorldNumber').html(wordLength)}
               return;
-          })
+          });
+          var a = (function(){
+            var desc = $('#productDescription').val();
+            var length = $.trim(desc).length;
+            $('#DescriptionWorldNumber').html(length);
+            return false;
+          })();
           //检测商品描述字数
           $('#productDescription').keyup(function(e){
               var wordLength = $.trim(this.value).length;

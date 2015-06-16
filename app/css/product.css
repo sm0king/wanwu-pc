@@ -1,7 +1,15 @@
 .product {
   padding-top: 10px;
 }
-
+.product .black{
+  color: #000;
+}
+.product .black a{
+  color: blue;
+}
+.product .alert{
+  font-size: 14px;
+}
 .product .table {
     margin-bottom: 0px;
 }
@@ -143,7 +151,7 @@
 }
 
 .product-detail .customTable input {
-    width: 90%;
+    width: 70%;
     margin: 0 auto;
     text-align: center;
 }
