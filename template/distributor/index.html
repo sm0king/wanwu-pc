@@ -10,7 +10,7 @@ block header
 
 block DashboardTitle
     分销商列表
-block Right    
+block Right
     .product.distributor.distributor-index.
         <h4 class="indexH3">分销商管理</h4>
         <div class="form-inline">
@@ -35,8 +35,7 @@ block Right
                     <span class="to">至</span>
                     <input type="text" name="toDate" id="toDate" class="toDate form-control">
                 </div>
-            <button type="submit" class="btn btn-primary searchBtn">
-                <span class="glyphicon glyphicon-search"></span>
+            <button type="submit" class="btn btn-blue btn-search">
                 查询
             </button>
         </div>
@@ -53,7 +52,7 @@ block Right
                 </tr>
             </thead>
         </table>
-    include ../pagination.jade    
+    include ../pagination.jade
 block foot
     script(type='text/javascript',src='#{basePath}js/bootstrap-table.js')
     script(type='text/javascript').
