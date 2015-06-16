@@ -5,6 +5,9 @@
 .home .black{
   color: #000;
 }
+.home .black a{
+  color: blue;
+}
 .home .alert{
   font-size: 14px;
 }

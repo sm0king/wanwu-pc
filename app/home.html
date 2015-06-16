@@ -90,7 +90,7 @@
                       .tip
                           .tip-acute
                           .tip-content 您需要先通过供应商资质认证后才能上架商品。
-                  span#bindWeixin 
+                  span#bindWeixin
                       span.blue 绑定微信
                       .tip-rectangle.tdc
                           span.gray 请使用微信扫描下方二维码完成绑定
@@ -103,7 +103,7 @@
           -->
           <!--
           ul.list-group
-              li.list-group-item 
+              li.list-group-item
                   | 15个订单等待发货
                   a(href='javascript:;').view 查看
               li.list-group-item
@@ -113,10 +113,10 @@
               .col-md-6
                   ul.list-group
                       li.list-group-item 98个品牌
-                      li.list-group-item 
+                      li.list-group-item
                           | 23个品牌等待提交审核
                           a(href='javascript:;').view 查看
-                      li.list-group-item 
+                      li.list-group-item
                           | 75个品牌已上线
                           a(href='javascript:;').view 查看
               .col-md-6
@@ -125,6 +125,11 @@
                       li.list-group-item.noProduct
                       a.addBrand 添加品牌
           -->
+          <div class="row">
+            <div class="col-md-12">
+              <div role="alert" class="alert alert-success"><strong class="red">提示：</strong><span class="black">您正在使用分销商账号访问供应商平台，想成为供应商？ 立即去<a href="info/basicinfo.html">完善资料</a></span></div>
+            </div>
+          </div>
           <div class="row homeMessage">
             <div class="col-md-4">
               <div class="panel panel-default">
@@ -279,7 +284,7 @@
                       $(document.body).one('click', function(){
                           jqTarget.removeClass('active');
                       });
-                  }, 0); 
+                  }, 0);
               }
           });
       })
