@@ -84,7 +84,7 @@
               <div class="panel-body">
                 <p class="gray tip">您需要进一步提交公司认证资料后才能上架商品</p>
                 <div class="schedule step-1"><img src="../img/schedule-1.png" class="img-responsive scheduleImg-1 scheduleImg"/><img src="../img/schedule-2.png" class="img-responsive scheduleImg-2 scheduleImg"/><img src="../img/schedule-3.png" class="img-responsive scheduleImg-3 scheduleImg"/></div>
-                <div class="hr">             </div>
+                <div class="hr"></div>
                 <form id="basicInfoForm" class="form-horizontal">
                   <h4 class="subtitle">基本资料</h4>
                   <div class="form-group">
@@ -288,6 +288,8 @@
     <script type="text/javascript" src="../js/dialog.js"></script>
     <link rel="stylesheet" href="../plugs/imagebox/imagebox.css"/>
     <script type="text/javascript" src="../plugs/imagebox/imagebox.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>
     <script type="text/javascript">
       var brandForm = $('#brandForm').remove();
       $(function(){
@@ -298,9 +300,9 @@
           $('#addBrand').click(addBrand);
       
           //基本资料表单校验配置
-          /*$('#basicInfoForm').bootstrapValidator({
-              framework: 'bootstrap',
-              icon: {
+          $('#basicInfoForm').bootstrapValidator({
+              container: 'tooltip',
+              feedbackIcons: {
                   valid: 'glyphicon glyphicon-ok',
                   invalid: 'glyphicon glyphicon-remove',
                   validating: 'glyphicon glyphicon-refresh'
@@ -342,6 +344,13 @@
                           }
                       }
                   },
+                  usertype:{
+                    validators: {
+                        notEmpty: {
+                            message: '请选择用户类型！'
+                        }
+                    }
+                  },
                   company: {
                       validators: {
                           notEmpty: {
@@ -357,7 +366,7 @@
                       }
                   }
               }
-          });*/
+          });
       });
       
       function addBrand(){
@@ -403,7 +412,7 @@
                   invalid: 'glyphicon glyphicon-remove',
                   validating: 'glyphicon glyphicon-refresh'
               },
-              fields: {                    
+              fields: {
                   brandName: {
                       validators: {
                           notEmpty: {

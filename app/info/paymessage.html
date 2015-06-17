@@ -82,7 +82,7 @@
           <h4 class="indexH3">支付信息维护</h4>
           <div class="row">
             <div class="col-md-6">
-              <form class="form-horizontal pwdForm">
+              <form id="payForm" class="form-horizontal pwdForm">
                 <div class="form-group">
                   <label class="control-label col-lg-4">国内银行：</label>
                   <div class="col-lg-8">
@@ -112,28 +112,28 @@
                 <div class="form-group">
                   <label class="control-label col-lg-4">开户行名称：</label>
                   <div class="col-lg-8">
-                    <input class="form-control"/>
+                    <input name="bankName" class="form-control"/>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="control-label col-lg-4">银行卡号：</label>
                   <div class="col-lg-8">
-                    <input class="form-control"/>
+                    <input name="bankCard" class="form-control"/>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="control-label col-lg-4">收款人/收款公司：</label>
                   <div class="col-lg-8">
-                    <input class="form-control"/>
+                    <input name="getMoney" class="form-control"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-lg-4">&nbsp;</div>
+                  <div class="col-lg-8 btnBar">
+                    <button class="btn btn-blue">保存</button>
                   </div>
                 </div>
               </form>
-              <div class="row">
-                <div class="col-lg-4">&nbsp;</div>
-                <div class="col-lg-8 btnBar">
-                  <button class="btn btn-blue">保存</button>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -150,5 +150,37 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>
+    <script type="text/javascript">
+      $('#payForm').bootstrapValidator({
+          fields:{
+            bankName:{
+                validators: {
+                    notEmpty: {
+                        message: '请输入银行名称'
+                    }
+                }
+            },
+            bankCard:{
+                validators: {
+                    notEmpty: {
+                        message: '请输入卡号'
+                    },
+                    integer:{
+                        message: '请输入数字'
+                    }
+                }
+            },
+            getMoney:{
+                validators: {
+                    notEmpty: {
+                        message: '请输入收款人/收款公司'
+                    }
+                }
+            },
+          }
+      });
+    </script>
   </body>
 </html>

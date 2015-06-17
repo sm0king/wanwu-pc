@@ -80,16 +80,16 @@
         </div><![endif]-->
         <div class="order">
           <h4 class="indexH3">我的订单</h4>
-          <form action="#" class="queryOrder">
+          <form action="#" id="orderForm" class="queryOrder">
             <div class="form-inline">
               <div class="form-group">
                 <label for="goodsName">商品名称</label>
-                <input id="goodsName" type="text" class="form-control"/>
+                <input id="goodsName" type="text" name="goodsName" class="form-control"/>
               </div>
               <div class="form-group">
                 <label for="orderSta">订单状态</label>
                 <div class="dropdown inline w140">
-                  <select id="orderSta" class="form-control">
+                  <select id="orderSta" name="orderSta" class="form-control">
                     <option value="0">全部 </option>
                     <option value="1" selected="selected">待发货</option>
                     <option value="2">已发货 </option>
@@ -108,15 +108,15 @@
             <div class="form-inline">
               <div class="form-group">
                 <label for="distributorName">分销商</label>
-                <input id="distributorName" type="text" class="form-control"/>
+                <input id="distributorName" type="text" name="distributorName" class="form-control"/>
               </div>
               <div class="form-group">
                 <label for="consigneeName">收货人</label>
-                <input id="consigneeName" type="text" class="form-control w140"/>
+                <input id="consigneeName" type="text" name="consigneeName" class="form-control w140"/>
               </div>
               <div class="form-group">
                 <label for="orderName">采购订单号</label>
-                <input id="orderName" type="text" class="form-control orderName"/>
+                <input id="orderName" type="text" name="orderName" class="form-control orderName"/>
               </div>
               <div class="form-group">
                 <button class="btn btn-blue">查询</button>
@@ -139,10 +139,7 @@
             <table class="table table-bordered">
               <tbody>
                 <tr class="titleTR">
-                  <td class="tdOrderNumber">
-                     
-                    订单编号: <span class="blue">8779641532</span>
-                  </td>
+                  <td class="tdOrderNumber">订单编号:<span class="blue">8779641532</span></td>
                   <td class="retailer tdOrderPrice">分销价</td>
                   <td class="receiver tdOrderConsignee">收货人</td>
                   <td class="tdOrderAddress">收货地址</td>
@@ -162,7 +159,7 @@
                   <td class="orderOperator"><a class="blue doExpress">发货</a><a class="blue doNoStock">无货反馈</a><a href="detail.html" class="blue">订单详情</a><a class="blue doCancelOrder">取消订单</a></td>
                 </tr>
                 <tr class="titleTR">
-                  <td>订单编号: <span class="blue">8779641532</span></td>
+                  <td>订单编号:<span class="blue">8779641532</span></td>
                   <td class="retailer">分销价</td>
                   <td class="receiver">收货人</td>
                   <td>收货地址</td>
@@ -222,7 +219,7 @@
                 <div class="col-sm-12">
                   <label for="input-noStock" class="control-label">无货原因：</label>
                 </div>
-                <div class="col-sm-12">               
+                <div class="col-sm-12">
                   <textarea id="input-noStock" class="form-control"></textarea>
                 </div>
               </div>
@@ -275,6 +272,8 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>
     <script type="text/javascript">
       $(function(){
           $('#checkAll').change(function(){
@@ -318,7 +317,7 @@
                       {
                           text: '确定',
                           style: 'primary',
-                          click: function(dialog){                                
+                          click: function(dialog){
                               var errorMsg = [],
                                   checkedProducts = dialog.find('div.checked');
                               if(checkedProducts.length == 0){
@@ -380,6 +379,45 @@
               minView: 2,
               autoclose: true
           });
+      
+          $('#orderForm').bootstrapValidator({
+              container: 'tooltip',
+              feedbackIcons: {
+                  valid: 'glyphicon glyphicon-ok',
+                  invalid: 'glyphicon glyphicon-remove',
+                  validating: 'glyphicon glyphicon-refresh'
+              },
+              fields:{
+                goodsName: {
+                    validators: {
+                        notEmpty: {
+                            message: '请输入产品名称'
+                        }
+                    }
+                },
+                distributorName:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入分销商'
+                        }
+                    }
+                },
+                consigneeName:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入收货人'
+                        }
+                    }
+                },
+                orderName:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入采购订单号'
+                        }
+                    }
+                },
+              }
+          });  
       });
     </script>
   </body>

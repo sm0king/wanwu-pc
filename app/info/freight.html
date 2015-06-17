@@ -88,7 +88,7 @@
                 <p>（若未填写商品重量，则默认以0.5kg计算）</p>
               </div>
             </div>
-            <form class="form-inline addTempItemForm">
+            <form id="freightForm" class="form-inline addTempItemForm">
               <div class="form-group">
                 <label for="area">地区</label>
                 <select id="area" class="form-control">
@@ -98,20 +98,20 @@
               </div>
               <div class="form-group form-weight">
                 <label for="firstWeight">首重</label>
-                <input type="text" id="firstWeight" class="form-control"/><span>kg</span>
+                <input type="text" name="firstWeight" id="firstWeight" class="form-control"/><span>kg</span>
               </div>
               <div class="form-group">
-                <input type="text" id="firstWeightPrice" class="form-control"/><span>元</span>
+                <input type="text" name="firstWeightPrice" id="firstWeightPrice" class="form-control"/><span>元</span>
               </div>
               <div class="form-group form-afterWeight">
                 <label for="afterWeight">续重</label>
-                <input type="text" id="afterWeight" class="form-control"/><span>kg</span>
+                <input type="text" name="afterWeight" id="afterWeight" class="form-control"/><span>kg</span>
               </div>
               <div class="form-group">
-                <input type="text" id="afterWeightPrice" class="form-control"/><span>元</span>
+                <input type="text" name="afterWeightPrice" id="afterWeightPrice" class="form-control"/><span>元</span>
               </div>
               <div class="form-group form-button">
-                <button type="button" id="save" class="btn btn-bigblue">添加</button>
+                <button id="save" class="btn btn-bigblue">添加</button>
               </div>
             </form>
             <div class="row">
@@ -135,7 +135,7 @@
                         <td>8.00</td>
                         <td>1</td>
                         <td>6.00</td>
-                        <td> <a class="fork"></a></td>
+                        <td><a class="fork"></a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -157,5 +157,59 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>
+    <script type="text/javascript">
+      $('#freightForm').bootstrapValidator({
+          container: 'tooltip',
+          feedbackIcons: {
+              valid: 'glyphicon glyphicon-ok',
+              invalid: 'glyphicon glyphicon-remove',
+              validating: 'glyphicon glyphicon-refresh'
+          },
+          fields:{
+            firstWeight: {
+                validators: {
+                    notEmpty: {
+                        message: '请输入重量'
+                    },
+                    numeric:{
+                        message: '请输入数字'
+                    }
+                }
+            },
+            firstWeightPrice:{
+                validators: {
+                    notEmpty: {
+                        message: '请输入金额'
+                    },
+                    numeric:{
+                        message: '请输入数字'
+                    }
+                }
+            },
+            afterWeight:{
+                validators: {
+                    notEmpty: {
+                        message: '请输入重量'
+                    },
+                    numeric:{
+                        message: '请输入数字'
+                    }
+                }
+            },
+            afterWeightPrice:{
+                validators: {
+                    notEmpty: {
+                        message: '请输入金额'
+                    },
+                    numeric:{
+                        message: '请输入数字'
+                    }
+                }
+            },
+          }
+      });
+    </script>
   </body>
 </html>
