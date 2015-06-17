@@ -120,18 +120,14 @@ html
         script(type='text/javascript',src='#{basePath}js/sb-admin-2.js')
         script(type='text/javascript',src='#{basePath}js/dialog.js')
         script(type='text/javascript').
-            (function(){
-                var width = document.body.clientWidth;
-                if(width>768){
-                    $(window).scroll(function() {
-                          var top = $(window).scrollTop();
-                          if(top > 60){
-                              $('.sidebar').removeClass('static').addClass('fixed');
-                          }else if(top < 60){
-                              $('.sidebar').addClass('static').removeClass('fixed');
-                          }
-                          console.log(top);
-                    });
-                } 
-            })();
+            $(function(){
+                  $(window).scroll(function() {
+                        var top = $(window).scrollTop();
+                        if(top > 60){
+                            $('.sidebar').removeClass('static').addClass('fixed');
+                        }else if(top < 60){
+                            $('.sidebar').addClass('static').removeClass('fixed');
+                        }
+                  });
+            });
         block foot
