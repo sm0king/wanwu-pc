@@ -294,6 +294,21 @@
                           style: 'primary',
                           click: function(dialog){
                               //TODO:
+                              var errorMsg = [],
+                                  inputWaybill = dialog.find('#inputWaybill');
+                              if(inputWaybill[0].value.length===0){
+                                  errorMsg.push('请输入运单号！');
+                              }
+                              if(errorMsg.length > 0){
+                                  var html ='<div class="alert alert-danger" role="alert">',
+                                      msg = null;
+                                  while(msg = errorMsg.shift()){
+                                      html += '<p>' + msg + '</p>';
+                                  }
+                                  html += '</div>';
+                                  dialog.find('#expressForm').before(html);
+                                  return;
+                              }
                               dialog.modal('hide');
                           }
                       }
@@ -379,7 +394,6 @@
               minView: 2,
               autoclose: true
           });
-      
           $('#orderForm').bootstrapValidator({
               container: 'tooltip',
               feedbackIcons: {
