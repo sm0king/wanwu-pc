@@ -50,7 +50,7 @@ html
                     a(href="javascript:;") 退出
 
                                        
-                .navbar-default.sidebar(role='navigation')
+                .navbar-default.sidebar.static(role='navigation')
                     .sidebar-nav.navbar-collapse
                         ul.nav.in#side-menu                            
                             block menu
@@ -119,4 +119,19 @@ html
         script(type='text/javascript',src='#{basePath}js/metisMenu/metisMenu.min.js')
         script(type='text/javascript',src='#{basePath}js/sb-admin-2.js')
         script(type='text/javascript',src='#{basePath}js/dialog.js')
+        script(type='text/javascript').
+            (function(){
+                var width = document.body.clientWidth;
+                if(width>768){
+                    $(window).scroll(function() {
+                          var top = $(window).scrollTop();
+                          if(top > 60){
+                              $('.sidebar').removeClass('static').addClass('fixed');
+                          }else if(top < 60){
+                              $('.sidebar').addClass('static').removeClass('fixed');
+                          }
+                          console.log(top);
+                    });
+                } 
+            })();
         block foot
