@@ -50,7 +50,7 @@ html
                     a(href="javascript:;") 退出
 
                                        
-                .navbar-default.sidebar(role='navigation')
+                .navbar-default.sidebar.static(role='navigation')
                     .sidebar-nav.navbar-collapse
                         ul.nav.in#side-menu                            
                             block menu
@@ -119,4 +119,5 @@ html
         script(type='text/javascript',src='#{basePath}js/metisMenu/metisMenu.min.js')
         script(type='text/javascript',src='#{basePath}js/sb-admin-2.js')
         script(type='text/javascript',src='#{basePath}js/dialog.js')
+        script(type='text/javascript')
         block foot
