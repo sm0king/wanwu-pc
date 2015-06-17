@@ -32,7 +32,7 @@ ul{
     #page-wrapper {
         position: inherit;
         margin: 0 0 0 210px;
-        padding: 0px 20px 10px 20px;
+        padding: 10px 20px 10px 20px;
         /*border-left: 1px solid #e7e7e7;*/
     }
 }
@@ -179,6 +179,7 @@ ul{
         position: absolute;
         width: 210px;
         margin-top: 60px;
+        margin-bottom: 160px;
         *left:0px;
         background-color: #293038;
     }
@@ -187,6 +188,7 @@ ul{
         position: fixed;
         width: 210px;
         height: 100%;
+        margin-bottom: 160px;
         margin-top: 0px;
         *left:0px;
         background-color: #293038;

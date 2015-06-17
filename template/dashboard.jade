@@ -119,15 +119,5 @@ html
         script(type='text/javascript',src='#{basePath}js/metisMenu/metisMenu.min.js')
         script(type='text/javascript',src='#{basePath}js/sb-admin-2.js')
         script(type='text/javascript',src='#{basePath}js/dialog.js')
-        script(type='text/javascript').
-            $(function(){
-                  $(window).scroll(function() {
-                        var top = $(window).scrollTop();
-                        if(top > 60){
-                            $('.sidebar').removeClass('static').addClass('fixed');
-                        }else if(top < 60){
-                            $('.sidebar').addClass('static').removeClass('fixed');
-                        }
-                  });
-            });
+        script(type='text/javascript')
         block foot

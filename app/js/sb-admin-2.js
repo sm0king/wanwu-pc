@@ -18,8 +18,9 @@ $(function() {
             $('div.navbar-collapse').removeClass('collapse');
         }
 
-        height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height) - 1;
-        height = height - topOffset;
+        // height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height) - 1;
+        // height = height - topOffset;
+        height = $('.footer').offset().top;
         if (height < 1) height = 1;
         if (height > topOffset) {
             $("#page-wrapper,#side-menu").css("min-height", (height) + "px");
