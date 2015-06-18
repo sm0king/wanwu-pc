@@ -42,6 +42,11 @@ block Right
                   查询
               </button>
           </div>
+          <div class="alert alert-danger hide" id="msgerror" role="alert">
+            <ul>
+              <p><strong>错误提示</strong></p>
+            </ul>
+          </div>
         </form>
         <table id="distributorList" data-toggle="table" data-url="../testData2.json">
             <thead>
@@ -72,25 +77,17 @@ block foot
             return html;
         }
         $('#distributorForm').bootstrapValidator({
-            container: 'tooltip',
-            feedbackIcons: {
-                valid: 'glyphicon glyphicon-ok',
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
             fields:{
               exampleInputAmount: {
                   validators: {
-                      notEmpty: {
-                          message: '该值不能为空'
-                      }
+                    stringLength: {
+                        max: 30,
+                        message: '输入文本不超过30字符'
+                    }
                   }
               },
               formDate:{
                   validators: {
-                      notEmpty: {
-                          message: '请输入金额'
-                      },
                       numeric:{
                           message: '请输入数字'
                       }
@@ -98,13 +95,29 @@ block foot
               },
               toDate:{
                   validators: {
-                      notEmpty: {
-                          message: '请输入收货人'
-                      },
                       numeric:{
                           message: '请输入数字'
                       }
                   }
               }
             }
+        }).on('error.field.bv', function(e, data) {
+            data.element
+                .data('bv.messages')
+                .find('.help-block[data-bv-for="' + data.field + '"]').hide();
+            var messages = data.bv.getMessages(data.field);
+            for (var i in messages) {
+              var l = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
+              if(l.length===0){
+                var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
+                $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
+              }
+            }
+            $('#msgerror').removeClass('hide');
+        })
+        .on('success.field.bv', function(e, data) {
+            $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
+        })
+        .on('success.form.bv', function(e) {
+            $('#msgerror').addClass('hide');
         });

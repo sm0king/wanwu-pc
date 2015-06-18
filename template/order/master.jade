@@ -44,6 +44,10 @@ block Right
                     input.form-control.orderName#orderName(type="text" name="orderName")
                 div.form-group
                     button.btn.btn-blue 查询
+            .alert.alert-danger.hide#msgerror(role="alert")
+               ul
+                  p 
+                   strong 错误提示
         ul.nav.nav-tabs.nav-custom
             li(role='presentation',class=active==0 ? 'active' : '')
                 a(href='index.html') 待发货订单
