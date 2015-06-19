@@ -5,9 +5,9 @@
  */
 
 body {
-    background-color: white;/*rgb(234,237,241);*/
     font-family: 微软雅黑 "Helvetica Neue",Helvetica,Arial,sans-serif;
     margin-bottom: 162px;
+    background-color: #293038;
 }
 a{
     cursor: pointer;
@@ -22,6 +22,7 @@ ul{
 #page-wrapper {
     padding: 0 15px;
     min-height: 568px;
+    background-color: white;/*rgb(234,237,241);*/
 }
 @media(max-width:768px) {
   .sidebar{
@@ -33,6 +34,7 @@ ul{
         position: inherit;
         margin: 0 0 0 210px;
         padding: 10px 20px 10px 20px;
+
         /*border-left: 1px solid #e7e7e7;*/
     }
 }
@@ -174,6 +176,9 @@ ul{
 }
 
 @media(min-width:768px) {
+    .sidebar{
+        background-color: transparent;
+    }
     .sidebar.static{
         z-index: 1;
         position: absolute;
@@ -181,7 +186,6 @@ ul{
         margin-top: 60px;
         margin-bottom: 160px;
         *left:0px;
-        background-color: #293038;
     }
     .sidebar.fixed{
         z-index: 1;
@@ -191,7 +195,7 @@ ul{
         margin-bottom: 160px;
         margin-top: 0px;
         *left:0px;
-        background-color: #293038;
+        /*background-color: #293038;*/
     }
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,
