@@ -16,7 +16,7 @@ block InfoContent
             div
                 p 启用后商品运费将不会参与单价计算，而是按照模板中价格以商品重量每单另收运费。
                 p （若未填写商品重量，则默认以0.5kg计算）
-        form.form-inline.addTempItemForm#freightForm
+        form.form-inline.addTempItemForm.clearfix#freightForm
             .form-group
                 label(for='area') 地区
                 select#area.form-control
@@ -38,7 +38,7 @@ block InfoContent
                 span 元
             .form-group.form-button
                 button.btn.btn-bigblue#save 添加
-            .alert.alert-danger.hide#msgerror(role="alert")
+            .alert.alert-danger.hide.clearfix#msgerror(role="alert")
                ul
                   p
                    strong 错误提示
