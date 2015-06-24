@@ -355,9 +355,9 @@ block Right
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <div class="buyNumber"><input type="text" class="form-control"></div>
+                                                    <div class="buyNumber"><input type="text" name="buyNumber[]" class="form-control"></div>
                                                 </td>
-                                                <td><input type="text" class="form-control"></td>
+                                                <td><input type="text" class="form-control" name="discount[]"></td>
                                                 <td>
                                                     <a href="javascript:;" class="btn-ok save"></a>
                                                     <a href="javascript:;" class="btn-dustbin"></a>
@@ -597,6 +597,28 @@ block foot
                         validators:{
                             numeric:{
                                 message: '价格只能为数字'
+                            }
+                        }
+                    },
+                    'discount[]':{
+                        validators:{
+                            between:{
+                                min:1,
+                                max:99,
+                                message:'折扣为1-99的人意整数'
+                            },
+                            integer:{
+                                message:'请输入正确的整数'
+                            },
+                            numeric:{
+                                message: '价格只能为数字'
+                            }
+                        }
+                    },
+                    'buyNumber[]':{
+                        validators:{
+                            numeric:{
+                                message: '请输入正确的整数'
                             }
                         }
                     }
