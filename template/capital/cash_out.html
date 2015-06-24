@@ -13,7 +13,7 @@ block header
 block Right
     .capital.cash-out
         h2 提现
-        form.form-horizontal
+        form.form-horizontal#getMoneyForm
             .form-group
                 label.control-label 提现至银行卡：
                 .col-md-10
@@ -34,14 +34,32 @@ block Right
             div.form-group
                 label.control-label 金额：
                 .col-md-10
-                    input(type='text').form-control.password
+                    input(type='text' name='money').form-control.password
             div
-                button.btn.btn-blue(type='button',onclick='location.href=\'submit.html\'') 提现
+                button.btn.btn-blue 提现
 block foot
+    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+    link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
     script(type='text/javascript').
         $(function(){
             $('.cardSelector').delegate('a','click',function(e){
                 var item = $(e.currentTarget);
                 $(e.delegateTarget).children('.cardInfo').empty().append(item.clone().children());
             });
+        });
+        $('#getMoneyForm').bootstrapValidator({
+            fields:{
+              money: {
+                  validators: {
+                    notEmpty:{
+                       message: '请输入提现金额'
+                    },
+                    numeric:{
+                        message: '请输入数字'
+                    }
+                  }
+              }
+            }
+        }).on('success.form.bv',function(){
+              window.location.href="submit.html";
         });

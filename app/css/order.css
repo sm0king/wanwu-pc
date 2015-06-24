@@ -36,7 +36,7 @@
 .order td{
     text-align: center;
 }
-.order .titleTR td{    
+.order .titleTR td{
     background-color: #f6f6f6;
     color:#888888;
 }
@@ -307,6 +307,9 @@
 }
 .queryOrder .form-group .w140{
     width:140px;
+}
+.queryOrder .form-group .w160{
+    width:160px;
 }
 .queryOrder  .form-inline .orderName{
     width:299px;

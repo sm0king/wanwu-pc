@@ -20,8 +20,8 @@ block OrderContent
         table.table.table-bordered
             tbody
                 tr.titleTR
-                    td.tdOrderNumber 
-                        | 订单编号: 
+                    td.tdOrderNumber
+                        | 订单编号:
                         span.blue 8779641532
                     td.retailer.tdOrderPrice 分销价
                     td.receiver.tdOrderConsignee 收货人
@@ -49,7 +49,7 @@ block OrderContent
                         a.blue.doCancelOrder 取消订单
                 tr.titleTR
                     td
-                        | 订单编号: 
+                        | 订单编号:
                         span.blue 8779641532
                     td.retailer 分销价
                     td.receiver 收货人
@@ -104,12 +104,14 @@ block OrderContent
             .form-group
                 .col-sm-12
                     label(for='input-noStock').control-label 无货原因：
-                .col-sm-12                
+                .col-sm-12
                     textarea.form-control#input-noStock
         include returnofgoodsForm.jade
     div.foot
         include ../pagination.jade
 block foot
+    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+    link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
     script(type='text/javascript').
         $(function(){
             $('#checkAll').change(function(){
@@ -130,6 +132,21 @@ block foot
                             style: 'primary',
                             click: function(dialog){
                                 //TODO:
+                                var errorMsg = [],
+                                    inputWaybill = dialog.find('#inputWaybill');
+                                if(inputWaybill[0].value.length===0){
+                                    errorMsg.push('请输入运单号！');
+                                }
+                                if(errorMsg.length > 0){
+                                    var html ='<div class="alert alert-danger" role="alert">',
+                                        msg = null;
+                                    while(msg = errorMsg.shift()){
+                                        html += '<p>' + msg + '</p>';
+                                    }
+                                    html += '</div>';
+                                    dialog.find('#expressForm').before(html);
+                                    return;
+                                }
                                 dialog.modal('hide');
                             }
                         }
@@ -153,7 +170,7 @@ block foot
                         {
                             text: '确定',
                             style: 'primary',
-                            click: function(dialog){                                
+                            click: function(dialog){
                                 var errorMsg = [],
                                     checkedProducts = dialog.find('div.checked');
                                 if(checkedProducts.length == 0){
@@ -215,5 +232,60 @@ block foot
                 minView: 2,
                 autoclose: true
             });
-        });
+            $('#orderForm').bootstrapValidator({
+                fields:{
+                  goodsName: {
+                      validators: {
+                        stringLength: {
+                            max: 30,
+                            message: '输入文本不超过30字符'
+                          }
+                      }
+                  },
+                  distributorName:{
+                      validators: {
+                        stringLength: {
+                            max: 30,
+                            message: '输入文本不超过30字符'
+                          }
+                      }
+                  },
+                  consigneeName:{
+                      validators: {
+                        stringLength: {
+                            max: 30,
+                            message: '输入文本不超过30字符'
+                          }
+                      }
+                  },
+                  orderName:{
+                      validators: {
+                          regexp: {
+                              regexp: /^[a-zA-Z0-9_\.]+$/,
+                              message: '请输入正确的采购订单号'
+                          }
+                      }
+                  },
+                }
+            }).on('error.field.bv', function(e, data) {
+                data.element
+                    .data('bv.messages')
+                    .find('.help-block[data-bv-for="' + data.field + '"]').hide();
+                var messages = data.bv.getMessages(data.field);
+                for (var i in messages) {
+                  var l = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
+                  if(l.length===0){
+                    var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
+                    $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
+                  }
+                }
+                $('#msgerror').removeClass('hide');
+            })
+            .on('success.field.bv', function(e, data) {
+                $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
+            })
+            .on('success.form.bv', function(e) {
+                $('#msgerror').addClass('hide');
+            });
 
+        });

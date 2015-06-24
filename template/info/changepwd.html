@@ -13,23 +13,56 @@ block InfoContent
         h2 修改密码
         div.row
             div.col-md-6
-                form.form-horizontal.pwdForm
+                form.form-horizontal.pwdForm#pwdForm
                     .form-group
                         label.control-label.col-lg-4
                             原密码：
                         div.col-lg-8
-                            input(type=password).form-control
+                            input(type="password" name="oldPwd").form-control
                     .form-group
                         label.control-label.col-lg-4
                             新密码：
                         div.col-lg-8
-                            input(type=password).form-control
+                            input(type="password" name="newPwd").form-control
                     .form-group
                         label.control-label.col-lg-4
                             确认新密码：
                         div.col-lg-8
-                            input(type=password).form-control
-                .row
-                    .col-lg-4 &nbsp;
-                    .col-lg-8.btnBar
-                        button.btn.btn-blue 保存
+                            input(type="password" name="comparePwd").form-control
+                    .form-group
+                        .col-lg-4 &nbsp;
+                        .col-lg-8.btnBar
+                            button.btn.btn-blue 保存
+block foot
+      script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+      link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
+      script(type='text/javascript').
+          $('#pwdForm').bootstrapValidator({
+              fields:{
+                oldPwd:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入原密码'
+                        }
+                    }
+                },
+                newPwd:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入新密码'
+                        }
+                    }
+                },
+                comparePwd:{
+                    validators: {
+                        notEmpty: {
+                            message: '请再次输入新密码'
+                        },
+                        identical:{
+                          field: 'newPwd',
+                          message: '两次输入密码不一致'
+                        }
+                    }
+                },
+              }
+          });

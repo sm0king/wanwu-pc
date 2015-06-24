@@ -34,7 +34,7 @@ block OrderContent
                         option(value='1') 状态1
                         option(value='2') 状态2
                         option(value='3') 状态3
-                    
+
             div
                 button.btn.btn-blue 查询
         .headBar.gap30
@@ -50,7 +50,7 @@ block OrderContent
             tbody
                 tr.titleTR
                     td.tdOrderNumber
-                        | 订单编号: 
+                        | 订单编号:
                         span.blue 8779641532
                     td.retailer.tdOrderPrice 分销价
                     td.receiver.tdOrderConsignee 收货人
@@ -76,8 +76,10 @@ block OrderContent
     div.foot
         include ../pagination.jade
 block foot
-    link(rel='stylesheet',href='../plugs/select/dropkick.css').
-    script(type='text/javascript',src='../plugs/select/dropkick.js').
+    link(rel='stylesheet',href='../plugs/select/dropkick.css')
+    script(type='text/javascript',src='../plugs/select/dropkick.js')
+    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+    link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
     script(type='text/javascript').
         $(function(){
             $('select').dropkick();
@@ -91,5 +93,60 @@ block foot
                 minView: 2,
                 autoclose: true
             });
-        });
 
+            $('#orderForm').bootstrapValidator({
+                fields:{
+                  goodsName: {
+                      validators: {
+                        stringLength: {
+                            max: 30,
+                            message: '输入文本不超过30字符'
+                          }
+                      }
+                  },
+                  distributorName:{
+                      validators: {
+                        stringLength: {
+                            max: 30,
+                            message: '输入文本不超过30字符'
+                          }
+                      }
+                  },
+                  consigneeName:{
+                      validators: {
+                        stringLength: {
+                            max: 30,
+                            message: '输入文本不超过30字符'
+                          }
+                      }
+                  },
+                  orderName:{
+                      validators: {
+                          regexp: {
+                              regexp: /^[a-zA-Z0-9_\.]+$/,
+                              message: '请输入正确的采购订单号'
+                          }
+                      }
+                  },
+                }
+            }).on('error.field.bv', function(e, data) {
+                data.element
+                    .data('bv.messages')
+                    .find('.help-block[data-bv-for="' + data.field + '"]').hide();
+                var messages = data.bv.getMessages(data.field);
+                for (var i in messages) {
+                  var l = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
+                  if(l.length===0){
+                    var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
+                    $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
+                  }
+                }
+                $('#msgerror').removeClass('hide');
+            })
+            .on('success.field.bv', function(e, data) {
+                $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
+            })
+            .on('success.form.bv', function(e) {
+                $('#msgerror').addClass('hide');
+            });;
+        });

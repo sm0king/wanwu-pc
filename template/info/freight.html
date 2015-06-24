@@ -16,7 +16,7 @@ block InfoContent
             div
                 p 启用后商品运费将不会参与单价计算，而是按照模板中价格以商品重量每单另收运费。
                 p （若未填写商品重量，则默认以0.5kg计算）
-        form.form-inline.addTempItemForm
+        form.form-inline.addTempItemForm.clearfix#freightForm
             .form-group
                 label(for='area') 地区
                 select#area.form-control
@@ -24,20 +24,24 @@ block InfoContent
                     option(value='1') 上海
             .form-group.form-weight
                 label(for='firstWeight') 首重
-                input(type='text')#firstWeight.form-control
+                input(type='text' name="firstWeight")#firstWeight.form-control
                 span kg
             .form-group
-                input(type='text')#firstWeightPrice.form-control
+                input(type='text' name="firstWeightPrice")#firstWeightPrice.form-control
                 span 元
             .form-group.form-afterWeight
                 label(for='afterWeight') 续重
-                input(type='text')#afterWeight.form-control
+                input(type='text' name="afterWeight")#afterWeight.form-control
                 span kg
             .form-group
-                input(type='text')#afterWeightPrice.form-control
+                input(type='text' name="afterWeightPrice")#afterWeightPrice.form-control
                 span 元
             .form-group.form-button
-                button(type='button').btn.btn-bigblue#save 添加
+                button.btn.btn-bigblue#save 添加
+            .alert.alert-danger.hide.clearfix#msgerror(role="alert")
+               ul
+                  p
+                   strong 错误提示
         .row
             .col-lg-7
                 .table-responsive.freightTable
@@ -57,5 +61,73 @@ block InfoContent
                                 td 8.00
                                 td 1
                                 td 6.00
-                                td 
+                                td
                                     a.fork
+block foot
+      script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+      link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
+      script(type='text/javascript').
+          $('#freightForm').bootstrapValidator({
+              fields:{
+                firstWeight: {
+                    validators: {
+                        notEmpty: {
+                            message: '请输入首量'
+                        },
+                        numeric:{
+                            message: '请输入数字'
+                        }
+                    }
+                },
+                firstWeightPrice:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入首量金额'
+                        },
+                        numeric:{
+                            message: '请输入数字'
+                        }
+                    }
+                },
+                afterWeight:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入续重'
+                        },
+                        numeric:{
+                            message: '请输入数字'
+                        }
+                    }
+                },
+                afterWeightPrice:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入续重金额'
+                        },
+                        numeric:{
+                            message: '请输入数字'
+                        }
+                    }
+                },
+              }
+          }).on('error.field.bv', function(e, data) {
+              data.element 
+                  .data('bv.messages')
+                  .find('.help-block[data-bv-for="' + data.field + '"]').hide();
+              var messages = data.bv.getMessages(data.field);
+              for (var i in messages) {
+                var item = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
+                if(item.length===0){
+                  var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
+                  $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
+                }
+              }
+              item.html(messages);
+              $('#msgerror').removeClass('hide');
+          })
+          .on('success.field.bv', function(e, data) {
+              $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
+          })
+          .on('success.form.bv', function(e) {
+              $('#msgerror').addClass('hide');
+          });

@@ -82,33 +82,36 @@
         </div><![endif]-->
         <div class="product distributor distributor-index">
           <h4 class="indexH3">分销商管理</h4>
-          <div class="form-inline">
-              <div class="form-group">
-                  <label for="exampleInputAmount">分销商名称：</label>
-                  <input type="text" class="form-control" id="exampleInputAmount" placeholder="分销商名/店铺名">
-              </div>
-              <div class="form-group">
-                  <label for="state">分销商状态：</label>
-                  <div class="dropdown inline">
-                      <select name="" id="state" class="form-control">
-                          <option value="0">全部</option>
-                          <option value="1">出售中</option>
-                          <option value="2">已下架</option>
-                          <option value="3">草稿</option>
-                      </select>
-                  </div>
-              </div>
-              <div class="form-group">
-                      <label for="formDate" class="control-label">成交金额</label>
-                      <input type="text" name="formDate" id="formDate" class="formDate form-control">
-                      <span class="to">至</span>
-                      <input type="text" name="toDate" id="toDate" class="toDate form-control">
-                  </div>
-              <button type="submit" class="btn btn-primary searchBtn">
-                  <span class="glyphicon glyphicon-search"></span>
-                  查询
-              </button>
-          </div>
+          <form id="distributorForm" class="form">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label for="exampleInputAmount">分销商名称：</label>
+                    <input type="text" class="form-control" id="exampleInputAmount" name="exampleInputAmount" placeholder="分销商名/店铺名">
+                </div>
+                <div class="form-group">
+                    <label for="state">分销商状态：</label>
+                    <div class="dropdown inline">
+                        <select name="" id="state" class="form-control">
+                            <option value="0">全部</option>
+                            <option value="1">出售中</option>
+                            <option value="2">已下架</option>
+                            <option value="3">草稿</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label for="formDate" class="control-label">成交金额</label>
+                        <input type="text" name="formDate" id="formDate" class="formDate form-control">
+                </div>
+                <div class="form-group">
+                        <span class="to">至</span>
+                        <input type="text" name="toDate" id="toDate" class="toDate form-control">
+                </div>
+                <button type="submit" class="btn btn-blue btn-search">
+                    查询
+                </button>
+            </div>
+          </form>
           <table id="distributorList" data-toggle="table" data-url="../testData2.json">
               <thead>
                   <tr>
@@ -151,16 +154,55 @@
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
     <script type="text/javascript" src="../js/bootstrap-table.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>
     <script type="text/javascript">
       $('#distributorList').bootstrapTable({
-      url: '../testData2.json'
+          url: '../testData2.json'
       });
       function actionFormatter(value, row) {
-      var html ='<a class="action" href="#'+row.action.supplierID+'">终止</a><a class="action" href="./detail.html#'+row.action.distributorID+'">查看分销商品</a>';
-      console.log(value);
-      console.log()
-      return html;
+          var html ='<a class="action" href="#'+row.action.supplierID+'">终止</a><a class="action" href="./detail.html#'+row.action.distributorID+'">查看分销商品</a>';
+          <!-- console.log(value); -->
+          <!-- console.log() -->
+          return html;
       }
+      $('#distributorForm').bootstrapValidator({
+          container: 'tooltip',
+          feedbackIcons: {
+              valid: 'glyphicon glyphicon-ok',
+              invalid: 'glyphicon glyphicon-remove',
+              validating: 'glyphicon glyphicon-refresh'
+          },
+          fields:{
+            exampleInputAmount: {
+                validators: {
+                    notEmpty: {
+                        message: '该值不能为空'
+                    }
+                }
+            },
+            formDate:{
+                validators: {
+                    notEmpty: {
+                        message: '请输入金额'
+                    },
+                    numeric:{
+                        message: '请输入数字'
+                    }
+                }
+            },
+            toDate:{
+                validators: {
+                    notEmpty: {
+                        message: '请输入收货人'
+                    },
+                    numeric:{
+                        message: '请输入数字'
+                    }
+                }
+            }
+          }
+      });
     </script>
   </body>
 </html>

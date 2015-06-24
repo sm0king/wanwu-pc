@@ -13,15 +13,15 @@ block header
 block Right
     .order
         h4.indexH3 我的订单
-        form.queryOrder(action="#")
+        form.queryOrder(action="#")#orderForm
             div.form-inline
                 div.form-group
                     label(for="goodsName") 商品名称
-                    input.form-control#goodsName(type="text")
+                    input.form-control#goodsName(type="text" name="goodsName")
                 .form-group
                     label(for="orderSta") 订单状态
                     div.dropdown.inline.w140
-                        select.form-control#orderSta
+                        select.form-control#orderSta(name="orderSta")
                             each sta , i in orderSta
                                 if i == selectedV
                                     option(value=i,selected) #{sta}
@@ -35,15 +35,19 @@ block Right
             div.form-inline
                 div.form-group
                     label(for="distributorName") 分销商
-                    input.form-control#distributorName(type="text")
+                    input.form-control#distributorName(type="text" name="distributorName")
                 div.form-group
                     label(for="consigneeName") 收货人
-                    input.form-control.w140#consigneeName(type="text")
+                    input.form-control.w140#consigneeName(type="text" name="consigneeName")
                 div.form-group
                     label(for="orderName") 采购订单号
-                    input.form-control.orderName#orderName(type="text")
+                    input.form-control.orderName#orderName(type="text" name="orderName")
                 div.form-group
                     button.btn.btn-blue 查询
+            .alert.alert-danger.hide#msgerror(role="alert")
+               ul
+                  p 
+                   strong 错误提示
         ul.nav.nav-tabs.nav-custom
             li(role='presentation',class=active==0 ? 'active' : '')
                 a(href='index.html') 待发货订单

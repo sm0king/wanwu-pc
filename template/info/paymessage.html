@@ -11,7 +11,7 @@ block InfoContent
     h4.indexH3 支付信息维护
     div.row
         div.col-md-6
-            form.form-horizontal.pwdForm
+            form.form-horizontal.pwdForm#payForm
                 .form-group
                     label.control-label.col-lg-4
                         国内银行：
@@ -23,18 +23,50 @@ block InfoContent
                     label.control-label.col-lg-4
                         开户行名称：
                     div.col-lg-8
-                        input(type=text).form-control
+                        input(type=text name="bankName").form-control
                 .form-group
                     label.control-label.col-lg-4
                         银行卡号：
                     div.col-lg-8
-                        input(type=text).form-control
+                        input(type=text name="bankCard").form-control
                 .form-group
                     label.control-label.col-lg-4
                         收款人/收款公司：
                     div.col-lg-8
-                        input(type=text).form-control
-            .row
-                .col-lg-4 &nbsp;
-                .col-lg-8.btnBar
-                    button.btn.btn-blue 保存
+                        input(type=text name="getMoney").form-control
+                .form-group
+                    .col-lg-4 &nbsp;
+                    .col-lg-8.btnBar
+                        button.btn.btn-blue 保存
+block foot
+      script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+      link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
+      script(type='text/javascript').
+          $('#payForm').bootstrapValidator({
+              fields:{
+                bankName:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入银行名称'
+                        }
+                    }
+                },
+                bankCard:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入卡号'
+                        },
+                        integer:{
+                            message: '请输入数字'
+                        }
+                    }
+                },
+                getMoney:{
+                    validators: {
+                        notEmpty: {
+                            message: '请输入收款人/收款公司'
+                        }
+                    }
+                },
+              }
+          });

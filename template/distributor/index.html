@@ -13,32 +13,41 @@ block DashboardTitle
 block Right
     .product.distributor.distributor-index.
         <h4 class="indexH3">分销商管理</h4>
-        <div class="form-inline">
-            <div class="form-group">
-                <label for="exampleInputAmount">分销商名称：</label>
-                <input type="text" class="form-control" id="exampleInputAmount" placeholder="分销商名/店铺名">
-            </div>
-            <div class="form-group">
-                <label for="state">分销商状态：</label>
-                <div class="dropdown inline">
-                    <select name="" id="state" class="form-control">
-                        <option value="0">全部</option>
-                        <option value="1">出售中</option>
-                        <option value="2">已下架</option>
-                        <option value="3">草稿</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                    <label for="formDate" class="control-label">成交金额</label>
-                    <input type="text" name="formDate" id="formDate" class="formDate form-control">
-                    <span class="to">至</span>
-                    <input type="text" name="toDate" id="toDate" class="toDate form-control">
-                </div>
-            <button type="submit" class="btn btn-blue btn-search">
-                查询
-            </button>
-        </div>
+        <form id="distributorForm" class="form">
+          <div class="form-inline">
+              <div class="form-group">
+                  <label for="exampleInputAmount">分销商名称：</label>
+                  <input type="text" class="form-control" id="exampleInputAmount" name="exampleInputAmount" placeholder="分销商名/店铺名">
+              </div>
+              <div class="form-group">
+                  <label for="state">分销商状态：</label>
+                  <div class="dropdown inline">
+                      <select name="" id="state" class="form-control">
+                          <option value="0">全部</option>
+                          <option value="1">出售中</option>
+                          <option value="2">已下架</option>
+                          <option value="3">草稿</option>
+                      </select>
+                  </div>
+              </div>
+              <div class="form-group">
+                      <label for="formDate" class="control-label">成交金额</label>
+                      <input type="text" name="formDate" id="formDate" class="formDate form-control">
+              </div>
+              <div class="form-group">
+                      <span class="to">至</span>
+                      <input type="text" name="toDate" id="toDate" class="toDate form-control">
+              </div>
+              <button type="submit" class="btn btn-blue btn-search">
+                  查询
+              </button>
+          </div>
+          <div class="alert alert-danger hide" id="msgerror" role="alert">
+            <ul>
+              <p><strong>错误提示</strong></p>
+            </ul>
+          </div>
+        </form>
         <table id="distributorList" data-toggle="table" data-url="../testData2.json">
             <thead>
                 <tr>
@@ -55,13 +64,60 @@ block Right
     include ../pagination.jade
 block foot
     script(type='text/javascript',src='#{basePath}js/bootstrap-table.js')
+    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+    link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
     script(type='text/javascript').
         $('#distributorList').bootstrapTable({
-        url: '../testData2.json'
+            url: '../testData2.json'
         });
         function actionFormatter(value, row) {
-        var html ='<a class="action" href="#'+row.action.supplierID+'">终止</a><a class="action" href="./detail.html#'+row.action.distributorID+'">查看分销商品</a>';
-        console.log(value);
-        console.log()
-        return html;
+            var html ='<a class="action" href="#'+row.action.supplierID+'">终止</a><a class="action" href="./detail.html#'+row.action.distributorID+'">查看分销商品</a>';
+            <!-- console.log(value); -->
+            <!-- console.log() -->
+            return html;
         }
+        $('#distributorForm').bootstrapValidator({
+            fields:{
+              exampleInputAmount: {
+                  validators: {
+                    stringLength: {
+                        max: 30,
+                        message: '输入文本不超过30字符'
+                    }
+                  }
+              },
+              formDate:{
+                  validators: {
+                      numeric:{
+                          message: '请输入数字'
+                      }
+                  }
+              },
+              toDate:{
+                  validators: {
+                      numeric:{
+                          message: '请输入数字'
+                      }
+                  }
+              }
+            }
+        }).on('error.field.bv', function(e, data) {
+            data.element
+                .data('bv.messages')
+                .find('.help-block[data-bv-for="' + data.field + '"]').hide();
+            var messages = data.bv.getMessages(data.field);
+            for (var i in messages) {
+              var l = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
+              if(l.length===0){
+                var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
+                $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
+              }
+            }
+            $('#msgerror').removeClass('hide');
+        })
+        .on('success.field.bv', function(e, data) {
+            $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
+        })
+        .on('success.form.bv', function(e) {
+            $('#msgerror').addClass('hide');
+        });
