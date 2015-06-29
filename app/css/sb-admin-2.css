@@ -6,7 +6,7 @@
 
 body {
     font-family: 微软雅黑 "Helvetica Neue",Helvetica,Arial,sans-serif;
-    margin-bottom: 162px;
+    margin-bottom: 120px;
     background-color: #293038;
 }
 a{
@@ -183,7 +183,7 @@ ul{
         z-index: 1;
         position: absolute;
         width: 210px;
-        margin-top: 60px;
+        margin-top: 61px;
         margin-bottom: 160px;
         *left:0px;
     }
