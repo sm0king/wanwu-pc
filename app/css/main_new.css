@@ -233,6 +233,8 @@ a:hover,a:focus,a.active{
     padding: 20px 10px 40px 10px;
     font-size: 21px;
     line-height: 40px;
+    position: relative;
+    z-index: 1;
 }
 
 .btn-gy{
@@ -241,6 +243,8 @@ a:hover,a:focus,a.active{
     background-color: #f16020;
     border-radius: 4px;
     margin-left: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .btn-fx{
@@ -249,12 +253,15 @@ a:hover,a:focus,a.active{
     background-color: #62c24c;
     border-radius: 4px;
     margin-left: 10px;
+    position: relative;
+    z-index: 1;
 }
 
 .desc-panel .bg-login{
     position: absolute;
     right: 20px;
     bottom: -40px;
+    z-index: 0;
 }
 
 .login-panel {
