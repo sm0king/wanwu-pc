@@ -45,12 +45,12 @@ html
                               .input-group
                                 span.input-group-addon
                                   <img src="img/login/icon-user.png"/>
-                                input.form-control#username(name="username",type="text",autofocus)
+                                input.form-control#username(name="username",type="text",autofocus,placeholder="4-20位字符，支持中英文、数字组合")
                             .form-group
                               .input-group
                                 span.input-group-addon
                                   <img src="img/login/icon-pwd.png"/>
-                                input.form-control#password(name="password",type="password")
+                                input.form-control#password(name="password",type="password",placeholder="6-20位字符，字母数字下划线或组合")
                             .form-group
                               label.remember
                                 input.login-check(type="checkbox")
@@ -61,9 +61,56 @@ html
                               .input-group
                                 input.form-control#captcha(type="text",name="captcha")
                                 .input-group-addon 验证码
+                            .form-group
+                            .alert.alert-danger.hide.clearfix#msgerror(role="alert")
+                               ul
+                                  p
+                                   strong 提示
                             .form-group.clearfix
                               <a ui-sref="dashboard.home" class="btn btn-lg btn-default col-md-6" onclick='$("#myform").submit();'>供应商登录</a>
                               div.col-md-6.text-right.forget
                                 a(href="") 忘记密码
         script(type='text/javascript',src='plugs/jquery/jquery.min.js')
+
         block foot
+          script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+          link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
+          script.
+            $(function(){
+              $('#myform').bootstrapValidator({
+                  fields:{
+                    username: {
+                        validators: {
+                          notEmpty:{
+                              message:'用户名不能为空'
+                          },
+                          regexp:{
+                            regexp: /^[\u4E00-\u9FA5A-Za-z0-9]+$/,
+                            message: '输入格式错误'
+                          },
+                          stringLength: {
+                              max: 20,
+                              min: 4,
+                              message: '请输入4-20位字符，中英文、数字组合的用户名'
+                          }
+                        }
+                    },
+                    password:{
+                        validators: {
+                          notEmpty:{
+                              message:'密码不能为空'
+                          },
+                          regexp:{
+                            regexp: /^[A-Za-z0-9_]+$/,
+                            message: '密码输入格式错误'
+                          },
+                          stringLength: {
+                              max: 20,
+                              min: 6,
+                              message: '请输入6-20位字符，字母数字下划线或组合的密码'
+                          }
+                        }
+                    },
+                  }
+              });
+            });

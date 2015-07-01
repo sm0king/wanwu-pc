@@ -327,9 +327,13 @@ input[type="checkbox"][disabled]:checked {
 .login .form-control {
     border-radius: 0;
     box-shadow:none;
-    border: 0;
+    border-width: 1px;
+    border-color: #f6f6f6;
     height: 50px;
     background-color: #f6f6f6;
+}
+.login .has-error .form-control{
+    border-color: #a94442;
 }
 
 .login label {
@@ -386,8 +390,7 @@ input[type="checkbox"][disabled]:checked {
   background: url(../img/rebreak.png) 0 0 no-repeat;
 }
 .login .input-group-addon{
-  /*padding: 0;*/
-  padding: 10px;
+  padding: 10px 0 10px 10px;
   border-radius: 0;
   border: none;
   background-color: #f6f6f6;
