@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <meta name="description" content="万物（wanwu.com）是全网货源一键分销的移动供销平台，完全免费，海量货源集散地，无货也可开店赚钱，对接淘宝，微店，京东，拍拍，有赞等多家电商平台，让分销商拥有海量货源一键分销，无货开店赚钱，让供应商可以一键铺货库存同步，获得海量订单。"/>
+    <meta name="keywords" content="分销,微商,微店,微信,ERP,朋友圈,微购物,淘宝一键搬家,拍拍,有赞,卖家,开店,店铺,易订货,一键分销,旺铺"/>
+    <title>万物 - 全网货源一键分销，淘宝微店多店铺商品轻松管理，订单价格库存实时同步</title>
+    <link rel="stylesheet" href="plugs/bootstrap/css/bootstrap.min.css"/><!-- link(rel='stylesheet', href='css/foot.css') -->
+    <link rel="stylesheet" href="css/main_new.css"/>
+  </head>
+  <body>
+    <div class="login">
+      <div class="docs-header-gy">
+        <div class="container"><a href="index.html" class="navbar-brand"></a>
+          <h2 class="navbar-line">供应商后台</h2>
+        </div>
+      </div>
+      <div class="container">
+        <div class="content">
+          <div class="row">
+            <div class="col-md-7">
+              <div class="desc-panel">
+                <h1>万物 • 千万分销商一键铺货，</h1>
+                <h1>获海量订单</h1>
+                <ul class="list-unstyled">
+                  <li>全网全平台一键铺货散货</li>
+                  <li>价格管控，库存同步</li>
+                  <li>实时数据，发现爆款</li>
+                </ul>
+                <button class="btn btn-gy">注册成为供应商</button><img class="bg-login" src="img/login/bg-gy.png" alt="供应商" />
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="login-panel panel panel-default">
+                <div class="panel-body"><span class="login-title">供应商登录</span>
+                  <form id="myform" role="form">
+                    <div class="form-group">
+                      <div class="input-group"><span class="input-group-addon"><img src="img/login/icon-user.png"/></span>
+                        <input id="username" name="username" type="text" autofocus="autofocus" placeholder="4-20位字符，支持中英文、数字组合" class="form-control"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group"><span class="input-group-addon"><img src="img/login/icon-pwd.png"/></span>
+                        <input id="password" name="password" type="password" placeholder="6-20位字符，字母数字下划线或组合" class="form-control"/>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="remember">
+                        <input type="checkbox" class="login-check"/><span>记住账号</span>
+                      </label><span class="ver-tip"><strong>拖动按钮完成验证</strong></span>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group">
+                        <input id="captcha" type="text" name="captcha" class="form-control"/>
+                        <div class="input-group-addon">验证码</div>
+                      </div>
+                    </div>
+                    <div class="form-group clearfix"><a ui-sref="dashboard.home" class="btn btn-lg btn-default col-md-6" onclick='$("#myform").submit();'>供应商登录</a>
+                      <div class="col-md-6 text-right forget"><a href="">忘记密码</a></div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="plugs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>
+    <script>
+      $(function(){
+        $('#myform').bootstrapValidator({
+            fields:{
+              username: {
+                  validators: {
+                    notEmpty:{
+                        message:'用户名不能为空'
+                    },
+                    regexp:{
+                      regexp: /^[\u4E00-\u9FA5A-Za-z0-9]+$/,
+                      message: '输入格式错误'
+                    },
+                    stringLength: {
+                        max: 20,
+                        min: 4,
+                        message: '请输入4-20位字符，中英文、数字组合的用户名'
+                    }
+                  }
+              },
+              password:{
+                  validators: {
+                    notEmpty:{
+                        message:'密码不能为空'
+                    },
+                    regexp:{
+                      regexp: /^[A-Za-z0-9_]+$/,
+                      message: '密码输入格式错误'
+                    },
+                    stringLength: {
+                        max: 20,
+                        min: 6,
+                        message: '请输入6-20位字符，字母数字下划线或组合的密码'
+                    }
+                  }
+              },
+            }
+        });
+      });
+    </script>
+  </body>
+</html>
