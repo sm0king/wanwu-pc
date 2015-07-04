@@ -330,6 +330,7 @@ input[type="checkbox"][disabled]:checked {
     border-width: 1px;
     border-color: #f6f6f6;
     height: 50px;
+    line-height: 35px;
     background-color: #f6f6f6;
 }
 .login .has-error .form-control{
@@ -607,4 +608,45 @@ ul>li.collapse{
 }
 .clearfix{
     *zoom: 1;
+}
+
+
+
+/* ie hack */
+.col-md-7,
+.col-md-6,
+.col-md-5{
+  *padding-left: 0;
+  *padding-right: 0;
+  _padding-left: 0;
+  _padding-right: 0;
+
+}
+
+.login .form-control{
+  *padding: 0;
+  _padding: 0;
+  *text-indent:42px;
+  _text-indent:42px;
+  *line-height: 50px;
+  _line-height: 50px;
+}
+
+.login .input-group-addon{
+  *position: absolute;
+  *width:30px;
+  *top: 1px;
+  *left: 1px;
+  *z-index: 99;
+}
+
+.login-panel .ver-tip{
+  *position: absolute;
+  *right:34px;
+  *float:none;
+}
+
+.input-group{
+  *display: table-cell;
+  _display: table-cell;
 }

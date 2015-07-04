@@ -11,7 +11,6 @@ html
             if subTitle
              | subTitle
         link(rel='stylesheet',href='plugs/bootstrap/css/bootstrap.min.css')
-        <!-- link(rel='stylesheet', href='#{basePath}css/foot.css') -->
         link(rel='stylesheet', href='css/main_new.css')
         block header
     body
@@ -64,10 +63,14 @@ html
                                 .input-group-addon 验证码
                             .form-group.clearfix
                               <a ui-sref="dashboard.home" class="btn btn-lg btn-default col-md-6" onclick='$("#myform").submit();'>供应商登录</a>
-                              div.col-md-6.text-right.forget
+                              div.text-right.forget
                                 a(href="") 忘记密码
         script(type='text/javascript',src='plugs/jquery/jquery.min.js')
         block foot
+          <!--[if lt IE 9]>
+          script(src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js")
+          script(src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js")
+          <![endif]-->
           script(src="../plugs/jquery.cookie.js")
           script(src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
           link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
@@ -124,7 +127,7 @@ html
                               message: '请输入6-20位字符，字母数字下划线或组合的密码'
                           }
                         }
-                    },
+                    }
                   }
               });
             });
