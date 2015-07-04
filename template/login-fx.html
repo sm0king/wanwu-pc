@@ -53,7 +53,7 @@ html
                                 input.form-control#password(name="password",type="password",placeholder="6-20位字符，字母数字下划线或组合")
                             .form-group
                               label.remember
-                                input.login-check(type="checkbox")
+                                input.login-check#ck_rmbUname(type="checkbox")
                                 span 记住账号
                               span.ver-tip
                                 strong 拖动按钮完成验证
@@ -68,10 +68,30 @@ html
         script(type='text/javascript',src='plugs/jquery/jquery.min.js')
 
         block foot
-          script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+          script(src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+          script(src="../plugs/jquery.cookie.js")
           link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
+
           script.
             $(function(){
+
+              <!-- remember username -->
+              if ($.cookie("ck_Uname") === "true") {
+                  $("#ck_rmbUname").prop("checked", true);
+                  $("#username").val($.cookie("username"));
+              }
+              $('#ck_rmbUname').on('click',function(){
+                  if( $(this).prop('checked') ){
+                    var username = $("#username").val();
+                    $.cookie("ck_Uname", "true", { expires: 30 }); //存储一个带7天期限的cookie
+                    $.cookie('username',username,{ expires: 30 });
+                  }else{
+                    $.cookie("ck_Uname", "false", { expire: -1 });
+                    $.cookie("username", "", { expires: -1 });
+                  }
+              });
+
+              <!-- form Validator -->
               $('#myform').bootstrapValidator({
                   fields:{
                     username: {
