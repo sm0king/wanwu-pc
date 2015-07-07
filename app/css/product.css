@@ -784,6 +784,10 @@
     margin-right: 6px;
     background-color: rgb(0,153,204);
 }
+.indexH3 .page-title{
+  font-size: 18px;
+}
+
 .product-detail .btn-blue{
     padding:0 30px;
     margin-right: 30px;
@@ -838,9 +842,13 @@
 /******************************* 类目选择页面 *******************************/
 .product-catalog{
     background-color: #fff;
-    /*margin-top: 20px;*/
-    padding:20px 10px;
+    padding-bottom: 20px;
+    padding:0px 10px;
     overflow: auto;
+}
+.product-desc .edit-desc{
+    height: 20px;
+    line-height: 20px;
 }
 .product-catalog .form-group{
     margin-bottom: 15px;

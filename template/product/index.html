@@ -139,10 +139,13 @@ block Right
                             </div>
                         </td>
                         <td class="center">
-                            <div class="mprice"><input type="text" value="138.00" class="form-control input-price"></div>
+                            <div class="mprice">
+                              138.00<!-- <input type="text" value="138.00" class="form-control input-price"> -->
+                            </div>
                         </td>
                         <td class="center">
-                            <input type="text" value="50" class="form-control input-stack">
+                            <!-- <input type="text" value="50" class="form-control input-stack"> -->
+                            50
                         </td>
                         <td class="center">
                             <a href="javascript:;" class="green upAction" updata="1">出售中</a>
@@ -177,10 +180,13 @@ block Right
                             </div>
                         </td>
                         <td class="center">
-                            <div class="mprice"><input type="text" value="138.00" class="form-control input-price"></div>
+                            <div class="mprice">
+                              138.00<!-- <input type="text" value="138.00" class="form-control input-price"> -->
+                            </div>
                         </td>
                         <td class="center">
-                            <input type="text" value="50" class="form-control input-stack">
+                            <!-- <input type="text" value="50" class="form-control input-stack"> -->
+                            50
                         </td>
                         <td class="center">
                             <a href="javascript:;" class="red upAction" updata="2">已下架</a>
@@ -255,17 +261,24 @@ block foot
             );
             $('.edit-desc').on('click','.edit-quick',function(){
                 var title = $(this).parent().siblings('p').html();
-                $(this).parent().siblings('.product-title').html('<input type="text" value="'+title+'" class="form-control" data-back="'+title+'" autofocus="autofocus"/>');
+                $(this).parent().siblings('.product-title').html('<input type="text" value="'+title+'" class="form-control input-title" data-back="'+title+'"/>');
+                $('.product-title').find('.input-title').focus();
                 var save = '<div class="eidt-btn"><a class="edit-save" href="javascript:;">【保存】</a><a class="edit-cancel" href="javascript:;">【取消】</a></div>';
                 $(this).parent().html(save);
             })
-            .on('click','.edit-cancel',function(){
-                var product = $(this).parents('.edit-desc').siblings('.product-title');
-                product.html(product.children('input').data('back'));
-                $(this).parents('.edit-desc').html('');
-            })
-            .on('click','edit-save',function(){
+              .on('click','.edit-cancel',function(){
+                  var product = $(this).parents('.edit-desc').siblings('.product-title');
+                  product.html(product.children('input').data('back'));
+                  $(this).parents('.edit-desc').html('');
+              })
+              .on('click','edit-save',function(){
 
+              });
+            $('.mprice').dblclick(function(){
+                $(this).html('<input type="text" value="'+$(this).text().trim()+'" data-back="'+$(this).text().trim()+'" class="form-control input-price">');
+                $(this).find('.input-price').focus();
             });
-
+            $('.mprice').on('blur','.input-price',function(){
+                $(this).parent().html($(this).data('back'));
+            });
         });

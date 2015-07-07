@@ -620,7 +620,6 @@ ul>li.collapse{
   *padding-right: 0;
   _padding-left: 0;
   _padding-right: 0;
-
 }
 
 .login .form-control{
@@ -644,9 +643,4 @@ ul>li.collapse{
   *position: absolute;
   *right:34px;
   *float:none;
-}
-
-.input-group{
-  *display: table-cell;
-  _display: table-cell;
 }
