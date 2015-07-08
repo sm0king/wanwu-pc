@@ -69,7 +69,7 @@ block Right
           <table class='table table-bordered'>
             <tbody>
               <tr>
-                <td class="col-md-2">品牌使用类型</td>
+                <td class="col-md-2" align="right">品牌使用类型</td>
                 <td>
                   <label class="radio-inline">
                     <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 品牌拥有者
@@ -80,7 +80,7 @@ block Right
                 </td>
               </tr>
               <tr>
-                <td>相关资质</td>
+                <td align="right">相关资质</td>
                 <td>
                   <div class="table-responsive">
                     <table class="table">
@@ -90,7 +90,7 @@ block Right
                         <td class="col-md-2">资质有效期</td>
                         <td>操作</td>
                       </tr>
-                      <tr class="text-center">
+                      <tr class="text-center aptitude-list" >
                         <td>
                           <select id="u222_input">
                             <option selected="" value="商标注册证/受理通知书">商标注册证/受理通知书</option>
@@ -107,33 +107,39 @@ block Right
                           </select>
                         </td>
                         <td>
-                          <img src="" alt="">
+                          <div class="row brand-aptitude-img">
+                            <div class="row-img">
+                              <div class="m-img add-img"></div>
+                              <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                              <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                            </div>
+                          </div>
                         </td>
                         <td>
-                          <input type="text" class="form-control" id='validDate'>
+                          <input type="text" class="form-control validDate" name="time[]">
                         </td>
                         <td><a href="">删除</a></td>
                       </tr>
                       <tr>
-                        <td colspan='4'><a href="">(+)添加资质</a></td>
+                        <td colspan='4'><a id="aptitude-add" href="javascript:;">(+)添加资质</a></td>
                       </tr>
                     </table>
                   </div>
                 </td>
               </tr>
               <tr>
-                <td>审核结果</td>
+                <td align="right">审核结果</td>
                 <td>
                   <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 审核通过
+                    <input type="radio" name="pass" id="" value="1"> 审核通过
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 审核不通过
+                    <input type="radio" name="pass" id="" value="2"> 审核不通过
                   </label>
                 </td>
               </tr>
               <tr>
-                <td>审核不通过原因</td>
+                <td align="right">审核不通过原因</td>
                 <td>
                   <textarea class="form-control" name="quamess" id="quamess" rows="6"></textarea>
                 </td>
@@ -151,10 +157,14 @@ block Right
 block foot
     script(type='text/javascript').
         $(function(){
-            $('#validDate').datetimepicker({
-                format: 'yyyy-mm-dd',
-                language: 'zh-CN',
-                minView: 2,
-                autoclose: true
-            });
+          $('.table-responsive').on('focus','.validDate',function(){
+              console.log('s');
+              $(this).datetimepicker({
+                  format: 'yyyy-mm-dd',
+                  language: 'zh-CN',
+                  minView: 2,
+                  autoclose: true
+              });
+          });
+
         });
