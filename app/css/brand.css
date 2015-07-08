@@ -13,6 +13,7 @@
 .brand-logo-img .m-img{
     width: 75px;
     height: 75px;
+    margin: 0 4px;
     display: inline-block;
     *zoom:1;
     *display:inline;
@@ -21,6 +22,7 @@
     cursor: pointer;
     width: 75px;
     height: 75px;
+    margin: 0 4px;
     border:2px dashed #ddd;
     background: url(../img/add.png) 50% center no-repeat;
 }
@@ -29,15 +31,17 @@
 }*/
 .brand-aptitude-img{
     max-width: 200px;
-    /*height: 75px;*/
+    height: 95px;
     /*overflow-x: scroll;*/
     margin: 0 auto;
     overflow-y: hidden;
+    overflow-x: auto;
 }
 .brand-aptitude-img .m-img{
     width: 75px;
     height: 75px;
     display: inline-block;
+    margin: 0 4px;
     *zoom:1;
     *display:inline;
 }
@@ -45,6 +49,7 @@
     cursor: pointer;
     width: 75px;
     height: 75px;
+    margin: 0 4px;
     border:2px dashed #ddd;
     background: url(../img/add.png) 50% center no-repeat;
 }

@@ -19,10 +19,11 @@ $(function() {
         }
 
         height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height);
+        var sidebar = $('.sidebar ').height();
         height = height - topOffset;
         if (height < 1) height = 1;
         if (height > topOffset) {
-           $("#page-wrapper").css("min-height", (height-120) + "px");
+           $("#page-wrapper").css("min-height", (height-120) > sidebar ? (height-120) : (sidebar+60) + "px");
         }
     });
 
@@ -40,4 +41,5 @@ $(function() {
         $(this).siblings('.navbar-group-title').removeClass('bg-blue');
         $(this).addClass('bg-blue');
     });
+    
 });

@@ -15,9 +15,9 @@ html
         link(rel='stylesheet', href='#{basePath}css/font-awesome/css/font-awesome.min.css')
         link(rel='stylesheet', href='#{basePath}plugs/datetimepicker/bootstrap-datetimepicker.min.css')
         link(rel='stylesheet', href='#{basePath}css/main.css')
-        link(rel='stylesheet', href='#{basePath}js/metisMenu/metisMenu.min.css')        
-        link(rel='stylesheet', href='#{basePath}css/foot.css')   
-        link(rel='stylesheet', href='#{basePath}css/sb-admin-2.css') 
+        link(rel='stylesheet', href='#{basePath}js/metisMenu/metisMenu.min.css')
+        link(rel='stylesheet', href='#{basePath}css/foot.css')
+        link(rel='stylesheet', href='#{basePath}css/sb-admin-2.css')
         <!--[if lt IE 9]>
         script(src="#{basePath}plugs/html5shiv.min.js")
         script(src="#{basePath}plugs/respond.min.js")
@@ -34,12 +34,12 @@ html
                         span.icon-bar
                     h2.dashboard-title
                         span 万物
-                        
+
                     h4.dashboard-subtitle
                         img(src='#{basePath}/img/dot.png')
                         | 供应商平台
                 .dashboard-top-line
-                    span 
+                    span
                         | 客服热线
                         span.navbar-phone 028-88888888
                     span.separate
@@ -49,10 +49,10 @@ html
                     span.separate
                     a(href="javascript:;") 退出
 
-                                       
+
                 .navbar-default.sidebar.static(role='navigation')
                     .sidebar-nav.navbar-collapse
-                        ul.nav.in#side-menu                            
+                        ul.nav.in#side-menu
                             block menu
                                 li(ui-sref-active='active')
                                     a(href='#{basePath}home.html') 首页
@@ -97,13 +97,13 @@ html
                                 li#baseinfo_manage.collapse
                                     ul
                                         li(ui-sref-active='active')
-                                            a(href='#{basePath}info/basicinfo.html') 完善认证信息    
+                                            a(href='#{basePath}info/basicinfo.html') 完善认证信息
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}info/freight.html') 运费设置
                                         li(ui-sref-active='active')
                                             a(href='#{basePath}info/paymessage.html') 支付信息设置
                                         li(ui-sref-active='active')
-                                            a(href='#{basePath}info/changepwd.html') 修改密码                  
+                                            a(href='#{basePath}info/changepwd.html') 修改密码
             #page-wrapper
                 <!--[if lt IE 9]>
                 .M-upBrowser
@@ -114,10 +114,10 @@ html
         include foot.jade
         script(type='text/javascript',src='#{basePath}plugs/jquery/jquery.min.js')
         script(type='text/javascript',src='#{basePath}plugs/bootstrap/js/bootstrap.min.js')
+        script(type='text/javascript',src='#{basePath}js/sb-admin-2.js')
         script(type='text/javascript',src='#{basePath}plugs/datetimepicker/bootstrap-datetimepicker.min.js')
         script(type='text/javascript',src='#{basePath}plugs/datetimepicker/bootstrap-datetimepicker.zh-CN.js')
         script(type='text/javascript',src='#{basePath}js/metisMenu/metisMenu.min.js')
-        script(type='text/javascript',src='#{basePath}js/sb-admin-2.js')
         script(type='text/javascript',src='#{basePath}js/dialog.js')
         script(type='text/javascript')
         block foot

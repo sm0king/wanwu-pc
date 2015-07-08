@@ -6,7 +6,6 @@ block header
 
     link(rel='stylesheet', href='../../css/product.css')
     link(rel='stylesheet', href='../../css/brand.css')
-
 block DashboardTitle
     品牌详情
 
@@ -65,7 +64,7 @@ block Right
       </div>
       <div class="panel panel-default">
         <div class="panel-heading">Nike供应商一相关资质</div>
-        <div class="panel-body table-responsive">
+        <div class="panel-body">
           <table class='table table-bordered'>
             <tbody>
               <tr>
@@ -82,7 +81,7 @@ block Right
               <tr>
                 <td align="right">相关资质</td>
                 <td>
-                  <div class="table-responsive">
+                  <!-- <div class="table"> -->
                     <table class="table">
                       <tr class="text-center">
                         <td class="col-md-4">资质类别</td>
@@ -124,7 +123,7 @@ block Right
                         <td colspan='4'><a id="aptitude-add" href="javascript:;">(+)添加资质</a></td>
                       </tr>
                     </table>
-                  </div>
+                  <!-- </div> -->
                 </td>
               </tr>
               <tr>
@@ -157,7 +156,8 @@ block Right
 block foot
     script(type='text/javascript').
         $(function(){
-          $('.table-responsive').on('focus','.validDate',function(){
+
+          $('.panel').on('focus','.validDate',function(){
               console.log('s');
               $(this).datetimepicker({
                   format: 'yyyy-mm-dd',
