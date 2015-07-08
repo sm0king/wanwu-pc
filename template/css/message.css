@@ -1,0 +1,125 @@
+.msg{
+    padding-top: 15px;
+}
+.msg .btn-red{
+    float: right;
+    width:100px;
+    height: 30px;
+    line-height: 16px;
+}
+.msg label{
+    vertical-align: middle;
+}
+.msg .headBar{
+    height: 49px;
+    border:1px #e2e2e2 solid;
+    padding:10px;
+    line-height: 27px;
+}
+.msg a{
+    cursor: pointer;
+}
+.msg .ck input{
+    margin-left:3px;
+}
+.msg .ck{
+    width:40px;
+}
+
+.msg .face{
+    width:73px;
+}
+.msg .face img{
+    width:57px;
+    height: 57px;
+}
+.msg .msgList{
+    margin-top: 16px;    
+}
+.msg .msgList table{
+    border:1px solid #e2e2e2;
+}
+.msg .msgList td{
+    border-top: 1px solid #e2e2e2;
+    border-bottom: 1px solid #e2e2e2;
+    padding:20px 8px;
+}
+
+.msg .oper{
+    width:170px;
+    text-align: center;
+}
+
+.msg .oper a{
+    margin:10px;
+}
+
+.msg .oper .btns{
+    position: relative;
+}
+
+
+.msg .oper .quickBack{
+    position: absolute;
+    display: none;
+    left: -250px;
+    top:18px;
+    background: url(../img/quickBack.png) 0 0 no-repeat;
+    padding-top: 7px;
+    width:386px;
+    height: 43px;
+}
+.msg .oper .btns.viewQuickBack .quickBack{
+    display: block;
+}
+.msg .oper .quickBack input,.msg .oper .quickBack button{
+    border:0px;
+    background:none;
+    outline: none;
+}
+.msg .oper .quickBack button{
+    background-color: #069dd5;
+    color:white;
+}
+/* 站内信详情 */
+.msg .titleBar{
+    
+}
+
+.msg .titleBar img{
+    width:57px;
+    height: 57px;
+    margin-right: 25px;
+}
+.msg .titleBar span{
+    font-size: 18px;
+    font-weight: bold;
+}
+.msg .smallFace{
+    width:40px;
+    height: 40px;
+    margin-right: 12px;
+}
+.msg .msgGroup{
+    margin-top:18px;
+}
+
+.msg .msgGroup .panel-default:last-child{
+    margin-bottom: 0px;
+}
+.msg .msgGroup .date{
+    float:right;
+    margin-top: 10px;
+}
+.msg .replyForm textarea{
+    height: 162px;
+    resize:none;
+}
+.messageLeft{
+    width: 60%;
+    float: left;
+}
+.messageRight{
+    width: 60%;
+    float: right;
+}

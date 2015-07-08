@@ -1,17 +1,1 @@
-.mapping{
-    padding-top: 20px;
-}
-.category{
-    display: inline-block;
-}
-.mapping .form-group label{
-    margin-right: 12px;
-}
-.selMall:before{
-      font-family: 'Glyphicons Halflings';
-      font-weight: 400px;
-      line-height: 1.2;
-      font-style: normal;
-      content:"\e178";
-      padding:0 15px;
-}
+.mapping{padding-top:20px}.category{display:inline-block}.mapping .form-group label{margin-right:12px}.selMall:before{font-family:'Glyphicons Halflings';font-weight:400px;line-height:1.2;font-style:normal;content:"\e178";padding:0 15px}

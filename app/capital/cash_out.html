@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
     <link rel="stylesheet" href="../css/main.css"/>
-    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../plugs/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../css/foot.css"/>
     <link rel="stylesheet" href="../css/sb-admin-2.css"/><!--[if lt IE 9]>
     <script src="../plugs/html5shiv.min.js"></script>
@@ -25,10 +25,16 @@
           <h2 class="dashboard-title"><span>万物</span></h2>
           <h4 class="dashboard-subtitle"><img src="..//img/dot.png"/>供应商平台</h4>
         </div>
-        <div class="dashboard-top-line"><span>
-             
-            客服热线<span class="navbar-phone">028-88888888</span></span><span class="separate"></span><a href="javascript:;">帮助中心</a><span class="separate"></span><a href="javascript:;">趣玩</a><span class="separate"></span><a href="javascript:;">退出</a></div>
-        <div role="navigation" class="navbar-default sidebar">
+        <div class="dashboard-top-line">
+          <!--
+          span 
+              | 客服热线
+              span.navbar-phone 028-88888888
+          span.separate
+          a(href="javascript:;") 帮助中心
+          --><span>供应商QQ群 468830696</span><span class="separate"></span><a href="javascript:;">趣玩</a><span class="separate"></span><a href="javascript:;">退出</a>
+        </div>
+        <div role="navigation" class="navbar-default sidebar static">
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
               <li ui-sref-active="active"><a href="../home.html">首页</a></li>
@@ -41,7 +47,7 @@
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
-                <ul>                                       
+                <ul>
                   <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
                   <li ui-sref-active="active"><a href="../product/catalogChoice.html">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="../product/batch.html">批量导入商品</a></li>
@@ -80,7 +86,7 @@
         </div><![endif]-->
         <div class="capital cash-out">
           <h2>提现</h2>
-          <form class="form-horizontal">
+          <form id="getMoneyForm" class="form-horizontal">
             <div class="form-group">
               <label class="control-label">提现至银行卡：</label>
               <div class="col-md-10">
@@ -96,11 +102,11 @@
             <div class="form-group">
               <label class="control-label">金额：</label>
               <div class="col-md-10">
-                <input type="text" class="form-control password"/>
+                <input type="text" name="money" class="form-control password"/>
               </div>
             </div>
             <div>
-              <button type="button" onclick="location.href='submit.html'" class="btn btn-blue">提现</button>
+              <button class="btn btn-blue">提现</button>
             </div>
           </form>
         </div>
@@ -117,12 +123,31 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript"></script>
+    <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>
     <script type="text/javascript">
       $(function(){
           $('.cardSelector').delegate('a','click',function(e){
               var item = $(e.currentTarget);
               $(e.delegateTarget).children('.cardInfo').empty().append(item.clone().children());
           });
+      });
+      $('#getMoneyForm').bootstrapValidator({
+          fields:{
+            money: {
+                validators: {
+                  notEmpty:{
+                     message: '请输入提现金额'
+                  },
+                  numeric:{
+                      message: '请输入数字'
+                  }
+                }
+            }
+          }
+      }).on('success.form.bv',function(){
+            window.location.href="submit.html";
       });
     </script>
   </body>

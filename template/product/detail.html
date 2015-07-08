@@ -624,6 +624,7 @@ block foot
                     }
                 }
             })
+            //生成SKU
             $('.sellvirtue').on('change','input',function(e){
                 //$(this).parents('.sellvirtue').index('.sellvirtue')
 
@@ -651,9 +652,9 @@ block foot
                             }
                             var newStr = newArr.join('--');
                             if($('#version_body input[value="'+ArrValue[n]+'"]').length > 0){
-                                tdHtml += '<tr>'+$('#version_body input[value="'+ArrValue[n]+'"]').parent().parent().html()+'</tr>';
+                                tdHtml += '<tr class="skuTr">'+$('#version_body input[value="'+ArrValue[n]+'"]').parents('.skuTr').html()+'</tr>';
                             }else{
-                                tdHtml += '<tr><td><input type="hidden" value="'+ArrValue[n]+'"> <span>'+newStr+'</span></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><a href="javascript:;" class="btn-ok save"></a><a href="javascript:;" class="btn-dustbin"></a></td></tr>';
+                                tdHtml += '<tr class="skuTr"><td><input type="hidden" value="'+ArrValue[n]+'"> <span>'+newStr+'</span></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><a href="javascript:;" class="btn-ok save"></a><a href="javascript:;" class="btn-dustbin"></a></td></tr>';
                             }
                         }
                     }
@@ -757,4 +758,9 @@ block foot
                 var wordLength = $.trim(this.value).length;
                 if(wordLength <= 150){$('#DescriptionWorldNumber').html(wordLength)}
             })
+            //页面初始化检测SKU是否存在。
+            if('$('.skuTr').length > 0'){
+                //存在初始SKU 复制初始值
+                $('#sellvirtueTable').append($('#version_body').clone().prop({"id":"hide_version","class":"hide"}))
+            }
         })

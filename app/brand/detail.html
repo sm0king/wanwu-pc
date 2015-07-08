@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/font-awesome/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="../plugs/datetimepicker/bootstrap-datetimepicker.min.css"/>
     <link rel="stylesheet" href="../css/main.css"/>
-    <link rel="stylesheet" href="../js/metisMenu/metisMenu.min.css"/>
+    <link rel="stylesheet" href="../plugs/metisMenu/metisMenu.min.css"/>
     <link rel="stylesheet" href="../css/foot.css"/>
     <link rel="stylesheet" href="../css/sb-admin-2.css"/><!--[if lt IE 9]>
     <script src="../plugs/html5shiv.min.js"></script>
@@ -26,10 +26,16 @@
           <h2 class="dashboard-title"><span>万物</span></h2>
           <h4 class="dashboard-subtitle"><img src="..//img/dot.png"/>供应商平台</h4>
         </div>
-        <div class="dashboard-top-line"><span>
-             
-            客服热线<span class="navbar-phone">028-88888888</span></span><span class="separate"></span><a href="javascript:;">帮助中心</a><span class="separate"></span><a href="javascript:;">趣玩</a><span class="separate"></span><a href="javascript:;">退出</a></div>
-        <div role="navigation" class="navbar-default sidebar">
+        <div class="dashboard-top-line">
+          <!--
+          span 
+              | 客服热线
+              span.navbar-phone 028-88888888
+          span.separate
+          a(href="javascript:;") 帮助中心
+          --><span>供应商QQ群 468830696</span><span class="separate"></span><a href="javascript:;">趣玩</a><span class="separate"></span><a href="javascript:;">退出</a>
+        </div>
+        <div role="navigation" class="navbar-default sidebar static">
           <div class="sidebar-nav navbar-collapse">
             <ul id="side-menu" class="nav in">                           
               <li ui-sref-active="active"><a href="../home.html">首页</a></li>
@@ -42,7 +48,7 @@
               </li>
               <li href="#product_manage" data-toggle="collapse" class="navbar-group-title">商品管理</li>
               <li id="product_manage" class="collapse">
-                <ul>                                       
+                <ul>
                   <li ui-sref-active="active"><a href="../product/index.html">商品列表</a></li>
                   <li ui-sref-active="active"><a href="../product/catalogChoice.html">单件商品添加</a></li>
                   <li ui-sref-active="active"><a href="../product/batch.html">批量导入商品</a></li>
@@ -79,11 +85,11 @@
         <div class="M-upBrowser">
           <p class="upBrowser">检测到您的浏览器存在兼容性问题，请您使用<a href="http://browsehappy.com/" target="_blank">万物推荐浏览器</a></p>
         </div><![endif]-->
-        <form action="#" class="form-horizontal brand-detail">
+        <form action="#" id="brandForm" class="form-horizontal brand-detail">
           <div class="form-group">
               <label for="productName" class="control-label brand-left require">商品品牌：</label>
               <div class="col-md-6">
-                  <input type="text" id="productName" class="form-control">
+                  <input type="text" id="productName" name="productName" class="form-control">
               </div>
           </div>
           <div class="form-group">
@@ -111,13 +117,13 @@
           <div class="form-group">
               <label for="productName" class="control-label brand-left require">品牌拥有者：</label>
               <div class="col-md-6">
-                  <input type="text" id="productUser" class="form-control">
+                  <input type="text" id="productUser" name="productUser" class="form-control">
               </div>
           </div>
           <div class="form-group">
               <label for="productNum" class="control-label brand-left require">商标注册号：</label>
               <div class="col-md-6">
-                  <input type="text" id="productNum" class="form-control">
+                  <input type="text" id="productNum" name="productNum" class="form-control">
               </div>
           </div>
           <div class="form-group">
@@ -251,8 +257,11 @@
     <script type="text/javascript" src="../js/metisMenu/metisMenu.min.js"></script>
     <script type="text/javascript" src="../js/sb-admin-2.js"></script>
     <script type="text/javascript" src="../js/dialog.js"></script>
+    <script type="text/javascript"></script>
     <link rel="stylesheet" href="../plugs/imagebox/imagebox.css"/>
     <script type="text/javascript" src="../plugs/imagebox/imagebox.js"></script>
+    <script type="text/javascript" src="../plugs/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet" href="../plugs/bootstrapValidator/css/bootstrapValidator.min.css"/>
     <script type="text/javascript">
       $(function(){
           //点击查看原图
@@ -263,6 +272,36 @@
               language: 'zh-CN',
               minView: 2,
               autoclose: true
+          });
+      
+          $('#brandForm').bootstrapValidator({
+              fields:{
+                productName: {
+                    validators: {
+                      notEmpty:{
+                         message: '请输入商品品牌'
+                      },
+                      stringLength: {
+                          max: 30,
+                          message: '输入文本不超过30字符'
+                      }
+                    }
+                },
+                productUser:{
+                    validators: {
+                        notEmpty:{
+                           message: '品牌拥有者'
+                        }
+                    }
+                },
+                productNum:{
+                    validators: {
+                       notEmpty:{
+                            message: '请输入商标注册号'
+                        }
+                    }
+                }
+              }
           });
       });
     </script>

@@ -1,0 +1,90 @@
+.selectorBar{
+    z-index: 1020;
+}
+.selectorBar .panel-heading{
+    text-align: center;
+    font-size: 16px;
+}
+.selectorBar .selector-title{
+    margin:0px 10px;
+    font-weight: bold;
+}
+.selectorBar .pagin.disable{
+    color:gray;
+}
+
+.selectorBar .selector-row{
+    white-space: nowrap;
+    overflow: hidden;
+}
+.selectorBar .selector-col{
+    width:250px;
+    height: 300px;
+    display: inline-block;
+    vertical-align: top;
+    border:1px solid #CCC;
+    margin-right: 10px;
+    overflow: auto;
+}
+
+.selectorBar .selector-col .input-group{
+    margin:5px;
+}
+
+.selectorBar .selector-col input{
+    padding:6px 5px;
+}
+
+.selectorBar .selector-col:last-child{
+    margin-right: 0px;
+}
+
+.selectorBar .selector-option{
+    display: block;
+    padding:7px 5px;
+    color:rgb(101,103,107);
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+
+.selectorBar .selector-option:hover{
+    background-color: rgb(255,255,205);
+}
+
+.selectorBar .selector-option.active{
+    background-color: rgb(255,255,205);
+    color:red;
+    
+}
+
+.selectorBar .selector-option.haschild{
+    padding-right: 20px;
+}
+.selectorBar .selector-option.haschild:before{
+    font-family: 'Glyphicons Halflings';
+    content: "\e258";
+    float:right;
+    margin-right: -15px;
+    color:rgb(101,103,107);
+}
+.selectorBar .selector-cover{
+    background-color: black;
+    opacity:0;
+    position: absolute;
+    z-index: 5;
+    top:0px;
+    left: 0px;
+}
+.selectorBar .panel{
+    margin-bottom: 0px;
+}
+.searchChoice li,.searchChoice{
+    padding:0;
+    margin:0;
+    list-style: none;
+    cursor: pointer;
+}
+.searchChoice li{
+    margin:8px;
+}
