@@ -1,0 +1,134 @@
+<!doctype html>
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport',content='width=device-width')
+        meta(http-equiv="X-UA-Compatible",content="IE=edge,Chrome=1")
+        meta(name="description" content="万物（wanwu.com）是全网货源一键分销的移动供销平台，完全免费，海量货源集散地，无货也可开店赚钱，对接淘宝，微店，京东，拍拍，有赞等多家电商平台，让分销商拥有海量货源一键分销，无货开店赚钱，让供应商可以一键铺货库存同步，获得海量订单。")
+        meta(name="keywords" content="分销,微商,微店,微信,ERP,朋友圈,微购物,淘宝一键搬家,拍拍,有赞,卖家,开店,店铺,易订货,一键分销,旺铺")
+        block title
+            title 万物 - 全网货源一键分销，淘宝微店多店铺商品轻松管理，订单价格库存实时同步
+            if subTitle
+             | subTitle
+        link(rel='stylesheet',href='plugs/bootstrap/css/bootstrap.min.css')
+        link(rel='stylesheet', href='css/main_new.css')
+        block header
+    body
+        block content
+        .login
+          .docs-header-fx
+            .container
+              a.navbar-brand(href="index.html")
+              h2.navbar-line
+                block lg-title
+                  分销商后台
+          .container
+            .content
+              .row
+                block login-content
+                  .col-md-7
+                    .desc-panel
+                      h1 万物 • 全网货源一键分销，
+                      h1 无货也开店赚钱
+                      ul.list-unstyled
+                        li 淘宝微店轻松一键分销，
+                        li 海量货源集散地，一件代发，
+                        li 无需仓库，发货更快
+                      button.btn.btn-fx 注册成为分销商
+                      <img class="bg-login" src="img/login/bg-fx.png" alt="分销商" />
+                  .col-md-5
+                    .login-panel.panel.panel-default
+                      .panel-body
+                        span.login-title 分销商登录
+                        form#myform(role="form")
+                            .form-group
+                              .input-group
+                                span.input-group-addon
+                                  <img src="img/login/icon-user.png"/>
+                                input.form-control#username(name="username",type="text",autofocus,placeholder="4-20位字符，支持中英文、数字组合")
+                            .form-group
+                              .input-group
+                                span.input-group-addon
+                                  <img src="img/login/icon-pwd.png"/>
+                                input.form-control#password(name="password",type="password",placeholder="6-20位字符，字母数字下划线或组合")
+                            .form-group
+                              label.remember
+                                input.login-check#ck_rmbUname(type="checkbox")
+                                span 记住账号
+                              span.ver-tip
+                                strong 拖动按钮完成验证
+                            .form-group
+                              .input-group
+                                input.form-control#captcha(type="text",name="captcha")
+                                .input-group-addon.verify 验证码
+                            .form-group.clearfix
+                              <a ui-sref="dashboard.home" class="btn btn-lg btn-default col-md-6" onclick='$("#myform").submit();'>供应商登录</a>
+                              div.text-right.forget
+                                a(href="") 忘记密码
+        script(type='text/javascript',src='plugs/jquery/jquery.min.js')
+
+        block foot
+          <!--[if lt IE 9]>
+          script(src="http://apps.bdimg.com/libs/html5shiv/3.7/html5shiv.min.js")
+          script(src="http://apps.bdimg.com/libs/respond.js/1.4.2/respond.min.js")
+          <![endif]-->
+          script(src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+          script(src="../plugs/jquery.cookie.js")
+          link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
+          script.
+            $(function(){
+
+              <!-- remember username -->
+              if ($.cookie("ck_Uname") === "true") {
+                  $("#ck_rmbUname").prop("checked", true);
+                  $("#username").val($.cookie("username"));
+              }
+              $('#ck_rmbUname').on('click',function(){
+                  if( $(this).prop('checked') ){
+                    var username = $("#username").val();
+                    $.cookie("ck_Uname", "true", { expires: 30 }); //存储一个带7天期限的cookie
+                    $.cookie('username',username,{ expires: 30 });
+                  }else{
+                    $.cookie("ck_Uname", "false", { expire: -1 });
+                    $.cookie("username", "", { expires: -1 });
+                  }
+              });
+
+              <!-- form Validator -->
+              $('#myform').bootstrapValidator({
+                  fields:{
+                    username: {
+                        validators: {
+                          notEmpty:{
+                              message:'用户名不能为空'
+                          },
+                          regexp:{
+                            regexp: /^[\u4E00-\u9FA5A-Za-z0-9]+$/,
+                            message: '输入格式错误'
+                          },
+                          stringLength: {
+                              max: 20,
+                              min: 4,
+                              message: '请输入4-20位字符，中英文、数字组合的用户名'
+                          }
+                        }
+                    },
+                    password:{
+                        validators: {
+                          notEmpty:{
+                              message:'密码不能为空'
+                          },
+                          regexp:{
+                            regexp: /^[A-Za-z0-9_]+$/,
+                            message: '密码输入格式错误'
+                          },
+                          stringLength: {
+                              max: 20,
+                              min: 6,
+                              message: '请输入6-20位字符，字母数字下划线或组合的密码'
+                          }
+                        }
+                    }
+                  }
+              });
+            });

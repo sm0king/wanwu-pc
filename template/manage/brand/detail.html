@@ -6,32 +6,33 @@ block header
 
     link(rel='stylesheet', href='../../css/product.css')
     link(rel='stylesheet', href='../../css/brand.css')
-
 block DashboardTitle
     品牌详情
 
 block Right
-    form(action='#').form-horizontal.brand-detail.
-        <div class="form-group">
-            <label class="control-label brand-left">审核状态：</label>
-            <div class="col-md-6">
-                <span id="verifySta" class="verifySta yes">审核通过</span>
-                <button class="btn btn-default check-verify" type="submit">设为未审核</button>
+    ul.list-inline.indexH3
+      li.page-title
+        strong 品牌编辑
+      li 品牌创建时间
+      li 2015/3/3
+      li 品牌审核时间
+      li 2015/3/3
+      li 品牌更新时间
+      li 2015/3/3
+    form(action='#').form-horizontal.
+      <div class="panel panel-default">
+        <div class="panel-heading">品牌基本信息</div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="productName" class="col-sm-2 control-label">品牌名字</label>
+            <div class="col-sm-6">
+              <input type="email" class="form-control" id="productName" placeholder="品牌名字">
             </div>
-        </div>
-        <div class="form-group">
-            <button class="btn btn-default check-edit" type="submit">启用编辑</button>
-        </div>
-        <div class="form-group">
-            <label for="productName" class="control-label brand-left">商品品牌：</label>
+          </div>
+          <div class="form-group">
+            <label for="" class="control-label col-sm-2">品牌logo:</label>
             <div class="col-md-6">
-                <input type="text" id="productName" class="form-control" ng-model="productName">
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="" class="control-label brand-left">品牌logo:</label>
-            <div class="col-md-6">
-                <label for="" class="control-label">图片大小请控制在150k以内</label>
+                <label for="" class="help-block">图片大小请控制在150k以内</label>
                 <div class="row brand-logo-img">
                     <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
                     <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
@@ -40,59 +41,130 @@ block Right
                     <div class="m-img add-img"></div>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="quamess" class="control-label brand-left">品牌描述</label>
+          </div>
+          <div class="form-group">
+            <label for="quamess" class="control-label col-sm-2">品牌描述</label>
             <div class="col-md-6">
-                <textarea class="form-control" name="quamess" id="quamess" rows="10"></textarea>
+                <textarea class="form-control" name="quamess" id="quamess" rows="6"></textarea>
             </div>
-        </div>
-        <div class="form-group">
-            <label for="" class="control-label brand-left">品牌资质：</label>
-            <div class="col-md-6 m-qualification">
-                <h5>包括品牌授权、质检报告、品牌相关证书等能说明对品牌拥有情况的资料</h5>
+          </div>
+          <div class="form-group">
+            <label for="productUser" class="control-label col-sm-2">品牌拥有者</label>
+            <div class="col-md-6">
+                <input type="text" id="productUser" class="form-control" ng-model="">
             </div>
-        </div>
-        
-        <div class="qualification panel panel-default">
-            <div class="panel-body">
-                <div class="form-group">
-                    <label for="quacon" class="quacon control-label brand-left">资质说明</label>
-                    <div class="col-md-6">
-                        <textarea class="form-control" name="quacon" id="quacon" rows="10"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="validDate" class="control-label brand-left">有效日期</label>
-                    <div class="col-md-4">
-                        <input type="text" class="form-control" id='validDate'>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="" class="control-label brand-left">资质图片</label>
-                    <div class="col-md-6">
-                        <label for="" class="control-label">图片大小请控制在150k以内</label>
-                        <div class="row brand-logo-img">
-                            <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
-                            <div class="m-img add-img"></div>
-                        </div>
-                    </div>
-                </div>
+          </div>
+          <div class="form-group">
+            <label for="" class="control-label col-sm-2 require">商标注册号/申请号</label>
+            <div class="col-md-6">
+                <input type="text" id="" class="form-control" ng-model="">
             </div>
+          </div>
         </div>
-        <div class="addqua">
-            +增加品牌资质
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">Nike供应商一相关资质</div>
+        <div class="panel-body">
+          <table class='table table-bordered'>
+            <tbody>
+              <tr>
+                <td class="col-md-2" align="right">品牌使用类型</td>
+                <td>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"> 品牌拥有者
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"> 品牌代理商
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">相关资质</td>
+                <td>
+                  <!-- <div class="table"> -->
+                    <table class="table">
+                      <tr class="text-center">
+                        <td class="col-md-4">资质类别</td>
+                        <td >资质文件</td>
+                        <td class="col-md-2">资质有效期</td>
+                        <td>操作</td>
+                      </tr>
+                      <tr class="text-center aptitude-list" >
+                        <td>
+                          <select id="u222_input">
+                            <option selected="" value="商标注册证/受理通知书">商标注册证/受理通知书</option>
+                            <option value="授权书（授权给一级代理）">授权书（授权给一级代理）</option>
+                            <option value="授权书（授权给二级代理）">授权书（授权给二级代理）</option>
+                            <option value="授权书（授权给三级代理）">授权书（授权给三级代理）</option>
+                            <option value="授权书（授权给四级代理）">授权书（授权给四级代理）</option>
+                            <option value="授权书（授权给五级代理）">授权书（授权给五级代理）</option>
+                            <option value="授权书（授权给六级及以下代理）">授权书（授权给六级及以下代理）</option>
+                            <option value="其他">其他</option>
+                            <option value="3C证书">3C证书</option>
+                            <option value="报关单">报关单</option>
+                            <option value="质检报告">质检报告</option>
+                          </select>
+                        </td>
+                        <td>
+                          <div class="row brand-aptitude-img">
+                            <div class="row-img">
+                              <div class="m-img add-img"></div>
+                              <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                              <div class="m-img"><img class="thumbnail" src="#" alt="#"></div>
+                            </div>
+                          </div>
+                        </td>
+                        <td>
+                          <input type="text" class="form-control validDate" name="time[]">
+                        </td>
+                        <td><a href="">删除</a></td>
+                      </tr>
+                      <tr>
+                        <td colspan='4'><a id="aptitude-add" href="javascript:;">(+)添加资质</a></td>
+                      </tr>
+                    </table>
+                  <!-- </div> -->
+                </td>
+              </tr>
+              <tr>
+                <td align="right">审核结果</td>
+                <td>
+                  <label class="radio-inline">
+                    <input type="radio" name="pass" id="" value="1"> 审核通过
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="pass" id="" value="2"> 审核不通过
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <td align="right">审核不通过原因</td>
+                <td>
+                  <textarea class="form-control" name="quamess" id="quamess" rows="6"></textarea>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="btn-group btn-qua">
-            <button class="btn btn-default save-btn" type="submit">保存</button>
-        </div>
+      </div>
+      <div class="form-group text-center">
+        <ul class='list-inline'>
+          <li><a class="btn btn-default">保存</a></li>
+          <li><a class="btn btn-default">取消</a></li>
+        </ul>
+      </div>
 block foot
     script(type='text/javascript').
         $(function(){
-            $('#validDate').datetimepicker({
-                format: 'yyyy-mm-dd',
-                language: 'zh-CN',
-                minView: 2,
-                autoclose: true
-            });
+
+          $('.panel').on('focus','.validDate',function(){
+              console.log('s');
+              $(this).datetimepicker({
+                  format: 'yyyy-mm-dd',
+                  language: 'zh-CN',
+                  minView: 2,
+                  autoclose: true
+              });
+          });
+
         });
