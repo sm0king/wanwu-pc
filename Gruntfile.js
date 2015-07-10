@@ -97,6 +97,14 @@ module.exports = function(grunt) {
                     src:['**'],
                     dest:'<%= user.svnpath %>'
                 }]
+            },
+            plugs:{
+                files:[{
+                    expand:true,
+                    cwd:'template/plugs/',
+                    src:['**'],
+                    dest:'app/plugs/'
+                }]
             }
         },
         connect: {
