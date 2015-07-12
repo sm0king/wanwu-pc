@@ -1,0 +1,58 @@
+block Define
+    -var basePath = '../';
+block SubPage
+    -var subTitle ='';
+<!doctype html>
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport',content='width=device-width')
+        meta(name="description" content="万物（wanwu.com）是全网货源一键分销的移动供销平台，完全免费，海量货源集散地，无货也可开店赚钱，对接淘宝，微店，京东，拍拍，有赞等多家电商平台，让分销商拥有海量货源一键分销，无货开店赚钱，让供应商可以一键铺货库存同步，获得海量订单。")
+        meta(name="keywords" content="分销,微商,微店,微信,ERP,朋友圈,微购物,淘宝一键搬家,拍拍,有赞,卖家,开店,店铺,易订货,一键分销,旺铺")
+        block title
+            title 万物 - 全网货源一键分销，淘宝微店多店铺商品轻松管理，订单价格库存实时同步 !{subTitle}
+        link(rel='stylesheet',href="#{basePath}css/main-ie6.css")
+        script(src="#{basePath}js/common-ie6.js")
+        block header
+    body
+        div.navbar
+          div.navbar-container.clear
+            div.navbar-header.pull-left
+              h2.dashboard-title
+                  span 万物 
+              h4.dashboard-subtitle
+                  ● 供应商平台
+            div.navbar-header.pull-right
+              ul.clear
+                li 供应商QQ群 468830696 
+                li: a(href="") 趣玩
+                li: a(href="") 退出
+        div.main-container
+          div.sidebar.responsive
+            ul.nav-list.nav
+              li: a(href="") 首页
+              li: a(href="") 订单管理
+                ul
+                  li: a(href="") 我的订单
+              li: a(href="") 商品管理
+                ul
+                  li: a(href="") 商品列表
+                  li: a(href="") 单件商品添加
+                  li: a(href="") 批量商品添加
+                  li: a(href="") 品牌列表
+              li: a(href="") 分销商管理
+                ul
+                  li: a(href="") 分销商列表
+              li: a(href="") 财务管理
+                ul
+                  li: a(href="") 我的账户
+                  li: a(href="") 交易记录
+              li: a(href="") 基本信息维护
+                ul
+                  li: a(href="") 完善认证信息
+                  li: a(href="") 运费设置
+                  li: a(href="") 支付信息设置
+                  li: a(href="") 修改密码
+          div.main-content
+        div.foot
+          

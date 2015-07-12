@@ -1,0 +1,96 @@
+body,html{margin: 0;padding: 0;font-size: 14px; font-family: 微软雅黑 "Helvetica Neue",Helvetica,Arial,sans-serif;}
+ul,li{list-style: none;padding: 0; margin: 0;}
+img{margin: 0}
+a{text-decoration: none;}
+.h2, h2 {
+  font-size: 30px;
+}
+.h4, h4 {
+  font-size: 18px;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.1;
+  color: inherit;
+}
+
+.pull-left{display: block;float: left;}
+.pull-right{display: block;float: right;}
+.clear{overflow:hidden;_zoom:1;}
+
+
+.navbar{
+  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
+  border-width: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  min-height: 60px;
+  background: #09c;
+}
+
+.navbar .navbar-container{}
+.navbar-container .navbar-header{}
+
+.dashboard-subtitle,.dashboard-title {
+    float: left;
+    color: #fff;
+    padding: 13.5px 0;
+    margin: 0
+}
+
+.dashboard-title {
+    margin-left: 20px
+}
+
+.dashboard-subtitle {
+    padding-top: 25px
+}
+
+.dashboard-subtitle img {
+    margin: -3px 7px 0
+}
+
+.navbar-header{
+  overflow: hidden;
+}
+.navbar-header ul{
+  padding: 20.5px 0;
+  margin-left: -1px;
+}
+.navbar-header ul li{
+  float: left;
+  color: #fff;
+  padding: 0 10px;
+  border-left: 1px solid #fff;
+}
+.navbar-header ul li a{
+  color: #fff;
+}
+
+
+.main-container{}
+.main-container .sidebar{
+  background-color: #333;
+  border-style: solid;
+  border-color: #ccc;
+  border-width: 0 1px 0 0;
+  width: 190px;
+  float: left;
+  position: static;
+  padding-left: 0;
+  padding-right: 0;
+}
+.main-container .responsive{}
+.responsive .nav-list{}
+.nav-list li{
+  border-color: #e5e5e5;
+}
+.nav-list li a{
+  color: #fff;
+}
+
+.main-container .main-content{}

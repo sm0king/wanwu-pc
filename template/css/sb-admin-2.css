@@ -179,23 +179,13 @@ ul{
     .sidebar{
         background-color: transparent;
     }
-    .sidebar.static{
+    .sidebar{
         z-index: 1;
         position: absolute;
         width: 210px;
         margin-top: 61px;
         margin-bottom: 160px;
         *left:0px;
-    }
-    .sidebar.fixed{
-        z-index: 1;
-        position: fixed;
-        width: 210px;
-        height: 100%;
-        margin-bottom: 160px;
-        margin-top: 0px;
-        *left:0px;
-        /*background-color: #293038;*/
     }
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,
