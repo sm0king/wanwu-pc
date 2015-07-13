@@ -120,7 +120,7 @@ block Right
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="pro in productList">
+                    <tr ng-repeat="pro in productList" data-id="wd122">
                         <td class="center"><input id ="1" type="checkbox"></td>
                         <td class="product-td-img">
                             <img class="product-img" src="../img/logo.png" alt="">
@@ -140,11 +140,10 @@ block Right
                         </td>
                         <td class="center">
                             <div class="mprice">
-                              138.00<!-- <input type="text" value="138.00" class="form-control input-price"> -->
+                              138.00
                             </div>
                         </td>
                         <td class="center">
-                            <!-- <input type="text" value="50" class="form-control input-stack"> -->
                             50
                         </td>
                         <td class="center">
@@ -161,7 +160,7 @@ block Right
                             </div>
                         </td>
                     </tr>
-                    <tr ng-repeat="pro in productList">
+                    <tr ng-repeat="pro in productList" data-id="wd123">
                         <td class="center"><input id ="2" type="checkbox"></td>
                         <td class="product-td-img">
                             <img class="product-img" src="../img/logo.png" alt="">
@@ -181,11 +180,10 @@ block Right
                         </td>
                         <td class="center">
                             <div class="mprice">
-                              138.00<!-- <input type="text" value="138.00" class="form-control input-price"> -->
+                              138.00
                             </div>
                         </td>
                         <td class="center">
-                            <!-- <input type="text" value="50" class="form-control input-stack"> -->
                             50
                         </td>
                         <td class="center">
@@ -261,7 +259,8 @@ block foot
             );
             $('.edit-desc').on('click','.edit-quick',function(){
                 var title = $(this).parent().siblings('p').html();
-                $(this).parent().siblings('.product-title').html('<input type="text" value="'+title+'" class="form-control input-title" data-back="'+title+'"/>');
+                var goodid = $(this).parents('tr').data('id');
+                $(this).parent().siblings('.product-title').html('<input type="text" value="'+title+'" class="form-control input-title" data-back="'+title+'" data-id="'+goodid+'"/>');
                 $('.product-title').find('.input-title').focus();
                 var save = '<div class="eidt-btn"><a class="edit-save" href="javascript:;">【保存】</a><a class="edit-cancel" href="javascript:;">【取消】</a></div>';
                 $(this).parent().html(save);
@@ -271,14 +270,36 @@ block foot
                   product.html(product.children('input').data('back'));
                   $(this).parents('.edit-desc').html('');
               })
-              .on('click','edit-save',function(){
-
+              .on('click','.edit-save',function(){
+                  var $item =  $(this).parents('.product-desc');
+                  var goodsId = $(this).parents('tr').data('id');
+                  var goodsName = $item.find('input').val();
+                  $.post("http://123.59.58.104/supplier/product/edit/quick_edit",{goods_id:goodsId,goods_name:goodsName},
+                    function(result){
+                      if(result.error == 0){
+                          $item.find('.product-title').html(goodsName);
+                          $item.find('.edit-desc').html('');
+                      }else{
+                          alert(result.error_tip);
+                      }
+                  },'json');
               });
             $('.mprice').dblclick(function(){
                 $(this).html('<input type="text" value="'+$(this).text().trim()+'" data-back="'+$(this).text().trim()+'" class="form-control input-price">');
                 $(this).find('.input-price').focus();
             });
             $('.mprice').on('blur','.input-price',function(){
-                $(this).parent().html($(this).data('back'));
+                var _this = $(this);
+                var goodsId = _this.parents('tr').data('id');
+                var price = parseFloat($(this).val()).toFixed(2);
+                $.post("http://123.59.58.104/supplier/product/edit/quick_edit",{goods_id:goodsId,goods_price:price},
+                  function(result){
+                    if(result.error == 0){
+                        _this.parent().html(price);
+                    }else{
+                        _this.parent().html(_this.data('back'));
+                        alert(result.error_tip);
+                    }
+                },'json');
             });
         });
