@@ -12,6 +12,8 @@ html
         block title
             title 万物 - 全网货源一键分销，淘宝微店多店铺商品轻松管理，订单价格库存实时同步 !{subTitle}
         link(rel='stylesheet',href="#{basePath}css/main-ie6.css")
+        link(rel="stylesheet", href="#{basePath}css/foot.css") 
+        script(src="#{basePath}plugs/jquery/jquery.min.js")
         script(src="#{basePath}js/common-ie6.js")
         block header
     body
@@ -27,32 +29,43 @@ html
                 li 供应商QQ群 468830696 
                 li: a(href="") 趣玩
                 li: a(href="") 退出
-        div.main-container
+        div.main-container.clear
           div.sidebar.responsive
             ul.nav-list.nav
               li: a(href="") 首页
-              li: a(href="") 订单管理
-                ul
+              li
+               a(href="") 订单管理
+               ul.nav-show.submenu
                   li: a(href="") 我的订单
-              li: a(href="") 商品管理
-                ul
+              li
+                a(href="") 商品管理
+                ul.nav-show.submenu
                   li: a(href="") 商品列表
                   li: a(href="") 单件商品添加
                   li: a(href="") 批量商品添加
                   li: a(href="") 品牌列表
-              li: a(href="") 分销商管理
-                ul
+              li
+                a(href="") 分销商管理
+                ul.nav-show.submenu
                   li: a(href="") 分销商列表
-              li: a(href="") 财务管理
-                ul
+              li
+                a(href="") 财务管理
+                ul.nav-show.submenu
                   li: a(href="") 我的账户
                   li: a(href="") 交易记录
-              li: a(href="") 基本信息维护
-                ul
-                  li: a(href="") 完善认证信息
+              li
+                a(href="") 基本信息维护
+                ul.nav-show.submenu
+                  li.on: a(href="") 完善认证信息
                   li: a(href="") 运费设置
                   li: a(href="") 支付信息设置
                   li: a(href="") 修改密码
-          div.main-content
-        div.foot
-          
+          div.main-content.clear
+            div.main-content-inner
+              div.alert-block.alert-danger
+                  | 请升级您的浏览器以便更好的体验万物！
+              block content
+        include foot.jade
+        
+        block footer
+        

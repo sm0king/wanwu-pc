@@ -14,7 +14,10 @@ a{text-decoration: none;}
   line-height: 1.1;
   color: inherit;
 }
-
+body{
+  background-color: #333;
+  margin-bottom: 154px!important;
+}
 .pull-left{display: block;float: left;}
 .pull-right{display: block;float: right;}
 .clear{overflow:hidden;_zoom:1;}
@@ -72,7 +75,9 @@ a{text-decoration: none;}
 }
 
 
-.main-container{}
+.main-container{
+  overflow: hidden;
+}
 .main-container .sidebar{
   background-color: #333;
   border-style: solid;
@@ -80,17 +85,95 @@ a{text-decoration: none;}
   border-width: 0 1px 0 0;
   width: 190px;
   float: left;
-  position: static;
   padding-left: 0;
   padding-right: 0;
 }
 .main-container .responsive{}
 .responsive .nav-list{}
+.responsive ul li a{
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+.nav-list .on{
+  background-color: #22282e;
+}
 .nav-list li{
-  border-color: #e5e5e5;
+  display: block;
+  position: relative;
+  float: none;
+  padding: 0;
+  border-color: #22282e;
+  border-style: solid;
+  border-width: 1px 0 0;
 }
 .nav-list li a{
   color: #fff;
+  display: block;
+  line-height: 17px;
+  padding-left: 7px;
+  text-shadow: none!important;
+  font-size: 13px;
+  text-decoration: none;
+}
+.nav-list .submenu li a{
+  display: block;
+  position: relative;
+  padding: 7px 0 9px 37px;
+  margin: 0;
 }
 
-.main-container .main-content{}
+.main-container .main-content{
+  margin-left: 191px;
+  min-height: 100%;
+  padding: 0;
+  background-color: #fff;
+}
+.main-content-inner {
+  float: left;
+  width: 100%;
+}
+.page-content {
+  background-color: #fff;
+  position: relative;
+  margin: 0;
+  padding: 8px 20px 24px;
+}
+.alert-block{
+  padding: 15px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+}
+.alert-danger{
+  background-color: #d15b47;
+  border-color: #d15b47;
+  color: #fff;
+}
+.alert-success{
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #3c763d;
+}
+.form .form-group{
+  padding: 10px 5px;
+}
+.form-group label{
+  display: inline;
+  margin: 0 5px;
+}
+.form-group .btn{
+  height: 34px;
+  padding: 10px 13px;
+  line-height: 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  color: #fff;
+  background-color: #069dd5;
+  border-radius: 0;
+  font-weight: 400;
+  background-image: none;
+  border: 1px solid transparent;
+}
+.up-img{
+  margin-top: 5px;
+}

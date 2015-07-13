@@ -2,6 +2,150 @@ extends ../dashboard-ie6.jade
 
 block title
     title 基本资料
-
-block DashboardTitle
-    基本资料
+block content
+    div.page-content
+      div.alert-block.alert-success
+        | 认证成功！您可以提交品牌审核或者添加商品！
+      div.step
+        img.img-responsive.scheduleImg-1.scheduleImg(src="../img/schedule-1.png")
+      div.panel
+        div.panel-body
+          form.form
+            div.panel-head
+              h1
+                | 基本资料
+            div.form-group
+              label
+                | 用户名
+              input(type="text").form-control
+            div.form-group.clear
+              label.pull-left
+                | 上传头像
+              div.pull-left
+                input(type="file" onchange="showImg(this,'img0')")
+                div.up-img
+                  img(src="", alt="" class="img0")
+            div.form-group
+              label
+                | 邮箱
+              input(type="text").form-control
+            div.form-group
+              label
+                | 手机
+              span 182*****127
+            div.form-group
+              label
+                | 固话
+              input(type="text").form-control
+            div.form-group
+              label
+                | 传真
+              input(type="text").form-control
+            div.form-group
+              label
+                | 所在地区
+              select#(name="")
+              select#(name="")
+              select#(name="")
+            div.form-group
+              label
+                | 街道地址
+              input(type="text").form-control
+            div.panel-head
+              h1
+                | 资格认证信息
+            div.form-group
+              label
+                | 用户类型
+              label
+                input(type="radio" name = "type")
+                | 企业用户
+              label
+                input(type="radio" name = "type")
+                | 个人用户
+            div.form-group
+              label
+                | 公司名称
+              input(type="text").form-control
+            div.form-group
+              label
+                | 经营品类
+              input(type="text").form-control
+            div.form-group.clear
+              label.pull-left
+                | 银行开户许可证
+              div.pull-left
+                input(type="file" onchange="showImg(this,'img1')").form-control
+                div.up-img
+                  img(src="", alt="" class="img1")
+            div.form-group.clear
+              label.pull-left
+                | 营业执照
+              div.pull-left
+                input(type="file" onchange="showImg(this,'img2')").form-control
+                div.up-img
+                  img(src="", alt="" class="img2")
+            div.form-group.clear
+              label.pull-left
+                | 联系人身份证
+              div.pull-left
+                input(type="file" onchange="showImg(this,'img3')").form-control
+                div.up-img
+                  img(src="", alt="" class="img3")
+              div.pull-left
+                input(type="file" onchange="showImg(this,'img4')").form-control
+                div.up-img
+                  img(src="", alt="" class="img4")
+            div.form-group.clear
+              label.pull-left
+                | 法人身份证
+              div.pull-left
+                input(type="file" onchange="showImg(this,'img5')").form-control
+                div.up-img
+                  img(src="", alt="" class="img5")
+              div.pull-left
+                input(type="file" onchange="showImg(this,'img6')").form-control
+                div.up-img
+                  img(src="", alt="" class="img6")
+            div.form-group.clear
+              label.pull-left
+                | 组织结构代码证
+              div.pull-left
+                input(type="file" onchange="showImg(this,'img7')").form-control
+                div.up-img
+                  img(src="", alt="" class="img7")
+            div.form-group.clear
+              label.pull-left
+                | 税务登录证
+              div.pull-left
+                input(type="file" onchange="showImg(this,'img8')").form-control
+                div.up-img
+                  img(src="", alt="" class="img8")
+            div.form-group
+              button.btn 保存
+block footer
+  script.
+      function showImg(item,img){
+         var fileImg = $('.'+img);
+         var explorer = navigator.userAgent;
+         var imgSrc = $(item)[0].value;
+         if (explorer.indexOf('MSIE') >= 0) {
+             if (!/\.(jpg|jpeg|png|JPG|PNG|JPEG)$/.test(imgSrc)) {
+                 imgSrc = "";
+                 fileImg.attr("src","/img/default.png");
+                 return false;
+             }else{
+                 fileImg.attr({"src":imgSrc,"width":"120px"});
+             }
+         }else{
+             if (!/\.(jpg|jpeg|png|JPG|PNG|JPEG)$/.test(imgSrc)) {
+                 imgSrc = "";
+                 fileImg.attr("src","/img/default.png");
+                 return false;
+             }else{
+                 var file = $(item)[0].files[0];
+                 var url = URL.createObjectURL(file);
+                 fileImg.attr({"src":url,"width":"120px"});
+             }
+         }
+       }
