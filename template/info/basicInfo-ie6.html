@@ -68,10 +68,10 @@ block content
                 span.red *
                 | 用户类型
               label(for="u-type1")
-                input(type="radio" name = "type" id="u-type1" datatype="*" nullmsg="不能为空")
+                input(type="radio" name = "type" id="u-type1")
                 | 企业用户
               label(for="u-type2")
-                input(type="radio" name = "type" id="u-type2")
+                input(type="radio" name = "type" id="u-type2" datatype="*" nullmsg="不能为空")
                 | 个人用户
             div.form-group
               label
@@ -160,8 +160,7 @@ block footer
          }else{
              if (!/\.(jpg|jpeg|png|JPG|PNG|JPEG)$/.test(imgSrc)) {
                  imgSrc = "";
-                 fileImg.setAttribute("src","/img/default.png");
-                 alert('格式不对');
+                 fileImg.setAttribute("src",imgSrc);
                  return false;
              }else{
                  var file = $(item)[0].files[0];
