@@ -1,0 +1,39 @@
+extends master.jade
+block InfoDefine
+    -var active = 4;
+
+block title
+    title 运费设置
+
+block DashboardTitle
+    运费设置
+
+block InfoContent
+    h4.indexH3 运费模板
+    a.btn.btn-primary(href="freightEdit.html") 新增运费模板
+    .freight-box
+      table.table
+        thead
+          tr
+            th 模板名称
+            th 目的城市
+            th 是否包邮
+            th 首重
+            th 首重价
+            th 续重
+            th 续重价
+            th 更新时间
+            th 操作
+        tbody
+          tr
+            td 默认模板
+            td 全国
+            td 否
+            td 1kg
+            td ￥1.00
+            td 0.5kg
+            td ￥4.00
+            td 2015/07/15
+            td
+              a.optin-link(href="#")编辑
+              a.optin-link(href="#")删除

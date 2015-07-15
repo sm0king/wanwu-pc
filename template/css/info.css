@@ -1,5 +1,5 @@
 .info{
-    padding-top: 20px;
+    /*padding-top: 20px;*/
 }
 
 .info .itemTitle{
@@ -321,4 +321,46 @@
     vertical-align: middle;
     margin-right: 6px;
     background-color: rgb(0,153,204);
+}
+
+
+.freight-box{
+  margin: 20px 0;
+}
+.optin-link{
+  margin: 0 5px;
+}
+.back-link{
+  margin-left: 20px;
+  font-size: 14px;
+}
+.edit-link{
+  margin-left: 20px;
+}
+.panel-headtxt{
+  position: relative;
+  display: inline-block;
+  padding:7px 5px 0;
+  margin-bottom: 0;
+  font-weight: 600;
+  vertical-align: middle;
+}
+.dl-panel{}
+.dl-panel dt{
+  float: left;
+  width: 68px;
+  overflow: hidden;
+  clear: left;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.dl-panel dd{
+  margin-left: 80px;
+}
+.inline-margin{
+  margin: 0 10px;
+}
+.freight-btn{
+  text-align: right;
 }
