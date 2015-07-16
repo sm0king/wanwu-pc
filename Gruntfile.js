@@ -183,7 +183,10 @@ module.exports = function(grunt) {
             }
         },
         cssmin:{
-            options:{},
+            options:{
+                compatibility:'ie7',
+                noAdvanced:true
+            },
             densityCSS:{
                 files:[{
                     expand:true,

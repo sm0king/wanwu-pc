@@ -27,7 +27,7 @@
         return jqModal;
     };
 
-    function showDialog(options){
+    function showDialog(options,callback){
         var jqModal = getContainer();
         jqModal.data('options', options);
         if (options.content) {
@@ -57,6 +57,8 @@
 
         $('.modal-backdrop:last').css('z-index', ++zIndex);
         $('.modal:last').css('z-index', ++zIndex);
+
+        if (callback && typeof(callback) === "function") {callback();}
     }
 
     function onDialogHidden(e){        

@@ -9,6 +9,7 @@
 // Sets the min-height of #page-wrapper to window size
 $(function() {
     $(window).bind("load resize", function() {
+        var sidebar = $('.sidebar ').height();
         topOffset = 60;
         width = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
         if (width < 768) {
@@ -19,7 +20,6 @@ $(function() {
         }
 
         height = ((this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height);
-        var sidebar = $('.sidebar ').height();
         height = height - topOffset;
         if (height < 1) height = 1;
         if (height > topOffset) {
