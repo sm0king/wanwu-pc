@@ -12,9 +12,10 @@ html
         block title
             title 万物 - 全网货源一键分销，淘宝微店多店铺商品轻松管理，订单价格库存实时同步 !{subTitle}
         link(rel='stylesheet',href="#{basePath}css/main-ie6.css")
-        link(rel="stylesheet", href="#{basePath}css/foot.css") 
-        script(src="#{basePath}plugs/jquery/jquery.min.js")
+        script(src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js")
         script(src="#{basePath}js/common-ie6.js")
+        style(type="text/css")
+          | .clear{_zoom:1;}
         block header
     body
         div.navbar
@@ -25,7 +26,7 @@ html
               h4.dashboard-subtitle
                   ● 供应商平台
             div.navbar-header.pull-right
-              ul.clear
+              ul
                 li 供应商QQ群 468830696 
                 li: a(href="") 趣玩
                 li: a(href="") 退出
@@ -64,6 +65,8 @@ html
             div.main-content-inner
               div.alert-block.alert-danger
                   | 请升级您的浏览器以便更好的体验万物！
+                  a(href="http://imgcdn.wanwu.com/browser/ChromeStandaloneSetup.exe") 下载chrome浏览器
+                  a(href="../Browser.html" style="margin-left:20px;" target="_blank") 选择其他浏览器
               block content
         include foot.jade
         

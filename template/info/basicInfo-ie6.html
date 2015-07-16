@@ -1,5 +1,6 @@
 extends ../dashboard-ie6.jade
-
+block header
+    script(src="../plugs/Validform_v5.3.2_min.js")
 block title
     title 基本资料
 block content
@@ -10,7 +11,7 @@ block content
         img.img-responsive.scheduleImg-1.scheduleImg(src="../img/schedule-1.png")
       div.panel
         div.panel-body
-          form.form
+          form.form.infoForm
             div.panel-head
               h1
                 | 基本资料
@@ -24,7 +25,7 @@ block content
               div.pull-left
                 input(type="file" onchange="showImg(this,'img0')")
                 div.up-img
-                  img(src="", alt="" class="img0")
+                  img(src="", alt="" id="img0")
             div.form-group
               label
                 | 邮箱
@@ -43,11 +44,19 @@ block content
               input(type="text").form-control
             div.form-group
               label
+                span.red *
                 | 所在地区
-              select#(name="")
-              select#(name="")
-              select#(name="")
-            div.form-group
+              select(name="" datatype="*" nullmsg="不能为空")
+                option
+                option(value="1") 北京
+              select(name="" datatype="*" nullmsg="不能为空")
+                option
+                option(value="2") 北京市
+              select(name="" datatype="*" nullmsg="不能为空")
+                option
+                option(value="2") 北京县
+                option(value="3") 北京县
+            div.form-group 
               label
                 | 街道地址
               input(type="text").form-control
@@ -56,96 +65,114 @@ block content
                 | 资格认证信息
             div.form-group
               label
+                span.red *
                 | 用户类型
-              label
-                input(type="radio" name = "type")
+              label(for="u-type1")
+                input(type="radio" name = "type" id="u-type1")
                 | 企业用户
-              label
-                input(type="radio" name = "type")
+              label(for="u-type2")
+                input(type="radio" name = "type" id="u-type2" datatype="*" nullmsg="不能为空")
                 | 个人用户
             div.form-group
               label
+                span.red *
                 | 公司名称
-              input(type="text").form-control
+              input(type="text" datatype="*" nullmsg="不能为空").form-control
             div.form-group
               label
+                span.red *
                 | 经营品类
-              input(type="text").form-control
+              input(type="text" datatype="*" nullmsg="不能为空").form-control
             div.form-group.clear
               label.pull-left
+                span.red *
                 | 银行开户许可证
               div.pull-left
-                input(type="file" onchange="showImg(this,'img1')").form-control
+                input(type="file" onchange="showImg(this,'img1')" datatype="*" nullmsg="不能为空").form-control
                 div.up-img
-                  img(src="", alt="" class="img1")
+                  img(src="", alt="" id="img1")
             div.form-group.clear
               label.pull-left
+                span.red *
                 | 营业执照
               div.pull-left
-                input(type="file" onchange="showImg(this,'img2')").form-control
+                input(type="file" onchange="showImg(this,'img2')" datatype="*" nullmsg="不能为空").form-control
                 div.up-img
-                  img(src="", alt="" class="img2")
+                  img(src="", alt="" id="img2")
             div.form-group.clear
               label.pull-left
+                span.red *
                 | 联系人身份证
               div.pull-left
-                input(type="file" onchange="showImg(this,'img3')").form-control
+                input(type="file" onchange="showImg(this,'img3')" datatype="*" nullmsg="不能为空").form-control
                 div.up-img
-                  img(src="", alt="" class="img3")
+                  img(src="", alt="" id="img3")
               div.pull-left
-                input(type="file" onchange="showImg(this,'img4')").form-control
+                input(type="file" onchange="showImg(this,'img4')" datatype="*" nullmsg="不能为空").form-control
                 div.up-img
-                  img(src="", alt="" class="img4")
+                  img(src="", alt="" id="img4")
             div.form-group.clear
               label.pull-left
                 | 法人身份证
               div.pull-left
                 input(type="file" onchange="showImg(this,'img5')").form-control
                 div.up-img
-                  img(src="", alt="" class="img5")
+                  img(src="", alt="" id="img5")
               div.pull-left
                 input(type="file" onchange="showImg(this,'img6')").form-control
                 div.up-img
-                  img(src="", alt="" class="img6")
+                  img(src="", alt="" id="img6")
             div.form-group.clear
               label.pull-left
+                span.red *
                 | 组织结构代码证
               div.pull-left
-                input(type="file" onchange="showImg(this,'img7')").form-control
+                input(type="file" onchange="showImg(this,'img7')" datatype="*" nullmsg="不能为空").form-control
                 div.up-img
-                  img(src="", alt="" class="img7")
+                  img(src="", alt="" id="img7")
             div.form-group.clear
               label.pull-left
+                span.red *
                 | 税务登录证
               div.pull-left
-                input(type="file" onchange="showImg(this,'img8')").form-control
+                input(type="file" onchange="showImg(this,'img8')" datatype="*" nullmsg="不能为空").form-control
                 div.up-img
-                  img(src="", alt="" class="img8")
+                  img(src="", alt="" id="img8")
             div.form-group
-              button.btn 保存
+              button.btn.saveBtn 保存
 block footer
   script.
       function showImg(item,img){
-         var fileImg = $('.'+img);
+         var fileImg = document.getElementById(img);
          var explorer = navigator.userAgent;
-         var imgSrc = $(item)[0].value;
+         var imgSrc = item.value;
          if (explorer.indexOf('MSIE') >= 0) {
              if (!/\.(jpg|jpeg|png|JPG|PNG|JPEG)$/.test(imgSrc)) {
+                 alert('sss');
                  imgSrc = "";
-                 fileImg.attr("src","/img/default.png");
+                 fileImg.setAttribute("src","/img/default.png");
                  return false;
              }else{
-                 fileImg.attr({"src":imgSrc,"width":"120px"});
+                 fileImg.setAttribute("src",imgSrc);
+                 fileImg.setAttribute("width","120");
+                 fileImg.style.display = "block";
              }
          }else{
              if (!/\.(jpg|jpeg|png|JPG|PNG|JPEG)$/.test(imgSrc)) {
                  imgSrc = "";
-                 fileImg.attr("src","/img/default.png");
+                 fileImg.setAttribute("src",imgSrc);
                  return false;
              }else{
                  var file = $(item)[0].files[0];
                  var url = URL.createObjectURL(file);
-                 fileImg.attr({"src":url,"width":"120px"});
+                 fileImg.setAttribute("src",imgSrc);
+                 fileImg.setAttribute("width","120");
+                 fileImg.style.display = "block";
              }
          }
        }
+      
+      $(".infoForm").Validform({
+          btnSubmit:".saveBtn",
+          tiptype:3
+      });

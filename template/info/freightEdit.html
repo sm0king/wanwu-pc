@@ -1,0 +1,231 @@
+extends master.jade
+block InfoDefine
+    -var active = 4;
+
+block title
+    title 运费设置
+
+block DashboardTitle
+    运费设置
+
+block InfoContent
+    h4.indexH3 新增运费模板
+      a.back-link(href="freightList.html") 返回运费模板
+    .freight-box
+      form.form-horizontal(action="" method="post")
+        .form-group
+          label.col-md-2.control-label 模板名称
+          .col-md-6
+            input.form-control(type="text")
+          .col-md-2
+            .help-block 1-25个字
+        .form-group
+          label.col-md-2.control-label 商品所在地
+          .col-md-2
+            select.form-control.col-md-2
+              option(value="0") 请选择国家
+              option(value="0") 中国
+          .col-md-2
+            select.form-control.col-md-2
+              option(value="0") 请选择省
+          .col-md-2
+            select.form-control.col-md-2
+              option(value="0") 请选择市
+          .col-md-2
+            .help-block 您的商品所在地，仓库地址
+        .form-group
+          label.col-md-2.control-label 是否包邮
+          .col-md-2
+            label.radio-inline 
+              input(type="radio" name="inlineRadioOptions" value="option3") 
+              | 商家付运费
+            label.radio-inline  
+              input(type="radio" name="inlineRadioOptions" value="option3") 
+              | 商家包邮
+        .form-group
+          label.col-md-2.control-label 快递计费
+          .col-md-6
+            table.table
+              tr.success
+                td 目的区域
+                td 首重（kg）
+                td 首费（元）
+                td 续重（kg）
+                td 续费（元）
+                td 操作
+              tr
+                td 全国
+                  a.edit-link(href="#") 编辑
+                td 0
+                td 0
+                td 0
+                td 0
+                td
+                  a(href="#")删除
+            a(href="#") 为指定区域设置运费
+          
+        .form-group
+          .col-md-6.col-md-offset-2
+            .panel.panel-default
+              .panel-heading 
+                span.panel-headtxt  选择区域
+                label.checkbox-inline  
+                  input(type="checkbox" name="" value="")
+                  | 中国 
+                button.close(type="button" data-dismiss="alert" aria-label="Close")
+                  span(aria-hidden="true") &times;
+              .panel-body
+                dl.dl-panel
+                  dt
+                    label.checkbox-inline  
+                      input(type="checkbox" name="" value="")
+                      | 华东 
+                    dd
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 上海 
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 江苏 
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 浙江 
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 安徽 
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 江西 
+                  dt
+                    label.checkbox-inline  
+                      input(type="checkbox" name="" value="")
+                      | 华北 
+                    dd
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 北京 
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 天津
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 山西 
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 山东 
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 河北
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 内蒙古
+                  dt
+                    label.checkbox-inline  
+                      input(type="checkbox" name="" value="")
+                      | 华中 
+                    dd
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 湖南 
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 湖北 
+                      label.checkbox-inline  
+                        input(type="checkbox" name="" value="")
+                        | 河南 
+                  dt
+                    label.checkbox-inline  
+                      input(type="checkbox" name="" value="")
+                      | 华南 
+                      dd
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 广东 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 广西 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 福建 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 海南 
+                  dt
+                    label.checkbox-inline  
+                      input(type="checkbox" name="" value="")
+                      | 东北 
+                      dd
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 辽宁 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 吉林 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 黑龙江 
+                  dt
+                    label.checkbox-inline  
+                      input(type="checkbox" name="" value="")
+                      | 西北 
+                      dd
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 陕西 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 新疆 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 甘肃 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 宁夏 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 青海 
+                  dt
+                    label.checkbox-inline  
+                      input(type="checkbox" name="" value="")
+                      | 西南 
+                      dd
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 重庆 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 云南 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 贵州 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 西藏 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 四川
+                  dt
+                    label.checkbox-inline  
+                      input(type="checkbox" name="" value="")
+                      | 港澳台 
+                      dd
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 香港 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 澳门 
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 台湾 
+                  dt
+                    label.checkbox-inline  
+                      input(type="checkbox" name="" value="")
+                      | 海外 
+                      dd
+                        label.checkbox-inline  
+                          input(type="checkbox" name="" value="")
+                          | 海外 
+              .panel-footer.freight-btn
+                  a.btn.btn-default.inline-margin 确定
+                  a.btn.btn-default.inline-margin 取消
