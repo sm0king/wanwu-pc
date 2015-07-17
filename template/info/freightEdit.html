@@ -35,7 +35,7 @@ block InfoContent
             .help-block 您的商品所在地，仓库地址
         .form-group
           label.col-md-2.control-label 是否包邮
-          .col-md-2
+          .col-md-6
             label.radio-inline 
               input(type="radio" name="inlineRadioOptions" value="option3") 
               | 商家付运费
@@ -75,7 +75,7 @@ block InfoContent
         
         .form-group
           .col-md-6.col-md-offset-2
-            button.btn.btn-primary 保存
+            button.btn.btn-primary.getjson 保存
             
         div.modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
           div.modal-dialog(role="document")
@@ -91,137 +91,135 @@ block InfoContent
                 dl.dl-panel
                   dt
                     label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
+                      input(type="checkbox" name="" value="" checked="false")
                       strong 华东
                     dd
                       ul.list-inline
-                        li.on(data-id="1")
+                        li(data-id="1")
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 上海 
-                            span.red (
-                              b 1
-                              | )
-                          span.caret.panel-toggle
-                          div.city-panel
-                            label.checkbox-inline  
-                              input(type="checkbox" name="" value="")
-                              | 上海1 
-                            label.checkbox-inline  
-                              input(type="checkbox" name="" value="")
-                              | 上海2 
-                            label.checkbox-inline  
-                              input(type="checkbox" name="" value="")
-                              | 上海3 
-                            label.checkbox-inline  
-                              input(type="checkbox" name="" value="")
-                              | 上海4 
-                            label.checkbox-inline  
-                              input(type="checkbox" name="" value="")
-                              | 上海5 
-                            a.btn.btn-default.btn-xs 确定
-                        li
-                          label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
-                            | 江苏 
+                            span.red
                           span.caret.panel-toggle
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
+                            | 江苏
+                            span.red 
+                          span.caret.panel-toggle
+                        li
+                          label.checkbox-inline  
+                            input(type="checkbox" name="" value=""  checked="false")
                             | 浙江
+                            span.red
                           span.caret.panel-toggle
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 安徽 
+                            span.red
                           span.caret.panel-toggle
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 江西 
+                            span.red
                           span.caret.panel-toggle
                   dt
                     label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
+                      input(type="checkbox" name="" value="" checked="false")
                       strong 华北 
                     dd
                       ul.list-inline
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 北京 
+                            span.red
                           span.caret.panel-toggle
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 天津
+                            span.red
                           span.caret.panel-toggle
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 山西 
+                            span.red
                           span.caret.panel-toggle
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 山东 
+                            span.red
                           span.caret.panel-toggle
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 河北
+                            span.red
                           span.caret.panel-toggle    
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 内蒙古
+                            span.red
                           span.caret.panel-toggle
                   dt
                     label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
+                      input(type="checkbox" name="" value="" checked="false")
                       strong 华中 
                     dd
                       ul.list-inline
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 湖南 
+                            span.red
                           span.caret.panel-toggle
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 湖北 
+                            span.red
                           span.caret.panel-toggle
                         li
                           label.checkbox-inline  
-                            input(type="checkbox" name="" value="")
+                            input(type="checkbox" name="" value="" checked="false")
                             | 河南 
+                            span.red
                           span.caret.panel-toggle
                   dt
                     label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
+                      input(type="checkbox" name="" value="" checked="false")
                       strong 华南 
                       dd
                         ul.list-inline
                           li
                             label.checkbox-inline  
-                              input(type="checkbox" name="" value="")
+                              input(type="checkbox" name="" value="" checked="false")
                               | 广东 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 广西 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 福建 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 海南 
+                              span.red
                             span.caret.panel-toggle
                   dt
                     label.checkbox-inline  
@@ -233,16 +231,19 @@ block InfoContent
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 辽宁 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 吉林 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 黑龙江 
+                              span.red
                             span.caret.panel-toggle
                   dt
                     label.checkbox-inline  
@@ -254,26 +255,31 @@ block InfoContent
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 陕西 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 新疆 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 甘肃 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 宁夏 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 青海 
+                              span.red
                             span.caret.panel-toggle
                   dt
                     label.checkbox-inline  
@@ -285,26 +291,31 @@ block InfoContent
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 重庆 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 云南 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 贵州 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 西藏 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 四川
+                              span.red
                             span.caret.panel-toggle
                   dt
                     label.checkbox-inline  
@@ -316,16 +327,19 @@ block InfoContent
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 香港 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 澳门 
+                              span.red
                             span.caret.panel-toggle
                           li
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 台湾 
+                              span.red
                             span.caret.panel-toggle
                   dt
                     label.checkbox-inline  
@@ -337,6 +351,7 @@ block InfoContent
                             label.checkbox-inline  
                               input(type="checkbox" name="" value="")
                               | 海外 
+                              span.red
                             span.caret.panel-toggle
               div.modal-footer
                 button.btn.btn-primary(type="button") 确定
@@ -345,16 +360,25 @@ block foot
     script(type='text/javascript').
       $(function(){
           $('.dl-panel .panel-toggle').click(function(){
+              var $this = $(this);
               if($(this).parent('li').hasClass('on')){
                 $(this).parent('li').removeClass('on');
+                $(this).siblings('.city-panel').remove();
               }else{
+                $(this).parents('.dl-panel').find('.city-panel').remove();
+                $(this).parents('.dl-panel').find('li.on').removeClass('on');
                 $(this).parent('li').addClass('on');
                 $.ajax({
                   //- method:"post",
                   //- url:"",
                   //- data:"",
-                  success:function(){
-                    
+                  success:function(result){
+                    var city="",i,html;
+                    for(i = 0;i<6;i++){
+                       city += "<label class='checkbox-inline'><input type='checkbox' name='' value=''>上海</label>"
+                    }
+                    html = "<div class='city-panel'>"+city+"<a class='btn btn-default btn-xs'>确定</div>"
+                    $this.after(html);
                   }
                 });
               }
@@ -393,5 +417,22 @@ block foot
               return false;
           });
           
+          $('.dl-panel').on('click','.city-panel input[type="checkbox"]',function(){
+              //- var sum_check = $('.city-panel').find('input:checked').length,
+              //-     sum_all = $('.city-panel').find('input').length;
+              //- $('.city-panel').siblings('label').find('.red').html('('+sum_check+')');
+              //- if(sum_all === sum_check){
+              //-   //-   console.log(sum_check+"_______"+sum_all);
+              //-   //- console.log($('.city-panel').siblings('label').find('input[type="checkbox"]').attr('checked'));
+              //-   //- $('.city-panel').siblings('label').find('input[type="checkbox"]').attr('checked',true);
+              //- }else{
+              //-   //- $('.city-panel').siblings('label').find('input[type="checkbox"]').attr('checked',false);
+              //- }        
+          });
+          
+          $('.getjson').click(function(){
+            $.ajax({});
+                return false;
+          });
       });
       
