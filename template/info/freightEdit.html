@@ -35,7 +35,7 @@ block InfoContent
             .help-block 您的商品所在地，仓库地址
         .form-group
           label.col-md-2.control-label 是否包邮
-          .col-md-2
+          .col-md-6
             label.radio-inline 
               input(type="radio" name="inlineRadioOptions" value="option3") 
               | 商家付运费
@@ -44,188 +44,203 @@ block InfoContent
               | 商家包邮
         .form-group
           label.col-md-2.control-label 快递计费
-          .col-md-6
-            table.table
+          .col-md-8
+            table.table.text-center.table-money
               tr.success
                 td 目的区域
-                td 首重（kg）
-                td 首费（元）
-                td 续重（kg）
-                td 续费（元）
+                td.col-md-2 首重（kg）
+                td.col-md-2 首费（元）
+                td.col-md-2 续重（kg）
+                td.col-md-2 续费（元）
                 td 操作
               tr
-                td 全国
-                  a.edit-link(href="#") 编辑
-                td 0
-                td 0
-                td 0
-                td 0
-                td
-                  a(href="#")删除
-            a(href="#") 为指定区域设置运费
-          
+                td.name(data-id="123") 全国
+                td.w-first.can-edit 0
+                td.m-first.can-edit 0
+                td.w-renewal.can-edit 0
+                td.m-renewal.can-edit 0
+                td.option
+                  a.optin-link.data-save.hide(href="")保存
+              tr
+                td.name(data-id="123") 华北
+                  a.edit-link.data-edit(href="#" data-toggle="modal" data-target="#myModal") 编辑
+                td.w-first.can-edit 0
+                td.m-first.can-edit 0
+                td.w-renewal.can-edit 0
+                td.m-renewal.can-edit 0
+                td.option
+                  a.optin-link.data-save.hide(href="javascript:;")保存
+                  a.optin-link.data-del(href="#")删除
+            a(href="#" class="show-dialog" data-toggle="modal" data-target="#myModal") 为指定区域设置运费
+        
         .form-group
           .col-md-6.col-md-offset-2
-            .panel.panel-default
-              .panel-heading 
-                span.panel-headtxt  选择区域
-                label.checkbox-inline  
-                  input(type="checkbox" name="" value="")
-                  | 中国 
-                button.close(type="button" data-dismiss="alert" aria-label="Close")
-                  span(aria-hidden="true") &times;
-              .panel-body
-                dl.dl-panel
-                  dt
-                    label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
-                      | 华东 
-                    dd
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 上海 
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 江苏 
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 浙江 
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 安徽 
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 江西 
-                  dt
-                    label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
-                      | 华北 
-                    dd
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 北京 
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 天津
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 山西 
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 山东 
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 河北
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 内蒙古
-                  dt
-                    label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
-                      | 华中 
-                    dd
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 湖南 
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 湖北 
-                      label.checkbox-inline  
-                        input(type="checkbox" name="" value="")
-                        | 河南 
-                  dt
-                    label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
-                      | 华南 
-                      dd
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 广东 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 广西 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 福建 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 海南 
-                  dt
-                    label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
-                      | 东北 
-                      dd
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 辽宁 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 吉林 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 黑龙江 
-                  dt
-                    label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
-                      | 西北 
-                      dd
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 陕西 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 新疆 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 甘肃 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 宁夏 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 青海 
-                  dt
-                    label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
-                      | 西南 
-                      dd
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 重庆 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 云南 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 贵州 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 西藏 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 四川
-                  dt
-                    label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
-                      | 港澳台 
-                      dd
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 香港 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 澳门 
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 台湾 
-                  dt
-                    label.checkbox-inline  
-                      input(type="checkbox" name="" value="")
-                      | 海外 
-                      dd
-                        label.checkbox-inline  
-                          input(type="checkbox" name="" value="")
-                          | 海外 
-              .panel-footer.freight-btn
-                  a.btn.btn-default.inline-margin 确定
-                  a.btn.btn-default.inline-margin 取消
+            button.btn.btn-primary.getjson 保存
+            
+        div.modal.fade#myModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+          div.modal-dialog(role="document")
+            div.modal-content
+              div.modal-header
+              div.modal-body
+              div.modal-footer
+                code#city-tip
+                button.btn.btn-primary.btn-save(type="button") 确定
+                button.btn.btn-default(type="button" data-dismiss="modal") 取消
+block foot
+    script(type='text/javascript').
+      $(function(){
+          //- 选择城市
+          $('.modal-body').on('click','.dl-panel .panel-toggle',function(){
+              var $this = $(this);
+              if($(this).parent('li').hasClass('on')){
+                $(this).parent('li').removeClass('on');
+                $(this).siblings('.city-panel').remove();
+              }else{
+                $(this).parents('.dl-panel').find('.city-panel').remove();
+                $(this).parents('.dl-panel').find('li.on').removeClass('on');
+                $(this).parent('li').addClass('on');
+                $.ajax({
+                  //- method:"post",
+                  //- url:"",
+                  //- data:"",
+                  success:function(result){
+                    var city="",i,html;
+                    for(i = 0;i<6;i++){
+                       city += "<label class='checkbox-inline'><input type='checkbox' name='' value=''><span>上海</span></label>"
+                    }
+                    html = "<div class='city-panel'>"+city+"<a class='btn btn-default btn-xs save-city'>确定</div>"
+                    $this.after(html);
+                  }
+                });
+              }
+          });
+          
+          //- 确定城市选择
+          $('.modal-body').on('click','.save-city',function(){
+              var city="";
+              $('.city-panel').find('input:checked').each(function(){
+                  city += "<span data-val='"+$(this).val()+"'>"+$(this).siblings('span').html()+"</span> ";
+              });
+              $('#city-tip').append(city);
+              $('.city-panel').parent('li').removeClass('on');$('.city-panel').remove();
+          });
+          
+          //- 确定地区选择
+          $('.btn-save').click(function(){
+              //- console.log('sa');
+              var len = $('#city-tip').find('span').length;
+              if(len>0){
+                var data = $('#city-tip').html();
+                var html = "<tr><td class='name'>"+data+"<a class='edit-link data-edit' data-toggle='modal' data-target='#myModal'>编辑</a></td>"+
+                            "<td><input class='form-control' name='w-first can-edit' value='0'></td>"+
+                            "<td><input class='form-control' name='m-first can-edit' value='0'></td>"+
+                            "<td><input class='form-control' name='w-renewal can-edit' value='0'></td>"+
+                            "<td><input class='form-control' name='m-renewal can-edit' value='0'></td>"+
+                            "<td><a class='optin-link data-save'>保存</a><a class='option-link data-del'>删除</a></td></tr>"
+                $('.table-money').append(html);
+                $('.show-dialog').hide();
+              }
+              $('#myModal').modal('hide');
+          });
+          
+          //- 双击改变费用
+          $('.table-money').on('dblclick','.can-edit',function(){
+              var myclass= $(this).attr('class'),
+                  value = $(this).html(),
+                  dataId = $(this).siblings('.name').data('id'),
+                  $option = $(this).siblings('.option');
+              if(!$(this).find('input').length){
+                $(this).html('<input class="form-control" name="'+myclass+'" value="'+value+'">');
+                $(this).find('input').focus();
+              }
+              $option.children('.data-save').removeClass('hide');
+          });
+          
+          //- 保存运费模板
+          $('.table-money').on('click','.data-save',function(){
+              var dataId = $(this).parent('td').siblings('.name').data('id'),
+                  $input =  $(this).parents('tr').find('input');
+                  data=[],$this=$(this);
+              $input.each(function(index){
+                  data[index] =[this.name,this.value];
+              });
+              $.ajax({
+                //- method: "POST",
+                //- url: "",
+                data: { num: data },
+                success:function(){
+                  $input.each(function(){
+                    $(this).parent().html(this.value);
+                    $(this).remove();
+                  });
+                  $this.addClass('hide');
+                  $('.show-dialog').show();
+                  //- console.log($this);
+                }  
+              });
+              return false;
+          });
+          
+          //- 选择城市
+          $('.modal-body').on('click','.city-panel input[type="checkbox"]',function(){
+              var sum_check = $('.city-panel').find('input:checked').length,
+                  sum_all = $('.city-panel').find('input').length;
+                  var country = $('.city-panel').siblings('label').children('input');
+              if(sum_all === sum_check){
+                  country.prop('checked',true);
+                  $('.city-panel').siblings('label').find('.red').html("");
+              }else if(sum_check === 0){
+                  $('.city-panel').siblings('label').find('.red').html("");
+              }else{
+                  country.prop('checked',false);
+                  $('.city-panel').siblings('label').find('.red').html('('+sum_check+')');
+              }        
+          });
+          
+          // 新增模板- 
+          $('.show-dialog').click(function(){
+              getCtiy();
+              $('#city-tip').html("");
+          });
+          
+          //- 编辑模板
+          $('.data-edit').click(function(){
+              getCtiy();
+              $('#city-tip').html("");
+          });
+          
+          //- 获取地区
+          function getCtiy(){
+              var rand = parseInt(Math.random()*100);
+              $.ajax({ 
+                  type: "get", 
+                  url: "cityJson.js", 
+                  dataType: "json", 
+                  success: function (data) { 
+                    $.each(data, function(i, item){     
+                      var country="",dt="";
+                      country += "<label class='checkbox-inline'><input type='checkbox' name='country' value='"+item.value+"'>"+item.name+"</label>"
+                      var head =  "<button class='close' type='button' data-dismiss='modal' aria-label='Close'>"+
+                                  "<span aria-hidden='true'>&times;</span></button>"+
+                                  "<span class='panel-headtxt'>选择区域</span>"+country;
+                      $('.modal-header').html(head);
+                      
+                      $.each(item.sub,function(i,item){
+                        var pro,dt_first,ul="";
+                        pro = item.name;
+                        dt_first = "<label class='checkbox-inline'><input type='checkbox' name='' value='"+item.value+"'><strong>"+item.name+"</strong></label>";
+                        $.each(item.sub,function(i,item){
+                          ul += "<li data-value='"+item.value+"'>"+
+                                   "<label class='checkbox-inline'><input type='checkbox' name='' value='"+item.value+"'>"+item.name+"<span class='red'></label>"+
+                                   "<span class='caret panel-toggle'></span></li>";
+                        });
+                        dt +="<dt>"+dt_first+"<dd><ul class='list-inline'>"+ul+"</ul></dd></dt>";
+                　　  }); 
+                        var dl = "<dl class='dl-panel'>"+dt+"</dt>";
+                        $('.modal-body').html(dl);
+                    }); 
+                  }
+              });
+          }
+      });
+      
