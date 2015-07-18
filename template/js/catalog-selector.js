@@ -383,7 +383,7 @@
                         parentObj = parentObj.parentCat || null;
                         searchObj = searchObj.parentCat;
 
-                        fun();
+                        return fun();
                     });
                 },this),
                 indexOf = function(arr, catId){
