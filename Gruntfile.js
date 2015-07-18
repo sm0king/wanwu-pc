@@ -105,6 +105,15 @@ module.exports = function(grunt) {
                     src:['**'],
                     dest:'app/plugs/'
                 }]
+            },
+            json:{
+                files:[{
+                    expand:true,
+                    cwd:'template',
+                    src:['**/*.json'],
+                    filter:function(filepath){return filepath.indexOf('plugs') !== 9;},
+                    dest:'app/'
+                }]
             }
         },
         connect: {
@@ -151,6 +160,13 @@ module.exports = function(grunt) {
             denImg:{
                 tasks:['imagemin:densityimg'],
                 files:['template/img/**/*.{png,jpg,gif}'],
+                options:{
+                    spawn:false
+                }
+            }
+            cpJson:{
+                tasks:[copy:json],
+                files:['template/**/*.json'],
                 options:{
                     spawn:false
                 }
