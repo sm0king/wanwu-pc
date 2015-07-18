@@ -163,9 +163,9 @@ module.exports = function(grunt) {
                 options:{
                     spawn:false
                 }
-            }
+            },
             cpJson:{
-                tasks:[copy:json],
+                tasks:['copy:json'],
                 files:['template/**/*.json'],
                 options:{
                     spawn:false

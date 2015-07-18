@@ -84,7 +84,7 @@ block InfoContent
               div.modal-body
               div.modal-footer
                 code#city-tip
-                button.btn.btn-primary.btn-save(type="button") 确定
+                button.btn.btn-primary.btn-option(type="button") 确定
                 button.btn.btn-default(type="button" data-dismiss="modal") 取消
 block foot
     script(type='text/javascript').
@@ -92,53 +92,60 @@ block foot
           //- 选择城市
           $('.modal-body').on('click','.dl-panel .panel-toggle',function(){
               var $this = $(this);
-              if($(this).parent('li').hasClass('on')){
-                $(this).parent('li').removeClass('on');
-                $(this).siblings('.city-panel').remove();
-              }else{
                 $(this).parents('.dl-panel').find('.city-panel').remove();
                 $(this).parents('.dl-panel').find('li.on').removeClass('on');
                 $(this).parent('li').addClass('on');
+                var pro_id = $(this).parent('li').data('value');
                 $.ajax({
-                  //- method:"post",
+                  //- type:"post",
                   //- url:"",
-                  //- data:"",
+                  data:{regionId:pro_id},
                   success:function(result){
                     var city="",i,html;
                     for(i = 0;i<6;i++){
-                       city += "<label class='checkbox-inline'><input type='checkbox' name='' value=''><span>上海</span></label>"
+                       city += "<label class='checkbox-inline'><input type='checkbox' name='' value='123'><span>上海</span></label>"
                     }
                     html = "<div class='city-panel'>"+city+"<a class='btn btn-default btn-xs save-city'>确定</div>"
                     $this.after(html);
                   }
                 });
-              }
           });
           
-          //- 确定城市选择
+          //- 确定省内城市选择
           $('.modal-body').on('click','.save-city',function(){
-              var city="";
+              var city = "",cities = [],city_id = [];
               $('.city-panel').find('input:checked').each(function(){
-                  city += "<span data-val='"+$(this).val()+"'>"+$(this).siblings('span').html()+"</span> ";
+                  var id = $(this).val(),cont = $(this).siblings('span').html();
+                  cities.push({'id':id,'name':cont});
               });
-              $('#city-tip').append(city);
+              $('.city-panel').parent('li').data('cities',cities);
+              $('.modal-content').find('li').each(function(){
+                    if($(this).data('cities')){
+                        $.each($(this).data('cities'),function(i,item){
+                            city += "<span data-val='"+item.id+"'>"+item.name+"</span> ";
+                        })
+                    }
+                });
+              //- city += "<input type='hidden' class='city-val' value='"+cities+"'>";
+              $('#city-tip').html(city);
               $('.city-panel').parent('li').removeClass('on');$('.city-panel').remove();
           });
           
-          //- 确定地区选择
-          $('.btn-save').click(function(){
-              //- console.log('sa');
-              var len = $('#city-tip').find('span').length;
-              if(len>0){
-                var data = $('#city-tip').html();
-                var html = "<tr><td class='name'>"+data+"<a class='edit-link data-edit' data-toggle='modal' data-target='#myModal'>编辑</a></td>"+
-                            "<td><input class='form-control' name='w-first can-edit' value='0'></td>"+
-                            "<td><input class='form-control' name='m-first can-edit' value='0'></td>"+
-                            "<td><input class='form-control' name='w-renewal can-edit' value='0'></td>"+
-                            "<td><input class='form-control' name='m-renewal can-edit' value='0'></td>"+
-                            "<td><a class='optin-link data-save'>保存</a><a class='option-link data-del'>删除</a></td></tr>"
-                $('.table-money').append(html);
-                $('.show-dialog').hide();
+          //- 确定所有地区选择
+          $('.btn-option').click(function(){
+              if($(this).hasClass('btn-add-model')){
+                  var len = $('#city-tip').find('span').length;
+                  if(len>0){
+                    var data = $('#city-tip').html();
+                    var html = "<tr><td class='name'>"+data+"<a class='edit-link data-edit' data-toggle='modal' data-target='#myModal'>编辑</a></td>"+
+                                "<td class='w-first can-edit'><input class='form-control' name='w-first can-edit' value='0'></td>"+
+                                "<td class='m-first can-edit'><input class='form-control' name='m-first can-edit' value='0'></td>"+
+                                "<td class='w-renewal can-edit'><input class='form-control' name='w-renewal can-edit' value='0'></td>"+
+                                "<td class='m-renewal can-edit'><input class='form-control' name='m-renewal can-edit' value='0'></td>"+
+                                "<td><a class='optin-link data-save'>保存</a><a class='option-link data-del'>删除</a></td></tr>"
+                    $('.table-money').append(html);
+                    $('.show-dialog').hide();
+                  }
               }
               $('#myModal').modal('hide');
           });
@@ -159,15 +166,20 @@ block foot
           //- 保存运费模板
           $('.table-money').on('click','.data-save',function(){
               var dataId = $(this).parent('td').siblings('.name').data('id'),
-                  $input =  $(this).parents('tr').find('input');
-                  data=[],$this=$(this);
-              $input.each(function(index){
-                  data[index] =[this.name,this.value];
-              });
+                  $input =  $(this).parents('tr').find('.can-edit > input'),
+                  city_id = $(this).parent('td').siblings('.name').find('span');
+                  data_sum=[],data_city=[],$this=$(this);
+                  city_id.each(function(){
+                        data_city.push({'key':$(this).data('id'),'value':$(this).html()});
+                  });
+                  //- console.log(data_city);
+                  $input.each(function(index){
+                      data_sum.push({'name':this.name,'value':this.value});
+                  });
               $.ajax({
                 //- method: "POST",
                 //- url: "",
-                data: { num: data },
+                data: {'city':data_city,'num':data_sum },
                 success:function(){
                   $input.each(function(){
                     $(this).parent().html(this.value);
@@ -175,7 +187,6 @@ block foot
                   });
                   $this.addClass('hide');
                   $('.show-dialog').show();
-                  //- console.log($this);
                 }  
               });
               return false;
@@ -185,14 +196,15 @@ block foot
           $('.modal-body').on('click','.city-panel input[type="checkbox"]',function(){
               var sum_check = $('.city-panel').find('input:checked').length,
                   sum_all = $('.city-panel').find('input').length;
-                  var country = $('.city-panel').siblings('label').children('input');
+                  var pro = $('.city-panel').siblings('label').children('input');
               if(sum_all === sum_check){
-                  country.prop('checked',true);
+                  pro.prop('checked',true);
+                  $('.city-panel').find('input').each(function(){$(this).prop('checked',false);});
                   $('.city-panel').siblings('label').find('.red').html("");
               }else if(sum_check === 0){
                   $('.city-panel').siblings('label').find('.red').html("");
               }else{
-                  country.prop('checked',false);
+                  pro.prop('checked',false);
                   $('.city-panel').siblings('label').find('.red').html('('+sum_check+')');
               }        
           });
@@ -200,47 +212,61 @@ block foot
           // 新增模板- 
           $('.show-dialog').click(function(){
               getCtiy();
-              $('#city-tip').html("");
+              if($('.btn-option').hasClass('btn-edit-model')){
+                $('.btn-option').removeClass('btn-edit-model')
+              }
+              $('.btn-option').addClass('btn-add-model');
           });
           
           //- 编辑模板
-          $('.data-edit').click(function(){
+          $('.table-money').on('click','.data-edit',function(){
+              var model = $(this).parents('tr'),
+                  city = model.find('.name span');
               getCtiy();
-              $('#city-tip').html("");
+              console.log(city);
+              if($('.btn-option').hasClass('btn-add-model')){
+                $('.btn-option').removeClass('btn-add-model')
+              }
+              $('.btn-option').addClass('btn-edit-model');
+              $('#city-tip').empty();
           });
           
           //- 获取地区
           function getCtiy(){
-              var rand = parseInt(Math.random()*100);
-              $.ajax({ 
+               $.ajax({ 
                   type: "get", 
-                  url: "cityJson.js", 
+                  url: "city_ajax_json.json", 
                   dataType: "json", 
                   success: function (data) { 
+                    var content,dt = "";
                     $.each(data, function(i, item){     
-                      var country="",dt="";
+                      var country="";
                       country += "<label class='checkbox-inline'><input type='checkbox' name='country' value='"+item.value+"'>"+item.name+"</label>"
                       var head =  "<button class='close' type='button' data-dismiss='modal' aria-label='Close'>"+
                                   "<span aria-hidden='true'>&times;</span></button>"+
                                   "<span class='panel-headtxt'>选择区域</span>"+country;
-                      $('.modal-header').html(head);
+                        $('.modal-header').html(head);
                       
-                      $.each(item.sub,function(i,item){
-                        var pro,dt_first,ul="";
-                        pro = item.name;
-                        dt_first = "<label class='checkbox-inline'><input type='checkbox' name='' value='"+item.value+"'><strong>"+item.name+"</strong></label>";
                         $.each(item.sub,function(i,item){
-                          ul += "<li data-value='"+item.value+"'>"+
-                                   "<label class='checkbox-inline'><input type='checkbox' name='' value='"+item.value+"'>"+item.name+"<span class='red'></label>"+
-                                   "<span class='caret panel-toggle'></span></li>";
-                        });
-                        dt +="<dt>"+dt_first+"<dd><ul class='list-inline'>"+ul+"</ul></dd></dt>";
-                　　  }); 
-                        var dl = "<dl class='dl-panel'>"+dt+"</dt>";
-                        $('.modal-body').html(dl);
+                          var pro,dt_first,ul="";
+                          pro = item.name;
+                          dt_first = "<label class='checkbox-inline'><input type='checkbox' name='' value='"+item.value+"'><strong>"+item.name+"</strong></label>";
+                          $.each(item.sub,function(i,item){
+                            ul += "<li data-value='"+item.value+"'>"+
+                                     "<label class='checkbox-inline'><input type='checkbox' name='' value='"+item.value+"'>"+item.name+"<span class='red'></label>"+
+                                     "<span class='caret panel-toggle'></span></li>";
+                          });
+                          dt +="<dt>"+dt_first+"<dd><ul class='list-inline'>"+ul+"</ul></dd></dt>";
+                  　　  }); 
                     }); 
+                    content = "<dl class='dl-panel'>"+dt+"</dt>";
+                    $('.modal-body').html(content);
+                  },
+                  error:function(){
+                    $('.modal-body').html("数据加载失败，请刷新页面重试");
                   }
               });
+              return false;
           }
       });
       
