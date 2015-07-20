@@ -124,6 +124,29 @@
             ]
         })
     }
+    $.alertSuccess = function(text, title,url,callback){
+        showDialog({
+            title: title,
+            content: text ,
+            callback:callback,
+            size: 'sm',
+            buttons: [
+                {
+                    text: '确定',
+                    click: function(jqModal){
+                        jqModal.modal('hide');
+                        if(url){
+                            window.location.href=url;
+                        }else{
+                            window.location.href="";
+                        }
+
+                    }
+                }
+
+            ]
+        });
+    }
 
     $.dialog = showDialog;
 })(jQuery);
