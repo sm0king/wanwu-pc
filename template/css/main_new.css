@@ -619,13 +619,12 @@ ul>li.collapse{
 .col-md-5{
   *padding-left: 0;
   *padding-right: 0;
-  _padding-left: 0;
-  _padding-right: 0;
 }
 .col-md-5{ _width: 40% !important;}
 .input-group .form-control {
     _position:static !important;
     _float:none;
+    *width:90%;
 }
 .login .form-control{
   *padding: 0;
@@ -638,13 +637,15 @@ ul>li.collapse{
 }
 .login .input-group{_width: 100%;}
 .login .input-group-addon{
-  *position: absolute;
+  /**position: absolute;*/
   *width:30px;
   _height: 50px;
   _line-height: 50px;
-  *top: 1px;
-  *left: 1px;
+  /**top: 1px;*/
+  /**left: 1px;*/
   *z-index: 99;
+  /*_display: inline;*/
+  *float:left;
 }
 
 .login-panel .ver-tip{

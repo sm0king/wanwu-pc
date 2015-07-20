@@ -247,10 +247,10 @@ module.exports = function(grunt) {
             var target = filepath.replace('template', 'app')
             config[target] = filepath;
         }
-        var user = grunt.file.readJSON('user.json')
-        user.changeFile = filepath;
-        user.allChange.push(filepath)
-        console.log(user.allChange)
+        //var user = grunt.file.readJSON('user.json')
+        //user.changeFile = filepath;
+        //user.allChange.push(filepath)
+        //console.log(user.allChange)
         //更新  Jade 配置
 
         grunt.config('jade.analysis.files', config);
