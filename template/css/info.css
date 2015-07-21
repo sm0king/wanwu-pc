@@ -403,4 +403,6 @@
     position: absolute;
     bottom: 5px;
     right: 5px;
-} 
+}
+
+.table .name span{white-space: nowrap;}
