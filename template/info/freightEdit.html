@@ -76,8 +76,8 @@ block InfoContent
               div.modal-footer
                 div.col-md-8.text-left#city-tip
                 div.col-md-4
-                  button.btn.btn-primary.btn-option(type="button") 确定
-                  button.btn.btn-primary.btn-edit.hide(type="button") 修改
+                  button.btn.btn-primary.btn-option(type="button" data-dismiss="modal") 确定
+                  button.btn.btn-primary.btn-edit.hide(type="button" data-dismiss="modal") 修改
                   button.btn.btn-default.btn-close(type="button" data-dismiss="modal") 取消
 block foot
     script(type='text/javascript').
@@ -86,12 +86,10 @@ block foot
           // 新增模板- 
           $('.show-dialog').click(function(){
               getCtiy();
-              $('#city-tip').empty().data('chekCity',"");
               $(this).hide();
-              $('#myModal').on('show.bs.modal', function (event) {
-                    $('#myModal').find('.btn-option').removeClass('hide');
-                    $('#myModal').find('.btn-edit').addClass('hide');
-              });
+              $('#city-tip').empty().data('chekCity',"");
+              $('#myModal').find('.btn-option').removeClass('hide');
+              $('#myModal').find('.btn-edit').addClass('hide');
               $('.table-money').find('.data-edit').addClass('hide');
               
               $('.btn-close').click(function(){
@@ -169,7 +167,7 @@ block foot
                             "<td class='m-renewal can-edit'><input class='form-control' name='m-renewal' value='0'></td>"+
                             "<td><a class='optin-link data-save'>保存</a><a class='option-link data-del'>删除</a></td></tr>";
                 $('.table-money').append(new_list);
-                $('#myModal').modal('hide');
+                //- $('#myModal').modal('hide');
               }else {
                 alert('请选择地区');
               }
@@ -196,10 +194,12 @@ block foot
           
           //- 编辑数据
           $('.table-money').on('click','.data-edit',function(){
-                var this_data = $(this).parents('tr').find('.name>span'),tips = "", this_list = $(this).parents('tr');
-                $('#myModal').on('show.bs.modal', function (event) {
-                    $('#myModal').find('.btn-edit').removeClass('hide');
-                    $('#myModal').find('.btn-option').addClass('hide');
+                var this_data = $(this).parents('tr').find('.name>span'),tips = "";
+                getCtiy();
+                $('#myModal').find('.btn-edit').removeClass('hide');
+                $('#myModal').find('.btn-option').addClass('hide');
+                setTimeout(function(){
+                    //- 加载数据
                     $('.modal-content').find("input").each(function(){
                         var inp_val = $(this).val(),$inp = $(this);
                         $('#city-tip').find('span').each(function(){
@@ -212,43 +212,44 @@ block foot
                             }
                         });
                     });
-                });
-                
+                },100);
                 this_data.each(function(){
                     tips += "<code><span data-id='"+$(this).data('id')+"' data-name='"+$(this).data('name')+"' data-type='"+$(this).data('type')+"'>"+$(this).data('name')+"</span></code>";
                 });
                 $('#city-tip').html(tips);
-                
-                //- 保存编辑数据
+                //- 保存数据
+                $('.btn-edit').data('dom',$(this));
                 $('.btn-edit').click(function(){
-                    var new_list,show_item = "",data = $('#city-tip').data('chekCity');
+                    var inp_list = $(this).data('dom').parents('tr').find('.can-edit');
+                    inp_list.each(function(){
+                        var val = $(this).html();
+                        var name = $(this).attr('class').replace(/\s+can-edit/g,""),
+                            inpt = "<input class='form-control' name='"+name+"' value='"+val+"'>" ;
+                        $(this).html(inpt);
+                    });
+                    var new_list,show_item = "",data =$('#city-tip').data('chekCity');
                     if(data){
                       for (var i = 0; i < data.length; i++) {
                         if(i == data.length - 1){
-                          show_item += "<span data-id='"+data[i].id+"' data-name='"+data[i].name+"' data-type='"+data[i].type+"'>"+data[i].name+"</span>";
+                          show_item += "<span data-id='"+data[i].id+"' data-name='"+data[i].name+"' data-type='"+data[i].type+"'>"+data[i].name+"</span>"+
+                          "<a class='edit-link data-edit hide' data-toggle='modal' data-target='#myModal'><nobr>编辑</nobr></a>";
                         }else{
                           show_item += "<span data-id='"+data[i].id+"' data-name='"+data[i].name+"' data-type='"+data[i].type+"'>"+data[i].name+"</span>,";
                         }
                       }
-                      show_item += "<a class='edit-link data-edit hide' data-toggle='modal' data-target='#myModal'><nobr>编辑</nobr></a></td>";
-                      //- console.log(this_list);
-                      this_list.find('.name').html(show_item);
-                      this_list.find('.data-save').removeClass('hide');
-                      this_list.find('.can-edit').each(function(){
-                          console.log(this);
-                          var val = $(this).html();
-                          var name = $(this).attr('class').replace(/\s+can-edit/g,""),
-                              inpt = "<input class='form-control' name='"+name+"' value='"+val+"'>";
-                          $(this).html(inpt);
-                      });
-                      $('#myModal').modal('hide');
+                      $(this).data('dom').parents('tr').find('.data-save').removeClass('hide');
+                      $(this).data('dom').parent('.name').html(show_item);
                     }else {
                       alert('请选择地区');
                     }
                 });
-            });
-          
-          
+                
+                $('.btn-close').click(function(){
+                    edit_link = "";
+                });
+                
+          });
+              
           //- 删除列表数据
           $('.table-money').on('click','.data-del',function(){
               $(this).parents('tr').remove();
