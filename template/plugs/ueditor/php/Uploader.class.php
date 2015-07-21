@@ -1,4 +1,13 @@
 <?php
+//require('../../../../../../CodeIgniter/libraries/Resizeimage.php');
+require_once './vendor/autoload.php';
+use Qiniu\Auth;
+use Qiniu\Storage\UploadManager;
+use Qiniu\Processing\Operation;
+define("QINIU_AK", '0h0ZKun_1BAo7no3YZ5JkgbagAVYrwB1SVZq-ob4');
+define("QINIU_SK", 'U8LBRaWgMPuyr2KFj6IBBDz79Sp3lF1Xumq30GQV');
+define('QINIU_WANWU', "wanwu");
+    
 
 /**
  * Created by JetBrains PhpStorm.
@@ -116,10 +125,30 @@ class Uploader
         }
 
         //移动文件
+        
         if (!(move_uploaded_file($file["tmp_name"], $this->filePath) && file_exists($this->filePath))) { //移动失败
             $this->stateInfo = $this->getStateInfo("ERROR_FILE_MOVE");
         } else { //移动成功
-            $this->stateInfo = $this->stateMap[0];
+//            //调用post
+//            $imag_url='http://123.59.58.104:8080/fileupload/upload?fileType=image';
+//            if(isset($_GET['type']) && $_GET['type']=='head'){
+//                $imag_url='http://123.59.58.104:8080/fileupload/upload?fileType=image&type=headpic&userId='.$_GET['userId'];
+//            }
+//            $result = $this->postimag($this->filePath, $imag_url);
+//            if($result)
+//            {
+//                $result = json_decode($result, true);
+//                if($result && $result['error_no'] == 0)
+//                {
+                   list($width, $height) = getimagesize($this->filePath);
+                   $ret = $this->put2Qiniu($this->filePath, $width, $height);
+//exit;
+                    $this->stateInfo = $this->stateMap[0];
+//                    $this->fullName = $result['url'];
+//                    return TRUE;
+//                }
+//            }
+//             $this->stateInfo = $this->getStateInfo("ERROR_FILE_MOVE");
         }
     }
 
@@ -308,7 +337,6 @@ class Uploader
         if (substr($fullname, 0, 1) != '/') {
             $fullname = '/' . $fullname;
         }
-
         return $rootPath . $fullname;
     }
 
@@ -333,17 +361,109 @@ class Uploader
     /**
      * 获取当前上传成功文件的各项信息
      * @return array
+     * @last-update:2015-05-16 17:30
      */
     public function getFileInfo()
     {
-        return array(
+
+        $file_path = $_SERVER['DOCUMENT_ROOT'] . '/' . $this->fullName;
+        //压缩图片大小
+        list($width, $height) = getimagesize($file_path);
+        if($width > 2048 || $height > 2048)
+        {
+            $this->stateInfo = $this->getStateInfo("ERROR_SIZE_EXCEED");
+        }
+//        else
+//        {
+//            $resizeimage = new Resizeimage($file_path, $width, $height, "0",$file_path);
+//        }
+        $return_data = json_encode(array(
             "state" => $this->stateInfo,
             "url" => $this->fullName,
-            "title" => $this->fileName,
+            "title" => $this->oriName,
             "original" => $this->oriName,
             "type" => $this->fileType,
             "size" => $this->fileSize
-        );
+        ));
+        return $return_data ;
+        //$imag_url='http://123.59.58.104:8080/fileupload/upload?fileType=image';
+
+        //加@符号curl就会把它当成是文件上传处理
+// $ch = curl_init();
+//        $data = array('img'=>'@'. $file_path);
+//        $ch = curl_init();
+//        curl_setopt($ch, CURLOPT_URL, $imag_url);
+//        curl_setopt($ch, CURLOPT_POST, true );
+//        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+//        curl_setopt($ch, CURLOPT_HEADER, false);
+//        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+//        // curl_getinfo($ch);
+//        $return_data = curl_exec($ch);
+//        curl_close($ch);
+//
+//        @unlink($file_path);
+
+//        $return_data = json_decode($return_data);
+//        return array(
+//            "state" => $this->stateInfo,
+//            "url" => $return_data->url,
+//            "title" => $return_data->newFileName,
+//            "original" => $this->oriName,
+//            "type" => $this->fileType,
+//            "size" => $this->fileSize
+//        );
+
+
+
+
+    }
+    
+    function postimag($img,$imag_url){
+    $ch = curl_init();
+    //加@符号curl就会把它当成是文件上传处理
+    //查看PHP版本是否大于5.4，如果大于就要new CURLFile来处理
+    //
+    if (version_compare(phpversion(), '5.4.0') >= 0){
+        $data = array('img' => new \CURLFile(realpath($img)));
+    }else{
+        $data = array('img'=>'@'. $img);
     }
 
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $imag_url);
+    curl_setopt($ch, CURLOPT_POST, true );
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+     // curl_getinfo($ch);
+     $return_data = curl_exec($ch);
+     curl_close($ch);
+     return $return_data;
+}
+
+        public function put2Qiniu($path, $w=800, $h=800)
+        {
+            $auth = new Auth(QINIU_AK, QINIU_SK);
+            $bucket = QINIU_WANWU;
+            $token = $auth->uploadToken($bucket);
+            $uploadMgr = new UploadManager();
+//            var_dump($w);var_dump($h);
+//            echo $path;exit;
+            list($ret, $err) = $uploadMgr->putFile($token, ltrim($this->fullName,"/"), $path);
+            if ($err !== null) 
+            {
+               var_dump($err);
+           } else {
+                $key = $ret['key'];
+                $domain = 'http://imgcdn.wanwu.com';
+                $op = new Operation($domain);
+
+                $ops = "?imageView2/2/w/{$w}/h/{$h}";
+                $this->fullName = $domain.$this->fullName.$ops;
+//                $url = $op->buildUrl($key, $ops);
+//                echo "\n====> imageView2 URL: \n $url";
+//                var_dump($ret);exit;
+//                $this->fullName = $url;
+           }
+        }
 }

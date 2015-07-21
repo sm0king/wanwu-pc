@@ -378,7 +378,7 @@
 }
 .checkbox-inline+.checkbox-inline,.radio-inline+.radio-inline{
   margin-top: 0;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .dl-panel .on{
   background: #FFFF00;

@@ -72,10 +72,13 @@ block Right
                                 li 你好!
                                     b quwan
                                 li 账号状态：
-                                    a(href='javascript:;')
-                                        b 已审核
-                                li
-                                    a#bindWeixin(href='javascript:;') 微信绑定
+                                    b
+                                        span.auth-stat
+                                            a(href='javascript:;') 已审核
+                                            img(onclick="$.alert()",src="/img/error_desc.png")
+                                //
+                                    li
+                                        a#bindWeixin(href='javascript:;') 微信绑定
             .col-md-4
                 .panel.panel-default
                     .panel-body.moneyMessage
@@ -85,8 +88,9 @@ block Right
                                     span.money(m="00") 4000
                                 td.td-state
                                     可用
-                                td(rowspan="3")
-                                    button.btn.btn-blue 充值
+                                //
+                                    td(rowspan="3")
+                                        button.btn.btn-blue 充值
                             tr
                                 td.td-money
                                     span.money(m="00") 4000
