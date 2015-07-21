@@ -23,7 +23,11 @@ $(function() {
         height = height - topOffset;
         if (height < 1) height = 1;
         if (height > topOffset) {
+<<<<<<< HEAD
            $("#page-wrapper").css("min-height", (height-62) > sidebar ? (height-62) : (sidebar+45) + "px");
+=======
+           $("#page-wrapper").css("min-height", (height-62) > sidebar ? (height-62) : (sidebar+31) + "px");
+>>>>>>> 6c9df80036359c9090679cfc46f761b55425a1e9
         }
     });
 

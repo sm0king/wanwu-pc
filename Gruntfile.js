@@ -114,6 +114,14 @@ module.exports = function(grunt) {
                     filter:function(filepath){return filepath.indexOf('plugs') !== 9;},
                     dest:'app/'
                 }]
+            },
+            all:{
+                files:[{
+                    expand:true,
+                    cwd:'template',
+                    src:['**/*.{png,jpg,gif,js,css}'],
+                    dest:'app/'
+                }]
             }
         },
         connect: {
@@ -143,23 +151,9 @@ module.exports = function(grunt) {
                     spawn: false
                 }
             },
-            density: {
-                tasks: ['uglify:densityJS'],
-                files: ['template/js/**/*.js'],
-                options: {
-                    spawn: false
-                }
-            },
-            denCSS: {
-                tasks: ['cssmin:densityCSS'],
-                files: ['template/css/**/*.css'],
-                options: {
-                    spawn: false
-                }
-            },
-            denImg:{
-                tasks:['imagemin:densityimg'],
-                files:['template/img/**/*.{png,jpg,gif}'],
+            cpAll:{
+                tasks:['copy:all'],
+                files:['template/js/**/*.js','template/css/**/*.css','template/img/**/*.{png,jpg,gif}'],
                 options:{
                     spawn:false
                 }
@@ -167,6 +161,13 @@ module.exports = function(grunt) {
             cpJson:{
                 tasks:['copy:json'],
                 files:['template/**/*.json'],
+                options:{
+                    spawn:false
+                }
+            },
+            plugs:{
+                tasks:['copy:plugs'],
+                files:['template/plugs/**'],
                 options:{
                     spawn:false
                 }
@@ -182,7 +183,6 @@ module.exports = function(grunt) {
         },
         uglify: {
             options: {
-                footer: '\n/* <%= user.name %> 最后修改于：<%= grunt.template.today("yyyy-mm-dd") %> */\n',
                 mangle: true,
                 preserveComments: false
             },
@@ -193,9 +193,6 @@ module.exports = function(grunt) {
                     src: ['**/*.js'],
                     dest: 'app/js/'
                 }]
-            },
-            thisFiles: {
-                files: []
             }
         },
         cssmin:{
@@ -257,5 +254,9 @@ module.exports = function(grunt) {
     });
 
     grunt.registerTask('server', ['jade', 'connect:demo', 'watch']);
-
+    grunt.registerTask('dist','压缩任务',function(){
+        grunt.task.run(['uglify:densityJS','cssmin:densityCSS','imagemin:densityimg']);
+        // grunt.log.writeln('压缩任务已经完成，正在发布到SVN地址....')
+        grunt.task.run(['copy:svn']);
+    })
 }

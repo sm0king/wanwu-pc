@@ -6,7 +6,7 @@
 
 body {
     font-family: 微软雅黑 "Helvetica Neue",Helvetica,Arial,sans-serif;
-    margin-bottom: 120px;
+    margin-bottom: 90px;
     background-color: #293038;
 }
 a{
@@ -176,16 +176,15 @@ ul{
 }
 
 @media(min-width:768px) {
-    .sidebar{
-        background-color: transparent;
-    }
+
     .sidebar{
         z-index: 1;
         position: absolute;
         width: 210px;
         margin-top: 61px;
-        margin-bottom: 160px;
+        margin-bottom: 120px;
         *left:0px;
+        background-color: transparent;
     }
     .navbar-top-links .dropdown-messages,
     .navbar-top-links .dropdown-tasks,
@@ -781,6 +780,7 @@ span.separate:after{
 }
 .alert-info{
     background-image: url(../img/notice-info.png);
+    background-repeat: no-repeat;
 }
 .bg-blue{
     background-color: rgb(0,153,204);
