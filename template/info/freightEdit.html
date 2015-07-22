@@ -217,6 +217,14 @@ block foot
                     tips += "<code><span data-id='"+$(this).data('id')+"' data-name='"+$(this).data('name')+"' data-type='"+$(this).data('type')+"'>"+$(this).data('name')+"</span></code>";
                 });
                 $('#city-tip').html(tips);
+                
+                $('.table-money').find('.data-edit').addClass('hide');
+                
+                $('.btn-close').click(function(){
+                    $('.show-dialog').show();
+                    $('.table-money').find('.data-edit').removeClass('hide');
+                });
+                
                 //- 保存数据
                 $('.btn-edit').data('dom',$(this));
                 $('.btn-edit').click(function(){
