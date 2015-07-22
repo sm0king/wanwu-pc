@@ -687,11 +687,6 @@ ul>li.collapse {
 
 .col-md-7,
 .col-md-6,
-<<<<<<< HEAD
-.col-md-5{
-  *padding-left: 0;
-  *padding-right: 0;
-=======
 .col-md-5 {
     *padding-left: 0;
     *padding-right: 0;
@@ -701,11 +696,9 @@ ul>li.collapse {
 
 .col-md-5 {
     _width: 40% !important;
->>>>>>> 6c9df80036359c9090679cfc46f761b55425a1e9
 }
 
 .input-group .form-control {
-<<<<<<< HEAD
     _position:static !important;
     _float:none;
     *width:90%;
@@ -736,24 +729,6 @@ ul>li.collapse {
   *position: absolute;
   *right:34px;
   *float:none;
-=======
-    _position: static !important;
-    _float: none;
-}
-
-.login .form-control {
-    *padding: 0;
-    _padding: 0;
-    *text-indent: 42px;
-    _text-indent: 42px;
-    *line-height: 50px;
-    _line-height: 50px;
-    _background-color: #ddd!important;
-}
-
-.login .input-group {
-    _width: 100%;
->>>>>>> 6c9df80036359c9090679cfc46f761b55425a1e9
 }
 
 .login .input-group-addon {
@@ -764,6 +739,7 @@ ul>li.collapse {
     *top: 1px;
     *left: 1px;
     *z-index: 99;
+    _padding: 0;
 }
 
 .login-panel .ver-tip {
@@ -774,4 +750,8 @@ ul>li.collapse {
 
 .login .input-group-addon.captcha-addon{
     padding: 0;
+    _float: right!important;
+}
+#captcha_area .form-control{
+    _text-indent:110px;
 }
