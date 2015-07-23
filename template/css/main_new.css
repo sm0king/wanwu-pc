@@ -690,8 +690,6 @@ ul>li.collapse {
 .col-md-5 {
     *padding-left: 0;
     *padding-right: 0;
-    _padding-left: 0;
-    _padding-right: 0;
 }
 
 .col-md-5 {
@@ -753,5 +751,5 @@ ul>li.collapse {
     _float: right!important;
 }
 #captcha_area .form-control{
-    _text-indent:110px;
+    *text-indent:110px;
 }
