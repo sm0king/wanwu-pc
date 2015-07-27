@@ -18,7 +18,8 @@
     "grunt-contrib-jade": "~0.14.0",
     "grunt-contrib-uglify": "~0.9.1",
     "grunt-contrib-watch": "^0.6.1",
-    "jade-inheritance": "^0.2.0"
+    "jade-inheritance": "^0.2.0",
+    "requirejs": "^2.1.19"
   },
   "scripts": {
     "start": "grunt server"

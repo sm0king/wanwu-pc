@@ -552,6 +552,7 @@ a.btn {
     background-repeat: no-repeat;
     font-size: 12px;
     padding-top: 48px;
+    padding-top: 62px\0;
     color:#b7b7b7;
 }
 .vcode img{
@@ -590,6 +591,12 @@ a.btn {
     background-position: right top;
     -webkit-background-size: 70%;
     background-size: 70%;
+}
+.downcode{
+    display: none;
+}
+.download .btn-group{
+    display: inline-block;
 }
 @media (min-width: 1200px) {
     .container {
@@ -676,7 +683,7 @@ a.btn {
         width: 99%;
     }
     .header {
-        height: 300px;
+        height: 337px;
     }
     .wxImg {
         display: none;
@@ -699,6 +706,8 @@ a.btn {
         width: 110px;
         font-size: 15px;
         margin: 0 3px;
+        margin-top: -27px;
+        margin-bottom: 39px;
     }
     .header .desc h1 {
         margin-bottom: 5px;
@@ -742,6 +751,26 @@ a.btn {
     #footer {
         font-size: 12px;
     }
+    .downcode{
+        display: inline-block;
+        width: 90px;
+        background-image: url(../img/index/downcode.png);
+        margin-top: -34px;
+        top: 0px;
+        position: relative;
+        cursor: pointer;
+        background-size: 98%;
+        -webkit-background-size:98%;
+        background-position: center top;
+        background-repeat: no-repeat;
+        font-size: 12px;
+        padding-top: 110px;
+        color:#b7b7b7;
+    }
+    .download .btn-group{
+        width:50%;
+        padding-top: 20px;
+    }
 }
 
 @media (max-width: 320px) {
@@ -749,7 +778,7 @@ a.btn {
         width: 100%;
     }
     .header {
-        height: 272px;
+        height: 337px;
     }
     .header .links {
         width: 200px;
@@ -779,12 +808,30 @@ a.btn {
     }
     .header .btn-blue {
         width: 90px;
-        font-size: 13px;
+        font-size: 12px;
         margin: 0 5px;
         padding: 4px 15px;
+        margin-top: -27px;
+        margin-bottom: 39px;
     }
     .header .download {
         margin-top: 23px;
+    }
+    .downcode{
+        display: inline-block;
+        width: 90px;
+        background-image: url(../img/index/downcode.png);
+        margin-top: -34px;
+        top: 0;
+        position: relative;
+        cursor: pointer;
+        background-size: 98%;
+        -webkit-background-size:98%;
+        background-position: center top;
+        background-repeat: no-repeat;
+        font-size: 12px;
+        padding-top: 110px;
+        color:#b7b7b7;
     }
 }
 

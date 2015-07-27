@@ -110,8 +110,8 @@ module.exports = function(grunt) {
                 files:[{
                     expand:true,
                     cwd:'template',
-                    src:['**/*.json'],
-                    filter:function(filepath){return filepath.indexOf('plugs') !== 9;},
+                    src:['**/*.json','!plugs/**'],
+                    // filter:function(filepath){return filepath.indexOf('plugs') !== 9;},
                     dest:'app/'
                 }]
             },
