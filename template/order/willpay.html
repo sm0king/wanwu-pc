@@ -1,20 +1,20 @@
 extends master.jade
 block OrderDefine
-    -var active = 1;
+    -var active = 2;
     -var pagin_right = true;
     -var selectedV = 3
     -var reason = "拒绝退货原因：";
     -var form_tip = '拒绝退货可能引起分销商投诉，请谨慎操作！'
 block SubPage
-    -var subTitle =' - 待退货订单'
+    -var subTitle =' - 未付款订单'
 block OrderHeader
   style.
-      .pinfo{  height: 90px;  border-bottom: 1px solid #f1f1f1;padding: 10px 0;}
+      .pinfo{height:90px; border-bottom: 1px solid #f1f1f1;padding: 10px 0;}
       .pimg{height: 60px;width: 60px;border: 1px solid #e1e1e1;margin: 5px;}
       .table tr td{text-align: center;  vertical-align: middle !important;}
-      .noborder{padding-top:0px !important;}
+      .noborder{padding:0px !important;}
       .order .orderTR td{padding-top: 8px ;}
-      .noborder .pinfo:last-child{border-bottom: none !important;;}
+      .noborder .pinfo:last-child{border-bottom: none !important;}
       .pinfo a{display: block;  vertical-align: middle;  margin-top: 0px !important;  line-height: 35px;}
       .pinfo span{ display: block;text-align: left}
       .onepinfo a{display: block;  vertical-align: middle;  margin-top: 0px !important;  line-height: 35px;}
@@ -26,22 +26,9 @@ block OrderHeader
           display: inline-block;}
 
 block DashboardTitle
-    待退货订单
+    未付款订单
 
 block OrderContent
-    form.form-inline.searchBar
-      input(type='hidden')
-      .form-group
-        label(for="orderNum") 订单号：
-        input#orderNum.form-control(type="text" name="orderNum")
-      .form-group
-        label(for="orderNum") 运单号：
-        input#orderNum.form-control(type="text" name="orderNum")
-      .form-group
-        label(for="orderNum") 联系方式：
-        input#orderNum.form-control(type="text" name="orderNum")
-      .form-group
-        button.btn.btn-blue 查询
     .table-responsive.orderlist
         table.table.table-bordered
             tbody
@@ -50,13 +37,12 @@ block OrderContent
                         | 订单编号:
                         span.blue 8779641532
                     td.retailer.tdOrderPrice(width="20%") 商品信息
-                    td.retailer.tdOrderPrice(width="5%") 分销价
-                    td.receiver.tdOrderConsignee(width="5%") 收货人
-                    td.tdOrderAddress(width="15%") 收货地址
-                    td.tdOrderTime(width="10%") 下单时间
-                    td.tdOrderSta(width="8%") 状态
-                    td.tdOrderRemark(width="5%") 备注
-                    td.tdOrderAction 操作
+                    td.retailer.tdOrderPrice(width="10%") 分销价
+                    td.tdOrderPrice(width="7%") 数量
+                    td.tdOrderRemark(width="15%") 总价
+                    td.receiver.tdOrderConsignee(width="8%") 收货人
+                    td.tdOrderTime(width="15%") 下单时间
+                    td.tdOrderSta(width="10%") 状态
                 tr.orderTR
                     td.productImgs.noborder
                       .pinfo
@@ -73,44 +59,98 @@ block OrderContent
                         a ￥387.00
                       .pinfo
                         a ￥387.00
+                    td.noborder
+                      .pinfo
+                        a 2
+                      .pinfo
+                        a 1
+                    td
+                      a ￥774.00
+                      p (含快递：￥10.00)
+                      a.change-price 修改价格
                     td 王刚
-                    td 四川省成都市高新区天府软件园E区E1栋
-                    td 015-03-12 17:38:48
-                    td 待收货
-                    td.Remark 客户要求每盒颜色不能重复
-                    td.orderOperator.noborder
-                        a.blue 确认退货
-                        a.blue.doReject 拒绝反馈
-                        a.blue(href='detail.html') 订单详情
-                        a.blue 退款
+                    td 2015-03-12 17:38:48
+                    td
+                      p 未付款
+                      a 详情
                 tr.titleTR
                     td
                         | 订单编号:
                         span.blue 8779641532
                     td.retailer.tdOrderPrice(width="20%") 商品信息
                     td.retailer 分销价
+                    td 数量
+                    td 总价
                     td.receiver 收货人
-                    td 收货地址
                     td 下单时间
                     td 状态
-                    td 备注
-                    td 操作
                 tr.orderTR
                     td.productImgs
                         img(src='../img/logo.png')
                         img(src='../img/logo.png')
                     td 这个商品一点都不好，不要买不要买，便宜没好货
-                    td ￥387.00
+                    td
+                      a ￥387.00
+                    td 23
+                    td
+                      a ￥774.00
+                      p (含快递：￥10.00)
+                      a 修改价格
                     td 王刚
-                    td 四川省成都市高新区天府软件园E区E1栋
                     td 015-03-12 17:38:48
-                    td 等待发货
-                    td.Remark 客户要求每盒颜色不能重复
-                    td.orderOperator
-                        a.blue 确认退货
-                        a.blue.doReject 拒绝反馈
-                        a.blue(href='detail.html') 订单详情
-                        a.blue 退款
+                    td
+                      p 未付款
+                      a 详情
+    div.modal.fade#repriceModal(tabindex="-1" role="dialog" aria-labelledby="myModalLabel")
+      div.modal-dialog(role="document")
+        div.modal-content
+          div.modal-header
+            button.close(type="button" data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") &times;
+            h4.modal-title 修改价格
+          div.modal-body
+            table.table
+              thead
+                tr
+                  td 商品信息
+                  td 分销价
+                  td 数量
+                  td 优惠(可为负数)
+                  td 快递费用
+              tbody
+                tr
+                  tr
+                    td.goods-name 商品名
+                    td.goods-price ￥ 123
+                    td.goods-num 2
+                    td.discount
+                      input.form-control
+                    td.ship-price(rowspan="2")
+                      input.form-control
+                  tr
+                    td.goods-name 商品名
+                    td.goods-price ￥ 123
+                    td.goods-num 2
+                    td.discount
+                      input.form-control
+            div.result-price
+              strong 买家实付：
+              span.all-one 200
+              span.text-danger +
+              span.all-ship 200
+              | (运费)
+              span.text-danger -
+              span.all-discount 200
+              | (优惠)
+              span.text-danger =
+              span.all-price 200
+              
+          div.modal-footer
+            div.col-md-8.text-left#city-tip
+            div.col-md-4
+              button.btn.btn-primary.btn-option(type="button" data-dismiss="modal") 确定
+              button.btn.btn-primary.btn-edit.hide(type="button" data-dismiss="modal") 修改
+              button.btn.btn-default.btn-close(type="button" data-dismiss="modal") 取消
     .hidden
         include returnofgoodsForm.jade
 
@@ -121,39 +161,11 @@ block foot
     link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
     script(type='text/javascript').
         $(function(){
-            $('#checkAll').change(function(){
-                var checked = $(this).prop('checked');
-                $('.orderlist input[type=checkbox]').prop('checked', checked);
+
+            $('.change-price').click(function(){
+                $("#repriceModal").modal();
             });
-            $(document.body).delegate('a.removeImg','click', function(e){
-                $(e.currentTarget).parent().remove();
-            });
-            $(document.body).delegate('.doReject', 'click', function(e){
-                $.dialog({
-                    content: $('#returnofgoodsForm').clone(),
-                    title: '拒绝退货',
-                    buttons: [
-                        {
-                            text: '取消',
-                            click: function(dialog){ dialog.modal('hide'); }
-                        },
-                        {
-                            text: '确定',
-                            style: 'primary',
-                            click: function(dialog){
-                                //TODO:
-                                dialog.modal('hide');
-                            }
-                        }
-                    ]
-                });
-            });
-            $('#orderStart,#orderEnd').datetimepicker({
-                format: 'yyyy-mm-dd',
-                language: 'zh-CN',
-                minView: 2,
-                autoclose: true
-            });
+          
             $('#orderForm').bootstrapValidator({
                 fields:{
                   goodsName: {

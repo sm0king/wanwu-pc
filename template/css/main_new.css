@@ -690,8 +690,6 @@ ul>li.collapse {
 .col-md-5 {
     *padding-left: 0;
     *padding-right: 0;
-    _padding-left: 0;
-    _padding-right: 0;
 }
 
 .col-md-5 {
@@ -699,22 +697,36 @@ ul>li.collapse {
 }
 
 .input-group .form-control {
-    _position: static !important;
-    _float: none;
+    _position:static !important;
+    _float:none;
+    *width:90%;
+}
+.login .form-control{
+  *padding: 0;
+  _padding: 0;
+  *text-indent:42px;
+  _text-indent:42px;
+  *line-height: 50px;
+  _line-height: 50px;
+  _background-color: #ddd!important;
+}
+.login .input-group{_width: 100%;}
+.login .input-group-addon{
+  /**position: absolute;*/
+  *width:30px;
+  _height: 50px;
+  _line-height: 50px;
+  /**top: 1px;*/
+  /**left: 1px;*/
+  *z-index: 99;
+  /*_display: inline;*/
+  *float:left;
 }
 
-.login .form-control {
-    *padding: 0;
-    _padding: 0;
-    *text-indent: 42px;
-    _text-indent: 42px;
-    *line-height: 50px;
-    _line-height: 50px;
-    _background-color: #ddd!important;
-}
-
-.login .input-group {
-    _width: 100%;
+.login-panel .ver-tip{
+  *position: absolute;
+  *right:34px;
+  *float:none;
 }
 
 .login .input-group-addon {
@@ -725,6 +737,7 @@ ul>li.collapse {
     *top: 1px;
     *left: 1px;
     *z-index: 99;
+    _padding: 0;
 }
 
 .login-panel .ver-tip {
@@ -735,4 +748,8 @@ ul>li.collapse {
 
 .login .input-group-addon.captcha-addon{
     padding: 0;
+    _float: right!important;
+}
+#captcha_area .form-control{
+    *text-indent:110px;
 }

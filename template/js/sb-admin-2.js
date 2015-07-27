@@ -23,8 +23,8 @@ $(function() {
         height = height - topOffset;
         if (height < 1) height = 1;
         if (height > topOffset) {
-           $("#page-wrapper").css("min-height", (height-62) > sidebar ? (height-62) : (sidebar+31) + "px");
-        }
+           $("#page-wrapper").css("min-height", (height-62) > sidebar ? (height-62) : (sidebar+45) + "px");
+        } 
     });
 
     var url = window.location;
