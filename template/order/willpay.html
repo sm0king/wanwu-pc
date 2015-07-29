@@ -122,7 +122,7 @@ block OrderContent
                   td 商品信息
                   td 分销价
                   td 数量
-                  td 优惠(可为负数)
+                  td 单件优惠(可为负数)
                   td 快递费用
               tbody.order-info
                   tr
@@ -157,11 +157,7 @@ block OrderContent
               button.btn.btn-primary.btn-option(type="button" data-dismiss="modal") 确定
               button.btn.btn-primary.btn-edit.hide(type="button" data-dismiss="modal") 修改
               button.btn.btn-default.btn-close(type="button" data-dismiss="modal") 取消
-    .hidden
-        include returnofgoodsForm.jade
-
     div.foot
         include ../pagination.jade
 block foot
-    //- link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
     script(type='text/javascript',data-main="#{basePath}js/order/willpay",src='#{basePath}js/require.min.js')

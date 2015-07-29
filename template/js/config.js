@@ -13,7 +13,9 @@ requirejs.config({
         'jqueryTag': 'jquery.tagsinput',
         'metisMenu': 'metisMenu/metisMenu.min',
         'select': 'select/dropkick',
-        'unslider': 'unslider.min'
+        'unslider': 'unslider.min',
+        'sbAdmin' : '../js/sb-admin-2',
+        'dialog' : '../js/dialog'
     },
     shim: {
         "jquery": {
@@ -51,6 +53,13 @@ requirejs.config({
         },
         "unslider": {
             deps: ["jquery"]
+        },
+        "sbAdmin": {
+            deps: ["jquery","bootstrap"]
+        },
+        "dialog": {
+            deps: ["jquery"]
         }
     }
 })
+define(['sbAdmin','dialog'], function($) {});

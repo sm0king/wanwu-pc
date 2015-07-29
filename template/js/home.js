@@ -12,8 +12,9 @@ require(['config'], function() {
                     }, 0);
                 }
             });
-        })
-    })
+        });
+    });
+
     require(['jquery', 'Chart'], function($) {
         $(function() {
             var options1 = {
@@ -55,7 +56,7 @@ require(['config'], function() {
                 }]
             };
             new Chart(ctxRetailer).Line(retailerData, options2);
-        })
-    })
-    define(['sbAdmin', 'dialog'], function($) {})
+        });
+    });
+    // require(['sbAdmin','dialog'], function($) {});
 })
