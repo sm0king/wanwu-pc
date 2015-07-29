@@ -1,5 +1,5 @@
 requirejs.config({
-    baseUrl: '/style/backend/app/js',
+    baseUrl: '../js',
     paths: {
       'config':'config'
     }
@@ -17,7 +17,7 @@ require(['config'], function() {
                 this_num = this_tr.find('.productNum a'),
                 this_orderId = this_tr.data('order'),
                 this_ship = this_tr.find('.productSum').data('ship').toFixed(2),
-                this_sum = this_tr.find('.productSum').data('sum').toFixed(2),
+                this_sum = this_tr.find('.productSum').data('sum'),
                 $order_info = $('.modal-body').find('.order-info'),
                 $all_one = $('.result-price').find('.all-one'),
                 $all_ship = $('.result-price').find('.all-ship'),

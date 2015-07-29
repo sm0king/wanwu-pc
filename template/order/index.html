@@ -110,6 +110,8 @@ block OrderContent
     div.foot
         include ../pagination.jade
 block foot
+    script(type='text/javascript',data-main="#{basePath}js/order/index",src='#{basePath}js/require.min.js')
+  //
     script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
     link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
     script(type='text/javascript').

@@ -10,41 +10,40 @@ block DashboardTitle
     所有订单
 
 block OrderContent
-    //
-        form.form-inline.searchBar
-            div
-                .form-group
-                    label(for='orderNum').stdLable 订单编号：
-                    input(type='text').form-control#orderNum
-                .form-group
-                    label(for='receiver').stdLable2 收货人：
-                    input(type='text').form-control#receiver
-                .form-group
-                    label(for='concat') 联系方式：
-                    input(type='text').form-control#concat
-            div
-                .form-group.timeSpan
-                    label(for='timeBegin').stdLable 下单时间：
-                    input(type='text').form-control#timeBegin
-                    label(for='timeEnd').part 至
-                    input(type='text').form-control#timeEnd
-                .form-group
-                    label(for='state').stdLable2 订单状态：
-                    select.form-control#state
-                        option(value='1') 状态1
-                        option(value='2') 状态2
-                        option(value='3') 状态3
-
-            div
+    form.form-inline.searchBar
+        div
+            .form-group
+                label(for='orderNum').stdLable 订单号：
+                input(type='text').form-control#orderNum
+            .form-group
+                label(for='receiver').stdLable2 收货人：
+                input(type='text').form-control#receiver
+            .form-group
+                label(for='concat') 联系方式：
+                input(type='text').form-control#concat
+        div
+            .form-group.timeSpan
+                label(for='timeBegin').stdLable 下单时间：
+                input(type='text').form-control#timeBegin
+                label(for='timeEnd').part 至
+                input(type='text').form-control#timeEnd
+            .form-group
+                label(for='state').stdLable2 订单状态：
+                select.form-control#state
+                    option(value='1') 状态1
+                    option(value='2') 状态2
+                    option(value='3') 状态3
+            .form-group
                 button.btn.btn-blue 查询
-        .headBar.gap30
-            .btnBar.pull-right
-                button(type='button').btn.btn-blue 确认退货
-            input(type='checkbox')#checkAll
-            label(for='checkAll') 全选
-    .headBar
-            .btnBar
-                button.btn.btn-blue 导出订单
+        //
+          .headBar.gap30
+              .btnBar.pull-right
+                  button(type='button').btn.btn-blue 确认退货
+              input(type='checkbox')#checkAll
+              label(for='checkAll') 全选
+          .headBar
+                  .btnBar
+                      button.btn.btn-blue 导出订单
     .table-responsive.orderlist
         table.table.table-bordered
             tbody
@@ -76,77 +75,78 @@ block OrderContent
     div.foot
         include ../pagination.jade
 block foot
+    script(type='text/javascript',data-main="#{basePath}js/order/all",src='#{basePath}js/require.min.js')
     link(rel='stylesheet',href='../plugs/select/dropkick.css')
-    script(type='text/javascript',src='../plugs/select/dropkick.js')
-    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
-    link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
-    script(type='text/javascript').
-        $(function(){
-            $('select').dropkick();
-            $('#checkAll').change(function(){
-                var checked = $(this).prop('checked');
-                $('.orderlist input[type=checkbox]').prop('checked', checked);
-            });
-            $('#orderStart,#orderEnd').datetimepicker({
-                format: 'yyyy-mm-dd',
-                language: 'zh-CN',
-                minView: 2,
-                autoclose: true
-            });
-
-            $('#orderForm').bootstrapValidator({
-                fields:{
-                  goodsName: {
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  distributorName:{
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  consigneeName:{
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  orderName:{
-                      validators: {
-                          regexp: {
-                              regexp: /^[a-zA-Z0-9_\.]+$/,
-                              message: '请输入正确的采购订单号'
-                          }
-                      }
-                  },
-                }
-            }).on('error.field.bv', function(e, data) {
-                data.element
-                    .data('bv.messages')
-                    .find('.help-block[data-bv-for="' + data.field + '"]').hide();
-                var messages = data.bv.getMessages(data.field);
-                for (var i in messages) {
-                  var l = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
-                  if(l.length===0){
-                    var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
-                    $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
-                  }
-                }
-                $('#msgerror').removeClass('hide');
-            })
-            .on('success.field.bv', function(e, data) {
-                $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
-            })
-            .on('success.form.bv', function(e) {
-                $('#msgerror').addClass('hide');
-            });;
-        });
+    //- script(type='text/javascript',src='../plugs/select/dropkick.js')
+    //- script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+    //- link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
+    //script(type='text/javascript').
+        //- $(function(){
+        //-     $('select').dropkick();
+        //-     $('#checkAll').change(function(){
+        //-         var checked = $(this).prop('checked');
+        //-         $('.orderlist input[type=checkbox]').prop('checked', checked);
+        //-     });
+        //-     $('#orderStart,#orderEnd').datetimepicker({
+        //-         format: 'yyyy-mm-dd',
+        //-         language: 'zh-CN',
+        //-         minView: 2,
+        //-         autoclose: true
+        //-     });
+        //- 
+        //-     $('#orderForm').bootstrapValidator({
+        //-         fields:{
+        //-           goodsName: {
+        //-               validators: {
+        //-                 stringLength: {
+        //-                     max: 30,
+        //-                     message: '输入文本不超过30字符'
+        //-                   }
+        //-               }
+        //-           },
+        //-           distributorName:{
+        //-               validators: {
+        //-                 stringLength: {
+        //-                     max: 30,
+        //-                     message: '输入文本不超过30字符'
+        //-                   }
+        //-               }
+        //-           },
+        //-           consigneeName:{
+        //-               validators: {
+        //-                 stringLength: {
+        //-                     max: 30,
+        //-                     message: '输入文本不超过30字符'
+        //-                   }
+        //-               }
+        //-           },
+        //-           orderName:{
+        //-               validators: {
+        //-                   regexp: {
+        //-                       regexp: /^[a-zA-Z0-9_\.]+$/,
+        //-                       message: '请输入正确的采购订单号'
+        //-                   }
+        //-               }
+        //-           },
+        //-         }
+        //-     }).on('error.field.bv', function(e, data) {
+        //-         data.element
+        //-             .data('bv.messages')
+        //-             .find('.help-block[data-bv-for="' + data.field + '"]').hide();
+        //-         var messages = data.bv.getMessages(data.field);
+        //-         for (var i in messages) {
+        //-           var l = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
+        //-           if(l.length===0){
+        //-             var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
+        //-             $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
+        //-           }
+        //-         }
+        //-         $('#msgerror').removeClass('hide');
+        //-     })
+        //-     .on('success.field.bv', function(e, data) {
+        //-         $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
+        //-     })
+        //-     .on('success.form.bv', function(e) {
+        //-         $('#msgerror').addClass('hide');
+        //-     });;
+        //- });
