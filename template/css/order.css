@@ -114,12 +114,12 @@
     margin-top:30px;
 }
 
-.order #waybill{
+/*.order #waybill{
     width:200px;
 }
 .order #orderNum{
     width:200px;
-}
+}*/
 .order .timeSpan input{
     width:125px;
 }
@@ -325,4 +325,31 @@
 }
 .goodsNum{
     width: 160px;
+}
+
+.pinfo{  height: 90px;  border-bottom: 1px solid #f1f1f1;padding: 10px 0;}
+.pimg{height: 60px;width: 60px;border: 1px solid #e1e1e1;margin: 5px;}
+.table tr td{text-align: center;  vertical-align: middle !important;}
+.noborder{padding-top:0px !important;}
+.order .orderTR td{padding-top: 8px ;}
+.noborder .pinfo:last-child{border-bottom: none !important;;}
+.pinfo a{display: block;  vertical-align: middle;  margin-top: 0px !important;  line-height: 35px;}
+.onepinfo a{display: block;  vertical-align: middle;  margin-top: 0px !important;  line-height: 35px;}
+.doReturnGoods{
+    cursor: pointer;
+    color: #f00;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 12px;;
+    display: inline-block;
+}
+
+.form-inline .control-label{
+    padding-top: 7px;
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.form-group .col-md-4,.form-group .col-md-8{
+  padding-right: 0;
 }
