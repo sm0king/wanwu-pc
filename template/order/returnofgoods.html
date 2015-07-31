@@ -68,10 +68,11 @@ block OrderContent
                     td 待收货
                     td.Remark 客户要求每盒颜色不能重复
                     td.orderOperator.noborder
-                        a.blue 确认退货
-                        a.blue.doReject 拒绝反馈
+                        a.blue.doReturn 确认退货
+                        a.blue.doReject 拒绝退货
+                        a.blue(href='../message/defail.html')订单留言(0)
                         a.blue(href='detail.html') 订单详情
-                        a.blue 退款
+                        //- a.blue 退款
                 tr.titleTR
                     td
                         | 订单编号:
@@ -100,10 +101,32 @@ block OrderContent
                         a.blue.doReject 拒绝反馈
                         a.blue(href='detail.html') 订单详情
                         a.blue 退款
-
+    .hidden
+      form#refusefgoodsForm.form-horizontal
+        .alert.alert-danger 拒绝退货可能引起分销商投诉，请谨慎操作！
+        .form-group
+          .col-sm-12
+            label.control-label 拒绝退货原因：
+          .col-sm-12
+            textarea#input-return.form-control
+        .form-group
+          .col-sm-12 选择图片上传（可选）：
+          .col-sm-12.imgs
+            #uploadQuJj.uploadQuJj(data-maxcount="6")
+              input.imgval(type="hidden" value=""  name='images')
+              .btn.btn-gray.btn-upload
+                span 上传图片
+                input#fileupload.fileupload(name='mypic')
+              .progress
+                span.bar
+                span.percent 0%
+              .row.imgBar
+                .col-sm-12.uploadImgs
+            div
+              a.upload
     div.foot
         include ../pagination.jade
 block foot
     script(type='text/javascript',data-main="#{basePath}js/order/returngoods",src='#{basePath}js/require.min.js')
     link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
-  
+    link(rel="stylesheet", href="../plugs/jquery.form/foxupload.css")

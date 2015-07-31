@@ -13,8 +13,8 @@ block DashboardTitle
 block OrderContent
     .headBar
         .btnBar.pull-right
-            button(type='button').btn.btn-gray 下载全部未发货订单信息
-            button(type='button').btn.btn-bigblue 上传发货信息
+            button(type='button').btn.btn-gray#download_button 下载全部未发货订单信息
+            button(type='button').btn.btn-bigblue#upload_button 上传发货信息
             a.blue 下载发货信息模板
     .table-responsive.orderlist
         table.table.table-bordered
@@ -46,6 +46,7 @@ block OrderContent
                         a.blue.doExpress 发货
                         a.blue.doNoStock 无货反馈
                         a.blue(href='detail.html') 订单详情
+                        a.blue(href='../message/defail.html') 订单留言(0)
                         a.blue.doCancelOrder 取消订单
                 tr.titleTR
                     td
@@ -72,6 +73,7 @@ block OrderContent
                         a.blue.doExpress 发货
                         a.blue.doNoStock 无货反馈
                         a.blue(href='detail.html') 订单详情
+                        a.blue(href='../message/defail.html') 订单留言(0)
                         a.blue.doCancelOrder 取消订单
     .hidden
         form.form-horizontal#expressForm
@@ -109,185 +111,12 @@ block OrderContent
         include returnofgoodsForm.jade
     div.foot
         include ../pagination.jade
+    form#hidden_import_area(style="display:none")
+      iframe(name="iframeUpload")
+      input#hidden_import_button(name="shipping_file" type="file")
 block foot
     script(type='text/javascript',data-main="#{basePath}js/order/index",src='#{basePath}js/require.min.js')
   //
-    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+    //- script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
     link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
-    script(type='text/javascript').
-        $(function(){
-            $('#checkAll').change(function(){
-                var checked = $(this).prop('checked');
-                $('.orderlist input[type=checkbox]').prop('checked', checked);
-            });
-            $(document.body).delegate('.doExpress', 'click', function(e){
-                $.dialog({
-                    content: $('#expressForm').clone(),
-                    title: '填写快递信息',
-                    buttons: [
-                        {
-                            text: '取消',
-                            click: function(dialog){ dialog.modal('hide'); }
-                        },
-                        {
-                            text: '确定',
-                            style: 'primary',
-                            click: function(dialog){
-                                //TODO:
-                                var errorMsg = [],
-                                    inputWaybill = dialog.find('#inputWaybill');
-                                if(inputWaybill[0].value.length===0){
-                                    errorMsg.push('请输入运单号！');
-                                }
-                                if(errorMsg.length > 0){
-                                    var html ='<div class="alert alert-danger" role="alert">',
-                                        msg = null;
-                                    while(msg = errorMsg.shift()){
-                                        html += '<p>' + msg + '</p>';
-                                    }
-                                    html += '</div>';
-                                    dialog.find('#expressForm').before(html);
-                                    return;
-                                }
-                                dialog.modal('hide');
-                            }
-                        }
-                    ]
-                });
-            });
-            $(document.body).delegate('.doNoStock', 'click', function(e){
-                var imgs = '';
-                $(e.currentTarget).parents('tr:first').children('.productImgs').children().each(function(i, e){
-                    imgs += '<div><img src="' + e.src + '" class="noStockProductImg"><div class="ok"></div></div>'
-                });
-                $('.noStockProducts').empty().append(imgs);
-                $.dialog({
-                    content: $('#noStockForm').clone(),
-                    title: '无货反馈',
-                    buttons: [
-                        {
-                            text: '取消',
-                            click: function(dialog){ dialog.modal('hide'); }
-                        },
-                        {
-                            text: '确定',
-                            style: 'primary',
-                            click: function(dialog){
-                                var errorMsg = [],
-                                    checkedProducts = dialog.find('div.checked');
-                                if(checkedProducts.length == 0){
-                                    errorMsg.push('请选择无货商品！');
-                                }
-                                var text = $.trim(dialog.find('#input-noStock').val());
-                                if(!text){
-                                    dialog.find('#input-noStock').parents('.form-group:first').addClass('has-error');
-                                    errorMsg.push('请输入反馈信息！');
-                                }else{
-                                    dialog.find('#input-noStock').parents('.form-group:first').removeClass('has-error');
-                                }
-                                dialog.find('.noStockProducts').prevAll().remove();
-                                if(errorMsg.length > 0){
-                                    var html ='<div class="alert alert-danger" role="alert">',
-                                        msg = null;
-                                    while(msg = errorMsg.shift()){
-                                        html += '<p>' + msg + '</p>';
-                                    }
-                                    html += '</div>';
-                                    dialog.find('.noStockProducts').before(html);
-                                    return;
-                                }
-                                //TODO:
-                                dialog.modal('hide');
-                            }
-                        }
-                    ]
-                });
-            });
-            $(document.body).delegate('.noStockProductImg', 'click', function(e){
-                $(e.currentTarget).parent().toggleClass('checked');
-            }).delegate('a.removeImg','click', function(e){
-                $(e.currentTarget).parent().remove();
-            });
-            $(document.body).delegate('.doCancelOrder', 'click', function(e){
-                $.dialog({
-                    content: $('#returnofgoodsForm').clone(),
-                    title: '取消订单',
-                    buttons: [
-                        {
-                            text: '取消',
-                            click: function(dialog){ dialog.modal('hide'); }
-                        },
-                        {
-                            text: '确定',
-                            style: 'primary',
-                            click: function(dialog){
-                                //TODO:
-                                dialog.modal('hide');
-                            }
-                        }
-                    ]
-                });
-            });
-            $('#orderStart,#orderEnd').datetimepicker({
-                format: 'yyyy-mm-dd',
-                language: 'zh-CN',
-                minView: 2,
-                autoclose: true
-            });
-            $('#orderForm').bootstrapValidator({
-                fields:{
-                  goodsName: {
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  distributorName:{
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  consigneeName:{
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  orderName:{
-                      validators: {
-                          regexp: {
-                              regexp: /^[a-zA-Z0-9_\.]+$/,
-                              message: '请输入正确的采购订单号'
-                          }
-                      }
-                  },
-                }
-            }).on('error.field.bv', function(e, data) {
-                data.element
-                    .data('bv.messages')
-                    .find('.help-block[data-bv-for="' + data.field + '"]').hide();
-                var messages = data.bv.getMessages(data.field);
-                for (var i in messages) {
-                  var l = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
-                  if(l.length===0){
-                    var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
-                    $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
-                  }
-                }
-                $('#msgerror').removeClass('hide');
-            })
-            .on('success.field.bv', function(e, data) {
-                $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
-            })
-            .on('success.form.bv', function(e) {
-                $('#msgerror').addClass('hide');
-            });
-
-        });
+    

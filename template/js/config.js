@@ -9,13 +9,24 @@ requirejs.config({
         'html5shiv': 'html5shiv.min',
         'imagebox': 'imagebox/imagebox',
         'cookie': 'jquery.cookie',
-        'jqueryForm': 'jquery.form/jquery.foxupload',
+        'jqueryForm':'jquery.form/jquery.form',
+        'foxUpload': 'jquery.form/jquery.foxupload',
         'jqueryTag': 'jquery.tagsinput',
         'metisMenu': 'metisMenu/metisMenu.min',
         'select': 'select/dropkick',
         'unslider': 'unslider.min',
-        'sbAdmin' : '../js/sb-admin-2',
-        'dialog' : '../js/dialog'
+        'ZeroClipboard':'ueditor/third-party/zeroclipboard/ZeroClipboard',
+        'ueditorConfig':'ueditor/ueditor.config',
+        'ueditor':'ueditor/ueditor.all.min',
+        'sbAdmin':'../js/sb-admin-2',
+        'dialog':'../js/dialog',
+        'foxuploadBrand':'jquery.form/jquery.foxupload_brand',
+        'foxuploadProduct':'jquery.form/jquery.foxupload_product',
+
+        'productDetail':'../js/product/detail',
+        'productEdit':'../js/product/product_edit',
+        'productAdd':'../js/product/product_add',
+        'productMEdit':'../js/product/product_m_edit'
     },
     shim: {
         "jquery": {
@@ -39,8 +50,11 @@ requirejs.config({
         "cookie": {
             deps: ["jquery"]
         },
-        "jqueryForm": {
-            deps: ["jquery"]
+        "jqueryForm":{
+            deps:["jquery"]
+        },
+        "foxUpload": {
+            deps: ["jquery",'jqueryForm']
         },
         "jqueryTag": {
             deps: ["jquery"]
@@ -54,12 +68,33 @@ requirejs.config({
         "unslider": {
             deps: ["jquery"]
         },
-        "sbAdmin": {
-            deps: ["jquery","bootstrap"]
+        "ueditorConfig":{
         },
-        "dialog": {
-            deps: ["jquery"]
+        "ueditor":{
+            deps:['ueditorConfig'],
+            exports:'UE'
+        },
+        "productEdit":{
+            deps:["jquery","ueditor","ZeroClipboard","bootstrap","dialog","foxuploadProduct"]
+        },
+        "productAdd":{
+            deps:["jquery","ueditor","ZeroClipboard","bootstrap","dialog","foxuploadProduct"]
+        },
+        "productMEdit":{
+            deps:["jquery"]
+        },
+        "foxuploadBrand":{
+            deps:['jquery','jqueryForm']
+        },
+        "foxuploadProduct":{
+            deps:['jquery','jqueryForm']
+        },
+        "sbAdmin":{
+            deps:['jquery','bootstrap']
+        },
+        "dialog":{
+            deps:['jquery','bootstrap']
         }
     }
 })
-define(['sbAdmin','dialog'], function($) {});
+define(['sbAdmin','dialog'],function($){})

@@ -20,16 +20,16 @@ body{
     background: #515151 url(../img/ft-bg.png) 0 0 repeat;
 }
 .footer p{
-    color: #069dd5;
+    color: #888;
     font-size: 14px;
     margin: 0;
 }
 .footer a{
     text-decoration: none;
-    color: #069dd5;
+    color: #888;
 }
 .footer a:visited{
-    color: #069dd5;
+    color: #888;
 }
 .footer .comp{
     color: #8f8f8f;

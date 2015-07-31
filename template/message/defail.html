@@ -4,19 +4,22 @@ block Define
     - var basePath = '../';
 
 block header
-    link(rel='stylesheet', href='../css/message.css')   
+    link(rel='stylesheet', href='../css/message.css')
 
 block DashboardTitle
     站内信详情
 
-block Right 
+block Right
     .msg
-        .titleBar
-            img(src='../img/logo.png')
-            span 北京麦极创意科技有限公司
+        h4.indexH3 消息回复
+        div
+          a
+            span 
+              | &lt;&lt; 返回订单列表
         .msgGroup.panel.panel-default
             .panel-body
-                p 相关订单：1234567890
+                p 相关订单：
+                  a 1234567890
                 .panel.panel-default.messageLeft
                     .panel-heading
                         span.date.gray 2015-3-16  16:20:06
@@ -34,5 +37,7 @@ block Right
         form.replyForm
             .form-group
                 textarea.form-control
-            .form-group
+            .form-group.clearfix
                 button.btn.btn-blue.pull-right 回复
+block foot
+    script(type='text/javascript',data-main="#{basePath}js/common/index",src='#{basePath}js/require.min.js')
