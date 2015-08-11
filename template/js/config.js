@@ -44,8 +44,7 @@ requirejs.config({
         "html5shiv": {
         },
         "imagebox": {
-            deps: ["imagebox"],
-            exports: "imagebox"
+            deps: ["jquery"]
         },
         "cookie": {
             deps: ["jquery"]
