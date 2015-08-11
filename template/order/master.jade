@@ -16,9 +16,11 @@ block Right
             li(role='presentation',class=active==0 ? 'active' : '')
                 a(href='index.html') 待发货订单
             li(role='presentation',class=active==1 ? 'active' : '')
-                a(href='returnofgoods.html') 待退货订单
+                a(href='shipment.html') 已发货订单
             li(role='presentation',class=active==2 ? 'active' : '')
-                a(href='willpay.html') 未付款订单
+                a(href='willpay.html') 待支付订单
             li(role='presentation',class=active==3 ? 'active' : '')
+                a(href='returnofgoods.html') 待退货订单
+            li(role='presentation',class=active==4 ? 'active' : '')
                 a(href='all.html') 所有订单
         block OrderContent

@@ -5,40 +5,40 @@ requirejs.config({
   }
 })
 require(['config'], function() {
-  require(['jquery', 'bootstrap', 'bootstrapValidator','foxUpload','jqueryForm'], function($) {
+  require(['jquery', 'bootstrap', 'bootstrapValidator','foxUpload','jqueryForm','datetimepicker'], function($) {
     $(function() {
       // 表单验证
       $('#myform').bootstrapValidator({
-        fields: {
-          orderNum: {
-            validators: {
-              stringLength: {
-                max: 30,
-                message: '输入文本不超过30字符'
-              },
-              regexp: {
-                regexp: /^[a-zA-Z0-9_\.]+$/,
-                message: '请输入正确的采购订单号'
-              }
+          fields:{
+            orderNum: {
+                validators: {
+                  stringLength: {
+                      max: 30,
+                      message: '输入文本不超过30字符'
+                  },
+                  regexp: {
+                      regexp: /^[a-zA-Z0-9_\.]+$/,
+                      message: '请输入正确的采购订单号'
+                  }
+                }
+            },
+            receiver:{
+                validators: {
+                  stringLength: {
+                      max: 30,
+                      message: '输入文本不超过30字符'
+                    }
+                }
+            },
+            concat:{
+                validators: {
+                  stringLength: {
+                      max: 30,
+                      message: '输入文本不超过30字符'
+                    }
+                }
             }
-          },
-          waybill: {
-            validators: {
-              stringLength: {
-                max: 30,
-                message: '输入文本不超过30字符'
-              }
-            }
-          },
-          concat: {
-            validators: {
-              stringLength: {
-                max: 30,
-                message: '输入文本不超过30字符'
-              }
-            }
-          },
-        }
+          }
       });
 
       $(document.body).delegate('a.removeImg', 'click', function(e) {

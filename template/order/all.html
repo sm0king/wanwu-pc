@@ -1,6 +1,6 @@
 extends master.jade
 block OrderDefine
-    -var active = 3;
+    -var active = 4;
     -var selectedV = 0
     -var pagin_right = true;
 block SubPage
@@ -53,6 +53,3 @@ block OrderContent
 block foot
     script(type='text/javascript',data-main="#{basePath}js/order/all",src='#{basePath}js/require.min.js')
     link(rel='stylesheet',href='../plugs/select/dropkick.css')
-    //- script(type='text/javascript',src='../plugs/select/dropkick.js')
-    //- script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
-    link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')

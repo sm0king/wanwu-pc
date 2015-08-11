@@ -75,6 +75,7 @@
     height: 52px;
     border:1px solid #e1e1e1;
     margin:5px;
+    float: left;
 }
 .order .orderOperator{
     min-width: 85px;
@@ -348,8 +349,4 @@
     padding-top: 7px;
     margin-bottom: 0;
     text-align: right;
-}
-
-.form-group .col-md-4,.form-group .col-md-8{
-  padding-right: 0;
 }

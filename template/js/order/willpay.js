@@ -5,7 +5,7 @@ requirejs.config({
     }
 })
 require(['config'], function() {
-    require(['jquery','bootstrap'], function($) {
+    require(['jquery','bootstrap','datetimepicker','bootstrapValidator'], function($) {
       $(function() {
         $('.change-price').click(function(){
             // 弹出层
@@ -160,6 +160,39 @@ require(['config'], function() {
           }
           return all_price.toFixed(2);
         }
-      })
-    })
-})
+
+        $('#myform').bootstrapValidator({
+            fields:{
+              orderNum: {
+                  validators: {
+                    stringLength: {
+                        max: 30,
+                        message: '输入文本不超过30字符'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_\.]+$/,
+                        message: '请输入正确的采购订单号'
+                    }
+                  }
+              },
+              receiver:{
+                  validators: {
+                    stringLength: {
+                        max: 30,
+                        message: '输入文本不超过30字符'
+                      }
+                  }
+              },
+              concat:{
+                  validators: {
+                    stringLength: {
+                        max: 30,
+                        message: '输入文本不超过30字符'
+                      }
+                  }
+              }
+            }
+        });
+      });
+    });
+});
