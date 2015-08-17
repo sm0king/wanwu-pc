@@ -1,0 +1,16 @@
+extends master.jade
+block InfoDefine
+    -var active = 4;
+
+block title
+    title 运费模版测试页面
+
+block DashboardTitle
+    运费模版测试页面
+
+block InfoContent
+    h4.indexH3 新增运费模板  -- 测试页面
+    .m-box
+        a.acc_popup.edit.J_EditArea(title="编辑运送区域",data-areas="" data-spm-anchor-id="0.0.0.0") 编辑
+block foot
+    script(type='text/javascript',data-main="../js/info/fareTemple",src='#{basePath}js/require.min.js')

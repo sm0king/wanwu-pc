@@ -57,5 +57,5 @@ require(['config'], function() {
             new Chart(ctxRetailer).Line(retailerData, options2);
         })
     })
-    define(['sbAdmin', 'dialog'], function($) {})
+    require(['sbAdmin', 'dialog'], function($) {})
 })

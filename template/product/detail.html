@@ -5,7 +5,7 @@ block Define
 block header
 
     link(rel='stylesheet', href='../css/product.css')
-
+    link(rel='stylesheet', href='../plugs/jquery.form/foxupload_product.css')
 block DashboardTitle
     商品详情
 
@@ -42,7 +42,7 @@ block Right
                 <div class="form-group">
                     <label for="productName" class="control-label require">商品名称：</label>
                     <div class="col-md-6">
-                        <input type="text" id="productName" name="productName" class="form-control" maxlength="30">
+                        <input type="text" id="productName" name="productName" class="form-control">
                     </div>
                     <div class="col-md-4 tipCon">
                         <span>建议在标题中包含品牌、商品名称及产品关键特性.<i>(<em id="titleWorldNumber">0</em>/30)</i></span>
@@ -74,9 +74,9 @@ block Right
                 </div>
                 <div class="form-group">
                     <label for="productAttr" class="control-label">商品属性：</label>
-                    <div class="col-md-9 attributes">
-                        <div class="m-attribute">
-                            <div class="attribute" id="attributes">
+                    <div class="col-md-10 attributes">
+                        <div class="m-attribute" id="props_area">
+                            <div class="attribute">
                                 <label for="" class="control-label">材质:</label>
                                 <input type="text" class="form-control">
                             </div>
@@ -120,14 +120,32 @@ block Right
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="颜色1h:颜色16">颜色16X</input>
                                     </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" value="颜色1h:颜色11">颜色11X</input>
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" value="颜色1h:颜色12">颜色12X</input>
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" value="颜色1h:颜色13">颜色13X</input>
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" value="颜色1h:颜色14">颜色14X</input>
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" value="颜色1h:颜色15">颜色15X</input>
+                                    </label>
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" value="颜色1h:颜色16">颜色16X</input>
+                                    </label>
                                 </div>
-                                <div class="clearfix ortherVirtue">
+                                <!-- <div class="clearfix ortherVirtue">
                                     <label class="checkbox-inline ortherCheck">
                                         其他:
                                         <input type="text">
                                         <button class="btn btn-blue" type="button">添加</button>
                                     </label>
-                                </div>
+                                </div> -->
 
                             </div>
                              <div class="attribute clearfix sellvirtue">
@@ -152,13 +170,13 @@ block Right
                                         <input type="checkbox" value="颜色2h:颜色26">颜色26X</input>
                                     </label>
                                 </div>
-                                <div class="clearfix ortherVirtue">
+                                <!-- <div class="clearfix ortherVirtue">
                                     <label class="checkbox-inline ortherCheck">
                                         其他:
                                         <input type="text">
                                         <button class="btn btn-blue" type="button">添加</button>
                                     </label>
-                                </div>
+                                </div> -->
                             </div>
                             <!--<div class="attribute clearfix sellvirtue">
                                 <label for="" class="control-label">品牌:</label>
@@ -276,6 +294,26 @@ block Right
                         </div>
                     </div>
                 </div>
+                <div id="food_security_props_area" class="food_security_props_area clearfix">
+                        <label for="productAttr" class="control-label">食品属性：</label>
+                        <div class="col-md-10 attributes">
+                            <div class="m-attribute" id="food_props_area">
+                                <div class='attribute form-group'><label for='' class='control-label'>生产许可证号:</label>QS<input id='prdLicenseNo' class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>产品标准号:</label><input id='designCode' class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>厂名:</label><input id='factory' class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>厂址:</label><input id='factorySite' class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>厂家联系方式:</label><input id='contact' class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>配料表:</label><input id='mix' class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>储藏方法:</label><input id='planStorage' class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>保质期:</label><input id='period' name="period" class='form-control' type='text' value='食品属性值' />天</div>
+                                <div class='attribute form-group'><label for='' class='control-label'>食品添加剂:</label><input id='foodAdditive' class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>供货商:</label><input id='supplier' class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>生产日期:</label><input id='productDateStart' name="productDateStart" class='form-control' type='text' value='食品属性值' />-<input id='productDateEnd' name="productDateEnd" class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>进货日期:</label><input id='stockDateStart' name="stockDateStart" class='form-control' type='text' value='食品属性值' />-<input id='stockDateEnd' name="stockDateEnd" class='form-control' type='text' value='食品属性值' /></div>
+                                <div class='attribute form-group'><label for='' class='control-label'>健字号:</label><input id='healthProductNo' class='form-control' type='text' value='食品属性值' /></div>
+                            </div>
+                        </div>
+                    </div>
                 <div class="form-group" id="comMes">
                     <label for="productModel" class="control-label require">商品规格：</label>
                     <div class="col-md-9">
@@ -335,22 +373,29 @@ block Right
                         </div> -->
                         <div class="form-group">
                             <label for="" class="control-label require">分销价：</label>
-                            <div class="col-md-9">
-                                <div class="table-responsive">
+                            <div class="col-md-6">
+                                <div class="table-responsive"  id="branchAction">
                                     <table class="table table-bordered table-center customTable table-price">
                                         <thead>
                                             <tr>
                                                 <td class="require">购买数量</td>
-                                                <td class="require">价格</td>
+                                                <td class="require">折扣(%)</td>
                                                 <td class="col-operator">操作</td>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody class="price_body" id="price_body">
                                             <tr>
                                                 <td><div class="buyNumber">1</div></td>
+                                                <td>90</td>
+                                                <td>
+                                                    <a href="javascript:;" class="btn-dustbin drop_price"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><div class="buyNumber">10</div></td>
                                                 <td>80</td>
                                                 <td>
-                                                    <a href="javascript:;" class="btn-dustbin"></a>
+                                                    <a href="javascript:;" class="btn-dustbin drop_price"></a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -359,15 +404,35 @@ block Right
                                                 </td>
                                                 <td><input type="text" class="form-control" name="discount[]"></td>
                                                 <td>
-                                                    <a href="javascript:;" class="btn-ok save"></a>
-                                                    <a href="javascript:;" class="btn-dustbin"></a>
+                                                    <a href="javascript:;" class="btn-ok save price"></a>
+                                                    <a href="javascript:;" class="btn-dustbin drop_price"></a>
                                                 </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
-                                <a href="javascript:;" class="blue">+增加价格区间</a>
-                                <span class="gray help-block">分销商采购商品的价格</span>
+                                <a href="javascript:;" class="blue" id="add_price_area">+增加价格区间</a>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-center customTable table-price-show" id="table-price-show">
+                                        <thead>
+                                            <tr>
+                                                <td colspan="2">预览</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><p class="branchNumber">20</p></td>
+                                                <td><p class="branchPrice">100.00</p></td>
+                                            </tr>
+                                            <tr>
+                                                <td><p class="branchNumber">20</p></td>
+                                                <td><p class="branchPrice">100.00</p></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
@@ -457,10 +522,38 @@ block Right
                         </div>
                         <div class="form-group">
                             <label for="productLocation" class="control-label require">商品图片：</label>
-                            <div class="col-md-9 product-images">
-                                <span class="gray">
-                                        每张图片大小请控制在150K以内,第一张图为默认主图，要求图片尺寸在700*700像素以上，1M以内，否则不能分销到其他平台
+                            <div class="col-md-6">
+                                <span class="tioCon">
+                                    第一张图为主图，图片尺寸在700*700像素以上，3M以内
                                 </span>
+                                <div id="uploadGoodsImg" data-maxcount="20">
+                                    <input type="hidden" name="image" class="imgval"/>
+                                    <div class="row imgBar">
+                                        <div class="col-sm-12 uploadImgs">
+                                            <div class="upload-img">
+                                                <img src="/img/logo.png" alt="" class="img-responsive">
+                                                <a class="removeImg glyphicon glyphicon-remove" imgId="imgid" href="javascript:;"></a>
+                                            </div>
+                                            <div class="upload-img">
+                                                <img src="/img/logo.png" alt="" class="img-responsive">
+                                                <a class="removeImg glyphicon glyphicon-remove" imgId="imgid" href="javascript:;"></a>
+                                            </div>
+                                            <div class="upload-img">
+                                                <img src="/img/logo.png" alt="" class="img-responsive">
+                                                <a class="removeImg glyphicon glyphicon-remove" imgId="imgid" href="javascript:;"></a>
+                                            </div>
+                                            <div class="progress">
+                                                <span class="bar"></span>
+                                                <span class="percent">0%</span>
+                                            </div>
+                                            <div class="btn-upload btn-uploads">
+                                                <span class="upload"></span>
+                                                <input type="file" id="fileupload" name='mypic' class="fileupload"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- 
                                 </br>
                                 <div>
                                     <img src="/img/logo.png" class="img-responsive center-block" alt="">
@@ -481,7 +574,8 @@ block Right
                                 <div>
                                     <a href="javascript:;" class="upload"></a>
                                     <input type="file" id="fileupload" name="mypic" class="fileupload" accept="image/png, image/jpeg,image/jpg,image/bmp">
-                                </div>
+                                </div> 
+                                -->
                             </div>
                         </div>
                         <!-- <div class="row desc">
@@ -547,220 +641,226 @@ block Right
         <div class="row">
             <div class="stdLeft"></div>
             <div class="col-lg-4">
-                <button type="button" class="btn btn-blue">提交商品</button>
-                <button type="button" class="btn btn-blue save-draft">保存草稿</button>
+                <button type="button" draft="0" class="btn btn-blue save_button">提交产品</button>
+                <button type="button" draft="1" class="btn btn-blue save-draft save_button">保存草稿</button>
+                <button type="button" draft="2" class="btn btn-blue save-draft save_button">预览产品</button>
                 <!-- <a href="javascript:;" class="saveAndBack">保存后返回列表</a> -->
             </div>
         </div>
 block foot
-    script(type='text/javascript', src='../plugs/ueditor/ueditor.config.js')
-    script(type='text/javascript', src='../plugs/ueditor/ueditor.all.min.js')
-    script(type='text/javascript', src='../plugs/jquery.tagsinput.js')
-    script(type='text/javascript', src='../js/product_detail.js')
-    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
-    link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
     script.
-        $(function(){
-            //验证
-            $('#productForm').bootstrapValidator({
-                feedbackIcons: {
-                    valid: 'glyphicon glyphicon-ok',
-                    invalid: 'glyphicon glyphicon-remove',
-                    validating: 'glyphicon glyphicon-refresh'
-                },
-                fields:{
-                    productName:{
-                        validators:{
-                            notEmpty: {
-                                message: '商品名不能为空'
-                            }
-                        }
+        window.UEDITOR_HOME_URL = '/plugs/ueditor/';
+    script(type='text/javascript',data-main="../js/product/detail",src='#{basePath}js/require.min.js')
+    //
+        script(type='text/javascript', src='../plugs/ueditor/ueditor.config.js')
+        script(type='text/javascript', src='../plugs/ueditor/ueditor.all.min.js')
+        script(type='text/javascript', src='../plugs/jquery.tagsinput.js')
+        script(type='text/javascript', src='../js/product_detail.js')
+        script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+    link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
+    //
+        script.
+            $(function(){
+                //验证
+                $('#productForm').bootstrapValidator({
+                    feedbackIcons: {
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
                     },
-                    shopPrice:{
-                        validators:{
-                            notEmpty: {
-                                message: '基础分销价不能为空'
-                            },
-                            numeric:{
-                                message: '价格只能为数字'
+                    fields:{
+                        productName:{
+                            validators:{
+                                notEmpty: {
+                                    message: '商品名不能为空'
+                                }
                             }
-                        }
-                    },
-                    productAdvice:{
-                        validators:{
-                            numeric:{
-                                message: '价格只能为数字'
+                        },
+                        shopPrice:{
+                            validators:{
+                                notEmpty: {
+                                    message: '基础分销价不能为空'
+                                },
+                                numeric:{
+                                    message: '价格只能为数字'
+                                }
                             }
-                        }
-                    },
-                    purchprice:{
-                        validators:{
-                            numeric:{
-                                message: '价格只能为数字'
+                        },
+                        productAdvice:{
+                            validators:{
+                                numeric:{
+                                    message: '价格只能为数字'
+                                }
                             }
-                        }
-                    },
-                    'discount[]':{
-                        validators:{
-                            between:{
-                                min:1,
-                                max:99,
-                                message:'折扣为1-99的人意整数'
-                            },
-                            integer:{
-                                message:'请输入正确的整数'
-                            },
-                            numeric:{
-                                message: '价格只能为数字'
+                        },
+                        purchprice:{
+                            validators:{
+                                numeric:{
+                                    message: '价格只能为数字'
+                                }
                             }
-                        }
-                    },
-                    'buyNumber[]':{
-                        validators:{
-                            numeric:{
-                                message: '请输入正确的整数'
+                        },
+                        'discount[]':{
+                            validators:{
+                                between:{
+                                    min:1,
+                                    max:99,
+                                    message:'折扣为1-99的人意整数'
+                                },
+                                integer:{
+                                    message:'请输入正确的整数'
+                                },
+                                numeric:{
+                                    message: '价格只能为数字'
+                                }
+                            }
+                        },
+                        'buyNumber[]':{
+                            validators:{
+                                numeric:{
+                                    message: '请输入正确的整数'
+                                }
                             }
                         }
                     }
-                }
-            })
-            //生成SKU
-            $('.sellvirtue').on('change','input',function(e){
-                //$(this).parents('.sellvirtue').index('.sellvirtue')
+                })
+                //生成SKU
+                $('.sellvirtue').on('change','input',function(e){
+                    //$(this).parents('.sellvirtue').index('.sellvirtue')
 
-                var virLen = $('.sellvirtue').length;
-                var virArr =[]
-                for(var i = 0; i < virLen;i++){
-                    var sellDom = $('input:checked',$('.sellvirtue').eq(i));
-                    var tm = [];
-                    for(var j = 0; j < sellDom.length; j++){
-                        tm.push(sellDom[j].value);
+                    var virLen = $('.sellvirtue').length;
+                    var virArr =[]
+                    for(var i = 0; i < virLen;i++){
+                        var sellDom = $('input:checked',$('.sellvirtue').eq(i));
+                        var tm = [];
+                        for(var j = 0; j < sellDom.length; j++){
+                            tm.push(sellDom[j].value);
+                        }
+                        tm.length && virArr.push(tm);
                     }
-                    tm.length && virArr.push(tm);
-                }
-                var tdHtml = ''
-                if(virArr.length === virLen){
-                    var ArrValue = doExchange(virArr);
+                    var tdHtml = ''
+                    if(virArr.length === virLen){
+                        var ArrValue = doExchange(virArr);
 
-                    if($.isArray(ArrValue)){
-                        for(var n = 0; n < ArrValue.length; n++){
-                            var valArr = ArrValue[n].split(';');
-                            var newArr =[]
-                            for(var m =0; m < valArr.length;m++){
-                                var tem = valArr[m];
-                                newArr.push($.trim($('.m-attribute input[value = "'+tem+'"]').parent().text()));
-                            }
-                            var newStr = newArr.join('--');
-                            if($('#version_body input[value="'+ArrValue[n]+'"]').length > 0){
-                                tdHtml += '<tr class="skuTr">'+$('#version_body input[value="'+ArrValue[n]+'"]').parents('.skuTr').html()+'</tr>';
-                            }else{
-                                tdHtml += '<tr class="skuTr"><td><input type="hidden" value="'+ArrValue[n]+'"> <span>'+newStr+'</span></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><a href="javascript:;" class="btn-ok save"></a><a href="javascript:;" class="btn-dustbin"></a></td></tr>';
+                        if($.isArray(ArrValue)){
+                            for(var n = 0; n < ArrValue.length; n++){
+                                var valArr = ArrValue[n].split(';');
+                                var newArr =[]
+                                for(var m =0; m < valArr.length;m++){
+                                    var tem = valArr[m];
+                                    newArr.push($.trim($('.m-attribute input[value = "'+tem+'"]').parent().text()));
+                                }
+                                var newStr = newArr.join('--');
+                                if($('#version_body input[value="'+ArrValue[n]+'"]').length > 0){
+                                    tdHtml += '<tr class="skuTr">'+$('#version_body input[value="'+ArrValue[n]+'"]').parents('.skuTr').html()+'</tr>';
+                                }else{
+                                    tdHtml += '<tr class="skuTr"><td><input type="hidden" value="'+ArrValue[n]+'"> <span>'+newStr+'</span></td><td><input type="text" class="form-control"></td><td><input type="text" class="form-control"></td><td><a href="javascript:;" class="btn-ok save"></a><a href="javascript:;" class="btn-dustbin"></a></td></tr>';
+                                }
                             }
                         }
-                    }
-                }$('#version_body').html(tdHtml);
-            })
-            function doExchange(x){
-                var h = x.length;
-                var w = x[0].length;
-                var i, j;
-                var m = [], n;
-                m[i = h] = 1;
-                while (i--)
-                        m[i] = m[i + 1] * x[i].length;
-                n = m[0];
-                var newArray =[];
-                for (i = 0; i < n; i++) {
-                    var tem = [];
-                    for (j = 0; j < h; j++){
-                        tem.push(x[j][~~(i % m[j] / m[j + 1])]);
-                    }
-                    newArray.push(tem.join(';'));
-                }
-                return newArray;
-            }
-            //保存商品属性。
-            $('#comMes').on('click','.save',function(e){
-                var thisTr = $(this).parents('tr');
-                var allTd = thisTr.find('td');
-                var tdLen = allTd.length;
-                for(var i = 0; i < tdLen; i++){
-                    var tmValue = $(allTd[i]).find('input').val();
-                    if(tmValue){$(allTd[i]).html(tmValue);}
-                }
-            })
-            //删除商品属性
-            $('#comMes').on('click','.btn-dustbin',function(e){
-                var thisTr = $(this).parents('tr');
-                $(thisTr).hide();
-            })
-            // 商品价格验证
-            $('#productAdvice').blur(function(){
-                $(this).val()>0 ? PriceCate() :alert('价格必须大于零');
-            })
-            $('#shopPrice').blur(function(){
-                $(this).val()>0 ? PriceCate() :alert('价格必须大于零');
-            })
-            function PriceCate(){
-                if ($('#shopPrice').val() >= $('#productAdvice').val()) {
-                    alert('零售价必须大于等于分销价！请重新输入');
-                    $('productAdvice').focus();
-                }
-            }
-            //自定义销售属性
-            $('.ortherVirtue').keypress(function(e){
-                if((e.keyCode || e.charCode) == 13 && $.trim($(this).find('input').val()).length > 0){
-                    AddVirtue($.trim($(this).find('input').val()),$(this));
-                }
-            });
-            $('.ortherVirtue').on('click','.btn',function(){
-                var tmNode = $(this).parent().parent();
-                AddVirtue($.trim(tmNode.find('input').val()),tmNode)
-            })
-            function AddVirtue(dataValue,JQObj){
-                var VirtueHtml = '<label class="checkbox-inline"><input type="checkbox" value="'+JQObj.prev().find('input')[0].value.split(':')[0]+':-'+JQObj.prev().find('input').length+'">'+dataValue+'</input></label>';
-                var ListJQDom = JQObj.prev();
-                var searchNode = ListJQDom.children(':contains("'+dataValue+'")');
-                //virtueList
-                if(searchNode.length <= 0){
-                    ListJQDom.append(VirtueHtml)
-                    JQObj.find('input').val('')
-                }else{
-                    var ll = 0;
-                    for(var i = 0; i < searchNode.length; i++){
-                        if ($.trim($(searchNode[i]).text()) == dataValue){
-                            ll ++
+                    }$('#version_body').html(tdHtml);
+                })
+                function doExchange(x){
+                    var h = x.length;
+                    var w = x[0].length;
+                    var i, j;
+                    var m = [], n;
+                    m[i = h] = 1;
+                    while (i--)
+                            m[i] = m[i + 1] * x[i].length;
+                    n = m[0];
+                    var newArray =[];
+                    for (i = 0; i < n; i++) {
+                        var tem = [];
+                        for (j = 0; j < h; j++){
+                            tem.push(x[j][~~(i % m[j] / m[j + 1])]);
                         }
+                        newArray.push(tem.join(';'));
                     }
-                    if(ll > 0){
-                        alert('已有属性，请不要重复添加！');
-                    }else{
+                    return newArray;
+                }
+                //保存商品属性。
+                $('#comMes').on('click','.save',function(e){
+                    var thisTr = $(this).parents('tr');
+                    var allTd = thisTr.find('td');
+                    var tdLen = allTd.length;
+                    for(var i = 0; i < tdLen; i++){
+                        var tmValue = $(allTd[i]).find('input').val();
+                        if(tmValue){$(allTd[i]).html(tmValue);}
+                    }
+                })
+                //删除商品属性
+                $('#comMes').on('click','.btn-dustbin',function(e){
+                    var thisTr = $(this).parents('tr');
+                    $(thisTr).hide();
+                })
+                // 商品价格验证
+                $('#productAdvice').blur(function(){
+                    $(this).val()>0 ? PriceCate() :alert('价格必须大于零');
+                })
+                $('#shopPrice').blur(function(){
+                    $(this).val()>0 ? PriceCate() :alert('价格必须大于零');
+                })
+                function PriceCate(){
+                    if ($('#shopPrice').val() >= $('#productAdvice').val()) {
+                        alert('零售价必须大于等于分销价！请重新输入');
+                        $('productAdvice').focus();
+                    }
+                }
+                //自定义销售属性
+                $('.ortherVirtue').keypress(function(e){
+                    if((e.keyCode || e.charCode) == 13 && $.trim($(this).find('input').val()).length > 0){
+                        AddVirtue($.trim($(this).find('input').val()),$(this));
+                    }
+                });
+                $('.ortherVirtue').on('click','.btn',function(){
+                    var tmNode = $(this).parent().parent();
+                    AddVirtue($.trim(tmNode.find('input').val()),tmNode)
+                })
+                function AddVirtue(dataValue,JQObj){
+                    var VirtueHtml = '<label class="checkbox-inline"><input type="checkbox" value="'+JQObj.prev().find('input')[0].value.split(':')[0]+':-'+JQObj.prev().find('input').length+'">'+dataValue+'</input></label>';
+                    var ListJQDom = JQObj.prev();
+                    var searchNode = ListJQDom.children(':contains("'+dataValue+'")');
+                    //virtueList
+                    if(searchNode.length <= 0){
                         ListJQDom.append(VirtueHtml)
                         JQObj.find('input').val('')
+                    }else{
+                        var ll = 0;
+                        for(var i = 0; i < searchNode.length; i++){
+                            if ($.trim($(searchNode[i]).text()) == dataValue){
+                                ll ++
+                            }
+                        }
+                        if(ll > 0){
+                            alert('已有属性，请不要重复添加！');
+                        }else{
+                            ListJQDom.append(VirtueHtml)
+                            JQObj.find('input').val('')
+                        }
                     }
+                    return false;
                 }
-                return false;
-            }
-            //检测标题字数。
-            $('#productName').keyup(function(e){
-                var wordLength = $.trim(this.value).length;
-                if(wordLength <= 30){$('#titleWorldNumber').html(wordLength)}
-                return;
-            });
-            var a = (function(){
-              var desc = $('#productDescription').val();
-              var length = $.trim(desc).length;
-              $('#DescriptionWorldNumber').html(length);
-              return false;
-            })();
-            //检测商品描述字数
-            $('#productDescription').keyup(function(e){
-                var wordLength = $.trim(this.value).length;
-                if(wordLength <= 150){$('#DescriptionWorldNumber').html(wordLength)}
+                //检测标题字数。
+                $('#productName').keyup(function(e){
+                    var wordLength = $.trim(this.value).length;
+                    if(wordLength <= 30){$('#titleWorldNumber').html(wordLength)}
+                    return;
+                });
+                var a = (function(){
+                  var desc = $('#productDescription').val();
+                  var length = $.trim(desc).length;
+                  $('#DescriptionWorldNumber').html(length);
+                  return false;
+                })();
+                //检测商品描述字数
+                $('#productDescription').keyup(function(e){
+                    var wordLength = $.trim(this.value).length;
+                    if(wordLength <= 150){$('#DescriptionWorldNumber').html(wordLength)}
+                })
+                //页面初始化检测SKU是否存在。
+                if('$('.skuTr').length > 0'){
+                    //存在初始SKU 复制初始值
+                    $('#sellvirtueTable').append($('#version_body').clone().prop({"id":"hide_version","class":"hide"}))
+                }
             })
-            //页面初始化检测SKU是否存在。
-            if('$('.skuTr').length > 0'){
-                //存在初始SKU 复制初始值
-                $('#sellvirtueTable').append($('#version_body').clone().prop({"id":"hide_version","class":"hide"}))
-            }
-        })

@@ -1,0 +1,104 @@
+﻿.demo {
+    width: 620px;
+    margin: 30px auto
+}
+
+.demo p {
+    line-height: 32px
+}
+
+.btn-upload  {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    *display: inline;
+}
+.fxupload{
+    margin-top: -140px;
+}
+.btn-upload input {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    border: solid transparent;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer;
+}
+.btn-upload div input{
+    position: relative;
+}
+
+.progress {
+    position: relative;
+    margin-top: -24px;
+    width: 200px;
+    padding: 1px;
+    border-radius: 3px;
+    display: none
+}
+
+.bar {
+    background-color: green;
+    display: block;
+    width: 0%;
+    height: 20px;
+    border-radius: 3px;
+}
+
+.percent {
+    position: absolute;
+    height: 20px;
+    display: inline-block;
+    top: 3px;
+    left: 2%;
+    color: #fff
+}
+
+.files {
+    height: 22px;
+    line-height: 22px;
+    margin: 10px 0
+}
+
+.delimg {
+    margin-left: 20px;
+    color: #090;
+    cursor: pointer
+}
+.uploadImgs div{
+    display: inline-block;
+    position: relative;
+    border:1px solid #CCC;
+    margin-right: 15px;
+    max-width: 150px;
+}
+.uploadImgs .progress{
+    display: none;
+}
+
+.uploadImgs div:last-child{
+    margin-right: 0px;
+}
+.uploadImgs .btn-upload div{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.uploadImgs a{
+    color:red!important;
+    position: absolute;
+    right:0;
+    top:0;
+    width:16px;
+    height: 16px;
+    display: none;
+}
+
+.uploadImgs div:hover a{
+    display: block;
+}
+.uploadImgs .img-responsive{
+
+}

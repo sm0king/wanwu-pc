@@ -893,7 +893,6 @@
 .virtueList{
     margin-left: 96px;
 }
-<<<<<<< HEAD
 .form-horizontal .virtueList .ortherCheck{
     padding-top: 5px;
 }
@@ -932,6 +931,7 @@
 .tipCon{
     font-size: 12px;
     color: #999999;
+    line-height: 34px;
 }
 .tipCon i,.tipCon em{
     font-style: normal;
@@ -1003,4 +1003,27 @@
     right:5px;
     top:5px;
     /*content: "\e014";*/
+}
+.food_security_props_area{
+    margin-left: -15px;
+    margin-right: -15px;
+}
+.branchNumber,.branchPrice{
+    margin:0;
+}
+.branchPrice{
+    color:red;
+}
+.branchNumber:before{
+    content:'>=';
+}
+.branchNumber:after:{
+    content:'个';
+}
+.branchPrice:after{
+    content:'元/个';
+    color:#000;
+}
+.has-feedback .form-control{
+    padding: 6px 12px;
 }

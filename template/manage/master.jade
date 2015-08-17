@@ -3,21 +3,45 @@ block Define
     -var basePath = '../';
 
 block menu
-    li(ui-sref-active='active')
-        a(href='#{basePath}manage/home.html') 首页
-    li(ui-sref-active='active')
-        a(href='#{basePath}manage/supplier/index.html') 供应商管理
-    li(ui-sref-active='active')
-        a(href='#{basePath}manage/distributor/index.html') 分销商管理
-    li(ui-sref-active='active')
-        a(href='#{basePath}manage/Brand/index.html') 品牌管理
-    li(ui-sref-active='active')
-        a(href='#{basePath}manage/product/index.html') 商品管理
-    li(ui-sref-active='active')
-        a(href='#{basePath}manage/album/index.html') 专辑管理
-    li(ui-sref-active='active')
-        a(href='#{basePath}manage/complaint/index.html') 投诉管理
-    li(ui-sref-active='active')
-        a(href='#{basePath}manage/report/index.html') 举报管理
-    li(ui-sref-active='active')
-        a(href='#{basePath}manage/account/index.html') 账号设置
+    li.navbar-group-title(href="#old",data-toggle="collapse")
+        | 旧版
+    li#old
+        ul
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/home.html') 首页
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/supplier/index.html') 供应商管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/distributor/index.html') 分销商管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/Brand/index.html') 品牌管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/product/index.html') 商品管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/album/index.html') 专辑管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/complaint/index.html') 投诉管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/report/index.html') 举报管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/account/index.html') 账号设置
+    li.navbar-group-title(href="#new",data-toggle="collapse")
+        | 新版
+    li#new.collapse
+        ul
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/supplier/index.html') 供应商管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/distributor/index.html') 分销商管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/Brand/index.html') 品牌管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/product/index.html') 商品管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/album/index.html') 专辑管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/complaint/index.html') 投诉管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/report/index.html') 举报管理
+            li(ui-sref-active='active')
+                a(href='#{basePath}manage/account/index.html') 账号设置
