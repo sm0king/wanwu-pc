@@ -1,0 +1,35 @@
+form.form-inline.searchBar#myform
+    div
+        .form-group.clearfix
+              label(for='orderNum').stdLable 订单号：
+              input(type='text' name='orderNum').form-control#orderNum
+        .form-group.clearfix
+              label(for='receiver').stdLable2 收货人：
+              input(type='text' name='receiver').form-control#receiver
+        .form-group.clearfix
+              label(for='concat') 联系方式：
+              input(type='text' name='concat').form-control#concat
+        .form-group.clearfix
+              label(for='goodsName') 商品名称:
+              input(type='text' name='goodsName').form-control#goodsName
+    div.clearfix
+        .form-group.clearfix.timeSpan
+              label(for='timeBegin').stdLable 下单时间：
+              input(type='text' name='timeBegin').form-control#timeBegin
+              label(for='timeEnd').part 至
+              input(type='text' name='timeEnd').form-control#timeEnd
+        .form-group.clearfix
+              label(for='state').stdLable2 订单状态：
+              select(name='state').form-control#state
+                  option(value='1') 状态1
+                  option(value='2') 状态2
+                  option(value='3') 状态3
+        .form-group.clearfix
+              label(for='goodsName') 收货地址:
+              select(name='state').form-control#state
+                  option(value='1') 状态1
+                  option(value='2') 状态2
+                  option(value='3') 状态3
+              input(type='text' name='address' placeholder="详细地址关键字").form-control#address
+        .form-group
+            button.btn.btn-blue 查询

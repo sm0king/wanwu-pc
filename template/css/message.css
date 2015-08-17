@@ -34,7 +34,7 @@
     height: 57px;
 }
 .msg .msgList{
-    margin-top: 16px;    
+    margin-top: 16px;
 }
 .msg .msgList table{
     border:1px solid #e2e2e2;
@@ -83,7 +83,7 @@
 }
 /* 站内信详情 */
 .msg .titleBar{
-    
+
 }
 
 .msg .titleBar img{
@@ -109,7 +109,7 @@
 }
 .msg .msgGroup .date{
     float:right;
-    margin-top: 10px;
+    /*margin-top: 10px;*/
 }
 .msg .replyForm textarea{
     height: 162px;
@@ -122,4 +122,21 @@
 .messageRight{
     width: 60%;
     float: right;
+}
+.msgGroup .panel-default>.panel-heading{
+    line-height: 40px;
+}
+.indexH3 {
+    line-height: 2;
+    border-bottom: 1px solid #ddd
+}
+
+.indexH3:before {
+    display: inline-block;
+    content: ' ';
+    width: 2px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 6px;
+    background-color: #09c
 }

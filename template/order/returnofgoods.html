@@ -1,47 +1,18 @@
 extends master.jade
 block OrderDefine
-    -var active = 1;
+    -var active = 3;
     -var pagin_right = true;
     -var selectedV = 3
     -var reason = "拒绝退货原因：";
     -var form_tip = '拒绝退货可能引起分销商投诉，请谨慎操作！'
 block SubPage
     -var subTitle =' - 待退货订单'
-block OrderHeader
-  style.
-      .pinfo{  height: 90px;  border-bottom: 1px solid #f1f1f1;padding: 10px 0;}
-      .pimg{height: 60px;width: 60px;border: 1px solid #e1e1e1;margin: 5px;}
-      .table tr td{text-align: center;  vertical-align: middle !important;}
-      .noborder{padding-top:0px !important;}
-      .order .orderTR td{padding-top: 8px ;}
-      .noborder .pinfo:last-child{border-bottom: none !important;;}
-      .pinfo a{display: block;  vertical-align: middle;  margin-top: 0px !important;  line-height: 35px;}
-      .pinfo span{ display: block;text-align: left}
-      .onepinfo a{display: block;  vertical-align: middle;  margin-top: 0px !important;  line-height: 35px;}
-      .doReturnGoods{  cursor: pointer;
-          color: #f00;
-          font-weight: bold;
-          margin-top: 5px;
-          font-size: 12px;;
-          display: inline-block;}
 
 block DashboardTitle
     待退货订单
 
 block OrderContent
-    form.form-inline.searchBar
-      input(type='hidden')
-      .form-group
-        label(for="orderNum") 订单号：
-        input#orderNum.form-control(type="text" name="orderNum")
-      .form-group
-        label(for="orderNum") 运单号：
-        input#orderNum.form-control(type="text" name="orderNum")
-      .form-group
-        label(for="orderNum") 联系方式：
-        input#orderNum.form-control(type="text" name="orderNum")
-      .form-group
-        button.btn.btn-blue 查询
+    include ./searchForm.jade
     .table-responsive.orderlist
         table.table.table-bordered
             tbody
@@ -79,10 +50,11 @@ block OrderContent
                     td 待收货
                     td.Remark 客户要求每盒颜色不能重复
                     td.orderOperator.noborder
-                        a.blue 确认退货
-                        a.blue.doReject 拒绝反馈
+                        a.blue.doReturn 确认退货
+                        a.blue.doReject 拒绝退货
+                        a.blue(href='../message/defail.html')订单留言(0)
                         a.blue(href='detail.html') 订单详情
-                        a.blue 退款
+                        //- a.blue 退款
                 tr.titleTR
                     td
                         | 订单编号:
@@ -112,101 +84,31 @@ block OrderContent
                         a.blue(href='detail.html') 订单详情
                         a.blue 退款
     .hidden
-        include returnofgoodsForm.jade
-
+      form#refusefgoodsForm.form-horizontal
+        .alert.alert-danger 拒绝退货可能引起分销商投诉，请谨慎操作！
+        .form-group
+          .col-sm-12
+            label.control-label 拒绝退货原因：
+          .col-sm-12
+            textarea#input-return.form-control
+        .form-group
+          .col-sm-12 选择图片上传（可选）：
+          .col-sm-12.imgs
+            #uploadQuJj.uploadQuJj(data-maxcount="6")
+              input.imgval(type="hidden" value=""  name='images')
+              .btn.btn-gray.btn-upload
+                span 上传图片
+                input#fileupload.fileupload(name='mypic')
+              .progress
+                span.bar
+                span.percent 0%
+              .row.imgBar
+                .col-sm-12.uploadImgs
+            div
+              a.upload
     div.foot
         include ../pagination.jade
 block foot
-    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+    script(type='text/javascript',data-main="#{basePath}js/order/returngoods",src='#{basePath}js/require.min.js')
     link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
-    script(type='text/javascript').
-        $(function(){
-            $('#checkAll').change(function(){
-                var checked = $(this).prop('checked');
-                $('.orderlist input[type=checkbox]').prop('checked', checked);
-            });
-            $(document.body).delegate('a.removeImg','click', function(e){
-                $(e.currentTarget).parent().remove();
-            });
-            $(document.body).delegate('.doReject', 'click', function(e){
-                $.dialog({
-                    content: $('#returnofgoodsForm').clone(),
-                    title: '拒绝退货',
-                    buttons: [
-                        {
-                            text: '取消',
-                            click: function(dialog){ dialog.modal('hide'); }
-                        },
-                        {
-                            text: '确定',
-                            style: 'primary',
-                            click: function(dialog){
-                                //TODO:
-                                dialog.modal('hide');
-                            }
-                        }
-                    ]
-                });
-            });
-            $('#orderStart,#orderEnd').datetimepicker({
-                format: 'yyyy-mm-dd',
-                language: 'zh-CN',
-                minView: 2,
-                autoclose: true
-            });
-            $('#orderForm').bootstrapValidator({
-                fields:{
-                  goodsName: {
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  distributorName:{
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  consigneeName:{
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  orderName:{
-                      validators: {
-                          regexp: {
-                              regexp: /^[a-zA-Z0-9_\.]+$/,
-                              message: '请输入正确的采购订单号'
-                          }
-                      }
-                  },
-                }
-            }).on('error.field.bv', function(e, data) {
-                data.element
-                    .data('bv.messages')
-                    .find('.help-block[data-bv-for="' + data.field + '"]').hide();
-                var messages = data.bv.getMessages(data.field);
-                for (var i in messages) {
-                  var l = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
-                  if(l.length===0){
-                    var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
-                    $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
-                  }
-                }
-                $('#msgerror').removeClass('hide');
-            })
-            .on('success.field.bv', function(e, data) {
-                $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
-            })
-            .on('success.form.bv', function(e) {
-                $('#msgerror').addClass('hide');
-            });;
-        });
+    link(rel="stylesheet", href="../plugs/jquery.form/foxupload.css")

@@ -16,7 +16,6 @@ block OrderHeader
       .order .orderTR td{padding-top: 8px ;}
       .noborder .pinfo:last-child{border-bottom: none !important;}
       .pinfo a{display: block;  vertical-align: middle;  margin-top: 0px !important;  line-height: 35px;}
-      .pinfo span{ display: block;text-align: left}
       .onepinfo a{display: block;  vertical-align: middle;  margin-top: 0px !important;  line-height: 35px;}
       .doReturnGoods{  cursor: pointer;
           color: #f00;
@@ -29,6 +28,7 @@ block DashboardTitle
     未付款订单
 
 block OrderContent
+    include ./searchForm.jade
     .table-responsive.orderlist
         table.table.table-bordered
             tbody
@@ -43,29 +43,32 @@ block OrderContent
                     td.receiver.tdOrderConsignee(width="8%") 收货人
                     td.tdOrderTime(width="15%") 下单时间
                     td.tdOrderSta(width="10%") 状态
-                tr.orderTR
+                tr.orderTR(data-order = "8779641532")
                     td.productImgs.noborder
                       .pinfo
                         img(src='../img/logo.png')
                       .pinfo
                         img(src='../img/logo.png')
-                    td.noborder
+                    td.productInfo.noborder
                       .pinfo
                         span 这个商品一点都不好，不要买不要买，便宜没好货
                       .pinfo
                         span 这个商品一点都不好，不要买不要买，便宜没好货
-                    td.noborder
+                    td.productPrice.noborder
                       .pinfo
-                        a ￥387.00
+                        a ￥
+                          span 387.00
                       .pinfo
-                        a ￥387.00
-                    td.noborder
+                        a ￥
+                          span 387.00
+                    td.productNum.noborder
                       .pinfo
                         a 2
                       .pinfo
                         a 1
-                    td
-                      a ￥774.00
+                    td.productSum(data-ship = "10", data-sum = "774.00")
+                      a ￥ 
+                        span 774.00
                       p (含快递：￥10.00)
                       a.change-price 修改价格
                     td 王刚
@@ -84,18 +87,22 @@ block OrderContent
                     td.receiver 收货人
                     td 下单时间
                     td 状态
-                tr.orderTR
+                tr.orderTR(data-order = "8779641532")
                     td.productImgs
                         img(src='../img/logo.png')
                         img(src='../img/logo.png')
-                    td 这个商品一点都不好，不要买不要买，便宜没好货
-                    td
-                      a ￥387.00
-                    td 23
-                    td
-                      a ￥774.00
+                    td.productInfo 
+                      span 这个商品一点都不好，不要买不要买，便宜没好货
+                    td.productPrice
+                      a ￥
+                        span 387.00
+                    td.productNum 
+                      a 23
+                    td.productSum(data-ship = "10",data-sum = "387.00")
+                      a ￥
+                        span 387.00
                       p (含快递：￥10.00)
-                      a 修改价格
+                      a.change-price 修改价格
                     td 王刚
                     td 015-03-12 17:38:48
                     td
@@ -115,10 +122,9 @@ block OrderContent
                   td 商品信息
                   td 分销价
                   td 数量
-                  td 优惠(可为负数)
+                  td 单件优惠(可为负数)
                   td 快递费用
-              tbody
-                tr
+              tbody.order-info
                   tr
                     td.goods-name 商品名
                     td.goods-price ￥ 123
@@ -135,15 +141,15 @@ block OrderContent
                       input.form-control
             div.result-price
               strong 买家实付：
-              span.all-one 200
+              span.all-one 
               span.text-danger +
-              span.all-ship 200
+              span.all-ship 
               | (运费)
               span.text-danger -
-              span.all-discount 200
+              span.all-discount 0
               | (优惠)
               span.text-danger =
-              span.all-price 200
+              span.all-price 0
               
           div.modal-footer
             div.col-md-8.text-left#city-tip
@@ -151,74 +157,7 @@ block OrderContent
               button.btn.btn-primary.btn-option(type="button" data-dismiss="modal") 确定
               button.btn.btn-primary.btn-edit.hide(type="button" data-dismiss="modal") 修改
               button.btn.btn-default.btn-close(type="button" data-dismiss="modal") 取消
-    .hidden
-        include returnofgoodsForm.jade
-
     div.foot
         include ../pagination.jade
 block foot
-    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
-    link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
-    script(type='text/javascript').
-        $(function(){
-
-            $('.change-price').click(function(){
-                $("#repriceModal").modal();
-            });
-          
-            $('#orderForm').bootstrapValidator({
-                fields:{
-                  goodsName: {
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  distributorName:{
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  consigneeName:{
-                      validators: {
-                        stringLength: {
-                            max: 30,
-                            message: '输入文本不超过30字符'
-                          }
-                      }
-                  },
-                  orderName:{
-                      validators: {
-                          regexp: {
-                              regexp: /^[a-zA-Z0-9_\.]+$/,
-                              message: '请输入正确的采购订单号'
-                          }
-                      }
-                  },
-                }
-            }).on('error.field.bv', function(e, data) {
-                data.element
-                    .data('bv.messages')
-                    .find('.help-block[data-bv-for="' + data.field + '"]').hide();
-                var messages = data.bv.getMessages(data.field);
-                for (var i in messages) {
-                  var l = $('#msgerror').find('li[data-bv-for="' + data.field + '"]');
-                  if(l.length===0){
-                    var  li = '<li data-bv-for="' + data.field + '">'+messages[i]+'</li>';
-                    $('<li/>').attr('data-bv-for', data.field).html(messages[i]).appendTo('#msgerror>ul');
-                  }
-                }
-                $('#msgerror').removeClass('hide');
-            })
-            .on('success.field.bv', function(e, data) {
-                $('#msgerror').find('li[data-bv-for="' + data.field + '"]').remove();
-            })
-            .on('success.form.bv', function(e) {
-                $('#msgerror').addClass('hide');
-            });;
-        });
+    script(type='text/javascript',data-main="#{basePath}js/order/willpay",src='#{basePath}js/require.min.js')

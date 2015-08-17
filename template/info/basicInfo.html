@@ -11,7 +11,7 @@ block InfoContent
     .basicInfo
         .panel.panel-default
             .panel-body
-                p.gray.tip 您需要进一步提交公司认证资料后才能上架商品
+                p.alert.alert-warning 您需要进一步提交公司认证资料后才能上架商品
                 .schedule.step-1
                     img.img-responsive.scheduleImg-1.scheduleImg(src='../img/schedule-1.png')
                     img.img-responsive.scheduleImg-2.scheduleImg(src='../img/schedule-2.png')
@@ -21,31 +21,41 @@ block InfoContent
                     h4.subtitle 基本资料
                     .form-group
                         label.control-label 用户名
-                        .col-md-8.form-text
+                        .col-md-6.form-text
                             | quwan
                     .form-group
                         label.control-label 用户头像
-                        .col-md-8.form-text
-                            button(type="button").btn.btn-bigblue.btn-upload 上传头像
+                        .col-md-6
+                          div#userheadImage(style="margin-bottom: 10px;" data-maxcount="1")
+                            div.imgBar.face
+                              div.uploadImgs
+                                img#headImage.uploadImgs(src="../img/logo.png", alt="" width="200" height="200" style="border-radius: 6px;")
+                            input.imgval(type="hidden" name="image")
+                            div.btn.btn-bigblue.btn-upload 
+                              span(style="line-height:31px;") 上传头像
+                              input.fileupload(type="file"  name='mypic')
+                            div.progress
+                              span.bar
+                              span.percent 0%
                     .form-group
                         label(for="email").control-label 邮箱
-                        .col-md-8
+                        .col-md-6
                             input#email(type="text", name="email").form-control
                     .form-group
                         label.control-label 手机
-                        .col-md-8.form-text
+                        .col-md-6.form-text
                             | 186****1462
                     .form-group
                         label(for="phone").control-label 固话
-                        .col-md-8
+                        .col-md-6
                             input#phone(type="text", name="phone").form-control
                     .form-group
                         label(for="fax").control-label 传真
-                        .col-md-8
+                        .col-md-6
                             input#fax(type="text").form-control
                     .form-group
                         label.control-label.require 所在地区
-                        .col-md-8.form-comb
+                        .col-md-6.form-comb
                             .row
                                 .col-sm-4
                                     select.form-control(name="province")#province
@@ -55,8 +65,14 @@ block InfoContent
                                     select.form-control(name="area")#area
                     .form-group
                         label(for="street").control-label 街道地址
-                        .col-md-8
+                        .col-md-6
                             input#street(type="text").form-control
+                    .form-group
+                        label.control-label(for="show" title="向分销商展示联系人信息")
+                        .col-md-6
+                            input#show(type="checkbox")
+                            |&ensp;向分销商展示联系人信息
+                            
                     h4.subtitle 资格认证信息
                     .form-group
                         label.control-label.require 用户类型
@@ -69,19 +85,23 @@ block InfoContent
                               个人用户
                     .form-group
                         label(for="company").control-label.require 公司名称
-                        .col-md-8
+                        .col-md-6
                             input#company(type="text", name="company").form-control
                     .form-group
                         label(for="businessCatalog").control-label.require 经营品类
-                        .col-md-8
+                        .col-md-6
                             input#businessCatalog(type="text", name="businessCatalog").form-control
                     .form-group
                         label.control-label.require 银行开户许可证
-                        .col-md-8
+                        .col-md-6
                             button(type='button').btn.btn-bigblue.btn-upload 上传附件
                             .row
                                 .col-xs-12
                                     img(src="../img/logo.png").img-responsive.showImg
+                    .form-group
+                        label.control-label.require 营业执照注册号
+                        .col-md-6
+                          input#businessCode.form-control(maxlength="60" type="text" name="businessCode")
                     .form-group
                         label.control-label.require 营业执照
                         .col-md-8
@@ -89,6 +109,14 @@ block InfoContent
                             .row
                                 .col-xs-12
                                     img(src="../img/logo.png").img-responsive.showImg
+                    .form-group
+                        label.control-label.require(for="connectName") 联系人姓名
+                        .col-md-6
+                          input#connectName.form-control(maxlength="30" type="text" name="connectName")
+                    .form-group
+                        label.control-label.require(for="connectPhone") 联系人手机号
+                        .col-md-6
+                          input#connectPhone.form-control(maxlength="14" type="text" name="connectPhone")
                     .form-group
                         label.control-label.require 联系人身份证
                         .col-md-4
@@ -102,6 +130,10 @@ block InfoContent
                                 .col-xs-12
                                     img(src="../img/logo.png").img-responsive.showImg
                     .form-group
+                        label.control-label.require(for="corpName") 法人姓名
+                        .col-md-6
+                          input#corpName.form-control(type="text" maxlength="40" name="corpName")
+                    .form-group
                         label.control-label.require 法人身份证
                         .col-md-4
                             button(type='button').btn.btn-bigblue.btn-upload 上传正面
@@ -113,6 +145,10 @@ block InfoContent
                             .row
                                 .col-xs-12
                                     img(src="../img/logo.png").img-responsive.showImg
+                    .form-group
+                        label#organizationNameLeber.control-label(for="organizationName" maxlength="40") 组织机构代码
+                        .col-md-6
+                          input#organizationName.form-control(type="text" name="organizationName")
                     .form-group
                         label.control-label.require 组织结构代码证
                         .col-md-8
@@ -153,149 +189,14 @@ block InfoContent
                         button(type="button").btn.btn-bigblue 上传附件
 
 block foot
+    script(type='text/javascript',data-main="#{basePath}js/info/basicinfo",src='#{basePath}js/require.min.js')
     link(rel='stylesheet', href='#{basePath}plugs/imagebox/imagebox.css')
-    script(type="text/javascript", src="#{basePath}plugs/imagebox/imagebox.js")
-    script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+    link(rel='stylesheet', href='#{basePath}plugs/jquery.form/foxupload.css')
     link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
-    script(type="text/javascript").
-        var brandForm = $('#brandForm').remove();
-        $(function(){
-            //点击查看原图
-            $('.showImg').imagebox();
-
-            //添加品牌按钮的点击事件
-            $('#addBrand').click(addBrand);
-
-            //基本资料表单校验配置
-            $('#basicInfoForm').bootstrapValidator({
-                container: 'tooltip',
-                feedbackIcons: {
-                    valid: 'glyphicon glyphicon-ok',
-                    invalid: 'glyphicon glyphicon-remove',
-                    validating: 'glyphicon glyphicon-refresh'
-                },
-                fields: {
-                    email: {
-                        validators: {
-                            emailAddress: {
-                                message: '邮箱地址格式不正确！'
-                            }
-                        }
-                    },
-                    phone: {
-                        validators: {
-                            phone: {
-                                country: 'US',
-                                message: '电话号码格式不正确！'
-                            }
-                        }
-                    },
-                    province: {
-                        validators: {
-                            notEmpty: {
-                                message: '请选择省份！'
-                            }
-                        }
-                    },
-                    city: {
-                        validators: {
-                            notEmpty: {
-                                message: '请选择市！'
-                            }
-                        }
-                    },
-                    area: {
-                        validators: {
-                            notEmpty: {
-                                message: '请选择区县！'
-                            }
-                        }
-                    },
-                    usertype:{
-                      validators: {
-                          notEmpty: {
-                              message: '请选择用户类型！'
-                          }
-                      }
-                    },
-                    company: {
-                        validators: {
-                            notEmpty: {
-                                message: '请输入公司名称！'
-                            }
-                        }
-                    },
-                    businessCatalog: {
-                        validators: {
-                            notEmpty: {
-                                message: '请输入经营品类！'
-                            }
-                        }
-                    }
-                }
-            });
-
-        });
-
-        function addBrand(){
-            //打开添加品牌表单对话框
-            $.dialog({
-                content: initBrandFormValidation(brandForm.clone().appendTo(document.body)),
-                title: '添加品牌',
-                buttons: [
-                    {
-                        text: '添加',
-                        click: onSaveBrand
-                    },
-                    {
-                        text: '取消',
-                        style: 'gray',
-                        click: onCancelBrand
-                    }
-                ]
-            });
-        }
-
-        //当保存品牌信息时的处理函数
-        //modal: 品牌表单Dom对象
-        function onSaveBrand(modal){
-            var jqForm = modal.find('#brandForm');
-            jqForm.bootstrapValidator('validate');
-            if(jqForm.data('bootstrapValidator').isValid() !== true) return;
-            modal.modal('hide');
-        }
-
-        //当点击了品牌表单对话框的 取消 按钮时的处理函数
-        function onCancelBrand(modal){
-            modal.modal('hide');
-        }
-
-        //初始化品牌表单的校验信息
-        //form: 品牌表单Dom对象
-        function initBrandFormValidation(form){
-            form.bootstrapValidator({
-                framework: 'bootstrap',
-                icon: {
-                    valid: 'glyphicon glyphicon-ok',
-                    invalid: 'glyphicon glyphicon-remove',
-                    validating: 'glyphicon glyphicon-refresh'
-                },
-                fields: {
-                    brandName: {
-                        validators: {
-                            notEmpty: {
-                                message: '请输入品牌名称！'
-                            }
-                        }
-                    },
-                    owner: {
-                        validators: {
-                            notEmpty: {
-                                message: '请输入品牌所有者！'
-                            }
-                        }
-                    }
-                }
-            });
-            return form;
-        }
+    script.
+      var site_url="<?php echo $site_url; ?>";
+      var province = "<?php echo $user->province; ?>";
+      var city = "<?php echo $user->city; ?>";
+      var district = "<?php echo $user->district; ?>";
+      var down_url = "<?php echo $down_url; ?>";
+      var userId = "<?php echo $udata->userId ?>";  
