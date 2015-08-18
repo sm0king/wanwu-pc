@@ -23,13 +23,13 @@ requirejs.config({
         'dialog':'../js/dialog',
         'foxuploadBrand':'jquery.form/jquery.foxupload_brand',
         'foxuploadProduct':'jquery.form/jquery.foxupload_product',
-.,        'KISSY':'kiss_seed',
+        'KISSY':'kiss_seed',
         'tbJs':'../js/info/tbJs',
         'productDetail':'../js/product/detail',
         'productEdit':'../js/product/product_edit',
         'productAdd':'../js/product/product_add',
         'productMEdit':'../js/product/product_m_edit',
-        'addr':'../js/info/addr'
+        'addr':'../js/info/addr',
         'productMEdit':'../js/product/product_m_edit'
     },
     shim: {

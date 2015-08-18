@@ -1,0 +1,1 @@
+"use strict";var sss="test";requirejs.config({baseUrl:"/style/backend/app/js",paths:{config:"config"}});

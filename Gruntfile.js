@@ -96,7 +96,18 @@ module.exports = function(grunt) {
                     cwd:'app/',
                     src:['**'],
                     dest:'<%= user.svnpath %>'
-                }]
+                }],
+                options:{
+                    process:function(content,srcpath){
+                        console.log(filepath);
+                        // if (srcpath.indexOf('.js') && filepath.indexOf('plugs') === '-1') {
+                        //     console.log(srcpath);
+                        //     return content.replace('baseUrl:"../js"','baseUrl:"/style/backend/app/js"');
+                        // }else{
+                        //     return content;
+                        // }
+                    }
+                }
             },
             plugs:{
                 files:[{
@@ -122,6 +133,20 @@ module.exports = function(grunt) {
                     src:['**/*.{png,jpg,gif,js,css}'],
                     dest:'app/'
                 }]
+            },
+            test:{
+                src:'test.js',
+                dest:'testDist.js',
+                options:{
+                    process:function(content,srcpath){
+                        console.log('xxxxxxxxxxxxxxxxxxxxxx');
+                        console.log(content);
+                        console.log('----------------------');
+                        console.log(srcpath)
+                        console.log('xxxxxxxxxxxxxxxxxxxxxx');
+                        return content.replace('baseUrl:"../js"','baseUrl:"/style/backend/app/js"')
+                    }
+                }
             }
         },
         connect: {
@@ -193,6 +218,18 @@ module.exports = function(grunt) {
                     src: ['**/*.js'],
                     dest: 'app/js/'
                 }]
+            },
+            test:{
+                src:'test.js',
+                dest:'testDist.js',
+                process:function(content,srcpath){
+                    console.log('xxxxxxxxxxxxxxxxxxxxxx');
+                    console.log(content);
+                    console.log('----------------------');
+                    console.log(srcpath)
+                    console.log('xxxxxxxxxxxxxxxxxxxxxx');
+                    return('xxxxxxxxxxxxxxxxxxxxxx');
+                }
             }
         },
         cssmin:{
