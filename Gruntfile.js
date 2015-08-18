@@ -99,13 +99,11 @@ module.exports = function(grunt) {
                 }],
                 options:{
                     process:function(content,srcpath){
-                        console.log(filepath);
-                        // if (srcpath.indexOf('.js') && filepath.indexOf('plugs') === '-1') {
-                        //     console.log(srcpath);
-                        //     return content.replace('baseUrl:"../js"','baseUrl:"/style/backend/app/js"');
-                        // }else{
-                        //     return content;
-                        // }
+                        if (srcpath.indexOf('.js')!== -1 && srcpath.indexOf('plugs') === -1) {
+                            return content.replace('baseUrl:"../js"','baseUrl:"/style/backend/app/js"');
+                        }else{
+                            return content;
+                        }
                     }
                 }
             },
