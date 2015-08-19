@@ -101,4 +101,10 @@ require(['config'], function() {
             });
         }
     });
+    //增加满减优惠
+    require(['jquery'],function($){
+        $('#addReductionRules').bind('click',function(e){
+            $('#allRule .reductionList:last').after('<li class="reductionList">满￥3000，立减￥100 送赠品<span>商品名字</span><button type="button" class="close"><span>X</span></button></li>');
+        });
+    });
 });
