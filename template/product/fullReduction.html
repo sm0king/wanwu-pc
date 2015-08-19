@@ -1,0 +1,89 @@
+extends ../dashboard.jade
+block Define
+    - var basePath = '../';
+
+block header
+
+    link(rel='stylesheet', href='../css/product.css')
+    link(rel='stylesheet', href='../css/fullReduction.css')
+block DashboardTitle
+    添加满减
+
+block Right
+    .product.clearfix.fullReduction
+        h4.indexH3 添加满减
+        .form-group.clearfix
+            label.control-label.require(for="activityName") 活动名字
+            .col-md-3
+                input(name="activityName",type="text").form-control#activityName
+        .form-group.clearfix
+            label.control-label(for="activityDetail") 活动描述
+            .col-md-3
+                input(name="activityDetail",type="text").form-control#activityDetail
+        .form-group.clearfix
+            label.control-label.require(for="activityTime") 时间
+            .col-md-6
+                input(name="activityStartDate",type="text").text-input#activityStartDate
+                span.stage 至
+                input(name="activityEndDate",type="text").text-input#activityEndDate
+        .form-group.clearfix
+            label.control-label.require(for="activityGoods") 选择商品
+            .col-md-5
+                butoon(name="activityGoods",type="button").btn.btn-blue#activityGoods|选择商品
+                span.alreadyChoice#alreadyChoice 已选择N件商品
+        .form-group.clearfix
+            label.control-label.require 满减规则
+            .col-md-6#allRule
+                ul.reductionUl
+                    li.reductionList 满￥1000，立减￥200
+                        button(type="button").close
+                            span X
+                    li.reductionList 满￥2000，立减￥0  送赠品
+                        span 商品名字
+                        button(type="button").close
+                            span X
+                    li.reductionList 满￥3000，立减￥100 送赠品
+                        span 商品名字
+                        button(type="button").close
+                            span X
+                button.btn.btn-blue.addReductionRules#addReductionRules|添加规则
+        //
+            .form-group.clearfix
+                label.control-label.require 状态
+                .col-md-3
+                    label.radio-inline
+                        input(type="radio",name="reductionSta" value="1")
+                        |启用
+                    label.radio-inline
+                        input(type="radio",name="reductionSta" value="0")
+                        |禁用
+        .form-group.clearfix
+            label.control-label
+            .col-md-3
+                button(type="submit").btn.btn-blue|保存
+                button(type="submit").btn.btn-blue|取消
+        //
+            .form-group.clearfix
+                .goodsList
+                    ul
+                        li(title="商品名称")
+                            label
+                                .u-img
+                                    img(src="http://nec.netease.com/img/s/1.jpg")
+                                h3
+                                    input(type="checkbox")
+                        li(title="商品名称")
+                            label
+                                .u-img
+                                    img(src="http://nec.netease.com/img/s/1.jpg")
+                                h3
+                                    input(type="checkbox")
+                        li(title="商品名称")
+                            label
+                                .u-img
+                                    img(src="http://nec.netease.com/img/s/1.jpg")
+                                h3
+                                    input(type="checkbox")
+
+block foot
+    script(type='text/javascript',data-main="../js/product/fullReduction",src='#{basePath}js/require.min.js')
