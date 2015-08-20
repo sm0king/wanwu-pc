@@ -15,7 +15,7 @@
     padding-left: 0;
 }
 
-.reductionList {
+.reductionList, .addReduction{
     margin: 6px 0;
     border: 1px dashed #d0d0d0;
     list-style: none;

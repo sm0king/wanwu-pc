@@ -149,7 +149,7 @@ module.exports = function(grunt) {
         },
         connect: {
             options: {
-                port: 8081,
+                port: 80,
                 hostname: '0.0.0.0'
             },
             demo: {

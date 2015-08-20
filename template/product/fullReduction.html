@@ -33,20 +33,20 @@ block Right
                 span.alreadyChoice#alreadyChoice 已选择N件商品
         .form-group.clearfix
             label.control-label.require 满减规则
-            .col-md-6#allRule
+            .col-md-9#allRule
                 ul.reductionUl
                     li.reductionList 满￥
-                        span|1000
-                        |，立减￥
-                            span 200
+                        span.rules(data-standard="1000",data-reduce="10") 1000 立减￥200
                         button(type="button").close
                             span X
-                    li.reductionList 满￥2000，立减￥0  送赠品
-                        span 商品名字
+                    li.reductionList 满￥
+                        span.rules(data-standard="2000",data-reduce="0") 2000 立减￥0
+                        span.gift(data-num="5",data-id="382943") 送赠品 商品名字n个
                         button(type="button").close
                             span X
-                    li.reductionList 满￥3000，立减￥100 送赠品
-                        span 商品名字
+                    li.reductionList 满￥
+                        span.rules(data-standard="3000",data-reduce="100") 3000立减￥100 
+                        span.gift(data-num="5",data-id="382943") 送赠品 商品名字 n 个
                         button(type="button").close
                             span X
                 button.btn.btn-blue.addReductionRules#addReductionRules|添加规则
@@ -63,7 +63,7 @@ block Right
         .form-group.clearfix
             label.control-label
             .col-md-3
-                button(type="submit").btn.btn-blue|保存
+                button(type="submit").btn.btn-blue#saveAllData|保存
                 button(type="submit").btn.btn-blue|取消
         //
             .form-group.clearfix
@@ -89,4 +89,6 @@ block Right
                                     input(type="checkbox")
 
 block foot
+    script.
+        document.domain="wanwu.com";
     script(type='text/javascript',data-main="../js/product/fullReduction",src='#{basePath}js/require.min.js')
