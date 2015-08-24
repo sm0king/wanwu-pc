@@ -9,7 +9,7 @@ require(['config'], function() {
         $(function() {
             //时间插件
             $('#activityStartDate,#activityEndDate').datetimepicker({
-                format: 'yyyy-mm-dd hh:ii',
+                format: 'yyyy-mm-dd hh:ii:ss',
                 language: 'zh-CN',
                 minView: 0,
                 autoclose: true,
@@ -26,46 +26,57 @@ require(['config'], function() {
                 var actID = urlSearch.substr(urlSearch.indexOf('=') + 1);
                 getInitializer(actID, function(result, data) {
                     //获取到数据
-                    if (result.length>0) {
+                    if ($.type(result) === "object") {
                         // 活动数据；
                         $('#activityName').val(result.act_name);
                         $('#activityDetail').val(result.act_desc);
-                        var add_time = new Date();
+                        /*var add_time = new Date();
                         var end_time = new Date();
                         add_time.setTime(result.add_time);
-                        end_time.setTime(result.end_time);
-                        $('#activityStartDate').val(add_time.toISOString());
-                        $('#activityEndDate').val(end_time.toISOString());
-
-                    }else{
+                        end_time.setTime(result.end_time);*/
+                        $('#activityStartDate').val(result.start_time);
+                        $('#activityEndDate').val(result.end_time);
+                        var listHtml = showRuleList(result.act_rules);
+                        $('#allRule .reductionUl').html(listHtml);
+                    } else {
                         alert(data.error_msg);
                     }
                 });
+            }else{
+                //新建初始化
+                //addInitializer();
             }
         });
 
         function getInitializer(actID, callback) {
-                var ajUrl = 'http://123.59.58.104/supplier/activity/fullcut/getActive?act_id=' + actID;
-                $.ajax({
-                    url: ajUrl,
-                    dataType: 'json'
-                }).success(function(data){
-                    callback(data.data,data);
-                }).error(function(data){
-                    callback(false,{error_desc:'未知错误！'});
+            var ajUrl = 'http://123.59.58.104/supplier/activity/fullcut/getActive?act_id=' + actID;
+            $.ajax({
+                url: ajUrl,
+                dataType: 'json'
+            }).success(function(data) {
+                callback(data.data, data);
+            }).error(function(data) {
+                callback(false, {
+                    error_desc: '未知错误！'
                 });
-            }
-            /*contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="2"></h3></label></li>';
-            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="3"></h3></label></li>';
-            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="4"></h3></label></li>';
-            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="5"></h3></label></li>';
-            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="6"></h3></label></li>';
-            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="7"></h3></label></li>';
-            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="8"></h3></label></li>';
-            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="9"></h3></label></li>';
-            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="10"></h3></label></li>';
-            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="11"></h3></label></li>';
-            contentNode += '</ul></div>';*/
+            });
+        }
+        // 新建活动使 初始化
+        function addInitializer(){
+            $('#allRule .reductionUl').html('<li class="addReduction">满￥<input type="text" name="standard">，立减￥<input type="text" name="reduce"> 送赠品<input type="text" name="num">个 <butoon name="selectActivityGoods" type="button" id="selectActivityGoods" class="btn btn-blue">选择赠品</butoon><span id="alreadygift" data-num="" class="alreadygift"></span> <button type="button" class="close"><span class="glyphicon glyphicon-floppy-saved"></span></button></li>');
+        }
+
+        function showRuleList(dataList) {
+            var html = '';
+            var daLan = dataList.length;
+            for (var i = 0; i < daLan; i++) {
+                var list = dataList[i];
+                var gift = list.gift
+                var giftHtml = gift ? '<span data-num="' + gift.num + '" data-goods_id="' + gift.goods_id + '" class="gift">送赠品 ' + gift.goods_name + gift.num + '个</span>' : '';
+                html += '<li class="reductionList">满￥<span data-standard="' + list.standard + '" data-reduce="' + list.reduce + '" class="rules">' + list.standard + ' 立减￥' + list.reduce + '</span>' + giftHtml + '<button type="button" class="close"><span>X</span></button></li>';
+            };
+            return html;
+        }
         $('#activityGoods').bind('click', function(e) {
             getGoodsNode("checkbox", function(contentNode) {
                 $.dialog({
@@ -90,11 +101,31 @@ require(['config'], function() {
                     }]
                 }, function(e) {
                     $('#allCheck').bind('click', function(e) {
-                        $('.good input[type=checkbox]').prop('checked', this.checked);
+                        $('.good input[type=checkbox]:not(:disabled)').prop('checked', this.checked);
                     });
+                    $('#goodsList').on('click','.good',function(e){
+                        if (this.getElementsByTagName('input')[0].disabled) {
+                            alert('该商品已经在其他活动中存在，一个商品无法同时参加多个满减活动')
+                        };
+                    })
+                    //选中已经选择了的商品
+                    checkGoods();
                 });
             });
         });
+
+        function checkGoods() {
+            var goods = $('#alreadyChoice').data('goodsIds');
+            if (goods) {
+                var rrgoods = goods.split(',')
+                var rrLan = rrgoods.length;
+                for (var i = 0; i < rrLan; i++) {
+                    $('[name="good"][value="' + rrgoods[i] + '"]').prop('checked', true);
+                };
+                return true;
+            };
+            return false;
+        }
 
         function getGoodsValue() {
             var goodsValue = [];
@@ -120,7 +151,7 @@ require(['config'], function() {
 
         function getGoodsNode(checkbox, callback) {
             getGoodsList(function(goods) {
-                var contentNode = '<div class="goodsList clearfix"><ul>';
+                var contentNode = '<div class="goodsList clearfix" id="goodsList"><ul>';
                 contentNode += checkbox == "checkbox" ? '<li title="全选"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="1" id="allCheck">全选</h3></label></li>' : '';
                 if (goods) {
                     var glen = goods.length;
@@ -129,24 +160,27 @@ require(['config'], function() {
                         contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? '' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid ? '' : 'disabled') + '>' + good.goods_name + '</h3></label></li>';
                     }
                 }
-                /*contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="2"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="3"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="4"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="5"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="6"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="7"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="8"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="9"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="10"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="11"></h3></label></li>';
-                contentNode += '</ul></div>';*/
+                /*contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="2"></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="3"></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="4" disabled></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="5" disabled></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="6" disabled></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="7"></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="8"></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="9"></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="10"></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="11"></h3></label></li>';*/
+                contentNode += '</ul></div>';
                 callback(contentNode);
             });
         }
 
         //增加满减优惠
         $('#addReductionRules').bind('click', function(e) {
-            if ($('.addReduction').length < 1) {
+            if ($('.reductionList').length > 2) {
+                alert('满减活动最大支持三级')
+            };
+            if ($('.addReduction').length < 1 && $('.reductionList').length < 3) {
                 $('#allRule .reductionUl').append('<li class="addReduction">满￥<input type="text" name="standard">，立减￥<input type="text" name="reduce"> 送赠品<input type="text" name="num">个 <butoon name="selectActivityGoods" type="button" id="selectActivityGoods" class="btn btn-blue">选择赠品</butoon><span id="alreadygift" data-num="" class="alreadygift"></span> <button type="button" class="close"><span class="glyphicon glyphicon-floppy-saved"></span></button></li>');
             } else {
                 return false;
@@ -169,6 +203,7 @@ require(['config'], function() {
                             var values = getGoodsValue();
                             if (values.length > 0) {
                                 var thisGiftName = $.trim($('input[value="' + values[0] + '"]').parents('h3').text());
+                                $('#alreadygift').data('num', values[0]);
                                 $('#alreadygift').html(thisGiftName).show();
                                 jqModal.modal('hide');
                             } else {
@@ -180,53 +215,61 @@ require(['config'], function() {
             });
         });
         //保存优惠规则
-        $('#allRule').on('click', '.close', function(e) {
+        $('#allRule').on('click', '.addReduction .close', function(e) {
             var list = $(this).parents('.addReduction');
             var standard = list.find('[name="standard"]').val();
             var reduce = list.find('[name="reduce"]').val();
             if (!standard && !reduce) {
+                alert('规则数据不完整无法保存')
                 return false;
             } else {
                 var num = list.find('[name="num"]').val();
                 var giftName = $.trim(list.find('#alreadygift').text());
-                var giftId = list.find('#alreadygift').prop('data-num');
+                var giftId = list.find('#alreadygift').data('num');
                 var giftHtml = '';
-                giftName && giftId && num && num > 0 ? giftHtml = '<span data-num="' + num + '" data-id="' + giftId + '" class="gift">送赠品 ' + giftName + num + '个</span>' : '';
+                giftName && giftId && num && num > 0 ? giftHtml = '<span data-num="' + num + '" data-goods_id="' + giftId + '" class="gift">送赠品 ' + giftName + num + '个</span>' : '';
                 var addListHtml = '<li class="reductionList">满￥<span data-standard="' + standard + '" data-reduce="' + reduce + '" class="rules">' + standard + ' 立减￥' + reduce + '</span>' + giftHtml + '<button type="button" class="close"><span>X</span></button></li>';
-                $('#allRule .reductionList:last').after(addListHtml);
+                $('#allRule .reductionUl').append(addListHtml);
                 list.remove();
             }
         });
         //点击删除
-        $('#allRule').on('click', '.close', function(e) {
+        $('#allRule').on('click', '.reductionList .close', function(e) {
             $(this).parents('.reductionList').remove();
+            if ($('.reductionList').length <= 0 && $('.addReduction').length <= 0 ) {
+                addInitializer();
+            };
+            
         });
         //保存当前页面数据
         $('#saveAllData').bind('click', function(e) {
-                //构造数据.
-                var data = getAllData();
-                $.ajax({
-                    type: "post",
-                    dataType: 'json',
-                    url: 'http://123.59.58.104/supplier/activity/fullcut/actionAdd',
-                    data: data,
-                    success: function(data) {
-                        alert('添加成功');
+            //构造数据.
+            var data = getAllData();
+            if (!data.goods_ids) {
+                alert('请先选择要赠送的赠品');
+                return;
+            } else {
+                requestSaveData(data, function(isOk, message, data) {
+                    if (isOk) {
+                        alert(message);
+                    } else {
+                        showError(message, data);
                     }
-                });
-            });
-            //获取所有数据
-        function getAllData() {
-                var allData = {};
-                allData.act_name = $.trim($('#activityName').val());
-                allData.act_desc = $.trim($('#activityDetail').val());
-                allData.start_time = $.trim($('#activityStartDate').val());
-                allData.end_time = $.trim($('#activityEndDate').val());
-                allData.goods_ids = $('#alreadyChoice').data('goodsIds');
-                allData.rules = getRulesData();
-                return allData;
+                })
             }
-            //获取规则数据
+        });
+        //获取所有数据
+        function getAllData() {
+            var allData = {};
+            allData.act_name = $.trim($('#activityName').val());
+            allData.act_desc = $.trim($('#activityDetail').val());
+            allData.start_time = $.trim($('#activityStartDate').val());
+            allData.end_time = $.trim($('#activityEndDate').val());
+            allData.goods_ids = $('#alreadyChoice').data('goodsIds');
+            allData.rules = getRulesData();
+            return allData;
+        }
+        //获取规则数据
         function getRulesData() {
             var rulesData = [];
             var rulesLan = $('.reductionList').length;
@@ -234,10 +277,54 @@ require(['config'], function() {
                 var ruleData = {};
                 var rule = $($('.reductionList')[i]);
                 ruleData = rule.find('.rules').data();
-                ruleData.gift = rule.find('.gift').data() || 0;
+                if (rule.find('.gift').data()) {
+                    ruleData.gift = rule.find('.gift').data();
+                }
                 rulesData.push(ruleData);
             };
             return rulesData;
+        }
+        // 提交数据
+        function requestSaveData(data, callback) {
+            //判断是否为编辑页面
+            var urlSearch = location.search;
+            var isEdit = urlSearch.length > 0 && -1 !== urlSearch.indexOf("?act_id=")
+            var quUrl = isEdit && (data.act_id = urlSearch.substr(urlSearch.indexOf('=') + 1)) ? 'http://123.59.58.104/supplier/activity/fullcut/actionEdit' : 'http://123.59.58.104/supplier/activity/fullcut/actionAdd';
+            $.ajax({
+                type: "post",
+                dataType: 'json',
+                url: quUrl,
+                data: {
+                    'condition': data
+                },
+                success: function(re) {
+                    if (re.error_no !== 0) {
+                        callback(false, re.error_msg, re.data);
+                    } else {
+                        callback(true, re.error_msg);
+                    }
+                }
+            });
+        }
+        //显示错误
+        function showError(title, contents) {
+            var contNode = '<div class="error_msg"><ul>';
+            var contLan = contents.length;
+            for (var i = 0; i < contLan; i++) {
+                contNode += '<li>' + contents[i] + '</li>';
+            };
+            contNode += '</ul></div>'
+            $.dialog({
+                keyboard: true,
+                title: title,
+                content: contNode,
+                butoon: [{
+                    text: '确定',
+                    click: function(jqModal) {
+                        jqModal.modal('hide');
+                    }
+                }]
+            })
         }
     });
 });

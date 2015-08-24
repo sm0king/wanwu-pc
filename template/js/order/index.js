@@ -5,7 +5,7 @@ requirejs.config({
   }
 })
 require(['config'], function() {
-  require(['jquery', 'bootstrap', 'foxUpload','datetimepicker','bootstrapValidator'], function($) {
+  require(['jquery', 'bootstrap', 'foxUpload'], function($) {
     // 无刷新上传发货信息回调函数
     function CallbackFunction(msg){
         // console.log(msg);
@@ -25,7 +25,7 @@ require(['config'], function() {
 
       // 下载订单
       $('#download_button').click(function() {
-        window.location.href = "<?php echo $site_url; ?>/order/shipping/download_order";
+        window.location.href = site+"/order/shipping/download_order";
         return true;
       });
 
@@ -95,7 +95,7 @@ require(['config'], function() {
                 return;
               }
               $.ajax({
-                url: "<?php echo $site_url; ?>/order/shipping/deliver",
+                url: site+"/order/shipping/deliver",
                 type: "POST",
                 data: {
                   orderid: orderid,
@@ -107,8 +107,9 @@ require(['config'], function() {
                 success: function(data) {
                   if (data.error_no == 0) {
                     $.alert("已经发货成功", function() {
-                      $("#t" + orderid).hide();
-                      $("#c" + orderid).hide();
+                      window.location.reload();
+                      // $("#t" + orderid).hide();
+                      // $("#c" + orderid).hide();
                     });
                   } else {
                     $.alert("订单发货失败");
@@ -188,7 +189,7 @@ require(['config'], function() {
               }
               orderid = orderid[0];
               $.ajax({
-                url: "<?php echo $site_url; ?>/order/shipping/feedback",
+                url: site+"/order/shipping/feedback",
                 type: "POST",
                 data: {
                   orderid: orderid,
@@ -259,7 +260,7 @@ require(['config'], function() {
               }
 
               $.ajax({
-                url: "<?php echo $site_url; ?>/order/shipping/cancelorder",
+                url: site+"/order/shipping/cancelorder",
                 type: "POST",
                 data: {
                   orderid: orderid,
@@ -283,39 +284,7 @@ require(['config'], function() {
           }]
         });
       });
-
-      $('#myform').bootstrapValidator({
-          fields:{
-            orderNum: {
-                validators: {
-                  stringLength: {
-                      max: 30,
-                      message: '输入文本不超过30字符'
-                  },
-                  regexp: {
-                      regexp: /^[a-zA-Z0-9_\.]+$/,
-                      message: '请输入正确的采购订单号'
-                  }
-                }
-            },
-            receiver:{
-                validators: {
-                  stringLength: {
-                      max: 30,
-                      message: '输入文本不超过30字符'
-                    }
-                }
-            },
-            concat:{
-                validators: {
-                  stringLength: {
-                      max: 30,
-                      message: '输入文本不超过30字符'
-                    }
-                }
-            }
-          }
-      });
     });
-  });
-});
+
+  })
+})

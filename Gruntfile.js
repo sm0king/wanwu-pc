@@ -149,7 +149,7 @@ module.exports = function(grunt) {
         },
         connect: {
             options: {
-                port: 80,
+                port: 8081,
                 hostname: '0.0.0.0'
             },
             demo: {
@@ -290,7 +290,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('server', ['jade', 'connect:demo', 'watch']);
     grunt.registerTask('dist','压缩任务',function(){
-        grunt.task.run(['uglify:densityJS','cssmin:densityCSS','imagemin:densityimg']);
+        grunt.task.run(['uglify:densityJS','cssmin:densityCSS']);
         // grunt.log.writeln('压缩任务已经完成，正在发布到SVN地址....')
         grunt.task.run(['copy:svn']);
     })

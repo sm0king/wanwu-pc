@@ -18,8 +18,8 @@ block Right
                 input(name="activityName",type="text").form-control#activityName
         .form-group.clearfix
             label.control-label(for="activityDetail") 活动描述
-            .col-md-3
-                input(name="activityDetail",type="text").form-control#activityDetail
+            .col-md-5
+                textarea(name="activityDetail",type="text",cols="30").form-control#activityDetail
         .form-group.clearfix
             label.control-label.require(for="activityTime") 时间
             .col-md-6
@@ -35,20 +35,32 @@ block Right
             label.control-label.require 满减规则
             .col-md-9#allRule
                 ul.reductionUl
-                    li.reductionList 满￥
-                        span.rules(data-standard="1000",data-reduce="10") 1000 立减￥200
+                    li.addReduction 满￥
+                        input(type="text",name="standard")
+                        |，立减￥
+                        input(type="text",name="reduce")
+                        |送赠品
+                        input(type="text",name="num")
+                        |个
+                        button(type="text",name="selectActivityGoods")#selectActivityGoods.btn.btn-blue 选择赠品
+                        span(data-num="")#alreadygift.alreadygift
                         button(type="button").close
-                            span X
-                    li.reductionList 满￥
-                        span.rules(data-standard="2000",data-reduce="0") 2000 立减￥0
-                        span.gift(data-num="5",data-id="382943") 送赠品 商品名字n个
-                        button(type="button").close
-                            span X
-                    li.reductionList 满￥
-                        span.rules(data-standard="3000",data-reduce="100") 3000立减￥100 
-                        span.gift(data-num="5",data-id="382943") 送赠品 商品名字 n 个
-                        button(type="button").close
-                            span X
+                            span.glyphicon.glyphicon-floppy-saved
+                    //
+                        li.reductionList 满￥
+                            span.rules(data-standard="1000",data-reduce="10") 1000 立减￥200
+                            button(type="button").close
+                                span X
+                        li.reductionList 满￥
+                            span.rules(data-standard="2000",data-reduce="0") 2000 立减￥0
+                            span.gift(data-num="5",data-goods_id="382943") 送赠品 商品名字n个
+                            button(type="button").close
+                                span X
+                        li.reductionList 满￥
+                            span.rules(data-standard="3000",data-reduce="100") 3000立减￥100 
+                            span.gift(data-num="5",data-goods_id="382943") 送赠品 商品名字 n 个
+                            button(type="button").close
+                                span X
                 button.btn.btn-blue.addReductionRules#addReductionRules|添加规则
         //
             .form-group.clearfix
@@ -62,12 +74,12 @@ block Right
                         |禁用
         .form-group.clearfix
             label.control-label
-            .col-md-3
+            .col-md-6
                 button(type="submit").btn.btn-blue#saveAllData|保存
                 button(type="submit").btn.btn-blue|取消
         //
             .form-group.clearfix
-                .goodsList
+                .goodsList#goodsList
                     ul
                         li(title="商品名称")
                             label

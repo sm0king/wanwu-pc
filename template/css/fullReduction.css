@@ -21,11 +21,17 @@
     list-style: none;
     line-height: 36px;
     padding-left: 8px;
+    padding-right: 45px;
+    white-space: nowrap;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
 }
 
 .fullReduction button.close {
+    position: absolute;
     line-height: 36px;
-    padding: 0 12px;
+    right:25px;
 }
 
 .fullReduction .close:focus {
@@ -84,4 +90,8 @@
     display: none;
     padding-left: 12px;
     color:blue;
+}
+.addReduction input{
+    width:50px;
+    line-height: normal;
 }
