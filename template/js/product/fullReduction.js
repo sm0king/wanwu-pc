@@ -17,7 +17,7 @@ require(['config'], function() {
             });
         });
     });
-    //选择商品
+    //选择商品 主操作
     require(['jquery', 'dialog'], function($) {
         $(function() {
             //编辑 初始化
@@ -42,7 +42,7 @@ require(['config'], function() {
                         alert(data.error_msg);
                     }
                 });
-            }else{
+            } else {
                 //新建初始化
                 //addInitializer();
             }
@@ -62,7 +62,7 @@ require(['config'], function() {
             });
         }
         // 新建活动使 初始化
-        function addInitializer(){
+        function addInitializer() {
             $('#allRule .reductionUl').html('<li class="addReduction">满￥<input type="text" name="standard">，立减￥<input type="text" name="reduce"> 送赠品<input type="text" name="num">个 <butoon name="selectActivityGoods" type="button" id="selectActivityGoods" class="btn btn-blue">选择赠品</butoon><span id="alreadygift" data-num="" class="alreadygift"></span> <button type="button" class="close"><span class="glyphicon glyphicon-floppy-saved"></span></button></li>');
         }
 
@@ -103,12 +103,16 @@ require(['config'], function() {
                     $('#allCheck').bind('click', function(e) {
                         $('.good input[type=checkbox]:not(:disabled)').prop('checked', this.checked);
                     });
-                    $('#goodsList').on('click','.good',function(e){
-                        if (this.getElementsByTagName('input')[0].disabled) {
-                            alert('该商品已经在其他活动中存在，一个商品无法同时参加多个满减活动')
-                        };
-                    })
-                    //选中已经选择了的商品
+                    $('.good input[name="good"]').bind('change',function(e){
+                        var goodPar = $(this).parents('.good')
+                        this.checked ? goodPar.addClass('checked'):goodPar.removeClass('checked');
+                    });
+                    $('#goodsList').on('click', '.good', function(e) {
+                            if (this.getElementsByTagName('input')[0].disabled) {
+                                alert('该商品已经在其他活动中存在，一个商品无法同时参加多个满减活动')
+                            };
+                        })
+                        //选中已经选择了的商品
                     checkGoods();
                 });
             });
@@ -157,10 +161,10 @@ require(['config'], function() {
                     var glen = goods.length;
                     for (var i = 0; i < glen; i++) {
                         var good = goods[i];
-                        contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? '' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid ? '' : 'disabled') + '>' + good.goods_name + '</h3></label></li>';
+                        contentNode += '<li title="' + good.goods_name + '" class="good"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? '' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid ? '' : 'disabled') + '>' + good.goods_name + '</h3></label></li>';
                     }
                 }
-                /*contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="2"></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="2"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="3"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="4" disabled></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="5" disabled></h3></label></li>';
@@ -169,7 +173,7 @@ require(['config'], function() {
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="8"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="9"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="10"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="11"></h3></label></li>';*/
+                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="11"></h3></label></li>';
                 contentNode += '</ul></div>';
                 callback(contentNode);
             });
@@ -236,10 +240,10 @@ require(['config'], function() {
         //点击删除
         $('#allRule').on('click', '.reductionList .close', function(e) {
             $(this).parents('.reductionList').remove();
-            if ($('.reductionList').length <= 0 && $('.addReduction').length <= 0 ) {
+            if ($('.reductionList').length <= 0 && $('.addReduction').length <= 0) {
                 addInitializer();
             };
-            
+
         });
         //保存当前页面数据
         $('#saveAllData').bind('click', function(e) {
@@ -261,11 +265,11 @@ require(['config'], function() {
         //获取所有数据
         function getAllData() {
             var allData = {};
-            allData.act_name = $.trim($('#activityName').val());
-            allData.act_desc = $.trim($('#activityDetail').val());
-            allData.start_time = $.trim($('#activityStartDate').val());
-            allData.end_time = $.trim($('#activityEndDate').val());
-            allData.goods_ids = $('#alreadyChoice').data('goodsIds');
+            allData.act_name = filterString($.trim($('#activityName').val()));
+            allData.act_desc = filterString($.trim($('#activityDetail').val()));
+            allData.start_time = filterString($.trim($('#activityStartDate').val()));
+            allData.end_time = filterString($.trim($('#activityEndDate').val()));
+            allData.goods_ids = filterString($('#alreadyChoice').data('goodsIds'));
             allData.rules = getRulesData();
             return allData;
         }
@@ -276,9 +280,9 @@ require(['config'], function() {
             for (var i = 0; i < rulesLan; i++) {
                 var ruleData = {};
                 var rule = $($('.reductionList')[i]);
-                ruleData = rule.find('.rules').data();
+                ruleData = filterString(rule.find('.rules').data());
                 if (rule.find('.gift').data()) {
-                    ruleData.gift = rule.find('.gift').data();
+                    ruleData.gift = filterString(rule.find('.gift').data());
                 }
                 rulesData.push(ruleData);
             };
@@ -326,5 +330,40 @@ require(['config'], function() {
                 }]
             })
         }
+        //过滤数据特殊字符
+        function filterString(str){
+            var pattern = new RegExp("[%`~!@#$^&*=|{}';',\\[\\].<>?~@#￥……&*\\\\|‘；：”“'？]", "g");
+            return str && str.replace(pattern, '');
+        }
     });
+    //验证部分
+    require(['jquery', 'bootstrap', 'bootstrapValidator'], function($) {
+        var validatorsmessage = {
+            validators: {
+                numeric: {
+                    message: '价格必须是数字'
+                }
+            }
+        }
+        var notEmptys = {
+            validators: {
+                notEmpty: {
+                    message: '此处不能为空'
+                }
+            }
+        }
+        $('#fullReduction').bootstrapValidator({
+            fields: {
+                standard: validatorsmessage,
+                reduce: validatorsmessage,
+                num: validatorsmessage,
+                activityName:notEmptys,
+                activityDetail:notEmptys
+            }
+        }).on('click', '#addReductionRules', function() {
+            $('#fullReduction').bootstrapValidator('addField', 'standard', validatorsmessage);
+            $('#fullReduction').bootstrapValidator('addField', 'reduce', validatorsmessage);
+            $('#fullReduction').bootstrapValidator('addField', 'num', validatorsmessage);
+        })
+    })
 });

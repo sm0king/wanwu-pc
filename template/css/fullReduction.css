@@ -15,7 +15,8 @@
     padding-left: 0;
 }
 
-.reductionList, .addReduction{
+.reductionList,
+.addReduction {
     margin: 6px 0;
     border: 1px dashed #d0d0d0;
     list-style: none;
@@ -31,7 +32,7 @@
 .fullReduction button.close {
     position: absolute;
     line-height: 36px;
-    right:25px;
+    right: 25px;
 }
 
 .fullReduction .close:focus {
@@ -55,43 +56,59 @@
 .goodsList li {
     display: inline;
     float: left;
-    width: 90px;
+    width: 150px;
     margin: 10px 0 0 10px;
+    border: 1px solid #dedede;
+    overflow: hidden;
 }
 
 .goodsList h3 {
     width: 100%;
-    height: 18px;
+    height: 36px;
     overflow: hidden;
-    margin: 5px 0 0;
+    margin: 5px 0 5px;
     line-height: 18px;
     font-size: 14px;
-    text-align: center;
+    text-align: left;
+    padding-left: 2px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    word-break: break-all;
 }
 
 .goodsList .u-img {
-    width: 90px;
-    height: 90px;
-    border-radius: 45px;
+    width: 150px;
+    height: 150px;
     display: block;
     position: relative;
 }
 
 .goodsList .u-img img {
-    border-radius: 45px;
     display: block;
     width: 100%;
     height: 100%;
 }
-.goodsList input[type=checkbox]{
-    margin: 3px 2px 0px;
+
+.goodsList input[type=checkbox] {
+    display: none
 }
-.alreadyChoice{
+
+.alreadyChoice {
     display: none;
     padding-left: 12px;
-    color:blue;
+    color: blue;
 }
-.addReduction input{
-    width:50px;
+
+.addReduction input {
+    width: 50px;
     line-height: normal;
+}
+
+.form-control {
+    border-radius: 0;
+    padding: 0;
+}
+.goodsList li.checked{
+    border:solid red;
 }

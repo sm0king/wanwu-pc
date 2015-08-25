@@ -10,11 +10,11 @@ block DashboardTitle
     添加满减
 
 block Right
-    .product.clearfix.fullReduction
+    .product.clearfix.fullReduction#fullReduction
         h4.indexH3 添加满减
         .form-group.clearfix
             label.control-label.require(for="activityName") 活动名字
-            .col-md-3
+            .col-md-5
                 input(name="activityName",type="text").form-control#activityName
         .form-group.clearfix
             label.control-label(for="activityDetail") 活动描述
@@ -61,6 +61,9 @@ block Right
                             span.gift(data-num="5",data-goods_id="382943") 送赠品 商品名字 n 个
                             button(type="button").close
                                 span X
+        .form-group.clearfix
+            label.control-label
+            .col-md-3
                 button.btn.btn-blue.addReductionRules#addReductionRules|添加规则
         //
             .form-group.clearfix
@@ -78,27 +81,36 @@ block Right
                 button(type="submit").btn.btn-blue#saveAllData|保存
                 button(type="submit").btn.btn-blue|取消
         //
-            .form-group.clearfix
-                .goodsList#goodsList
-                    ul
-                        li(title="商品名称")
-                            label
-                                .u-img
-                                    img(src="http://nec.netease.com/img/s/1.jpg")
-                                h3
-                                    input(type="checkbox")
-                        li(title="商品名称")
-                            label
-                                .u-img
-                                    img(src="http://nec.netease.com/img/s/1.jpg")
-                                h3
-                                    input(type="checkbox")
-                        li(title="商品名称")
-                            label
-                                .u-img
-                                    img(src="http://nec.netease.com/img/s/1.jpg")
-                                h3
-                                    input(type="checkbox")
+        .form-group.clearfix
+            .goodsList#goodsList
+                ul
+                    li(title="商品名称").checked
+                        label
+                            .u-img
+                                img(src="http://nec.netease.com/img/s/1.jpg")
+                            h3
+                                input(type="checkbox")
+                                |商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称
+                            span.goodPrice ￥123.00
+                            span.ok
+                    li(title="商品名称")
+                        label
+                            .u-img
+                                img(src="http://nec.netease.com/img/s/1.jpg")
+                            h3
+                                input(type="checkbox")
+                                |商品名称商品名称商品名称商品名称
+                            span.goodPrice ￥123.00
+                            span.ok
+                    li(title="商品名称")
+                        label
+                            .u-img
+                                img(src="http://nec.netease.com/img/s/1.jpg")
+                            h3
+                                input(type="checkbox")
+                                |商品名称
+                            span.goodPrice ￥123.00
+                            span.ok
 
 block foot
     script(type='text/javascript',data-main="../js/product/fullReduction",src='#{basePath}js/require.min.js')
