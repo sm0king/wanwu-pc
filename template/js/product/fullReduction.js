@@ -101,10 +101,13 @@ require(['config'], function() {
                     }]
                 }, function(e) {
                     $('#allCheck').bind('click', function(e) {
-                        $('.good input[type=checkbox]:not(:disabled)').prop('checked', this.checked);
+                        var wellNode = $('.good input[type=checkbox]:not(:disabled)');
+                        var wellNodePar = wellNode.parents('.good');
+                        wellNode.prop('checked', this.checked);
+                        this.checked ? wellNodePar.addClass('checked'):wellNodePar.removeClass('checked');
                     });
                     $('.good input[name="good"]').bind('change',function(e){
-                        var goodPar = $(this).parents('.good')
+                        var goodPar = $(this).parents('.good');
                         this.checked ? goodPar.addClass('checked'):goodPar.removeClass('checked');
                     });
                     $('#goodsList').on('click', '.good', function(e) {
@@ -155,20 +158,20 @@ require(['config'], function() {
 
         function getGoodsNode(checkbox, callback) {
             getGoodsList(function(goods) {
-                var contentNode = '<div class="goodsList clearfix" id="goodsList"><ul>';
+                var contentNode = '<div class="goodsList clearfix" id="goodsList"><ul class="clearfix">';
                 contentNode += checkbox == "checkbox" ? '<li title="全选"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="1" id="allCheck">全选</h3></label></li>' : '';
                 if (goods) {
                     var glen = goods.length;
                     for (var i = 0; i < glen; i++) {
                         var good = goods[i];
-                        contentNode += '<li title="' + good.goods_name + '" class="good"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? '' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid ? '' : 'disabled') + '>' + good.goods_name + '</h3></label></li>';
+                        contentNode += '<li title="' + good.goods_name + '" class="good ' + (good.valid ? '' : 'disabled') + '"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? '' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid ? '' : 'disabled') + '>' + good.goods_name + '</h3></label></li>';
                     }
                 }
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="2"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="3"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="4" disabled></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="5" disabled></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="6" disabled></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="4" disabled></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="5" disabled></h3></label></li>';
+                contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="6" disabled></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="7"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="8"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="9"></h3></label></li>';

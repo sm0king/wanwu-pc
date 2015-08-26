@@ -50,7 +50,7 @@
 }
 
 .goodsList ul {
-    margin: -11px 0 0 -10px;
+    /*margin: -11px 0 0 -10px;*/
 }
 
 .goodsList li {
@@ -58,8 +58,8 @@
     float: left;
     width: 150px;
     margin: 10px 0 0 10px;
-    border: 1px solid #dedede;
     overflow: hidden;
+    box-shadow: 0 1px 1px #eee;
 }
 
 .goodsList h3 {
@@ -111,4 +111,22 @@
 }
 .goodsList li.checked{
     border:solid red;
+    margin:7px 0px -3px 10px;
+}
+li.checked .u-img{
+   margin-left: -3px;
+}
+li.checked h3{
+    padding-left: 0px;
+    margin: 5px -3px 5px 0;
+}
+.goodsList span{
+    padding-left: 3px;
+}
+.goodsList li:hover span{
+    padding-left: 0px;
+}
+.good.disabled label{
+    cursor:not-allowed;
+    opacity: 0.5;
 }
