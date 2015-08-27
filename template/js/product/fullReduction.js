@@ -78,7 +78,7 @@ require(['config'], function() {
             return html;
         }
         $('#activityGoods').bind('click', function(e) {
-            getGoodsNode("checkbox", function(contentNode) {
+            getGoodsNode(page,"checkbox", function(contentNode) {
                 $.dialog({
                     keyboard: false,
                     title: '请选择参加活动的商品',
@@ -141,12 +141,14 @@ require(['config'], function() {
             });
             return goodsValue;
         }
-
-        function getGoodsList(callback) {
+        //获取分页内容。
+        function getGoodsList(page,callback) {
             $.ajax({
-                url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsList?page=1&limit=10',
+                url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsList?limit=10&page='+page,
                 dataType: 'json'
             }).success(function(data) {
+                // 刷新分页 暂留
+
                 //获取商品信息
                 callback(data.data.result, data);
             }).error(function(data) {
@@ -155,11 +157,17 @@ require(['config'], function() {
                 });
             });
         }
-
-        function getGoodsNode(checkbox, callback) {
-            getGoodsList(function(goods) {
+        // 组织goods信息DOM
+        function getGoodsNode(checkbox,page) {
+            getGoodsList(page,function(goods) {
                 var contentNode = '<div class="goodsList clearfix" id="goodsList"><ul class="clearfix">';
-                contentNode += checkbox == "checkbox" ? '<li title="全选"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="1" id="allCheck">全选</h3></label></li>' : '';
+                //contentNode += checkbox == "checkbox" ? '<li title="全选"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="1" id="allCheck">全选</h3></label></li>' : '';
+                //选择选项部分
+                /*
+                contentNode += '<div class="form-group clearfix">';
+                contentNode += checkbox == "checkbox" ?'<label class="col-md-6 alreadyCheck"><input type="checkbox" name="allCheck">只看选择商品</label>':'';
+                contentNode +='<div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn">';
+                */
                 if (goods) {
                     var glen = goods.length;
                     for (var i = 0; i < glen; i++) {
@@ -167,6 +175,7 @@ require(['config'], function() {
                         contentNode += '<li title="' + good.goods_name + '" class="good ' + (good.valid ? '' : 'disabled') + '"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? '' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid ? '' : 'disabled') + '>' + good.goods_name + '</h3></label></li>';
                     }
                 }
+                //测试数据
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="2"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="3"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="4" disabled></h3></label></li>';
@@ -177,11 +186,15 @@ require(['config'], function() {
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="9"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="10"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="11"></h3></label></li>';
+                //分页部分
+                contentNode += '<nav class="clearfix"><ul class="pagination"><li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#" class="more">...</a></li><li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li><li class="pagin-extend">共<i class="totalPage">7</i>页，到第<input type="text" class="text-input">页<button type="button" class="btn btn-blue">确定</button></li></ul></nav>';
+                //结尾
                 contentNode += '</ul></div>';
-                callback(contentNode);
+                return contentNode
             });
         }
-
+        //获取分页内容
+        getPageGoodsNode()
         //增加满减优惠
         $('#addReductionRules').bind('click', function(e) {
             if ($('.reductionList').length > 2) {
@@ -338,6 +351,7 @@ require(['config'], function() {
             var pattern = new RegExp("[%`~!@#$^&*=|{}';',\\[\\].<>?~@#￥……&*\\\\|‘；：”“'？]", "g");
             return str && str.replace(pattern, '');
         }
+        //获取分页信息，设置分页
     });
     //验证部分
     require(['jquery', 'bootstrap', 'bootstrapValidator'], function($) {

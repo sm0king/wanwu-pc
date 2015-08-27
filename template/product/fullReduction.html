@@ -80,8 +80,39 @@ block Right
             .col-md-6
                 button(type="submit").btn.btn-blue#saveAllData|保存
                 button(type="submit").btn.btn-blue|取消
-        //
-            .form-group.clearfix
+        
+        .form-group.clearfix
+            label.col-md-6.alreadyCheck
+                input(type="checkbox",name="allCheck")
+                |只看选择商品
+            .searchConditions#searchConditions.col-md-6
+                .input-group
+                    .input-group-btn
+                        select
+                            option(value="商品分类1") 商品分类1
+                            option(value="商品分类2") 商品分类2
+                            option(value="商品分类3") 商品分类3
+                            option(value="商品分类4") 商品分类4
+                            option(value="商品分类5") 商品分类5
+                        //
+                            button(type="button",data-toggle="dropdown",aria-haspopup="true",aria-expanded="false").btn.btn-default.dropdown-toggle 商品分类
+                                span.caret
+                            ul.dropdown-menu
+                                li
+                                    a(href="#") 商品分类1
+                                li
+                                    a(href="#") 商品分类2
+                                li
+                                    a(href="#") 商品分类3
+                                li
+                                    a(href="#") 商品分类4
+                                li
+                                    a(href="#") 商品分类5
+                    input(type="text").form-control
+                    span.input-group-btn
+                        button.btn.btn-default(type="button") 查询
+        include ../pagination.jade
+            //
                 .goodsList#goodsList
                     ul
                         li(title="商品名称").checked
