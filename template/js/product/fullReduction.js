@@ -71,14 +71,15 @@ require(['config'], function() {
             var daLan = dataList.length;
             for (var i = 0; i < daLan; i++) {
                 var list = dataList[i];
-                var gift = list.gift
+                var gift = list.gift;
                 var giftHtml = gift ? '<span data-num="' + gift.num + '" data-goods_id="' + gift.goods_id + '" class="gift">送赠品 ' + gift.goods_name + gift.num + '个</span>' : '';
                 html += '<li class="reductionList">满￥<span data-standard="' + list.standard + '" data-reduce="' + list.reduce + '" class="rules">' + list.standard + ' 立减￥' + list.reduce + '</span>' + giftHtml + '<button type="button" class="close"><span>X</span></button></li>';
-            };
+            }
             return html;
         }
         $('#activityGoods').bind('click', function(e) {
-            getGoodsNode(page,"checkbox", function(contentNode) {
+            //弹窗开始，数据初始化，加载第一页 商品。
+            // getGoodsNode(1,"checkbox", function(contentNode) {
                 $.dialog({
                     keyboard: false,
                     title: '请选择参加活动的商品',
@@ -100,31 +101,43 @@ require(['config'], function() {
                         }
                     }]
                 }, function(e) {
+                    //加载后绑定 各种事件 
+                    //加载数据 
+                    //加载 头部 筛选 选项数据
+
+                    //加载第一页数据
+                    var pageNode = getGoodsNode(checkbox,1);
+
+                    //加载分野数据
+
+                    //全选事件
                     $('#allCheck').bind('click', function(e) {
                         var wellNode = $('.good input[type=checkbox]:not(:disabled)');
                         var wellNodePar = wellNode.parents('.good');
                         wellNode.prop('checked', this.checked);
-                        this.checked ? wellNodePar.addClass('checked'):wellNodePar.removeClass('checked');
+                        this.checked ? wellNodePar.addClass('checked') : wellNodePar.removeClass('checked');
                     });
+                    //点击选中事件
                     $('.good input[name="good"]').bind('change',function(e){
                         var goodPar = $(this).parents('.good');
                         this.checked ? goodPar.addClass('checked'):goodPar.removeClass('checked');
                     });
+                    //点击无效商品 事件
                     $('#goodsList').on('click', '.good', function(e) {
                             if (this.getElementsByTagName('input')[0].disabled) {
-                                alert('该商品已经在其他活动中存在，一个商品无法同时参加多个满减活动')
-                            };
-                        })
+                                alert('该商品已经在其他活动中存在，一个商品无法同时参加多个满减活动');
+                            }
+                        });
                         //选中已经选择了的商品
                     checkGoods();
                 });
-            });
+            // });
         });
 
         function checkGoods() {
             var goods = $('#alreadyChoice').data('goodsIds');
             if (goods) {
-                var rrgoods = goods.split(',')
+                var rrgoods = goods.split(',');
                 var rrLan = rrgoods.length;
                 for (var i = 0; i < rrLan; i++) {
                     $('[name="good"][value="' + rrgoods[i] + '"]').prop('checked', true);
@@ -190,7 +203,7 @@ require(['config'], function() {
                 contentNode += '<nav class="clearfix"><ul class="pagination"><li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#" class="more">...</a></li><li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li><li class="pagin-extend">共<i class="totalPage">7</i>页，到第<input type="text" class="text-input">页<button type="button" class="btn btn-blue">确定</button></li></ul></nav>';
                 //结尾
                 contentNode += '</ul></div>';
-                return contentNode
+                return contentNode;
             });
         }
         //获取分页内容
