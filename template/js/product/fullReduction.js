@@ -80,6 +80,7 @@ require(['config'], function() {
         $('#activityGoods').bind('click', function(e) {
             //弹窗开始，数据初始化，加载第一页 商品。
             // getGoodsNode(1,"checkbox", function(contentNode) {
+                var contentNode = getContentNode();
                 $.dialog({
                     keyboard: false,
                     title: '请选择参加活动的商品',
@@ -104,9 +105,16 @@ require(['config'], function() {
                     //加载后绑定 各种事件 
                     //加载数据 
                     //加载 头部 筛选 选项数据
-
+                    getContentTitle(function(isOk,htmlNode){
+                        if (isOk) {
+                            $('#contentTitle').html(htmlNode);
+                        }else{
+                            alert(htmlNode.error_msg);
+                        }
+                    });
                     //加载第一页数据
-                    var pageNode = getGoodsNode(checkbox,1);
+                    getPageGoodsNode('checkbox',1);
+                    LoadPaginator()
 
                     //加载分野数据
 
@@ -133,7 +141,54 @@ require(['config'], function() {
                 });
             // });
         });
-
+        //弹窗DOM框架
+        function getContentNode(){
+            // 头部
+            var html = '<div id="contentTitle" class="contentTitle clearfix"></div>';
+            // 主内容区
+            html += '<div id="contentMain" class="contentMain clearfix"></div>';
+            // 底部
+            html += '<div id="contentFooter" class="contentFooter clearfix"></div>';
+            // 全选按钮
+            html += '<label class="allCheck"><input type="checkbox" value="1" id="allCheck">全选</label>'
+            return html;
+        }
+        //加载 选择筛 控制 头部
+        function getContentTitle(callback){
+            var html ='<div class="form-group clearfix"><label class="col-md-6 alreadyCheck"><input type="checkbox" name="allCheck">只看选择商品</label><div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn"><select>';
+            $.ajax({
+                url:'http://123.59.58.104/supplier/activity/fullcut/getSort',
+                dataType:'json'
+            }).success(function(data){
+                if (error_no ==  0) {
+                    var reMess = data.data;
+                    for (var i = 0; i < reMess.length; i++) {
+                        html += '<option value="'+data.data[i].id+'">'+data.data[i].name+'</option>';
+                    };
+                    html += '<option value="商品分类1">商品分类1</option>';
+                    html += '<option value="商品分类2">商品分类2</option>';
+                    html += '<option value="商品分类3">商品分类3</option>';
+                    html += '<option value="商品分类4">商品分类4</option>';
+                    html += '<option value="商品分类5">商品分类5</option>';
+                    html += '</select></div><input type="text" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default">查询</button></span></div></div></div>';
+                    callback(true,html);
+                }else{
+                    callback(false, data.error_msg, data.data);
+                }
+            }).error(function(data) {
+                /*callback(false, {
+                    error_msg: '未知错误！'
+                });*/
+                html += '<option value="商品分类1">商品分类1</option>';
+                html += '<option value="商品分类2">商品分类2</option>';
+                html += '<option value="商品分类3">商品分类3</option>';
+                html += '<option value="商品分类4">商品分类4</option>';
+                html += '<option value="商品分类5">商品分类5</option>';
+                html += '</select></div><input type="text" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default">查询</button></span></div></div></div>';
+                callback(true,html);
+            });
+        }
+        //初始化记载 已选中的数据
         function checkGoods() {
             var goods = $('#alreadyChoice').data('goodsIds');
             if (goods) {
@@ -146,7 +201,7 @@ require(['config'], function() {
             };
             return false;
         }
-
+        //获取 选中的商品ID
         function getGoodsValue() {
             var goodsValue = [];
             $('.good input:checked').map(function() {
@@ -160,8 +215,8 @@ require(['config'], function() {
                 url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsList?limit=10&page='+page,
                 dataType: 'json'
             }).success(function(data) {
-                // 刷新分页 暂留
-
+                //刷新分页 暂留
+                LoadPaginator(data.data.total,data.data.page,data.data.limit)
                 //获取商品信息
                 callback(data.data.result, data);
             }).error(function(data) {
@@ -171,7 +226,7 @@ require(['config'], function() {
             });
         }
         // 组织goods信息DOM
-        function getGoodsNode(checkbox,page) {
+        function getGoodsNode(checkbox,page,callback) {
             getGoodsList(page,function(goods) {
                 var contentNode = '<div class="goodsList clearfix" id="goodsList"><ul class="clearfix">';
                 //contentNode += checkbox == "checkbox" ? '<li title="全选"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="1" id="allCheck">全选</h3></label></li>' : '';
@@ -200,14 +255,23 @@ require(['config'], function() {
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="10"></h3></label></li>';
                 contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="11"></h3></label></li>';
                 //分页部分
-                contentNode += '<nav class="clearfix"><ul class="pagination"><li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#" class="more">...</a></li><li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li><li class="pagin-extend">共<i class="totalPage">7</i>页，到第<input type="text" class="text-input">页<button type="button" class="btn btn-blue">确定</button></li></ul></nav>';
+                //contentNode += '<nav class="clearfix"><ul class="pagination"><li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#" class="more">...</a></li><li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li><li class="pagin-extend">共<i class="totalPage">7</i>页，到第<input type="text" class="text-input">页<button type="button" class="btn btn-blue">确定</button></li></ul></nav>';
                 //结尾
                 contentNode += '</ul></div>';
-                return contentNode;
+                callback(contentNode);
             });
         }
-        //获取分页内容
-        getPageGoodsNode()
+        //加载某分页内容
+        function getPageGoodsNode(checkbox,page){
+            getGoodsNode(checkbox,page,function(pageNode){
+                $('#contentMain').html(pageNode);
+            });
+        }
+        //获取分页
+        function LoadPaginator(total,page,limit){
+            var html = '<nav class="clearfix"><ul class="pagination"><li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#" class="more">...</a></li><li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li><li class="pagin-extend">共<i class="totalPage">7</i>页，到第<input type="text" class="text-input">页<button type="button" class="btn btn-blue">确定</button></li></ul></nav>';
+            $('#contentFooter').html(html);
+        }
         //增加满减优惠
         $('#addReductionRules').bind('click', function(e) {
             if ($('.reductionList').length > 2) {
