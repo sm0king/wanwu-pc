@@ -30,7 +30,8 @@ requirejs.config({
         'productAdd':'../js/product/product_add',
         'productMEdit':'../js/product/product_m_edit',
         'addr':'../js/info/addr',
-        'productMEdit':'../js/product/product_m_edit'
+        'productMEdit':'../js/product/product_m_edit',
+        'paginator':'bootstrap-paginator.min'
     },
     shim: {
         "jquery": {
@@ -107,6 +108,9 @@ requirejs.config({
         },
         "tbJs":{
             deps:['KISSY']
+        },
+        "paginator":{
+            deps:['jquery','bootstrap']
         }
     }
 })
