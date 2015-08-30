@@ -14,12 +14,11 @@ body {
 }
 
 .header {
-    height: 444px;
-    background: url('../img/index/banner-bg.jpg') no-repeat;
+    height: 580px;
+    background: url('../img/index/newbanner-bg.jpg') no-repeat;
     background-color: #00031F;
     background-position: 50% 0;
     background-size: 100% 100%;
-    color: #fff;
     overflow: visible;
 }
 
@@ -72,7 +71,7 @@ body {
 
 .header .desc.pc {
     position: relative;
-    margin-top: 50px;
+    margin: 50px auto 0;
     width: 650px;
     text-align: center;
     overflow: hidden;
@@ -103,8 +102,8 @@ body {
 
 .header .download {
     position: relative;
-    margin-top: 30px;
-    padding-bottom: 10px;
+    margin-top: 15px;
+    padding-bottom: 20px;
 }
 
 .header .download .icon {
@@ -540,19 +539,19 @@ a.btn {
 }
 .vcode {
     display: inline-block;
-    width: 72px;
-    background-image: url(../img/index/2vcode.png);
-    margin-top: -34px;
-    top: 25px;
+    width: 76px;
+    background-image: url(../img/index/new2vcode.png);
+    margin-top: -48px;
+    top: 35px;
     position: relative;
     cursor: pointer;
-    background-size: 60%;
-    -webkit-background-size:60%;
+    background-size: 100%;
+    -webkit-background-size:100%;
     background-position: center top;
     background-repeat: no-repeat;
     font-size: 12px;
-    padding-top: 48px;
-    padding-top: 62px\0;
+    padding-top: 76px;
+    padding-top: 90px\0;
     color:#b7b7b7;
 }
 .vcode img{
