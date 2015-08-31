@@ -94,7 +94,7 @@ require(['config'], function() {
                         var values = getGoodsValue();
                         if (values.length > 0) {
                             $('#alreadyChoice').html('已选择' + values.length + '件商品').show();
-                            $('#alreadyChoice').data('goodsIds', values.toString());
+                            $('#alreadyChoice').data('goodsIds', values);
                             jqModal.modal('hide');
                         } else {
                             alert('没选中任何商品！');
@@ -113,11 +113,23 @@ require(['config'], function() {
                     }
                 });
                 //加载第一页数据
-                getPageGoodsNode('checkbox', 1);
+                getPageGoodsNode('checkbox', 1,checkGoods);
                 // LoadPaginator()
-
-                //加载分野数据
-
+                //为分页绑定事件。加载指定分页的数据。
+                $('#contentFooter').on('click','.pagination a',function(e){
+                    var clickPage = $(this).data('page');
+                    if(!$.isNumeric(clickPage)){
+                        var activeNum = $(this).parents('.pagination').find('.active a').data('page');
+                        clickPage = clickPage == 'Next' ? ++activeNum : --activeNum
+                    }
+                    pageTo(clickPage);
+                    //0 < clickPage &&  clickPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', clickPage,checkGoods);
+                })
+                //直接跳转分页页面
+                $('#contentFooter').on('click','#pageToButton',function(e){
+                    var goPage = $('#goToPage').val();
+                   // 0 < goPage &&  goPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', goPage,checkGoods);
+                })
                 //全选事件
                 $('#allCheck').bind('click', function(e) {
                     var wellNode = $('.good input[type=checkbox]:not(:disabled)');
@@ -126,21 +138,27 @@ require(['config'], function() {
                     this.checked ? wellNodePar.addClass('checked') : wellNodePar.removeClass('checked');
                 });
                 //点击选中事件
-                $('.good input[name="good"]').bind('change', function(e) {
+                $('#contentMain').on('click','.good input[name="good"]', function(e) {
                     var goodPar = $(this).parents('.good');
                     this.checked ? goodPar.addClass('checked') : goodPar.removeClass('checked');
                 });
                 //点击无效商品 事件
-                $('#goodsList').on('click', '.good', function(e) {
+                $('#contentMain').on('click', '#goodsList .good', function(e) {
                     if (this.getElementsByTagName('input')[0].disabled) {
                         alert('该商品已经在其他活动中存在，一个商品无法同时参加多个满减活动');
                     }
                 });
                 //选中已经选择了的商品
-                checkGoods();
+                //checkGoods();
             });
             // });
         });
+        //分页跳转
+        function pageTo(page){
+            //跳转之前对选中的数据进行存储
+            reSetGoodsValue(getGoodsValue());
+            0 < page &&  page <= $('.totalPage').text() && getPageGoodsNode('checkbox', page,checkGoods);
+        } 
         //弹窗DOM框架
         function getContentNode() {
             // 头部
@@ -160,7 +178,7 @@ require(['config'], function() {
                 url: 'http://123.59.58.104/supplier/activity/fullcut/getSort',
                 dataType: 'json'
             }).success(function(data) {
-                if (error_no == 0) {
+                if (data.error_no == 0) {
                     var reMess = data.data;
                     for (var i = 0; i < reMess.length; i++) {
                         html += '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
@@ -196,6 +214,7 @@ require(['config'], function() {
                 var rrLan = rrgoods.length;
                 for (var i = 0; i < rrLan; i++) {
                     $('[name="good"][value="' + rrgoods[i] + '"]').prop('checked', true);
+                    $('[name="good"][value="' + rrgoods[i] + '"]').parents('.good').addClass('checked');
                 };
                 return true;
             };
@@ -208,6 +227,15 @@ require(['config'], function() {
                 goodsValue.push(this.value);
             });
             return goodsValue;
+        }
+        //合并数组 去重 用于 翻页前，将数据存储起来。
+        function contGoodsArray(arr1,arr2){
+            return $.unique(arr1.concat(arr2));
+        }
+        //获取 当前已经存储的值 去重 重新 赋值
+        function reSetGoodsValue(newValue){
+            var oldValue = $('#alreadyChoice').data('goodsIds');
+            $('#alreadyChoice').data('goodsIds',contGoodsArray(oldValue,newValue));
         }
         //获取分页内容。
         function getGoodsList(page, callback) {
@@ -240,7 +268,7 @@ require(['config'], function() {
                     var glen = goods.length;
                     for (var i = 0; i < glen; i++) {
                         var good = goods[i];
-                        contentNode += '<li title="' + good.goods_name + '" class="good ' + (good.valid ? '' : 'disabled') + '"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? '' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid ? '' : 'disabled') + '>' + good.goods_name + '</h3></label></li>';
+                        contentNode += '<li title="' + good.goods_name + '" class="good ' + (good.valid ? '' : 'disabled') + '"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? 'name="good"' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid ? '' : 'disabled') + '>' + good.goods_name + '</h3></label></li>';
                     }
                 }
                 //测试数据
@@ -262,33 +290,29 @@ require(['config'], function() {
             });
         }
         //加载某分页内容
-        function getPageGoodsNode(checkbox, page) {
+        function getPageGoodsNode(checkbox, page,callback) {
             getGoodsNode(checkbox, page, function(pageNode) {
                 $('#contentMain').html(pageNode);
-                //为分页绑定事件。加载指定分页的数据。
-                $('#contentFooter').on('click','.pagination a',function(e){
-                    var clickPage = $(this).data('page');
-                    getPageGoodsNode('checkbox', clickPage);
-                })
+                callback();
             });
         }
         //获取分页
         function LoadPaginator(total, page, limit) {
-            var countPage = Math.ceil(total / list);
+            var countPage = Math.ceil(total / limit);
             var html = '<nav class="clearfix"><ul class="pagination">'
             if (countPage < 2) {
-                html += '<li><a data-page ="1" href="#">1</a></li>'
-            } else {
-                html += '<li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>';
+                html += '<li><a data-page ="1">1</a></li>'
+            } else if (1< countPage < 8){
+                html += '<li><a data-page="Previous" aria-label="Previous"><span aria-hidden="true">«</span></a></li>';
                 for(var i = 1; i <= countPage; i++){
-                   html += '<li><a data-page ="'+i+'" href="#">'+i+'</a></li>';
+                   html += '<li class="'+(i === page ?'active':'')+'" ><a data-page ="'+i+'">'+i+'</a></li>';
                 }
                 //html += '<li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li>';
 
-                html += '<li><a href="#" class="more">...</a></li>'
-                html += '<li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>';
+                html += '<li><a class="more">...</a></li>'
+                html += '<li><a data-page="Next" aria-label="Next"><span aria-hidden="true">»</span></a></li>';
             }
-            html += '<li class="pagin-extend">共<i class="totalPage">'+countPage+'</i>页，到第<input type="text" class="text-input">页<button type="button" class="btn btn-blue">确定</button></li>';
+            html += '<li class="pagin-extend">共<i class="totalPage">'+countPage+'</i>页，到第<input id="goToPage" type="text" class="text-input">页<button id="pageToButton" type="button" class="btn btn-blue">确定</button></li>';
             html += '</ul></nav>'
             $('#contentFooter').html(html);
         }
