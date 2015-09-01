@@ -47,8 +47,9 @@ require(['config'], function() {
                 //addInitializer();
             }
         });
+        var hostName = window.location.protocol +'//'+ window.location.host;
         function getInitializer(actID, callback) {
-            var ajUrl = 'http://123.59.58.104/supplier/activity/fullcut/getActive?act_id=' + actID;
+            var ajUrl = hostName+'/supplier/activity/fullcut/getActive?act_id=' + actID;
             $.ajax({
                 url: ajUrl,
                 dataType: 'json'
@@ -181,7 +182,7 @@ require(['config'], function() {
         function getContentTitle(callback) {
             var html = '<div class="form-group clearfix"><label class="col-md-6 alreadyCheck"><input type="checkbox" name="onlyChoice" id="onlyChoice">只看选择商品</label><div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn"><select id="sortSelect">';
             $.ajax({
-                url: 'http://123.59.58.104/supplier/activity/fullcut/getSort',
+                url: hostName+'/supplier/activity/fullcut/getSort',
                 dataType: 'json'
             }).success(function(data) {
                 if (data.error_no == 0) {
@@ -265,7 +266,7 @@ require(['config'], function() {
         //获取所有商品信息
         function getAllGoodsList(page, callback) {
             $.ajax({
-                url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsList?limit=10&page=' + page,
+                url: hostName+'/supplier/activity/fullcut/getGoodsList?limit=10&page=' + page,
                 dataType: 'json'
             }).success(function(data) {
                 //刷新分页 暂留
@@ -342,7 +343,7 @@ require(['config'], function() {
                 html += '<li><a class="more">...</a></li>'
                 html += '<li><a data-page="Next" aria-label="Next"><span aria-hidden="true">»</span></a></li>';
             }
-            html += '<li class="pagin-extend">共<i class="totalPage">' + countPage + '</i>页，到第<input id="goToPage" type="text" class="text-input">页<button id="pageToButton" type="button" class="btn btn-blue">确定</button></li>';
+            html += '<li class="pagin-extend">共<i class="totalPage">' + countPage + '</i>页<!---，到第<input id="goToPage" type="text" class="text-input">页---><button id="pageToButton" type="button" class="btn btn-blue">确定</button></li>';
             html += '</ul></nav>'
             $('#contentFooter').html(html);
         }
@@ -437,7 +438,7 @@ require(['config'], function() {
             allData.act_desc = filterString($.trim($('#activityDetail').val()));
             allData.start_time = filterString($.trim($('#activityStartDate').val()));
             allData.end_time = filterString($.trim($('#activityEndDate').val()));
-            allData.goods_ids = filterString($('#alreadyChoice').data('goodsIds').toString());
+            allData.goods_ids = filterString($('#alreadyChoice').data('goodsIds') && $('#alreadyChoice').data('goodsIds').toString());
             allData.rules = getRulesData();
             return allData;
         }
@@ -464,7 +465,7 @@ require(['config'], function() {
             //判断是否为编辑页面
             var urlSearch = location.search;
             var isEdit = urlSearch.length > 0 && -1 !== urlSearch.indexOf("?act_id=")
-            var quUrl = isEdit && (data.act_id = urlSearch.substr(urlSearch.indexOf('=') + 1)) ? 'http://123.59.58.104/supplier/activity/fullcut/actionEdit' : 'http://123.59.58.104/supplier/activity/fullcut/actionAdd';
+            var quUrl = isEdit && (data.act_id = urlSearch.substr(urlSearch.indexOf('=') + 1)) ? hostName+'/supplier/activity/fullcut/actionEdit' : hostName+'/supplier/activity/fullcut/actionAdd';
             $.ajax({
                 type: "post",
                 dataType: 'json',
@@ -517,7 +518,7 @@ require(['config'], function() {
             var values = filterString($('#alreadyChoice').data('goodsIds').toString());
             //3 发送给后台进行获取
             $.ajax({
-                url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsByIds',
+                url: hostName+'/supplier/activity/fullcut/getGoodsByIds',
                 type: "post",
                 dataType: 'json',
                 data: {
@@ -542,7 +543,7 @@ require(['config'], function() {
             var sort = $('#sortSelect').val();
             //搜索查询
             $.ajax({
-                url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsList',
+                url: hostName+'/supplier/activity/fullcut/getGoodsList',
                 type: "post",
                 dataType: 'json',
                 data: {
@@ -561,7 +562,7 @@ require(['config'], function() {
                 }
             })
         }
-        //http://123.59.58.104/supplier/activity/fullcut/getGoodsList?page=1&limit=10&goods_name=test&cid=10005
+        //hostName+//supplier/activity/fullcut/getGoodsList?page=1&limit=10&goods_name=test&cid=10005
     });
     //验证部分
     require(['jquery', 'bootstrap', 'bootstrapValidator'], function($) {
