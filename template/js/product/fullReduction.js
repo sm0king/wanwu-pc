@@ -14,6 +14,9 @@ require(['config'], function() {
                 minView: 0,
                 autoclose: true,
                 todayBtn: true
+            }).on('changeDate', function(e) {
+                $('#fullReduction').data('bootstrapValidator').updateStatus(this.name, 'NOT_VALIDATED', null).validateField(this.name);
+                // $('#fullReduction').formValidation('revalidateField',this.name);
             });
         });
     });
@@ -34,6 +37,8 @@ require(['config'], function() {
                         var end_time = new Date();
                         add_time.setTime(result.add_time);
                         end_time.setTime(result.end_time);*/
+                        $('#alreadyChoice').data('goodsIds',result.goods_ids.split(','));
+                        $('#alreadyChoice').html('已选择' + result.goods_ids.split(',').length + '件商品').show();
                         $('#activityStartDate').val(result.start_time);
                         $('#activityEndDate').val(result.end_time);
                         var listHtml = showRuleList(result.act_rules);
@@ -47,9 +52,10 @@ require(['config'], function() {
                 //addInitializer();
             }
         });
-        var hostName = window.location.protocol +'//'+ window.location.host;
+        var hostName = window.location.protocol + '//' + window.location.host;
+
         function getInitializer(actID, callback) {
-            var ajUrl = hostName+'/supplier/activity/fullcut/getActive?act_id=' + actID;
+            var ajUrl = window.location.protocol + '//' + window.location.host + '/supplier/activity/fullcut/getActive?act_id=' + actID;
             $.ajax({
                 url: ajUrl,
                 dataType: 'json'
@@ -114,26 +120,26 @@ require(['config'], function() {
                     //加载第一页数据
                     getPageGoodsNode('checkbox', 1, checkGoods);
                     // 绑定 只看选择商品
-                    $('#onlyChoice').bind('click',function(e){
+                    $('#onlyChoice').bind('click', function(e) {
                         getPageGoodsNode('checkbox', 1, checkGoods);
-                    })
+                    });
                     //为分页绑定事件。加载指定分页的数据。
                     $('#contentFooter').on('click', '.pagination a', function(e) {
-                            var clickPage = $(this).data('page');
-                            if (!$.isNumeric(clickPage)) {
-                                var activeNum = $(this).parents('.pagination').find('.active a').data('page');
-                                clickPage = clickPage == 'Next' ? ++activeNum : --activeNum
-                            }
-                            pageTo(clickPage);
-                            //0 < clickPage &&  clickPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', clickPage,checkGoods);
-                        })
-                        //直接跳转分页页面
+                        var clickPage = $(this).data('page');
+                        if (!$.isNumeric(clickPage)) {
+                            var activeNum = $(this).parents('.pagination').find('.active a').data('page');
+                            clickPage = clickPage == 'Next' ? ++activeNum : --activeNum;
+                        }
+                        pageTo(clickPage);
+                        //0 < clickPage &&  clickPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', clickPage,checkGoods);
+                    });
+                    //直接跳转分页页面
                     $('#contentFooter').on('click', '#pageToButton', function(e) {
-                            var goPage = $('#goToPage').val();
-                            pageTo(goPage);
-                            // 0 < goPage &&  goPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', goPage,checkGoods);
-                        })
-                        //全选事件
+                        var goPage = $('#goToPage').val();
+                        pageTo(goPage);
+                        // 0 < goPage &&  goPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', goPage,checkGoods);
+                    });
+                    //全选事件
                     $('#allCheck').bind('click', function(e) {
                         var wellNode = $('.good input[type=checkbox]:not(:disabled)');
                         var wellNodePar = wellNode.parents('.good');
@@ -142,8 +148,15 @@ require(['config'], function() {
                     });
                     //点击选中事件
                     $('#contentMain').on('click', '.good input[name="good"]', function(e) {
+                        var goodValue = this.value;
                         var goodPar = $(this).parents('.good');
-                        this.checked ? goodPar.addClass('checked') : goodPar.removeClass('checked');
+                        if (this.checked) {
+                            goodPar.addClass('checked');
+                        }else{
+                            goodPar.removeClass('checked');
+                            removeGoodsValue(goodValue);
+                        }
+                        //this.checked ? goodPar.addClass('checked') : { goodPar.removeClass('checked'); removeGoodsValue(goodValue)};
                     });
                     //点击无效商品 事件
                     $('#contentMain').on('click', '#goodsList .good', function(e) {
@@ -153,7 +166,7 @@ require(['config'], function() {
                     });
                     //选中已经选择了的商品
                     //绑定搜索事件
-                    $('#searchButton').bind('click',function(e){
+                    $('#searchButton').bind('click', function(e) {
                         getPageGoodsNode('checkbox', 1, checkGoods);
                     })
                 });
@@ -182,7 +195,7 @@ require(['config'], function() {
         function getContentTitle(callback) {
             var html = '<div class="form-group clearfix"><label class="col-md-6 alreadyCheck"><input type="checkbox" name="onlyChoice" id="onlyChoice">只看选择商品</label><div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn"><select id="sortSelect">';
             $.ajax({
-                url: hostName+'/supplier/activity/fullcut/getSort',
+                url: hostName + '/supplier/activity/fullcut/getSort',
                 dataType: 'json'
             }).success(function(data) {
                 if (data.error_no == 0) {
@@ -244,18 +257,34 @@ require(['config'], function() {
             var oldValue = $('#alreadyChoice').data('goodsIds') || [];
             $('#alreadyChoice').data('goodsIds', contGoodsArray(oldValue, newValue));
         }
+        //数组删除
+        function arrRomve(arr, value) {
+            //检查位置
+            var where = $.inArray(value, arr);
+            if (arr == -1) {
+                return arr;
+            } else {
+                return arr.splice(where, 1);
+            }
+        }
+        // 取消当前选中的值
+        function removeGoodsValue(value) {
+            var oldValue = $('#alreadyChoice').data('goodsIds') || [];
+            var newValue = arrRomve(oldValue, value);
+            $('#alreadyChoice').data('goodsIds', newValue);
+        }
         //获取分页内容。
-        function getGoodsList(checkbox,page, callback) {
+        function getGoodsList(checkbox, page, callback) {
             //是否只查看选中数据
-            if (checkbox !=='radio' && $('#onlyChoice')[0].checked) {
+            if (checkbox !== 'radio' && $('#onlyChoice')[0].checked) {
                 requestChooseGoods(page, function(isOk, msg) {
                     callback(msg.result, msg)
                 })
-            } else if(checkbox !=='radio' && $.trim($('#searchValue').val()).length >0 ){
-                searchGoods(page,function(isOk,msg){
-                    callback(msg.result,msg)
+            } else if (checkbox !== 'radio' && $.trim($('#searchValue').val()).length > 0) {
+                searchGoods(page, function(isOk, msg) {
+                    callback(msg.result, msg)
                 })
-            }else {
+            } else {
                 //查看所有数据
                 getAllGoodsList(page, function(result, data) {
                     callback(result, data);
@@ -266,7 +295,7 @@ require(['config'], function() {
         //获取所有商品信息
         function getAllGoodsList(page, callback) {
             $.ajax({
-                url: hostName+'/supplier/activity/fullcut/getGoodsList?limit=10&page=' + page,
+                url: hostName + '/supplier/activity/fullcut/getGoodsList?limit=10&page=' + page,
                 dataType: 'json'
             }).success(function(data) {
                 //刷新分页 暂留
@@ -281,7 +310,7 @@ require(['config'], function() {
         }
         // 预备 goods信息DOM
         function getGoodsNode(checkbox, page, callback) {
-            getGoodsList(checkbox,page, function(goods) {
+            getGoodsList(checkbox, page, function(goods) {
                 var contentNode = makeNode(checkbox, goods)
                 callback(contentNode);
             });
@@ -300,7 +329,7 @@ require(['config'], function() {
                 var glen = goods.length;
                 for (var i = 0; i < glen; i++) {
                     var good = goods[i];
-                    contentNode += '<li title="' + good.goods_name + '" class="good ' + (good.valid == 0 && checkbox =="checkbox" ? 'disabled' : '') + '"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? 'name="good"' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid == 0 && checkbox =="checkbox" ? 'disabled' : '') + '>' + good.goods_name + '</h3></label></li>';
+                    contentNode += '<li title="' + good.goods_name + '" class="good ' + (good.valid == 0 && checkbox == "checkbox" ? 'disabled' : '') + '"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? 'name="good"' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid == 0 && checkbox == "checkbox" ? 'disabled' : '') + '>' + good.goods_name + '</h3></label></li>';
                 }
             }
             //测试数据
@@ -377,6 +406,7 @@ require(['config'], function() {
                                 var thisGiftName = $.trim($('input[value="' + values[0] + '"]').parents('h3').text());
                                 $('#alreadygift').data('num', values[0]);
                                 $('#alreadygift').html(thisGiftName).show();
+                                $('[name="reduce"').val('0');
                                 jqModal.modal('hide');
                             } else {
                                 alert('没选中任何商品！');
@@ -420,7 +450,7 @@ require(['config'], function() {
             if (!data.goods_ids) {
                 alert('请先选择要参加活动的商品');
                 return;
-            } else if (data.rules <1) {
+            } else if (data.rules < 1) {
                 alert('请先选保存满减规则');
                 return;
             } else {
@@ -468,7 +498,7 @@ require(['config'], function() {
             //判断是否为编辑页面
             var urlSearch = location.search;
             var isEdit = urlSearch.length > 0 && -1 !== urlSearch.indexOf("?act_id=")
-            var quUrl = isEdit && (data.act_id = urlSearch.substr(urlSearch.indexOf('=') + 1)) ? hostName+'/supplier/activity/fullcut/actionEdit' : hostName+'/supplier/activity/fullcut/actionAdd';
+            var quUrl = isEdit && (data.act_id = urlSearch.substr(urlSearch.indexOf('=') + 1)) ? hostName + '/supplier/activity/fullcut/actionEdit' : hostName + '/supplier/activity/fullcut/actionAdd';
             $.ajax({
                 type: "post",
                 dataType: 'json',
@@ -521,7 +551,7 @@ require(['config'], function() {
             var values = filterString($('#alreadyChoice').data('goodsIds').toString());
             //3 发送给后台进行获取
             $.ajax({
-                url: hostName+'/supplier/activity/fullcut/getGoodsByIds',
+                url: hostName + '/supplier/activity/fullcut/getGoodsByIds',
                 type: "post",
                 dataType: 'json',
                 data: {
@@ -540,18 +570,18 @@ require(['config'], function() {
             })
         }
         //搜索结果
-        function searchGoods(page,callback){
+        function searchGoods(page, callback) {
             //获取关键词
             var value = $('#searchValue').val();
             var sort = $('#sortSelect').val();
             //搜索查询
             $.ajax({
-                url: hostName+'/supplier/activity/fullcut/getGoodsList',
+                url: hostName + '/supplier/activity/fullcut/getGoodsList',
                 type: "post",
                 dataType: 'json',
                 data: {
                     'goods_name': value,
-                    'cid':sort,
+                    'cid': sort,
                     'limit': 10,
                     'page': page
                 },
@@ -571,25 +601,73 @@ require(['config'], function() {
     require(['jquery', 'bootstrap', 'bootstrapValidator'], function($) {
         var validatorsmessage = {
             validators: {
-                numeric: {
-                    message: '价格必须是数字'
-                }
+                integer: {
+                    message: '价格必须是整数'
+                },
+                // greaterThan:{
+                //     value:0,
+                //     message:'价格必须是正整数'
+                // }
             }
-        }
+        };
         var notEmptys = {
             validators: {
                 notEmpty: {
                     message: '此处不能为空'
                 }
             }
-        }
+        };
         $('#fullReduction').bootstrapValidator({
             fields: {
                 standard: validatorsmessage,
                 reduce: validatorsmessage,
                 num: validatorsmessage,
-                activityName: notEmptys,
-                activityDetail: notEmptys
+                activityName: {
+                    validators: {
+                        notEmpty: {
+                            message: '此处不能为空'
+                        },
+                        callback: {
+                            message: '活动名称不能超过30个字',
+                            callback: function(value, validators, $fields) {
+                                var wordLength = ($.trim(value).replace(/[^\x00-\xFF]/g, '**').length / 2).toFixed(0);
+                                if (1 < wordLength && wordLength < 30) {
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }
+                        }
+
+                    }
+                },
+                activityDetail: notEmptys,
+                activityStartDate: {
+                    validators: {
+                        notEmpty: {
+                            message: '此处不能为空'
+                        },
+                        date: {
+                            format: 'YYYY-MM-DD H:m:s',
+                            message: '开始时间不能大于结束时间',
+                            max: 'activityEndDate'
+                        }
+                    }
+
+                },
+                activityEndDate: {
+                    validators: {
+                        notEmpty: {
+                            message: '此处不能为空'
+                        },
+                        date: {
+                            format: 'YYYY-MM-DD H:m:s',
+                            message: '开始时间不能大于结束时间',
+                            min: 'activityStartDate'
+                        }
+                    }
+
+                }
             }
         }).on('click', '#addReductionRules', function() {
             $('#fullReduction').bootstrapValidator('addField', 'standard', validatorsmessage);
