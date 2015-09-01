@@ -47,7 +47,6 @@ require(['config'], function() {
                 //addInitializer();
             }
         });
-
         function getInitializer(actID, callback) {
             var ajUrl = 'http://123.59.58.104/supplier/activity/fullcut/getActive?act_id=' + actID;
             $.ajax({
@@ -92,9 +91,9 @@ require(['config'], function() {
                         var ModalNode = jqModal.contents();
                         //获取选中的值
                         var values = getGoodsValue();
+                        reSetGoodsValue(values);
                         if (values.length > 0) {
-                            $('#alreadyChoice').html('已选择' + values.length + '件商品').show();
-                            $('#alreadyChoice').data('goodsIds', values);
+                            $('#alreadyChoice').html('已选择' + $('#alreadyChoice').data('goodsIds').length + '件商品').show();
                             jqModal.modal('hide');
                         } else {
                             alert('没选中任何商品！');
@@ -111,54 +110,61 @@ require(['config'], function() {
                     } else {
                         alert(htmlNode.error_msg);
                     }
+                    //加载第一页数据
+                    getPageGoodsNode('checkbox', 1, checkGoods);
+                    // 绑定 只看选择商品
+                    $('#onlyChoice').bind('click',function(e){
+                        getPageGoodsNode('checkbox', 1, checkGoods);
+                    })
+                    //为分页绑定事件。加载指定分页的数据。
+                    $('#contentFooter').on('click', '.pagination a', function(e) {
+                            var clickPage = $(this).data('page');
+                            if (!$.isNumeric(clickPage)) {
+                                var activeNum = $(this).parents('.pagination').find('.active a').data('page');
+                                clickPage = clickPage == 'Next' ? ++activeNum : --activeNum
+                            }
+                            pageTo(clickPage);
+                            //0 < clickPage &&  clickPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', clickPage,checkGoods);
+                        })
+                        //直接跳转分页页面
+                    $('#contentFooter').on('click', '#pageToButton', function(e) {
+                            var goPage = $('#goToPage').val();
+                            pageTo(goPage);
+                            // 0 < goPage &&  goPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', goPage,checkGoods);
+                        })
+                        //全选事件
+                    $('#allCheck').bind('click', function(e) {
+                        var wellNode = $('.good input[type=checkbox]:not(:disabled)');
+                        var wellNodePar = wellNode.parents('.good');
+                        wellNode.prop('checked', this.checked);
+                        this.checked ? wellNodePar.addClass('checked') : wellNodePar.removeClass('checked');
+                    });
+                    //点击选中事件
+                    $('#contentMain').on('click', '.good input[name="good"]', function(e) {
+                        var goodPar = $(this).parents('.good');
+                        this.checked ? goodPar.addClass('checked') : goodPar.removeClass('checked');
+                    });
+                    //点击无效商品 事件
+                    $('#contentMain').on('click', '#goodsList .good', function(e) {
+                        if (this.getElementsByTagName('input')[0].disabled) {
+                            alert('该商品已经在其他活动中存在，一个商品无法同时参加多个满减活动');
+                        }
+                    });
+                    //选中已经选择了的商品
+                    //绑定搜索事件
+                    $('#searchButton').bind('click',function(e){
+                        getPageGoodsNode('checkbox', 1, checkGoods);
+                    })
                 });
-                //加载第一页数据
-                getPageGoodsNode('checkbox', 1,checkGoods);
-                // LoadPaginator()
-                //为分页绑定事件。加载指定分页的数据。
-                $('#contentFooter').on('click','.pagination a',function(e){
-                    var clickPage = $(this).data('page');
-                    if(!$.isNumeric(clickPage)){
-                        var activeNum = $(this).parents('.pagination').find('.active a').data('page');
-                        clickPage = clickPage == 'Next' ? ++activeNum : --activeNum
-                    }
-                    pageTo(clickPage);
-                    //0 < clickPage &&  clickPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', clickPage,checkGoods);
-                })
-                //直接跳转分页页面
-                $('#contentFooter').on('click','#pageToButton',function(e){
-                    var goPage = $('#goToPage').val();
-                   // 0 < goPage &&  goPage <= $('.totalPage').text() && getPageGoodsNode('checkbox', goPage,checkGoods);
-                })
-                //全选事件
-                $('#allCheck').bind('click', function(e) {
-                    var wellNode = $('.good input[type=checkbox]:not(:disabled)');
-                    var wellNodePar = wellNode.parents('.good');
-                    wellNode.prop('checked', this.checked);
-                    this.checked ? wellNodePar.addClass('checked') : wellNodePar.removeClass('checked');
-                });
-                //点击选中事件
-                $('#contentMain').on('click','.good input[name="good"]', function(e) {
-                    var goodPar = $(this).parents('.good');
-                    this.checked ? goodPar.addClass('checked') : goodPar.removeClass('checked');
-                });
-                //点击无效商品 事件
-                $('#contentMain').on('click', '#goodsList .good', function(e) {
-                    if (this.getElementsByTagName('input')[0].disabled) {
-                        alert('该商品已经在其他活动中存在，一个商品无法同时参加多个满减活动');
-                    }
-                });
-                //选中已经选择了的商品
-                //checkGoods();
             });
             // });
         });
         //分页跳转
-        function pageTo(page){
+        function pageTo(page) {
             //跳转之前对选中的数据进行存储
             reSetGoodsValue(getGoodsValue());
-            0 < page &&  page <= $('.totalPage').text() && getPageGoodsNode('checkbox', page,checkGoods);
-        } 
+            0 < page && page <= $('.totalPage').text() && getPageGoodsNode('checkbox', page, checkGoods);
+        }
         //弹窗DOM框架
         function getContentNode() {
             // 头部
@@ -173,7 +179,7 @@ require(['config'], function() {
         }
         //加载 选择筛 控制 头部
         function getContentTitle(callback) {
-            var html = '<div class="form-group clearfix"><label class="col-md-6 alreadyCheck"><input type="checkbox" name="allCheck">只看选择商品</label><div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn"><select>';
+            var html = '<div class="form-group clearfix"><label class="col-md-6 alreadyCheck"><input type="checkbox" name="onlyChoice" id="onlyChoice">只看选择商品</label><div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn"><select id="sortSelect">';
             $.ajax({
                 url: 'http://123.59.58.104/supplier/activity/fullcut/getSort',
                 dataType: 'json'
@@ -183,34 +189,34 @@ require(['config'], function() {
                     for (var i = 0; i < reMess.length; i++) {
                         html += '<option value="' + data.data[i].id + '">' + data.data[i].name + '</option>';
                     };
-                    html += '<option value="商品分类1">商品分类1</option>';
+                    /*html += '<option value="商品分类1">商品分类1</option>';
                     html += '<option value="商品分类2">商品分类2</option>';
                     html += '<option value="商品分类3">商品分类3</option>';
                     html += '<option value="商品分类4">商品分类4</option>';
-                    html += '<option value="商品分类5">商品分类5</option>';
-                    html += '</select></div><input type="text" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default">查询</button></span></div></div></div>';
+                    html += '<option value="商品分类5">商品分类5</option>';*/
+                    html += '</select></div><input id="searchValue" type="text" class="form-control"><span class="input-group-btn"><button id="searchButton" type="button" class="btn btn-default">查询</button></span></div></div></div>';
                     callback(true, html);
                 } else {
                     callback(false, data.error_msg, data.data);
                 }
             }).error(function(data) {
-                /*callback(false, {
+                callback(false, {
                     error_msg: '未知错误！'
-                });*/
-                html += '<option value="商品分类1">商品分类1</option>';
+                });
+                /*html += '<option value="商品分类1">商品分类1</option>';
                 html += '<option value="商品分类2">商品分类2</option>';
                 html += '<option value="商品分类3">商品分类3</option>';
                 html += '<option value="商品分类4">商品分类4</option>';
                 html += '<option value="商品分类5">商品分类5</option>';
                 html += '</select></div><input type="text" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-default">查询</button></span></div></div></div>';
-                callback(true, html);
+                callback(true, html);*/
             });
         }
         //初始化记载 已选中的数据
         function checkGoods() {
             var goods = $('#alreadyChoice').data('goodsIds');
             if (goods) {
-                var rrgoods = goods.split(',');
+                var rrgoods = goods
                 var rrLan = rrgoods.length;
                 for (var i = 0; i < rrLan; i++) {
                     $('[name="good"][value="' + rrgoods[i] + '"]').prop('checked', true);
@@ -229,23 +235,42 @@ require(['config'], function() {
             return goodsValue;
         }
         //合并数组 去重 用于 翻页前，将数据存储起来。
-        function contGoodsArray(arr1,arr2){
+        function contGoodsArray(arr1, arr2) {
             return $.unique(arr1.concat(arr2));
         }
         //获取 当前已经存储的值 去重 重新 赋值
-        function reSetGoodsValue(newValue){
-            var oldValue = $('#alreadyChoice').data('goodsIds');
-            $('#alreadyChoice').data('goodsIds',contGoodsArray(oldValue,newValue));
+        function reSetGoodsValue(newValue) {
+            var oldValue = $('#alreadyChoice').data('goodsIds') || [];
+            $('#alreadyChoice').data('goodsIds', contGoodsArray(oldValue, newValue));
         }
         //获取分页内容。
-        function getGoodsList(page, callback) {
+        function getGoodsList(checkbox,page, callback) {
+            //是否只查看选中数据
+            if (checkbox !=='radio' && $('#onlyChoice')[0].checked) {
+                requestChooseGoods(page, function(isOk, msg) {
+                    callback(msg.result, msg)
+                })
+            } else if(checkbox !=='radio' && $.trim($('#searchValue').val()).length >0 ){
+                searchGoods(page,function(isOk,msg){
+                    callback(msg.result,msg)
+                })
+            }else {
+                //查看所有数据
+                getAllGoodsList(page, function(result, data) {
+                    callback(result, data);
+                })
+            }
+
+        }
+        //获取所有商品信息
+        function getAllGoodsList(page, callback) {
             $.ajax({
                 url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsList?limit=10&page=' + page,
                 dataType: 'json'
             }).success(function(data) {
                 //刷新分页 暂留
                 LoadPaginator(data.data.total, data.data.page, data.data.limit);
-                    //获取商品信息
+                //获取商品信息
                 callback(data.data.result, data);
             }).error(function(data) {
                 callback(false, {
@@ -253,44 +278,49 @@ require(['config'], function() {
                 });
             });
         }
-        // 组织goods信息DOM
+        // 预备 goods信息DOM
         function getGoodsNode(checkbox, page, callback) {
-            getGoodsList(page, function(goods) {
-                var contentNode = '<div class="goodsList clearfix" id="goodsList"><ul class="clearfix">';
-                //contentNode += checkbox == "checkbox" ? '<li title="全选"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="1" id="allCheck">全选</h3></label></li>' : '';
-                //选择选项部分
-                /*
-                contentNode += '<div class="form-group clearfix">';
-                contentNode += checkbox == "checkbox" ?'<label class="col-md-6 alreadyCheck"><input type="checkbox" name="allCheck">只看选择商品</label>':'';
-                contentNode +='<div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn">';
-                */
-                if (goods) {
-                    var glen = goods.length;
-                    for (var i = 0; i < glen; i++) {
-                        var good = goods[i];
-                        contentNode += '<li title="' + good.goods_name + '" class="good ' + (good.valid ? '' : 'disabled') + '"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? 'name="good"' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid ? '' : 'disabled') + '>' + good.goods_name + '</h3></label></li>';
-                    }
-                }
-                //测试数据
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="2"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="3"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="4" disabled></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="5" disabled></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="6" disabled></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="7"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="8"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="9"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="10"></h3></label></li>';
-                contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="11"></h3></label></li>';
-                //分页部分
-                //contentNode += '<nav class="clearfix"><ul class="pagination"><li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#" class="more">...</a></li><li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li><li class="pagin-extend">共<i class="totalPage">7</i>页，到第<input type="text" class="text-input">页<button type="button" class="btn btn-blue">确定</button></li></ul></nav>';
-                //结尾
-                contentNode += '</ul></div>';
+            getGoodsList(checkbox,page, function(goods) {
+                var contentNode = makeNode(checkbox, goods)
                 callback(contentNode);
             });
         }
+        // 组织goods信息DOM
+        function makeNode(checkbox, goods) {
+            var contentNode = '<div class="goodsList clearfix" id="goodsList"><ul class="clearfix">';
+            //contentNode += checkbox == "checkbox" ? '<li title="全选"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input type="checkbox" value="1" id="allCheck">全选</h3></label></li>' : '';
+            //选择选项部分
+            /*
+            contentNode += '<div class="form-group clearfix">';
+            contentNode += checkbox == "checkbox" ?'<label class="col-md-6 alreadyCheck"><input type="checkbox" name="allCheck">只看选择商品</label>':'';
+            contentNode +='<div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn">';
+            */
+            if (goods) {
+                var glen = goods.length;
+                for (var i = 0; i < glen; i++) {
+                    var good = goods[i];
+                    contentNode += '<li title="' + good.goods_name + '" class="good ' + (good.valid == 0 && checkbox =="checkbox" ? 'disabled' : '') + '"><label><div class="u-img"><img src="' + good.goods_img + '"></div><h3><input type="' + checkbox + '" ' + (checkbox == "checkbox" ? 'name="good"' : 'name="giftList"') + ' value="' + good.goods_id + '" ' + (good.valid == 0 && checkbox =="checkbox" ? 'disabled' : '') + '>' + good.goods_name + '</h3></label></li>';
+                }
+            }
+            //测试数据
+            /*contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="2"></h3></label></li>';
+            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="3"></h3></label></li>';
+            contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="4" disabled></h3></label></li>';
+            contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="5" disabled></h3></label></li>';
+            contentNode += '<li title="商品名称" class="good disabled"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="6" disabled></h3></label></li>';
+            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="7"></h3></label></li>';
+            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="8"></h3></label></li>';
+            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="9"></h3></label></li>';
+            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="10"></h3></label></li>';
+            contentNode += '<li title="商品名称" class="good"><label><div class="u-img"><img src="http://nec.netease.com/img/s/1.jpg"></div><h3><input name="good"  type="checkbox" value="11"></h3></label></li>';*/
+            //分页部分
+            //contentNode += '<nav class="clearfix"><ul class="pagination"><li><a href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li><li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li><li><a href="#" class="more">...</a></li><li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li><li class="pagin-extend">共<i class="totalPage">7</i>页，到第<input type="text" class="text-input">页<button type="button" class="btn btn-blue">确定</button></li></ul></nav>';
+            //结尾
+            contentNode += '</ul></div>';
+            return contentNode;
+        }
         //加载某分页内容
-        function getPageGoodsNode(checkbox, page,callback) {
+        function getPageGoodsNode(checkbox, page, callback) {
             getGoodsNode(checkbox, page, function(pageNode) {
                 $('#contentMain').html(pageNode);
                 callback();
@@ -302,17 +332,17 @@ require(['config'], function() {
             var html = '<nav class="clearfix"><ul class="pagination">'
             if (countPage < 2) {
                 html += '<li><a data-page ="1">1</a></li>'
-            } else if (1< countPage < 8){
+            } else if (1 < countPage < 8) {
                 html += '<li><a data-page="Previous" aria-label="Previous"><span aria-hidden="true">«</span></a></li>';
-                for(var i = 1; i <= countPage; i++){
-                   html += '<li class="'+(i === page ?'active':'')+'" ><a data-page ="'+i+'">'+i+'</a></li>';
+                for (var i = 1; i <= countPage; i++) {
+                    html += '<li class="' + (i === page ? 'active' : '') + '" ><a data-page ="' + i + '">' + i + '</a></li>';
                 }
                 //html += '<li><a href="#">1</a></li><li><a href="#">2</a></li><li><a href="#">3</a></li>';
 
                 html += '<li><a class="more">...</a></li>'
                 html += '<li><a data-page="Next" aria-label="Next"><span aria-hidden="true">»</span></a></li>';
             }
-            html += '<li class="pagin-extend">共<i class="totalPage">'+countPage+'</i>页，到第<input id="goToPage" type="text" class="text-input">页<button id="pageToButton" type="button" class="btn btn-blue">确定</button></li>';
+            html += '<li class="pagin-extend">共<i class="totalPage">' + countPage + '</i>页，到第<input id="goToPage" type="text" class="text-input">页<button id="pageToButton" type="button" class="btn btn-blue">确定</button></li>';
             html += '</ul></nav>'
             $('#contentFooter').html(html);
         }
@@ -330,7 +360,7 @@ require(['config'], function() {
         });
         //选择赠品
         $('#allRule').on('click', '#selectActivityGoods', function(e) {
-            getGoodsNode('radio',1, function(contentNode) {
+            getGoodsNode('radio', 1, function(contentNode) {
                 $.dialog({
                     keyboard: false,
                     title: '请选择要赠送的赠品',
@@ -393,6 +423,7 @@ require(['config'], function() {
                 requestSaveData(data, function(isOk, message, data) {
                     if (isOk) {
                         alert(message);
+                        window.location.replace('/supplier/activity/index/fullcutList')
                     } else {
                         showError(message, data);
                     }
@@ -406,7 +437,7 @@ require(['config'], function() {
             allData.act_desc = filterString($.trim($('#activityDetail').val()));
             allData.start_time = filterString($.trim($('#activityStartDate').val()));
             allData.end_time = filterString($.trim($('#activityEndDate').val()));
-            allData.goods_ids = filterString($('#alreadyChoice').data('goodsIds'));
+            allData.goods_ids = filterString($('#alreadyChoice').data('goodsIds').toString());
             allData.rules = getRulesData();
             return allData;
         }
@@ -417,9 +448,12 @@ require(['config'], function() {
             for (var i = 0; i < rulesLan; i++) {
                 var ruleData = {};
                 var rule = $($('.reductionList')[i]);
-                ruleData = filterString(rule.find('.rules').data());
+                ruleData.reduce = filterString(rule.find('.rules').data('reduce'));
+                ruleData.standard = filterString(rule.find('.rules').data('standard'));
                 if (rule.find('.gift').data()) {
-                    ruleData.gift = filterString(rule.find('.gift').data());
+                    ruleData.gift = {}
+                    ruleData.gift.goods_id = filterString(rule.find('.gift').data('goods_id'));
+                    ruleData.gift.num = filterString(rule.find('.gift').data('num'));
                 }
                 rulesData.push(ruleData);
             };
@@ -439,7 +473,7 @@ require(['config'], function() {
                     'condition': data
                 },
                 success: function(re) {
-                    if (re.error_no !== 0) {
+                    if (re.error_no != 0) {
                         callback(false, re.error_msg, re.data);
                     } else {
                         callback(true, re.error_msg);
@@ -469,10 +503,65 @@ require(['config'], function() {
         }
         //过滤数据特殊字符
         function filterString(str) {
-            var pattern = new RegExp("[%`~!@#$^&*=|{}';',\\[\\].<>?~@#￥……&*\\\\|‘；：”“'？]", "g");
+            if ($.isNumeric(str)) {
+                return str
+            };
+            var pattern = new RegExp("[%`~!@#$^&*=|{}';'\\[\\].<>?~@#￥……&*\\\\|‘；：”“'？]", "g");
             return str && str.replace(pattern, '');
         }
-        //获取分页信息，设置分页
+        //只看选择的商品
+        function requestChooseGoods(page, callback) {
+            //1 存储当页选中的数据
+            reSetGoodsValue(getGoodsValue());
+            //2 获取已经选择的商品ID
+            var values = filterString($('#alreadyChoice').data('goodsIds').toString());
+            //3 发送给后台进行获取
+            $.ajax({
+                url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsByIds',
+                type: "post",
+                dataType: 'json',
+                data: {
+                    'goods_ids': values,
+                    'limit': 10,
+                    'page': page
+                },
+                success: function(re) {
+                    if (re.error_no != 0) {
+                        callback(false, re.error_msg, re.data);
+                    } else {
+                        LoadPaginator(re.data.total, re.data.page, re.data.limit);
+                        callback(true, re.data);
+                    }
+                }
+            })
+        }
+        //搜索结果
+        function searchGoods(page,callback){
+            //获取关键词
+            var value = $('#searchValue').val();
+            var sort = $('#sortSelect').val();
+            //搜索查询
+            $.ajax({
+                url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsList',
+                type: "post",
+                dataType: 'json',
+                data: {
+                    'goods_name': value,
+                    'cid':sort,
+                    'limit': 10,
+                    'page': page
+                },
+                success: function(re) {
+                    if (re.error_no != 0) {
+                        callback(false, re.error_msg, re.data);
+                    } else {
+                        LoadPaginator(re.data.total, re.data.page, re.data.limit);
+                        callback(true, re.data);
+                    }
+                }
+            })
+        }
+        //http://123.59.58.104/supplier/activity/fullcut/getGoodsList?page=1&limit=10&goods_name=test&cid=10005
     });
     //验证部分
     require(['jquery', 'bootstrap', 'bootstrapValidator'], function($) {
