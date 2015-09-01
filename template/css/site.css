@@ -15,7 +15,8 @@ body {
 
 .header {
     height: 580px;
-    background: url('../img/index/newbanner-bg.jpg') no-repeat;
+    position: relative;
+    background: url('../img/index/newbanner-bg.png') no-repeat;
     background-color: #00031F;
     background-position: 50% 0;
     background-size: 100% 100%;
@@ -597,6 +598,25 @@ a.btn {
 .download .btn-group{
     display: inline-block;
 }
+
+#imgcar{
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 120px;
+}
+#imgpf{
+  position: absolute;
+  bottom: 52px;
+  left: 10%;
+  width: 320px;
+}
+#imglis{
+  position: absolute;
+  bottom: 52px;
+  right: 10%;
+  width: 160px;
+}
 @media (min-width: 1200px) {
     .container {
         width: 1200px;
@@ -674,6 +694,24 @@ a.btn {
     }
     .header .links {
         width: initial;
+    }
+    #imgcar{
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      width: 80px;
+    }
+    #imgpf{
+      position: absolute;
+      bottom: 30px;
+      left: 10%;
+      width: 210px;
+    }
+    #imglis{
+      position: absolute;
+      bottom: 30px;
+      right: 10%;
+      width: 100px;
     }
 }
 
@@ -769,6 +807,24 @@ a.btn {
     .download .btn-group{
         width:50%;
         padding-top: 20px;
+    }
+    #imgcar{
+      position: absolute;
+      bottom: 15px;
+      left: 50%;
+      width: 50px;
+    }
+    #imgpf{
+      position: absolute;
+      bottom: 30px;
+      left: 10%;
+      width: 120px;
+    }
+    #imglis{
+      position: absolute;
+      bottom: 30px;
+      right: 10%;
+      width: 60px;
     }
 }
 
