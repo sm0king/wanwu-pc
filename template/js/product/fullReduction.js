@@ -418,7 +418,10 @@ require(['config'], function() {
             //构造数据.
             var data = getAllData();
             if (!data.goods_ids) {
-                alert('请先选择要赠送的赠品');
+                alert('请先选择要参加活动的商品');
+                return;
+            } else if (data.rules <1) {
+                alert('请先选保存满减规则');
                 return;
             } else {
                 requestSaveData(data, function(isOk, message, data) {
