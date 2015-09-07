@@ -31,15 +31,16 @@ ul{
     border-top: 0px;
     border-bottom: 3px #069dd5 solid;
 }
-
  .info-group{
-    margin-top: 40px;
-    padding-left: 15px;
+   margin-top: 40px;
+   padding-left: 15px;
+ }
+ .money-box{
     padding-right: 40px;
     min-width: 280px;
     float: left;
 }
- .info-group:first-child{
+ .money-box:first-child{
     border-right: 1px #e8e8e8 solid;
     margin-right: 20px;
  }
@@ -49,7 +50,7 @@ ul{
     padding-right: 30px;
 }
 .money-group.disabled .money{
-    color: #aaa;
+    color: #999;
     font-size: 32px;
     font-weight: 400;
     line-height: 60px;
@@ -59,11 +60,62 @@ ul{
     font-size: 42px;
     font-weight: bold;
 }
-
 .capital .unit{
     position: absolute;
     right:0px;
     bottom:15px;
+}
+.capital .capital-message{
+  margin-top: 40px;
+  margin-left: 10px;
+  padding-left: 60px;
+}
+.capital-message li{
+  position: relative;
+  margin-bottom: 40px;
+}
+.capital-message li:last-child{
+  margin-bottom: 0;
+}
+.capital-message p{
+  margin-bottom: 0;
+  line-height: 24px;
+}
+.capital-message .t1{
+  font-weight: 500;
+  font-size: 16px;
+  color: #333;
+}
+.capital-message .t2{
+  color: #999;
+}
+.capital-message i{
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -60px;
+  width: 50px;
+  height: 50px;
+}
+.capital-message .icon1{
+  background: url(../img/capital1.png) center /80% no-repeat;
+}
+.capital-message .icon2{
+  background: url(../img/capital2.png) center /80% no-repeat;
+}
+.capital-message .icon3{
+  background: url(../img/capital3.png) center /80% no-repeat;
+}
+.send-btn{
+  margin-top: 60px;
+  padding-left: 20px;
+}
+.send-btn .txt-red{
+  color: red;
+}
+.send-btn .link-info{
+  padding-left: 20px;
+  color: #009deb;
 }
 .capital .btn-go{
     display: inline-block;
@@ -88,14 +140,12 @@ ul{
 .capital .operator-group{
     margin-top:20px;
 }
-
 .capital .operator-group .goto{
     margin-left: 15px;
     cursor: pointer;
     text-decoration: none;
     color:#069dd5;
 }
-
 .capital .text-input{
     width: 100px;
 }

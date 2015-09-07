@@ -4,23 +4,36 @@ block title
 block DashboardTitle
     账户总览
 block CapitalContent
-    .col-lg-6.clearfix
-      .info-group
-          p 可提现余额
-          .money-group
-              .money ￥8888.66
-              .unit 元
-      .info-group
-          p 不可提现余额
-          .money-group.disabled
-              .money ￥8888.66
-              .unit 元
-
-    .col-lg-6.clearfix
+    .col-lg-7
+      .clearfix
+          .info-group
+              p 可提现余额
+              .money-group
+                  .money ￥8888.66
+                  .unit 元
+          .info-group
+              p 不可提现余额
+              .money-group.disabled
+                  .money ￥8888.66
+                  .unit 元
+      .send-btn
+        p.txt-red 不可提现余额通常在1个工作日内可提现
+        button.btn.btn-blue 提现
+        a.link-info(href="")  查看明细
+    .pull-left.clearfix
       ul.capital-message
         li
+          i.icon1
+          p.t1 专业机构安全认证
+          p.t2 通过中国人民银行检测中心认证
         li
+          i.icon2
+          p.t1 即时入账费率低
+          p.t2 收款直接入账，手续费率最低
         li
+          i.icon3
+          p.t1 T+1到账稳定
+          p.t2 与超过30家银行紧密合作，保证T+1清算
 
 block foot
     script(type='text/javascript',data-main="#{basePath}js/common/index",src='#{basePath}js/require.min.js')
