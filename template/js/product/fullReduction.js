@@ -52,10 +52,10 @@ require(['config'], function() {
                 //addInitializer();
             }
         });
-        var hostName = window.location.protocol + '//' + window.location.host;
+        var hostName = window.location.protocol + '//' + window.location.hostname;
 
         function getInitializer(actID, callback) {
-            var ajUrl = window.location.protocol + '//' + window.location.host + '/supplier/activity/fullcut/getActive?act_id=' + actID;
+            var ajUrl = window.location.protocol + '//' + window.location.hostname + '/supplier/activity/fullcut/getActive?act_id=' + actID;
             $.ajax({
                 url: ajUrl,
                 dataType: 'json'
@@ -195,7 +195,7 @@ require(['config'], function() {
         function getContentTitle(callback) {
             var html = '<div class="form-group clearfix"><label class="col-md-6 alreadyCheck"><input type="checkbox" name="onlyChoice" id="onlyChoice">只看选择商品</label><div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn"><select id="sortSelect">';
             $.ajax({
-                url: hostName + '/supplier/activity/fullcut/getSort',
+                url: 'http://123.59.58.104/supplier/activity/fullcut/getSort',
                 dataType: 'json'
             }).success(function(data) {
                 if (data.error_no == 0) {
@@ -295,7 +295,7 @@ require(['config'], function() {
         //获取所有商品信息
         function getAllGoodsList(page, callback) {
             $.ajax({
-                url: hostName + '/supplier/activity/fullcut/getGoodsList?limit=10&page=' + page,
+                url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsList?limit=10&page=' + page,
                 dataType: 'json'
             }).success(function(data) {
                 //刷新分页 暂留
