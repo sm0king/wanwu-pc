@@ -31,13 +31,18 @@ ul{
     border-top: 0px;
     border-bottom: 3px #069dd5 solid;
 }
+  .mw{
+    width: auto;
+    min-width: 800px;
+    margin-right: 100px;
+  }
  .info-group{
    margin-top: 40px;
    padding-left: 15px;
  }
  .money-box{
     padding-right: 40px;
-    min-width: 280px;
+    min-width: 180px;
     float: left;
 }
  .money-box:first-child{
@@ -67,8 +72,9 @@ ul{
 }
 .capital .capital-message{
   margin-top: 40px;
-  margin-left: 10px;
-  padding-left: 60px;
+  margin-left: -100px;
+  padding-left: 180px;
+  border-left: 1px #e8e8e8 solid;
 }
 .capital-message li{
   position: relative;
