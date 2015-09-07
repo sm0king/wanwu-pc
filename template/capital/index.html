@@ -4,26 +4,23 @@ block title
 block DashboardTitle
     账户总览
 block CapitalContent
-    .info-group
-        p 账户余额
-        .row
-            .col-lg-3
-                .money-group
-                    .money 8888.66
-                    .unit 元
+    .col-lg-6.clearfix
+      .info-group
+          p 可提现余额
+          .money-group
+              .money ￥8888.66
+              .unit 元
+      .info-group
+          p 不可提现余额
+          .money-group.disabled
+              .money ￥8888.66
+              .unit 元
 
-            .col-lg-9.operator-group
-                a.btn-go 充值
-                a.btn-go(href='cash_out.html') 提现
-                a.goto 查看明细
-    .info-group
-        p 不可用余额
-        .row
-            .col-lg-3
-                .money-group
-                    .money 8888.66
-                    .unit 元
-            .col-lg-9.operator-group
-                a.btn-go.btn-hidden X
-                a.btn-go.btn-hidden X
-                a.goto 查看明细
+    .col-lg-6.clearfix
+      ul.capital-message
+        li
+        li
+        li
+
+block foot
+    script(type='text/javascript',data-main="#{basePath}js/common/index",src='#{basePath}js/require.min.js')

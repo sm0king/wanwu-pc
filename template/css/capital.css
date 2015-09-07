@@ -1,3 +1,6 @@
+ul{
+  list-style: none;
+}
 .capital{
     padding-top: 12px;
 }
@@ -32,14 +35,25 @@
  .info-group{
     margin-top: 40px;
     padding-left: 15px;
+    padding-right: 40px;
+    min-width: 280px;
+    float: left;
 }
-
+ .info-group:first-child{
+    border-right: 1px #e8e8e8 solid;
+    margin-right: 20px;
+ }
 .capital .money-group{
     position: relative;
     display: inline-block;
     padding-right: 30px;
 }
-
+.money-group.disabled .money{
+    color: #aaa;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 60px;
+}
 .capital .money{
     color:#333333;
     font-size: 42px;
