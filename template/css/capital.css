@@ -5,16 +5,16 @@ ul{
     padding-top: 12px;
 }
 
-.capital *{
+/*.capital *{
     color:#666666;
-}
+}*/
 
 .capital>.nav{
     border:1px solid #ececec;
 }
 
 .capital>.nav a{
-    color:#666666;
+    color:#666;
     line-height: 50px;
     margin:0px 0px 0px -1px!important;
     padding:0!important;
