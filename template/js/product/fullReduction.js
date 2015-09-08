@@ -37,7 +37,7 @@ require(['config'], function() {
                         var end_time = new Date();
                         add_time.setTime(result.add_time);
                         end_time.setTime(result.end_time);*/
-                        $('#alreadyChoice').data('goodsIds',result.goods_ids.split(','));
+                        $('#alreadyChoice').data('goodsIds', result.goods_ids.split(','));
                         $('#alreadyChoice').html('已选择' + result.goods_ids.split(',').length + '件商品').show();
                         $('#activityStartDate').val(result.start_time);
                         $('#activityEndDate').val(result.end_time);
@@ -152,7 +152,7 @@ require(['config'], function() {
                         var goodPar = $(this).parents('.good');
                         if (this.checked) {
                             goodPar.addClass('checked');
-                        }else{
+                        } else {
                             goodPar.removeClass('checked');
                             removeGoodsValue(goodValue);
                         }
@@ -250,7 +250,17 @@ require(['config'], function() {
         }
         //合并数组 去重 用于 翻页前，将数据存储起来。
         function contGoodsArray(arr1, arr2) {
-            return $.unique(arr1.concat(arr2));
+            return unique(arr1.concat(arr2));
+        }
+        // 数组去重 思路：获取没重复的最右一值放入新数组
+        function unique(array) {
+            var r = [];
+            for (var i = 0, l = array.length; i < l; i++) {
+                for (var j = i + 1; j < l; j++)
+                    if (array[i] === array[j]) j = ++i;
+                r.push(array[i]);
+            }
+            return r;
         }
         //获取 当前已经存储的值 去重 重新 赋值
         function reSetGoodsValue(newValue) {
