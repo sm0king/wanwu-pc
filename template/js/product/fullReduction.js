@@ -37,7 +37,7 @@ require(['config'], function() {
                         var end_time = new Date();
                         add_time.setTime(result.add_time);
                         end_time.setTime(result.end_time);*/
-                        $('#alreadyChoice').data('goodsIds',result.goods_ids.split(','));
+                        $('#alreadyChoice').data('goodsIds', result.goods_ids.split(','));
                         $('#alreadyChoice').html('已选择' + result.goods_ids.split(',').length + '件商品').show();
                         $('#activityStartDate').val(result.start_time);
                         $('#activityEndDate').val(result.end_time);
@@ -52,10 +52,10 @@ require(['config'], function() {
                 //addInitializer();
             }
         });
-        var hostName = window.location.protocol + '//' + window.location.host;
+        var hostName = window.location.protocol + '//' + window.location.hostname;
 
         function getInitializer(actID, callback) {
-            var ajUrl = window.location.protocol + '//' + window.location.host + '/supplier/activity/fullcut/getActive?act_id=' + actID;
+            var ajUrl = window.location.protocol + '//' + window.location.hostname + '/supplier/activity/fullcut/getActive?act_id=' + actID;
             $.ajax({
                 url: ajUrl,
                 dataType: 'json'
@@ -152,7 +152,7 @@ require(['config'], function() {
                         var goodPar = $(this).parents('.good');
                         if (this.checked) {
                             goodPar.addClass('checked');
-                        }else{
+                        } else {
                             goodPar.removeClass('checked');
                             removeGoodsValue(goodValue);
                         }
@@ -195,7 +195,7 @@ require(['config'], function() {
         function getContentTitle(callback) {
             var html = '<div class="form-group clearfix"><label class="col-md-6 alreadyCheck"><input type="checkbox" name="onlyChoice" id="onlyChoice">只看选择商品</label><div id="searchConditions" class="searchConditions col-md-6"><div class="input-group"><div class="input-group-btn"><select id="sortSelect">';
             $.ajax({
-                url: hostName + '/supplier/activity/fullcut/getSort',
+                url: 'http://123.59.58.104/supplier/activity/fullcut/getSort',
                 dataType: 'json'
             }).success(function(data) {
                 if (data.error_no == 0) {
@@ -250,7 +250,17 @@ require(['config'], function() {
         }
         //合并数组 去重 用于 翻页前，将数据存储起来。
         function contGoodsArray(arr1, arr2) {
-            return $.unique(arr1.concat(arr2));
+            return unique(arr1.concat(arr2));
+        }
+        // 数组去重 思路：获取没重复的最右一值放入新数组
+        function unique(array) {
+            var r = [];
+            for (var i = 0, l = array.length; i < l; i++) {
+                for (var j = i + 1; j < l; j++)
+                    if (array[i] === array[j]) j = ++i;
+                r.push(array[i]);
+            }
+            return r;
         }
         //获取 当前已经存储的值 去重 重新 赋值
         function reSetGoodsValue(newValue) {
@@ -295,7 +305,7 @@ require(['config'], function() {
         //获取所有商品信息
         function getAllGoodsList(page, callback) {
             $.ajax({
-                url: hostName + '/supplier/activity/fullcut/getGoodsList?limit=10&page=' + page,
+                url: 'http://123.59.58.104/supplier/activity/fullcut/getGoodsList?limit=10&page=' + page,
                 dataType: 'json'
             }).success(function(data) {
                 //刷新分页 暂留
