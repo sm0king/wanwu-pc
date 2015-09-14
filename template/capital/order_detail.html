@@ -1,6 +1,6 @@
 extends master.jade
 
-block CapitalDefine    
+block CapitalDefine
     -var active = 1;
 
 block title
@@ -11,7 +11,7 @@ block DashboardTitle
 
 block CapitalContent
     .info-group
-        h3 交易明细 
+        h3 交易明细
     .info-group.topBar
         span.stage1 您正在查看2015.3.1（月初）-2015.3.13（当前）时间的交易记录
         select.form-control.select
@@ -40,15 +40,4 @@ block CapitalContent
     .info-group
         include ../pagination.jade
 block foot
-    script(type='text/javascript').
-        $(function(){
-            $('#timeBegin,#timeEnd').datetimepicker({
-                format: 'yyyy-mm-dd',
-                language: 'zh-CN',
-                minView: 2,
-                autoclose: true
-            });
-        });
-
-
-
+    script(type='text/javascript',data-main="#{basePath}js/capital/record",src='#{basePath}js/require.min.js')

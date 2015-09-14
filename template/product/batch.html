@@ -86,10 +86,4 @@ block Right
                     div.foot
                         include ../pagination.jade
 block foot
-    script.
-        $(function(){
-            $('#bathTab a').click(function(e){
-                e.preventDefault();
-                $(this).tab('show');
-            });
-        })
+    script(type='text/javascript',data-main="#{basePath}js/product/batch",src='#{basePath}js/require.min.js')

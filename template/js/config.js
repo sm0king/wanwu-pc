@@ -31,7 +31,9 @@ requirejs.config({
         'productMEdit':'../js/product/product_m_edit',
         'addr':'../js/info/addr',
         'productMEdit':'../js/product/product_m_edit',
-        'paginator':'bootstrap-paginator.min'
+        'paginator':'bootstrap-paginator.min',
+        'bootstrapTable':'bootstrap-table',
+        'catalogSelector':'catalog-selector'
     },
     shim: {
         "jquery": {

@@ -39,34 +39,5 @@ block InfoContent
                     .col-lg-8.btnBar
                         button.btn.btn-blue 保存
 block foot
-      script(type='text/javascript', src='../plugs/bootstrapValidator/js/bootstrapValidator.min.js')
+      script(type='text/javascript',data-main="#{basePath}js/info/paymessage",src='#{basePath}js/require.min.js')
       link(rel='stylesheet', href='../plugs/bootstrapValidator/css/bootstrapValidator.min.css')
-      script(type='text/javascript').
-          $('#payForm').bootstrapValidator({
-              fields:{
-                bankName:{
-                    validators: {
-                        notEmpty: {
-                            message: '请输入银行名称'
-                        }
-                    }
-                },
-                bankCard:{
-                    validators: {
-                        notEmpty: {
-                            message: '请输入卡号'
-                        },
-                        integer:{
-                            message: '请输入数字'
-                        }
-                    }
-                },
-                getMoney:{
-                    validators: {
-                        notEmpty: {
-                            message: '请输入收款人/收款公司'
-                        }
-                    }
-                },
-              }
-          });
