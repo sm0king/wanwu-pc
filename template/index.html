@@ -169,6 +169,48 @@ html.
                     <a href="/supplier/user/newlogin" class="link-join">立即入驻 <span>》</span></a>
                 </div>
             </div>
+
+            <div class="row news">
+              <div class="headline">万物要闻</div>
+              <div class="index-box clearfix">
+                  <div  class="list-blcok">
+                    <ul id="left-news" class="list-group">
+                      <!-- <li class="list-item">
+                          <a class="news-title" href="">新闻标题</a>
+                          <img class="list-img" src="img/index/fx-i-4.jpg" alt="">
+                      </li>
+                      <li class="list-item">
+                        <a class="news-title" href="">新闻标题新闻标题新闻标题新闻标题新闻标题新闻标题</a>
+                        <img class="list-img" src="img/index/fx-i-4.jpg" alt="">
+                      </li>
+                      <li class="list-item">
+                        <a class="news-title" href="">新闻标题</a>
+                        <img class="list-img" src="img/index/fx-i-4.jpg" alt="">
+                      </li> -->
+                    </ul>
+                  </div>
+                  <div class="list-blcok">
+                    <ul id="right-news"  class="list-group">
+                      <!-- <li class="list-item">
+                        <a class="news-title" href="">新闻标题</a>
+                        <img class="list-img" src="img/index/fx-i-4.jpg" alt="">
+                      </li>
+                      <li class="list-item">
+                        <a class="news-title" href="">新闻标题</a>
+                        <img class="list-img" src="img/index/fx-i-4.jpg" alt="">
+                      </li>
+                      <li class="list-item">
+                        <a class="news-title" href="">新闻标题</a>
+                        <img class="list-img" src="img/index/fx-i-4.jpg" alt="">
+                      </li> -->
+                    </ul>
+                  </div>
+              </div>
+              <div class="text-align-right">
+                  <a href="./newsList.html" class="link-news">查看全部 <span>></span></a>
+              </div>
+            </div>
+
             <div class="row contact">
                 <h2>联系我们</h2>
                 <ul class="clearfix">
@@ -304,5 +346,35 @@ html.
                 // body...
                 $('#weixinceng').show()
             }
+
+            $.get('http://123.59.58.104/manage/user/article/articleList',{page:1,pageSize:6},function(data) {
+                if (data.error_no === 0) {
+                    var list = data.content.articleList;
+                    if (list) {
+                      var left="",right="",img;
+                        for (var i = 0; i < list.length; i++) {
+                          if (list[i].img_url != "") {
+                              img = '<img class="list-img" src="'+ list[i].img_url +'" alt="'+ list[i].title +'">'
+                          }else {
+                              img = "";
+                          }
+                          if (i<3) {
+                              left += '<li class="list-item" data-id="'+ list[i].article_id +'">'+
+                                      '<a class="news-title" href="./newsCont.html?id='+ list[i].article_id +'">'+ list[i].title +'</a>'+
+                                      img + '</li>';
+                          }else if (i >= 3 && i < 6) {
+                              right += '<li class="list-item" data-id="'+ list.article_id +'">'+
+                                      '<a class="news-title" href="./newsCont.html?id='+ list[i].article_id +'">'+ list[i].title +'</a>'+
+                                      img + '</li>';
+                          }
+                        }
+                        $("#left-news").html(left);
+                        $("#right-news").html(right);
+                    }
+                }else {
+                  console.log(data.error_desc);
+                }
+            },"json");
+
         });
     </script>
